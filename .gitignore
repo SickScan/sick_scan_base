@@ -1,0 +1,5 @@
+build
+src/generator
+src/.vscode
+
+doc/~$coordinate_definition.pptx

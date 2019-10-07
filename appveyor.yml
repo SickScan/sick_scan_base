@@ -1,0 +1,157 @@
+version: 1.0.{build}
+image:
+- Visual Studio 2019
+- Visual Studio 2017
+# - Visual Studio 2015
+- Ubuntu1804
+    
+environment:
+  matrix:
+  - arch_compiler: i386_msvc
+  - arch_compiler: x64_msvc
+  - arch_compiler: i386_gcc
+  - arch_compiler: x64_gcc
+ # - arch_compiler: i386_mingw
+ # - arch_compiler: x64_mingw
+
+
+matrix:
+  exclude:
+    - image: Ubuntu1804
+      arch_compiler: i386_msvc
+
+    - image: Ubuntu1804
+      arch_compiler: x64_msvc
+
+    - image: Visual Studio 2019
+      arch_compiler: i386_gcc
+
+    - image: Visual Studio 2019
+      arch_compiler: x64_gcc
+
+    - image: Visual Studio 2017
+      arch_compiler: i386_gcc
+
+    - image: Visual Studio 2017
+      arch_compiler: x64_gcc
+
+    - image: Visual Studio 2015
+      arch_compiler: i386_gcc
+
+    - image: Visual Studio 2015
+      arch_compiler: x64_gcc
+
+    - image: Visual Studio 2015
+      arch_compiler: i386_mingw
+
+    - image: Visual Studio 2015
+      arch_compiler: x64_mingw
+
+    - image: Visual Studio 2017
+      arch_compiler: i386_mingw
+
+    - image: Visual Studio 2017
+      arch_compiler: x64_mingw
+      
+    - image: Visual Studio 2019
+      arch_compiler: i386_mingw
+
+    - image: Visual Studio 2019
+      arch_compiler: x64_mingw
+
+    - image: Ubuntu1804
+      arch_compiler: i386_mingw
+
+    - image: Ubuntu1804
+      arch_compiler: x64_mingw
+      
+init:
+    - ps: >-
+        switch($env:arch_compiler) {
+            i386_msvc
+            {
+                Set-Variable -Name "archVS2019" -Value "Win32"
+                Set-Variable -Name "gen2015" -Value "Visual Studio 14 2015"
+                Set-Variable -Name "gen2017" -Value "Visual Studio 15 2017"
+            }
+            x64_msvc
+            {
+                Set-Variable -Name "archVS2019" -Value "x64"
+                Set-Variable -Name "archGCC" -Value "Win64"
+                Set-Variable -Name "gen2015" -Value "Visual Studio 14 2015 Win64"
+                Set-Variable -Name "gen2017" -Value "Visual Studio 15 2017 Win64"
+            }
+            i386_gcc
+            {
+                $env:additionalCMakeFlags = "-DSSBL_32BIT=1"
+            }
+            i386_mingw
+            {
+                echo $env:path
+                $env:additionalCMakeFlags = "-DSSBL_32BIT=1"
+            }
+            deafult
+            {
+            
+            }
+        }
+    - ps: >-
+        switch($env:APPVEYOR_BUILD_WORKER_IMAGE) {
+            "Visual Studio 2019"
+            {
+                if ($env:arch_compiler -like '*msvc*') 
+                { 
+                    $env:generator = "Visual Studio 16 2019"
+                    $env:genarch = "-A""$archVS2019"""
+                } 
+                else 
+                { 
+                    $env:generator = "Eclipse CDT4 - MinGW Makefiles"
+                }
+            }
+            "Visual Studio 2017"
+            {
+                if ($env:arch_compiler -like '*msvc*') 
+                { 
+                    $env:generator ="$gen2017"
+                }
+                else
+                { 
+                    $env:generator = "Eclipse CDT4 - MinGW Makefiles"
+                }
+            }
+            "Visual Studio 2015"
+            {
+                if ($env:arch_compiler -like '*msvc*') 
+                { 
+                    $env:generator ="$gen2015"
+                }
+                else 
+                { 
+                    $env:generator = "Eclipse CDT4 - MinGW Makefiles"
+                }
+            }
+            "Ubuntu1804"
+            {
+                if ($env:arch_compiler -like '*gcc*') 
+                { 
+                    $env:generator ="Eclipse CDT4 - Unix Makefiles"
+                }
+                else 
+                { 
+                    $env:generator = "Eclipse CDT4 - MinGW Makefiles"
+                }
+            }
+        }
+
+
+
+before_build:
+#    - ps: $path = [System.Environment]::GetEnvironmentVariable('PATH','Machine')
+#    - ps: $path = ($path.Split(';') | Where-Object { $_ -ne 'C:\Program Files\Git\usr\bin' }) -join ';'
+#    - ps: $path += ";C:\mingw-w64\x86_64-7.2.0-posix-seh-rt_v5-rev1\mingw32\bin"
+#    - ps: $env:path = $path
+    - ps: cmake  -G"$env:generator" $env:genarch $env:additionalCMakeFlags -Bbuild src
+    
+build_script:
+- ps: cmake --build build --config Release
