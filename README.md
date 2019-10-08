@@ -29,8 +29,8 @@ Install the required tools:
 |                                   | Visual C++  14.2 | Visual C++  14.1 | Visual C++  14.0 | [LLVM](https://llvm.org) | [Mingw-w64](https://mingw-w64.org/doku.php) |
 |--------------------------------------|:----------------:|:----------------:|:----------------:|:------:|:-----------:|
 | [Visual Studio 2019 Community Edition](https://visualstudio.microsoft.com) |         o        |         o        |         o        |   o  |     x     |
-| [Visual Studio 2017 Community Edition](https://visualstudio.microsoft.com)  |         o        |         o        |         o        |   [Plugin](https://marketplace.visualstudio.com/items?itemName=LLVMExtensions.llvm-toolchain)  |     x     |
-| [Visual Studio 2015 Community Edition](https://visualstudio.microsoft.com)  |         o        |         o        |         o        |   x  |     x     |
+| [Visual Studio 2017 Community Edition](https://visualstudio.microsoft.com)  |         x        |         o        |         o        |   [Plugin](https://marketplace.visualstudio.com/items?itemName=LLVMExtensions.llvm-toolchain)  |     x     |
+| [Visual Studio 2015 Community Edition](https://visualstudio.microsoft.com)  |         x        |         x        |         o        |   x  |     x     |
 | [Eclipse for C++](https://www.eclipse.org/downloads/)                              |         x        |         x        |         x        |   x  |   soon   |
 
 
