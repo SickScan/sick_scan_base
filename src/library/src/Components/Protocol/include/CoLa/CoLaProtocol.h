@@ -330,7 +330,7 @@ class CoLaProtocol : public Protocol {
   std::size_t PostambleLength_;     ///< length of the postamble
   ProtocolRequest PendingRequest_;  ///< pending request for pPending_obj_
   uint8_t PreambleData_[MAX_PREAMBLE_LENGTH];   ///<< Preamble something like
-                                                ///<0x02 0x02 0x02 0x02
+                                                ///< 0x02 0x02 0x02 0x02
   uint8_t PostambleData_[MAX_PREAMBLE_LENGTH];  ///<< Postable
   ComObj* pPendingObj_;         ///< pending ComObj for pending_request_
   bool ReqIsPending_;           ///< marks if there is a request pending (set

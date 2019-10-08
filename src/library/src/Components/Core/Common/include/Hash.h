@@ -1,20 +1,13 @@
 /**
  * \file
- * \brief Hash functions
+ * \brief Hash functions grabbed from
+ *  https://gist.github.com/underscorediscovery/81308642d0325fd386237cfa3b44785c
  *
- * Copyright 2019, SICK AG, Waldkirch
+ * fnv1a 32 and 64 bit hash functions
+ * key is the data to hash, len is the size of the data (or how much of it to
+ * hash against)
+ * code license: public domain or equivalent
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
  */
 
 #pragma once
@@ -46,8 +39,12 @@ inline constexpr uint64_t hash_64_fnv1a_const(
                                    (value ^ uint64_t(str[0])) * prime_64_const);
 }
 
+/*
+Switch to this function as soon as we can move to C++14
+
 constexpr uint64_t operator"" _hash(const char* s, std::size_t count) {
   SSBL_UNUSED(count);
   return hash_64_fnv1a_const(s, val_64_const);
 }
+*/
 }  // namespace ssbl

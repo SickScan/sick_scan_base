@@ -18,7 +18,7 @@ SickSensorSkeleton *CreateSensorSkeleton(const std::string &SensorSkeletonName,
   uint64_t test =
       hash_64_fnv1a(SensorSkeletonName.c_str(), SensorSkeletonName.size());
   switch (test) {
-    case "TiM5xxSkeleton"_hash:
+    case hash_64_fnv1a_const("TiM5xxSkeleton"):
       pRet = new DevTiM5xxSkeleton::TiM5xxSkeleton(IP);
       break;
     default:
