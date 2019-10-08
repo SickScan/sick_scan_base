@@ -27,7 +27,7 @@ Install the required tools:
 * A Compiler / IDE of your choice (see table below). Plain VS2019 with it's built-in Visual C++ 14.2 or flavored with LLVM is recommended.
 
 |                                   | Visual C++  14.2 | Visual C++  14.1 | Visual C++  14.0 | [LLVM](https://llvm.org) | [Mingw-w64](https://mingw-w64.org/doku.php) |
-|--------------------------------------|:----------------:|:----------------:|:----------------:|------|-----------|
+|--------------------------------------|:----------------:|:----------------:|:----------------:|:------:|:-----------:|
 | [Visual Studio 2019 Community Edition](https://visualstudio.microsoft.com) |         o        |         o        |         o        |   o  |     x     |
 | [Visual Studio 2017 Community Edition](https://visualstudio.microsoft.com)  |         o        |         o        |         o        |   [Plugin](https://marketplace.visualstudio.com/items?itemName=LLVMExtensions.llvm-toolchain)  |     x     |
 | [Visual Studio 2015 Community Edition](https://visualstudio.microsoft.com)  |         o        |         o        |         o        |   x  |     x     |
@@ -49,13 +49,15 @@ Call cmake to generate a project matching your favorite IDE / Compiler.
 ```powershell
 # 64 Bit builds
 cmake -G"Visual Studio 16 2019" -A"x64" -Bbuild src            
-cmake -G"Visual Studio 15 2017 Win64" -Bbuild src                              
+cmake -G"Visual Studio 15 2017 Win64" -Bbuild src                
+cmake -G"Visual Studio 14 2015 Win64" -Bbuild src                
 cmake -G"Visual Studio 16 2019" -A"x64" -T"llvm" -Bbuild src       
-cmake -G"Eclipse CDT4 - MinGW Makefiles" -Bbuild src               
+cmake -G"Eclipse CDT4 - MinGW Makefiles" -Bbuild src                            
 
 # 32 Bit builds
 cmake -G"Visual Studio 16 2019" -A"Win32" -Bbuild src
 cmake -G"Visual Studio 15 2017" -Bbuild src
+cmake -G"Visual Studio 14 2015" -Bbuild src
 cmake -G"Visual Studio 16 2019" -A"Win32" -T"llvm" -Bbuild src
 cmake -G"Eclipse CDT4 - MinGW Makefiles" -DSSBL_32BIT -Bbuild src
 ```
