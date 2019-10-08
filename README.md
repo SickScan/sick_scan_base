@@ -3,27 +3,34 @@
 
 <b> Experimental support for TiM5xx Family !!! </b>
 
+SSBL is a standalone C++ library to interface with SICK AG Lidar. Currently, SSBL can be built on Windows 10 and Ubuntu 18.04 using a variety of toolchains.  
 
 
-## Getting Started - Windows 10
+## Content
 
+1. [Getting Started on Windows](#Getting-Started-(Windows-10))
+1. [Getting Started on Linux](#Getting-Started-(Ubuntu-18.04))
+2. [Using SSBL](#Using-SSBL)
+  1. [API](#API)
+  2. [Library naming conventions](#Library-naming-conventions)
+3. [Licensing](#Licensing)  
+
+
+## Getting Started (Windows 10)
 
 ### Prerequisites
 
 Install the required tools:
 
-
 * [Git](https://git-scm.com/download/win)
 * [CMake >= 3.10](https://cmake.org/download)
 * A Compiler / IDE of your choice (see table below). Plain VS2019 with it's built-in Visual C++ 14.2 or flavored with LLVM is recommended.
 
-
-|                                   | Visual C++  14.2 | Visual C++  14.1 | Visual C++  14.0 | [LLVM](https://llvm.org) | [Mingw-w64](https://mingw-w64.org/doku.php) |
-|--------------------------------------|:----------------:|:----------------:|:----------------:|------|-----------|
-| [Visual Studio 2019 Community Edition](https://visualstudio.microsoft.com) |         o        |         o        |         o        |   o  |     x     |
-| [Visual Studio 2017 Community Edition](https://visualstudio.microsoft.com)  |         o        |         o        |         o        |   [Plugin](https://marketplace.visualstudio.com/items?itemName=LLVMExtensions.llvm-toolchain)  |     x     |
-| [Visual Studio 2015 Community Edition](https://visualstudio.microsoft.com)  |         o        |         o        |         o        |   x  |     x     |
-| [Eclipse for C++](https://www.eclipse.org/downloads/)                              |         x        |         x        |         x        |   x  |    o     |
+|                                   | Visual C++  14.2 | Visual C++  14.1 | [LLVM](https://llvm.org) | [Mingw-w64](https://mingw-w64.org/doku.php) |
+|--------------------------------------|:----------------:|:----------------:|------|-----------|
+| [Visual Studio 2019 Community Edition](https://visualstudio.microsoft.com) |         o        |         o        |   o  |     x     |
+| [Visual Studio 2017 Community Edition](https://visualstudio.microsoft.com)  |         o        |         o        |   [Plugin](https://marketplace.visualstudio.com/items?itemName=LLVMExtensions.llvm-toolchain)  |     x     |
+| [Eclipse for C++](https://www.eclipse.org/downloads/)                              |         x        |         x        |   x  |    coming     |
 
 
 o = Built-in or available via plugin | x = not supported     
@@ -40,15 +47,13 @@ Call cmake to generate a project matching your favorite IDE / Compiler.
 ```powershell
 # 64 Bit builds
 cmake -G"Visual Studio 16 2019" -A"x64" -Bbuild src            
-cmake -G"Visual Studio 15 2017 Win64" -Bbuild src                
-cmake -G"Visual Studio 14 2015 Win64" -Bbuild src                
+cmake -G"Visual Studio 15 2017 Win64" -Bbuild src                              
 cmake -G"Visual Studio 16 2019" -A"x64" -T"llvm" -Bbuild src       
 cmake -G"Eclipse CDT4 - MinGW Makefiles" -Bbuild src               
 
 # 32 Bit builds
 cmake -G"Visual Studio 16 2019" -A"Win32" -Bbuild src
 cmake -G"Visual Studio 15 2017" -Bbuild src
-cmake -G"Visual Studio 14 2015" -Bbuild src
 cmake -G"Visual Studio 16 2019" -A"Win32" -T"llvm" -Bbuild src
 cmake -G"Eclipse CDT4 - MinGW Makefiles" -DSSBL_32BIT -Bbuild src
 ```
@@ -57,23 +62,38 @@ Build the project
 cmake --build build
 ```
 
-## Getting Started - Linux (Ubuntu 18.04)
+## Getting Started (Ubuntu 18.04)
 
 ### Prerequisites
 
 Install the required tools:
 
 ```console
-$ sudo apt-get install cmake git ninja-build build-essential default-jdk
+sudo apt-get install cmake git ninja-build build-essential default-jdk
 ```
 
 ### Obtain the source and build
 ```console
-$ git clone https://github.com/kaidoho/ssbl.git
-$ mkdir ssbl/Build
-$ cd ssbl/Build
-$ cmake -G"Eclipse CDT4 - Ninja" -DCMAKE_BUILD_TYPE=Debug ../src
+git clone https://github.com/kaidoho/ssbl.git
+mkdir ssbl/Build
+cd ssbl/Build
+cmake -G"Eclipse CDT4 - Ninja" -DCMAKE_BUILD_TYPE=Debug ../src
 ```
+
+## Using SSBL
+
+### API Structure
+Please see the examples in *src/examples* on how to use the APIs from C++.
+
+Here's a short note on the intended API structure and usage.
+
+#### Skeleton API:
+The skeleton API resides on the lowest level. As the name implies, it allows direct access to the functions and variables of a sensor and hides all protocol specific operations like de-/serialization, networking etc. from a user (overloaded constructors allow detailed access if required). In addition to that, getter / setter functions have been added to allow element access by name. Another benefit of using the setter functions is that we can catch invalid user inputs before they are sent to device.
+#### Family API:
+Being able to easily access the functions and variables of a sensor is nice, but not very helpful if one does not know in which order commands have to be sent to the sensor. That is the point where the Family API comes in. The Family API wraps around the skeleton and adds all the tiny steps that are required to start, stop and configure a sensor. Thereby, giving a user some sort of high-level “works with zero knowledge” entry point to interface to each sensor family.
+#### Intended use
+SSBL exists to provide users a straightforward solution to get up and running with our sensors quick and easily. Thereby, enabling them to put their time into finding the best solution for their application not into messing around with some sort of vendor specific protocol. However, it does not aim to provide production code or to solve a particular application. If it still does – great – but it should more be considered a reference / template from which you can copy some code or at least figure out the command sequences required to accomplish your goals.
+
 
 ### Library naming conventions
 The library employs the following naming scheme:
@@ -87,13 +107,11 @@ The library employs the following naming scheme:
  └── Sick Scan Base Library
  ```
 
-### API Structure
 
-A short note on the intended API structure.
-#### Skeleton API:
-The skeleton API resides on the lowest level. A skeleton is created from an XML device description. It allows direct access to the functions and variables of a sensor. In addition to that, this layer already hides all protocol specific operations like de-/serialization, networking etc. However, the skeleton constructors should be overloaded to allow a fine grained user access in case that the user is for some reason required to manually set up the protocol type, buffer size etc. If the device provides ColaA and B we’ll use B (protocol switching still needs to be implemented). If CoLa2 is available, we should stick to CoLa2 (implementation will not differ a lot from ColaB).
-#### Convenience API:
-Basically the Skeleton API flavoured with element access by name. The getter setter methods for variables allows us to catch invalid user inputs (yeah not fully true as some variables are defined for a whole family within the XML, but it’s better than nothing).
-#### Scanner API:
-I think we should have for each family (scanner, radar) a toplevel API giving the user some sort of “works with zero knowledge” entry – much like the gerneric lidar in ros. For example a scanner object could provide only a few methods like Start, Stop, SetConfiguration and we encapsulate all the required steps (like scan event registration and putting the device in measurement mode).
-Despite this bottom up description I’d say that the examples should come top down.
+
+
+## Licensing
+
+SSBL is licensed under the permissive Apache License V2.0. The library itself relies only on standard libraries. Efforts have been made to mention the authors of unlicensed code snippets that have been found online and integrated into SSBL. Please create an issue if you feel that your work has not been mentioned appropriately.  
+
+Contrary, the examples make use of other 3rd party libraries that come with their own licenses.
