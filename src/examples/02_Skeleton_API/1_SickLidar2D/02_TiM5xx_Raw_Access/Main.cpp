@@ -244,7 +244,7 @@ void OnScan(uint64_t *pEventData) {
   /*
   int32_t startAngle =
       pVar->Value_.aDataChannel16[0].DataChannelHdr.diStartAngle;
-          
+          
 
 
 

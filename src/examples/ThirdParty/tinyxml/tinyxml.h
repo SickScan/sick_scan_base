@@ -198,10 +198,10 @@ class TiXmlBase {
   /**	All TinyXml classes can print themselves to a filestream
           or the string class (TiXmlString in non-STL mode, std::string
           in STL mode.) Either or both cfile and str can be null.
-          
+          
           This is a formatted print, and will insert
           tabs and newlines.
-          
+          
           (For an unformatted stream, use the << operator.)
   */
   virtual void Print(FILE* cfile, int depth) const = 0;
@@ -426,7 +426,7 @@ class TiXmlNode : public TiXmlBase {
           The operator<< and operator>> are not completely symmetric. Writing
           a node to a stream is very well defined. You'll get a nice stream
           of output, without any extra whitespace or newlines.
-          
+          
           But reading is not as well defined. (As it always is.) If you create
           a TiXmlElement (for example) and read that from an input stream,
           the text needs to define an element or junk will result. This is
@@ -972,7 +972,7 @@ class TiXmlAttribute : public TiXmlBase {
 
 /*	A class used to manage a group of attributes.
         It is only used internally, both by the ELEMENT and the DECLARATION.
-        
+        
         The set can be changed transparent to the Element and Declaration
         classes that use it, but NOT transparent to the Attribute
         which has to implement a next() and previous() method. Which makes
@@ -1104,7 +1104,7 @@ class TiXmlElement : public TiXmlNode {
   /** Template form of the attribute query which will try to read the
           attribute into the specified type. Very easy, very powerful, but
           be careful to make sure to call this with the correct type.
-          
+          
           NOTE: This method doesn't work correctly for 'string' types that
      contain spaces.
 
@@ -1181,7 +1181,7 @@ class TiXmlElement : public TiXmlNode {
   /** Convenience function for easy access to the text inside an element.
   Although easy and concise, GetText() is limited compared to getting the
   TiXmlText child and accessing it directly.
-  
+  
           If the first child of 'this' is a TiXmlText, the GetText()
           returns the character string of the Text node, else null is returned.
 
@@ -1193,7 +1193,7 @@ class TiXmlElement : public TiXmlNode {
           @endverbatim
 
           'str' will be a pointer to "This is text".
-          
+          
           Note that this function can be misleading. If the element foo was
   created from this XML:
           @verbatim
@@ -1614,7 +1614,7 @@ class TiXmlDocument : public TiXmlNode {
   /** SetTabSize() allows the error reporting functions (ErrorRow() and
      ErrorCol()) to report the correct values for row and column. It does not
      change the output or input in any way.
-          
+          
           By calling this method, with a tab size
           greater than 0, the row and column of each node and attribute is
      stored when the file is loaded. Very useful for tracking the DOM back in to

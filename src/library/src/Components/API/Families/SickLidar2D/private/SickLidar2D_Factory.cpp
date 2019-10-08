@@ -47,11 +47,11 @@ SickLidar2d* CreateSickLidar2d(string ModelName, string IP) {
       pRet = new TiM561(IP);
       break;
     //--------------------------
-    case hash_64_fnv1a_const ("TiM571"):
+    case hash_64_fnv1a_const("TiM571"):
       pRet = new TiM571(IP);
       break;
     //--------------------------
-    case hash_64_fnv1a_const ("TiM581"):
+    case hash_64_fnv1a_const("TiM581"):
       pRet = new TiM581(IP);
       break;
     //--------------------------
