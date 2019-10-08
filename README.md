@@ -1,5 +1,5 @@
 # SICK AG Scan Base Library (SSBL)
-[![Build status](https://ci.appveyor.com/api/projects/status/s5kj88sfo6xdv4da/branch/master?svg=true)](https://ci.appveyor.com/project/Kaidoho/ssbl/branch/master)
+[![Build status](https://ci.appveyor.com/api/projects/status/9gopgyqbnf6xt5pq?svg=true)](https://ci.appveyor.com/project/Kaidoho/ssbl/branch/master)
 
 <b> Experimental support for TiM5xx Family !!! </b>
 
