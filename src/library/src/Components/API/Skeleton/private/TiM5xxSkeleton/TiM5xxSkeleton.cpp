@@ -5,6 +5,7 @@
 #include "API/Skeleton/include/TiM5xxSkeleton/TiM5xxSkeleton.h"
 #include "API/Skeleton/include/TiM5xxSkeleton/TiM5xxSkeleton_CoLa_Extension.h"
 #include "Core/Common/include/Assert.h"
+#include "Core/Common/include/MakeUnique.h"
 #include "Core/OS/include/Time.h"
 
 namespace ssbl {
@@ -25,17 +26,17 @@ TiM5xxSkeleton::TiM5xxSkeleton(const std::string& Ip,
   UserSelectedIpOrSerial_ = Ip;
   UserSelectedInterfaceName_ = interfaceName;
   AvailableSensorInterfaces_.push_back(
-      std::make_unique<SickSensorInterfaceDescription*>(
+      ssbl::make_unique<SickSensorInterfaceDescription*>(
           new SickSensorInterfaceDescription("CoLaA Port", ETHERNET_INTERFACE,
                                              COLA_A, BY_NAME, 2111, {})));
   AvailableSensorInterfaces_.push_back(
-      std::make_unique<SickSensorInterfaceDescription*>(
+      ssbl::make_unique<SickSensorInterfaceDescription*>(
           new SickSensorInterfaceDescription(
               "CoLa Port", ETHERNET_INTERFACE, COLA_B, BY_NAME, 2112,
               {std::make_tuple(COLA_B, "EtherHostCoLaDialect", "1"),
                std::make_tuple(COLA_A, "EtherHostCoLaDialect", "0")})));
   AvailableSensorInterfaces_.push_back(
-      std::make_unique<SickSensorInterfaceDescription*>(
+      ssbl::make_unique<SickSensorInterfaceDescription*>(
           new SickSensorInterfaceDescription(
               "CoLa Port", ETHERNET_INTERFACE, COLA_A, BY_NAME, 2112,
               {std::make_tuple(COLA_B, "EtherHostCoLaDialect", "1"),

@@ -21,6 +21,7 @@
 #include <pthread.h>
 #include <sys/time.h>
 #include "Core/Common/include/Assert.h"
+#include "Core/Common/include/MakeUnique.h"
 #include "Logger/include/Logger.h"
 
 namespace ssbl {
@@ -151,7 +152,7 @@ class Event::impl {
 
 //===========================================================================
 //===========================================================================
-Event::Event() : pImpl_{std::make_unique<impl>()} { pImpl_->Create(); }
+Event::Event() : pImpl_{ssbl::make_unique<impl>()} { pImpl_->Create(); }
 
 //===========================================================================
 //===========================================================================

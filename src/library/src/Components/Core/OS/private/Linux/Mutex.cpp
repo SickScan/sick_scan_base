@@ -20,6 +20,7 @@
 #include <pthread.h>
 #include <sys/time.h>
 #include "Core/Common/include/Assert.h"
+#include "Core/Common/include/MakeUnique.h"
 #include "Logger/include/Logger.h"
 
 namespace ssbl {
@@ -106,7 +107,7 @@ class Mutex::impl {
 
 //===========================================================================
 //===========================================================================
-Mutex::Mutex() : pImpl_{std::make_unique<impl>()} { pImpl_->Create(); }
+Mutex::Mutex() : pImpl_{ssbl::make_unique<impl>()} { pImpl_->Create(); }
 
 //===========================================================================
 //===========================================================================

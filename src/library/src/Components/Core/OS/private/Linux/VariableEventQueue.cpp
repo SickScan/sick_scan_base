@@ -20,6 +20,7 @@
 #include <semaphore.h>
 #include <string>
 #include "Core/Common/include/Assert.h"
+#include "Core/Common/include/MakeUnique.h"
 #include "Core/OS/include/Mutex.h"
 #include "Logger/include/Logger.h"
 
@@ -96,7 +97,7 @@ class VariableEventQueue::impl {
 //===========================================================================
 //===========================================================================
 VariableEventQueue::VariableEventQueue(ComObj &rVar, uint32_t nElem)
-    : pImpl_{std::make_unique<impl>()} {
+    : pImpl_{ssbl::make_unique<impl>()} {
   pImpl_->Create(nElem);
 
   for (uint32_t i = 0; i < nElem; ++i) {

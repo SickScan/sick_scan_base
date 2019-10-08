@@ -22,6 +22,7 @@
 #include <windows.h>
 #include <memory>
 #include "Core/Common/include/Assert.h"
+#include "Core/Common/include/MakeUnique.h"
 #include "Logger/include/Logger.h"
 
 namespace ssbl {
@@ -74,7 +75,7 @@ class Task::impl {
 
 //===========================================================================
 //===========================================================================
-Task::Task() : pImpl_{std::make_unique<impl>()}, TaskState_(TASK_NOT_CREATED) {
+Task::Task() : pImpl_{ssbl::make_unique<impl>()}, TaskState_(TASK_NOT_CREATED) {
   HANDLE ret = pImpl_->Create(this);
   if (0 != ret) {
     SSBL_LOG_DEBUG("Created Task");

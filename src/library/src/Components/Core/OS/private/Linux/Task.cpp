@@ -21,6 +21,7 @@
 #include <pthread.h>
 #include <memory>
 #include "Core/Common/include/Assert.h"
+#include "Core/Common/include/MakeUnique.h"
 #include "Core/OS/include/Time.h"
 #include "Logger/include/Logger.h"
 
@@ -95,7 +96,7 @@ class Task::impl {
 
 //===========================================================================
 //===========================================================================
-Task::Task() : pImpl_{std::make_unique<impl>()}, TaskState_(TASK_NOT_CREATED) {
+Task::Task() : pImpl_{ssbl::make_unique<impl>()}, TaskState_(TASK_NOT_CREATED) {
   int32_t ret = pImpl_->Create(this);
   if (0 == ret) {
     while (TaskState_ != TASK_INITIALIZED) {

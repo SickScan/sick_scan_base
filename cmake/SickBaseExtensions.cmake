@@ -263,10 +263,14 @@ function(CreateLibraryTarget)
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/Components>
     PRIVATE
         ${CMAKE_CURRENT_SOURCE_DIR}/src)
-
+  
+  if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
+    target_compile_options(${LIBRARY_FILE_NAME} PRIVATE "$<$<COMPILE_LANGUAGE:CXX>:-std=c++11>" ) 
+  endif()
 
   target_compile_options(${LIBRARY_FILE_NAME} PRIVATE "$<$<CONFIG:DEBUG>:${DEBUG_FLAGS}>")
   target_compile_options(${LIBRARY_FILE_NAME} PRIVATE "$<$<CONFIG:RELEASE>:${RELEASE_FLAGS}>")
+
   target_link_libraries(${LIBRARY_FILE_NAME}  INTERFACE ${ADDITIONAL_LIBS} )
 
 endfunction()

@@ -23,6 +23,7 @@
 #include <time.h>
 #include <unistd.h>
 #include "Core/Common/include/Assert.h"
+#include "Core/Common/include/MakeUnique.h"
 #include "Logger/include/Logger.h"
 #include "Types/include/BasicTypes.h"
 
@@ -138,7 +139,7 @@ class Timer::impl {
 //===========================================================================
 //===========================================================================
 Timer::Timer(uint32_t periodMs, bool autoReload)
-    : pImpl_{std::make_unique<impl>()} {
+    : pImpl_{ssbl::make_unique<impl>()} {
   pImpl_->Create(this, periodMs, autoReload);
 }
 

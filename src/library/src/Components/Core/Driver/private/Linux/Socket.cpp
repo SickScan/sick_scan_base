@@ -32,6 +32,7 @@
 
 #include "Core/Common/include/Assert.h"
 #include "Core/Driver/include/Socket.h"
+#include "Core/Common/include/MakeUnique.h"
 #include "Core/OS/include/Task.h"
 #include "Core/OS/include/Time.h"
 #include "Types/include/SickSensorReturnCodes.h"
@@ -190,14 +191,14 @@ class Socket::impl : public Task {
 //===========================================================================
 //===========================================================================
 Socket::Socket(std::string &Ip, uint32_t PortNo)
-    : pImpl_{std::make_unique<impl>()} {
+    : pImpl_{ssbl::make_unique<impl>()} {
   IP_ = Ip;
   Port_ = PortNo;
   pImpl_->setParent(this);
 }
 //===========================================================================
 //===========================================================================
-Socket::Socket(uint32_t PortNo) : pImpl_{std::make_unique<impl>()} {
+Socket::Socket(uint32_t PortNo) : pImpl_{ssbl::make_unique<impl>()} {
   Port_ = PortNo;
   // not supported yet
   SSBL_ASSERT_IF_NULL(0);
