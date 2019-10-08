@@ -3,7 +3,7 @@
 # Francesco Conti <f.conti@unibo.it>
 # https://github.com/pulp-platform/bigpulp/blob/master/ipstools_cfg.py
 
-REPOSITORY = "https://github.com/SICK AG, Waldkirch/Generator.git"
+REPOSITORY = "https://github.com/kaidoho/Generator.git"
 CHECKOUT_DIR = '../src/generator'
 COMMIT = '' #leave this blank to checkout HEAD
 
