@@ -26,11 +26,13 @@ Install the required tools:
 * [CMake >= 3.10](https://cmake.org/download)
 * A Compiler / IDE of your choice (see table below). Plain VS2019 with it's built-in Visual C++ 14.2 or flavored with LLVM is recommended.
 
-|                                   | Visual C++  14.2 | Visual C++  14.1 | [LLVM](https://llvm.org) | [Mingw-w64](https://mingw-w64.org/doku.php) |
-|--------------------------------------|:----------------:|:----------------:|------|-----------|
-| [Visual Studio 2019 Community Edition](https://visualstudio.microsoft.com) |         o        |         o        |   o  |     x     |
-| [Visual Studio 2017 Community Edition](https://visualstudio.microsoft.com)  |         o        |         o        |   [Plugin](https://marketplace.visualstudio.com/items?itemName=LLVMExtensions.llvm-toolchain)  |     x     |
-| [Eclipse for C++](https://www.eclipse.org/downloads/)                              |         x        |         x        |   x  |    coming     |
+|                                   | Visual C++  14.2 | Visual C++  14.1 | Visual C++  14.0 | [LLVM](https://llvm.org) | [Mingw-w64](https://mingw-w64.org/doku.php) |
+|--------------------------------------|:----------------:|:----------------:|:----------------:|------|-----------|
+| [Visual Studio 2019 Community Edition](https://visualstudio.microsoft.com) |         o        |         o        |         o        |   o  |     x     |
+| [Visual Studio 2017 Community Edition](https://visualstudio.microsoft.com)  |         o        |         o        |         o        |   [Plugin](https://marketplace.visualstudio.com/items?itemName=LLVMExtensions.llvm-toolchain)  |     x     |
+| [Visual Studio 2015 Community Edition](https://visualstudio.microsoft.com)  |         o        |         o        |         o        |   x  |     x     |
+| [Eclipse for C++](https://www.eclipse.org/downloads/)                              |         x        |         x        |         x        |   x  |   soon   |
+
 
 
 o = Built-in or available via plugin | x = not supported     
