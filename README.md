@@ -75,8 +75,8 @@ sudo apt-get install cmake git ninja-build build-essential default-jdk
 ### Obtain the source and build
 ```console
 git clone https://github.com/kaidoho/ssbl.git
-mkdir ssbl/Build
-cd ssbl/Build
+mkdir ssbl/build
+cd ssbl/build
 cmake -G"Eclipse CDT4 - Ninja" -DCMAKE_BUILD_TYPE=Debug ../src
 ```
 
