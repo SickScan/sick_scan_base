@@ -151,7 +151,7 @@ before_build:
 #    - ps: $path = ($path.Split(';') | Where-Object { $_ -ne 'C:\Program Files\Git\usr\bin' }) -join ';'
 #    - ps: $path += ";C:\mingw-w64\x86_64-7.2.0-posix-seh-rt_v5-rev1\mingw32\bin"
 #    - ps: $env:path = $path
-    - ps: cmake  -G"$env:generator" $env:genarch $env:additionalCMakeFlags -Bbuild src
+    - ps: cmake  -G"$env:generator" $env:genarch $env:additionalCMakeFlags -Bbuild .
     
 build_script:
 - ps: cmake --build build --config Release
