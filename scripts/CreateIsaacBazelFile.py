@@ -77,7 +77,7 @@ if __name__ == "__main__":
   gSourcesCPP = []
   gHeadersCPP = []
   gIncludePaths = []
-  gIncludePaths.append("external/com_sickag_ssbl/src/Components")
+  gIncludePaths.append("external/com_sickag_ssbl/Components")
   gIncludePaths.append("external/com_sickag_ssbl/include")
 
   
