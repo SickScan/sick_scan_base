@@ -69,8 +69,8 @@ if __name__ == "__main__":
   scriptLocation = os.path.dirname(os.path.abspath(__file__))
   buildFilePath = scriptLocation
 
-  searchFolders = ["include","src/Components/API","src/Components/AutoIp", "src/Components/Core",
-    "src/Components/Logger", "src/Components/Protocol", "src/Components/Types"]
+  searchFolders = ["include","Components/API","Components/AutoIp", "Components/Core",
+    "Components/Logger", "Components/Protocol", "Components/Types"]
 
   gSourcesC = []
   gHeadersC = []
@@ -82,7 +82,7 @@ if __name__ == "__main__":
 
   
   for folder in range(len(searchFolders)):
-    searchPath = scriptLocation+ "/../src/library/" + searchFolders[folder]
+    searchPath = scriptLocation+ "/../src/" + searchFolders[folder]
     for file in Path(searchPath).rglob('**/*.c'):
       fs = str(file)
       fs = fs[fs.find("library")+len("library")+1:]
@@ -105,7 +105,7 @@ if __name__ == "__main__":
     print(hfile)
   
   for folder in range(len(searchFolders)):
-    searchPath = scriptLocation+ "/../src/library/" + searchFolders[folder]
+    searchPath = scriptLocation+ "/../src/" + searchFolders[folder]
     for file in Path(searchPath).rglob('**/*.cpp'):
       fs = str(file)
       fs = fs[fs.find("library")+len("library")+1:]
