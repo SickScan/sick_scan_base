@@ -85,12 +85,12 @@ if __name__ == "__main__":
     searchPath = scriptLocation+ "/../src/" + searchFolders[folder]
     for file in Path(searchPath).rglob('**/*.c'):
       fs = str(file)
-      fs = fs[fs.find("library")+len("library")+1:]
+      fs = fs[fs.find("../src")+len("../src")+1:]
       fs = fs.replace("\\", "/")
       gSourcesC.append(fs)
     for file in Path(searchPath).rglob('**/*.h'):
       fs = str(file)
-      fs = fs[fs.find("library")+len("library")+1:]
+      fs = fs[fs.find("../src")+len("../src")+1:]
       fs = fs.replace("\\", "/")
       gHeadersCPP.append(fs)
   
@@ -108,7 +108,7 @@ if __name__ == "__main__":
     searchPath = scriptLocation+ "/../src/" + searchFolders[folder]
     for file in Path(searchPath).rglob('**/*.cpp'):
       fs = str(file)
-      fs = fs[fs.find("library")+len("library")+1:]
+      fs = fs[fs.find("../src")+len("../src")+1:]
       fs = fs.replace("\\", "/")
       gSourcesCPP.append(fs)
 
