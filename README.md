@@ -16,7 +16,7 @@ SSBL is a standalone C++ library to interface with SICK AG Lidar. Currently, SSB
 3. [Licensing](#Licensing)  
 
 
-## Getting Started (Windows 10)
+## Getting Started
 
 ### Prerequisites
 
@@ -31,7 +31,6 @@ Install the required tools:
 | [Visual Studio 2019 Community Edition](https://visualstudio.microsoft.com) |         o        |         o        |         o        |   o  |     x     |
 | [Visual Studio 2017 Community Edition](https://visualstudio.microsoft.com)  |         x        |         o        |         o        |   [Plugin](https://marketplace.visualstudio.com/items?itemName=LLVMExtensions.llvm-toolchain)  |     x     |
 | [Visual Studio 2015 Community Edition](https://visualstudio.microsoft.com)  |         x        |         x        |         o        |   x  |     x     |
-| [Eclipse for C++](https://www.eclipse.org/downloads/)                              |         x        |         x        |         x        |   x  |   soon   |
 
 
 
@@ -43,30 +42,53 @@ o = Built-in or available via plugin | x = not supported
 Fetch the source and change into the newly created folder.
 ```powershell
 git clone https://github.com/kaidoho/ssbl.git
-cd ssbl
+mkdir ssbl/build
+cd ssbl/build
 ```
-Call cmake to generate a project matching your favorite IDE / Compiler.
+
+### Configuration when using Visual Studio IDE 2015, 2017 or 2019 
+Call cmake to generate a project matching your favorite IDE / Compiler. 
 ```powershell
 # 64 Bit builds
-cmake -G"Visual Studio 16 2019" -A"x64" -Bbuild src            
-cmake -G"Visual Studio 15 2017 Win64" -Bbuild src                
-cmake -G"Visual Studio 14 2015 Win64" -Bbuild src                
-cmake -G"Visual Studio 16 2019" -A"x64" -T"llvm" -Bbuild src       
-cmake -G"Eclipse CDT4 - MinGW Makefiles" -Bbuild src                            
+cmake -G"Visual Studio 16 2019" -A"x64"            -DCMAKE_INSTALL_PREFIX=. ..
+cmake -G"Visual Studio 15 2017 Win64"              -DCMAKE_INSTALL_PREFIX=. ..
+cmake -G"Visual Studio 14 2015 Win64"              -DCMAKE_INSTALL_PREFIX=. ..
+cmake -G"Visual Studio 16 2019" -A"x64" -T"llvm"   -DCMAKE_INSTALL_PREFIX=. ..  
 
 # 32 Bit builds
-cmake -G"Visual Studio 16 2019" -A"Win32" -Bbuild src
-cmake -G"Visual Studio 15 2017" -Bbuild src
-cmake -G"Visual Studio 14 2015" -Bbuild src
-cmake -G"Visual Studio 16 2019" -A"Win32" -T"llvm" -Bbuild src
-cmake -G"Eclipse CDT4 - MinGW Makefiles" -DSSBL_32BIT -Bbuild src
+cmake -G"Visual Studio 16 2019" -A"Win32"          -DCMAKE_INSTALL_PREFIX=. .. 
+cmake -G"Visual Studio 15 2017"                    -DCMAKE_INSTALL_PREFIX=. .. 
+cmake -G"Visual Studio 14 2015"                    -DCMAKE_INSTALL_PREFIX=. .. 
+cmake -G"Visual Studio 16 2019" -A"Win32" -T"llvm" -DCMAKE_INSTALL_PREFIX=. .. 
 ```
-Build the project
+### Build and Install the project
 ```powershell
-cmake --build build
+cmake --build . --target install --config Debug
+cmake --build . --target install --config Release
+````
+
+### Configuration when using Visual Studio Code, Ninja and GCC 
+
+```console
+
+# 64 Bit builds
+
+cmake -G"Ninja" -DCMAKE_INSTALL_PREFIX=. .. 
+
+# 32 Bit builds
+cmake -G"Ninja" -DSSBL_32BIT -DCMAKE_INSTALL_PREFIX=. ..  
 ```
 
-## Getting Started (Ubuntu 18.04)
+
+### Build and Install the project
+```powershell
+cmake --build . --target install --config Debug
+cmake --build . --target install --config Release
+```
+
+
+
+
 
 ### Prerequisites
 
@@ -82,6 +104,9 @@ git clone https://github.com/kaidoho/ssbl.git
 mkdir ssbl/build
 cd ssbl/build
 cmake -G"Eclipse CDT4 - Ninja" -DCMAKE_BUILD_TYPE=Debug ../src
+cmake --build . --target install
+cmake -G"Eclipse CDT4 - Ninja" -DCMAKE_BUILD_TYPE=Release ../src
+cmake --build . --target install
 ```
 
 ## Using SSBL
