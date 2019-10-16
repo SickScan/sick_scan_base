@@ -1,5 +1,5 @@
 build
+install
 src/generator
 src/.vscode
-
-doc/~$coordinate_definition.pptx
+backlog/doc/~$coordinate_definition.pptx

@@ -3,6 +3,7 @@
 #######################################################################################################
 
 include(CMakeParseArguments)
+include(CMakePackageConfigHelpers)
 
 #######################################################################################################
 # ComponentSources(
@@ -100,7 +101,8 @@ endfunction()
 
 #######################################################################################################
 # CreateLibraryTarget(
-#   LIBRARY_BASE_NAME
+#   SSBL_BASE_NAME
+#   SSBL_INSTALL_DIR
 #   COMPONENTS [componentName1, componentName2, ...]
 #   [SOURCES [sourcesName1, sourcesName2, ...]]
 #   [FILE_SOURCES [fileSourcePath1, fileSourcePath2, ...]]
@@ -121,19 +123,21 @@ endfunction()
 #
 #
 # There are following variables set to parent scope to be used in the CMakeLists.txt:
-# - LIBRARY_FILE_NAME: The generated name of the library to be used in target_link_libraries()
+# - PARSED_SSBL_BASE_NAME: The generated name of the library to be used in target_link_libraries()
 # - LIBRARY_SOURCE_LIST + LIBRARY_SOURCE_UNITTEST_LIST: The lists for the source to e.g. force c++ compilation afterwards
 #######################################################################################################
 function(CreateLibraryTarget)
   set(options)
-  set(oneValueArgs LIBRARY_BASE_NAME )
+  set(oneValueArgs SSBL_BASE_NAME)
   set(multiValueArgs COMPONENTS)
   cmake_parse_arguments(PARSED "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
 
-  if(NOT PARSED_LIBRARY_BASE_NAME)
-    message(FATAL_ERROR "CreateLibraryTarget: PARSED_LIBRARY_BASE_NAME must contain the name of the library")
+  if(NOT PARSED_SSBL_BASE_NAME)
+    message(FATAL_ERROR "CreateLibraryTarget: PARSED_SSBL_BASE_NAME must contain the name of the library")
   endif()
 
+
+  
   if(NOT PARSED_COMPONENTS)
     message(FATAL_ERROR "CreateLibraryTarget: COMPONENTS must contain the list of group names")
   endif()
@@ -141,6 +145,8 @@ function(CreateLibraryTarget)
   if(PARSED_UNPARSED_ARGUMENTS)
     message(FATAL_ERROR "Unknown arguments given to CreateLibraryTarget(): \"${PARSED_UNPARSED_ARGUMENTS}\"")
   endif()
+
+  set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
   foreach(ComponentName ${PARSED_COMPONENTS})
     set(COMPONENT_SOURCES_VARIABLE COMPONENT_SOURCES_${ComponentName})
@@ -170,7 +176,7 @@ function(CreateLibraryTarget)
 
   # Add headers from the include-folder to source groups
   
-  get_filename_component(ComponentPathAbsolute "${PROJECT_SOURCE_DIR}/../include" REALPATH)
+  get_filename_component(ComponentPathAbsolute "${PROJECT_SOURCE_DIR}/include" REALPATH)
   file(GLOB_RECURSE ComponentHeadersAbs RELATIVE "${PROJECT_SOURCE_DIR}" "${ComponentPathAbsolute}/*.h" "${ComponentPathAbsolute}/*.hpp")
   file(GLOB_RECURSE ComponentHeadersList RELATIVE "${ComponentPathAbsolute}" "${ComponentPathAbsolute}/*.h" "${ComponentPathAbsolute}/*.hpp")
   if(MSVC)  
@@ -220,7 +226,7 @@ function(CreateLibraryTarget)
     endif()
   endif()
   
-  set(LIBRARY_FILE_NAME "${PARSED_LIBRARY_BASE_NAME}-${SSBL_TARGET_OS}-${TARGET_ARCHITECTURE}-${COMPILER_SUFFIX}-${COMPILER_VERSION}")
+  set(LIBRARY_FILE_NAME "${PARSED_SSBL_BASE_NAME}-${SSBL_TARGET_OS}-${TARGET_ARCHITECTURE}-${COMPILER_SUFFIX}-${COMPILER_VERSION}")
 
   if (WIN32)
     if(MSVC)
@@ -247,71 +253,92 @@ function(CreateLibraryTarget)
 
 
   # Create libraries
-  add_library(${LIBRARY_FILE_NAME} STATIC ${SourceListInternal})
-  add_library(ssbl::ssbl ALIAS ${LIBRARY_FILE_NAME} )
+  add_library(${PARSED_SSBL_BASE_NAME} STATIC ${SourceListInternal})
+  set_target_properties(${PARSED_SSBL_BASE_NAME} PROPERTIES OUTPUT_NAME ${LIBRARY_FILE_NAME})
+  set_target_properties (${PARSED_SSBL_BASE_NAME} PROPERTIES FOLDER Library)
+
   
-  set_target_properties(${LIBRARY_FILE_NAME} PROPERTIES DEBUG_POSTFIX "-dbg")
-  set_target_properties(${LIBRARY_FILE_NAME} PROPERTIES RELEASE_POSTFIX "-rel")
-  set_target_properties(${LIBRARY_FILE_NAME} PROPERTIES PREFIX "")
+  add_library(ssbl::ssbl ALIAS ${PARSED_SSBL_BASE_NAME} )
+  
+  set_target_properties(${PARSED_SSBL_BASE_NAME} PROPERTIES DEBUG_POSTFIX "-dbg")
+  set_target_properties(${PARSED_SSBL_BASE_NAME} PROPERTIES RELEASE_POSTFIX "-rel")
+  set_target_properties(${PARSED_SSBL_BASE_NAME} PROPERTIES PREFIX "")
 
-  set(LIBRARY_FILE_NAME "${LIBRARY_FILE_NAME}" PARENT_SCOPE)
-  set(LIBRARY_SOURCE_LIST "${SourceListInternal}" PARENT_SCOPE)
 
-  target_include_directories(${LIBRARY_FILE_NAME}
+  set(SSBL_INSTALL_DIR "${CMAKE_INSTALL_PREFIX}")
+  
+  get_filename_component(SSBL_INSTALL_DIR ${SSBL_INSTALL_DIR} ABSOLUTE)
+  
+  target_include_directories(${PARSED_SSBL_BASE_NAME}
     PUBLIC
-        $<INSTALL_INTERFACE:include>
+        $<INSTALL_INTERFACE:${SSBL_INSTALL_DIR}/include>
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/Components>
     PRIVATE
         ${CMAKE_CURRENT_SOURCE_DIR}/src)
   
   if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
-    target_compile_options(${LIBRARY_FILE_NAME} PRIVATE "$<$<COMPILE_LANGUAGE:CXX>:-std=c++11>" ) 
+    target_compile_options(${PARSED_SSBL_BASE_NAME} PRIVATE "$<$<COMPILE_LANGUAGE:CXX>:-std=c++11>" ) 
   endif()
 
-  target_compile_options(${LIBRARY_FILE_NAME} PRIVATE "$<$<CONFIG:DEBUG>:${DEBUG_FLAGS}>")
-  target_compile_options(${LIBRARY_FILE_NAME} PRIVATE "$<$<CONFIG:RELEASE>:${RELEASE_FLAGS}>")
+  target_compile_options(${PARSED_SSBL_BASE_NAME} PRIVATE "$<$<CONFIG:DEBUG>:${DEBUG_FLAGS}>")
+  target_compile_options(${PARSED_SSBL_BASE_NAME} PRIVATE "$<$<CONFIG:RELEASE>:${RELEASE_FLAGS}>")
+  target_link_libraries(${PARSED_SSBL_BASE_NAME}  INTERFACE ${ADDITIONAL_LIBS} )
 
-  target_link_libraries(${LIBRARY_FILE_NAME}  INTERFACE ${ADDITIONAL_LIBS} )
+  set(SSBL_INSTALL_CONFIG_DIR ${SSBL_INSTALL_DIR}/cmake)
 
-endfunction()
+  # Add an install target
+  install(TARGETS ${PARSED_SSBL_BASE_NAME}
+      EXPORT ${PARSED_SSBL_BASE_NAME}-export
+      LIBRARY DESTINATION ${SSBL_INSTALL_DIR}/lib
+      ARCHIVE DESTINATION ${SSBL_INSTALL_DIR}/lib
+      PUBLIC_HEADER DESTINATION ${SSBL_INSTALL_DIR}/include
+      PRIVATE_HEADER DESTINATION ${SSBL_INSTALL_DIR}/include
+  )
+  #set_target_properties (${PARSED_SSBL_BASE_NAME}-export PROPERTIES FOLDER Library)
+  # Export install target
+  install(EXPORT ${PARSED_SSBL_BASE_NAME}-export
+    FILE
+      ${PARSED_SSBL_BASE_NAME}Targets.cmake
+    NAMESPACE
+      ${PARSED_SSBL_BASE_NAME}::
+    DESTINATION
+      ${SSBL_INSTALL_CONFIG_DIR}
+  )
+  
+  #fill config and copy to out
+  configure_package_config_file(${PROJECT_SOURCE_DIR}/../cmake/${PARSED_SSBL_BASE_NAME}Config.cmake.in #in
+      ${CMAKE_CURRENT_BINARY_DIR}/${PARSED_SSBL_BASE_NAME}Config.cmake #tmp
+      INSTALL_DESTINATION ${SSBL_INSTALL_CONFIG_DIR} #out
+  )
+  
+  install(FILES
+      ${CMAKE_CURRENT_BINARY_DIR}/${PARSED_SSBL_BASE_NAME}Config.cmake
+      DESTINATION ${SSBL_INSTALL_CONFIG_DIR}
+  )
+  
+  get_filename_component(ComponentPathAbsolute "${PROJECT_SOURCE_DIR}/include" REALPATH)
 
-#######################################################################################################
-# GenerateDocumentation()
-#######################################################################################################
-function(GenerateDocumentation)
+  file(GLOB_RECURSE InstallHeaders RELATIVE "${ComponentPathAbsolute}" "${ComponentPathAbsolute}/*.h" "${ComponentPathAbsolute}/*.hpp")
 
+  foreach(Header ${InstallHeaders})
+    STRING(REGEX MATCH "(.\\\*)\\\[/\\\]" LDIR ${Header})
+    install(FILES include/${Header} DESTINATION ${SSBL_INSTALL_DIR}/include/${LDIR})
+  endforeach()
+  
+  get_filename_component(ComponentPathAbsolute "${PROJECT_SOURCE_DIR}" REALPATH)
 
-  find_package(Doxygen)
-  if (DOXYGEN_FOUND)
-    set(DOXYGEN_IN ${CMAKE_CURRENT_SOURCE_DIR}/doxygen/Doxyfile.in)
-    set(DOXYGEN_OUT ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile)
-    configure_file(${DOXYGEN_IN} ${DOXYGEN_OUT} @ONLY)
-    add_custom_target( RunDoxygen
-      COMMAND ${DOXYGEN_EXECUTABLE} ${DOXYGEN_OUT}
-      WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
-      VERBATIM )
-  else ()
-    message(STATUS "GenerateDocumentation: Doxygen was not found")
-    message(STATUS "GenerateDocumentation: Not creating target GenerateDoxygenDocumentation")
-  endif ()
+  file(GLOB_RECURSE InstallHeaders RELATIVE "${ComponentPathAbsolute}" "${ComponentPathAbsolute}/*.h" "${ComponentPathAbsolute}/*.hpp")
 
-
-  find_package(Sphinx)
-  if (SPHINX_FOUND)
-    set(SPHINX_SOURCE ${CMAKE_CURRENT_SOURCE_DIR}/sphinx)
-    set(SPHINX_BUILD ${CMAKE_CURRENT_BINARY_DIR}/sphinx)
-
-    add_custom_target(RunSphinx ALL
-                      COMMAND
-                      ${SPHINX_EXECUTABLE} -b html
-                      -Dbreathe_projects.SSBL=${SPHINX_BUILD}/../doxygen/xml
-                      ${SPHINX_SOURCE} ${SPHINX_BUILD}
-                      WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
-                      DEPENDS  RunDoxygen)
-  else ()
-    message(STATUS "GenerateDocumentation: Sphinx was not found")
-    message(STATUS "GenerateDocumentation: Not creating target Sphinx")
-  endif ()
+  foreach(Header ${InstallHeaders})
+    get_filename_component(LDIR ${Header} DIRECTORY )
+    string(FIND "${LDIR}" "include" out)
+    if ("${out}" EQUAL 0)
+    else()
+      string(REPLACE "Components/" "" LDIROUT ${LDIR} )
+      install(FILES ${Header} DESTINATION ${SSBL_INSTALL_DIR}/include/${LDIROUT})
+    endif()
+  endforeach()
+  
 endfunction()
 
 #######################################################################################################
