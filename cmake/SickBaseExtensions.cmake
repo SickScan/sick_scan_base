@@ -339,6 +339,9 @@ function(CreateLibraryTarget)
     endif()
   endforeach()
   
+  set(CMAKE_EXPORT_PACKAGE_REGISTRY ON)
+  export(PACKAGE ssbl)
+
 endfunction()
 
 #######################################################################################################
