@@ -16,6 +16,7 @@ SSBL is a standalone C++ library to interface with SICK AG Lidar. Currently, SSB
 3. [Licensing](#Licensing)  
 
 
+
 ## Getting Started
 
 ### Prerequisites
