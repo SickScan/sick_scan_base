@@ -1,0 +1,10 @@
+<launch>
+<node name="sick_tim_5xx">
+    <param name="scanner_type" type="string" value="sick_tim_5xx"/>
+    <param name="min_ang_deg" type="double" value="-45.0" />
+    <param name="max_ang_deg" type="double" value="225.0" />
+    <param name="hostname" type="string" value="192.168.0.61" />
+    <param name="log_level" type="int" value="0" />
+	
+</node>
+</launch>
