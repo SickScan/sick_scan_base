@@ -2,7 +2,7 @@ cmake_minimum_required (VERSION 3.10)
 project(ssbl)
 
 
-set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${PROJECT_SOURCE_DIR}/../cmake")
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${PROJECT_SOURCE_DIR}/../../cmake")
 
 include(SickBaseExtensions)
 
