@@ -306,7 +306,7 @@ function(CreateLibraryTarget)
   )
   
   #fill config and copy to out
-  configure_package_config_file(${PROJECT_SOURCE_DIR}/../cmake/${PARSED_SSBL_BASE_NAME}Config.cmake.in #in
+  configure_package_config_file(${PROJECT_SOURCE_DIR}/../../cmake/${PARSED_SSBL_BASE_NAME}Config.cmake.in #in
       ${CMAKE_CURRENT_BINARY_DIR}/${PARSED_SSBL_BASE_NAME}Config.cmake #tmp
       INSTALL_DESTINATION ${SSBL_INSTALL_CONFIG_DIR} #out
   )

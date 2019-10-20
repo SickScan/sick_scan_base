@@ -13,9 +13,9 @@ include_directories(${PROJECT_SOURCE_DIR}/../../library/include)
 
 
 set( TIM5XX_DEMO_SRC
-  ${PROJECT_SOURCE_DIR}/01_TiM5xx/Main.cpp 
+  ${PROJECT_SOURCE_DIR}/src/Main.cpp 
 )
 
 
-add_executable(01_TiM5xx ${TIM5XX_DEMO_SRC})
-target_link_libraries(01_TiM5xx ssbl::ssbl)
+add_executable(${CMAKE_PROJECT_NAME} ${TIM5XX_DEMO_SRC})
+target_link_libraries(${CMAKE_PROJECT_NAME} ssbl::ssbl)

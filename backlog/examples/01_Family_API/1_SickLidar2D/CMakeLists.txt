@@ -8,8 +8,8 @@
 cmake_minimum_required (VERSION 3.10)
 project(ssbl-family-api-examples)
 
-include_directories(${PROJECT_SOURCE_DIR}/../../../library/src/Components)
-include_directories(${PROJECT_SOURCE_DIR}/../../../library/include)
+include_directories(${PROJECT_SOURCE_DIR}/../../library/Components)
+include_directories(${PROJECT_SOURCE_DIR}/../../library/include)
 
 
 set( TIM5XX_DEMO_SRC
