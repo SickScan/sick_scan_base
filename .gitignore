@@ -3,3 +3,7 @@ install
 src/generator
 src/.vscode
 backlog/doc/~$coordinate_definition.pptx
+
+CMakeFiles/
+
+CMakeCache.txt

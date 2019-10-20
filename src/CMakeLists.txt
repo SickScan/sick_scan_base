@@ -43,6 +43,13 @@ ComponentSources(
 
 
 ComponentSources(
+  NAME SoftwarePLL
+  PATH Components/SoftwarePLL
+  SOURCES 
+  SoftwarePLL.cpp
+)
+
+ComponentSources(
   NAME Types
   PATH Components/Types
   SOURCES 
@@ -150,6 +157,7 @@ CreateLibraryTarget(
     Protocol
     Types
     Logger
+	SoftwarePLL
     Core_OS
     Core_Sensor
     Core_Common
