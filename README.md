@@ -42,9 +42,9 @@ o = Built-in or available via plugin | x = not supported
 ### Obtain the source and build
 Fetch the source and change into the newly created folder.
 ```powershell
-git clone https://github.com/kaidoho/ssbl.git
-mkdir ssbl/build
-cd ssbl/build
+git clone https://github.com/SickScan/sick_scan_base.git
+mkdir sick_scan_base/build
+cd sick_scan_base/build
 ```
 
 ### Configuration when using Visual Studio IDE 2015, 2017 or 2019 
