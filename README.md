@@ -83,9 +83,9 @@ cmake --build . --target install --config Release
 1. Configure the project, architecture and build mode is set up at configuration time
 ```console
 # 64 Bit builds
-cmake -G"Ninja" -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=. .. 
+cmake -G"Ninja" -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=./install .. 
 # 32 Bit builds
-cmake -G"Ninja" -DSSBL_32BIT -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=. ..  
+cmake -G"Ninja" -DSSBL_32BIT -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=./install ..  
 ```
 2. Build and install the library
 ```powershell
@@ -94,9 +94,9 @@ cmake --build . --target install
 3. Reconfigure the project to be build in release mode 
 ```console
 # 64 Bit builds
-cmake -G"Ninja" -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=. .. 
+cmake -G"Ninja" -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=./install .. 
 # 32 Bit builds
-cmake -G"Ninja" -DSSBL_32BIT -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=. ..  
+cmake -G"Ninja" -DSSBL_32BIT -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=./install ..  
 ```
 4. Build and install the library
 ```powershell
