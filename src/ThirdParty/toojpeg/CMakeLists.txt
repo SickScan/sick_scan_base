@@ -11,7 +11,7 @@ add_library(toojpeg::toojpeg ALIAS ${LIB_NAME} )
 
 target_include_directories(${LIB_NAME}
   PUBLIC
-      $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>)
+      $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src>)
 
 
 set_target_properties (${LIB_NAME} PROPERTIES FOLDER ${EXT_LIB_SOLUTION_FOLDER}/toojpeg)
