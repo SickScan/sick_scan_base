@@ -10,8 +10,7 @@ SSBL is a standalone C++ library to interface with SICK AG Lidar. Currently, SSB
 1. [Getting Started](#Getting-Started)
     1. [Prerequisites](#Prerequisites)
     2. [Obtain the source code](#Obtain-the-source-code)
-    3. [Create a build directory](#Create-a-build-directory)
-    4. [Configure, Build and Install](#Configure,-Build-and-Install)
+    3. [Configure, Build and Install](#Configure,-Build-and-Install)
         1. [Windows](Windows,-Visual-Studio-2015,17,19-IDE,-MSBuild,-and-Visual-C++-or-LLVM-Compiler)
         2. [Linux](Linux,-No-IDE,-Ninja,-GCC)
 2. [Using SSBL](#Using-SSBL)
@@ -44,8 +43,6 @@ Fetch the source and change into the newly created folder.
 ```powershell
 git clone https://github.com/SickScan/sick_scan_base.git
 ```
-## Create a build directory
-```powershell
 mkdir sick_scan_base/build
 cd sick_scan_base/build
 ```
