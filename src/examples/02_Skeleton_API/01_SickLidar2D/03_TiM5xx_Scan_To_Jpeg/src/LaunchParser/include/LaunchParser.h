@@ -14,8 +14,9 @@
 #include <map>
 #include <string>
 #include <vector>
-#include "tinyxml/tinystr.h"
-#include "tinyxml/tinyxml.h"
+#include "tinystr.h"
+#include "tinyxml.h"
+
 
 class LaunchParser {
  public:

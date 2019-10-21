@@ -19,7 +19,7 @@
 
 #include <iostream>
 #include "SSBL.h"
-#include "toojpeg.h"
+
 
 using namespace std;
 using namespace ssbl;
@@ -241,29 +241,6 @@ void OnScan(uint64_t *pEventData) {
          (double)pCfg->stopAngle / 10000.00);
 
   pVar = dynamic_cast<ScanData_TiM5xxSkeleton_Var *>(pEvent->pComObj);
-  /*
-  int32_t startAngle =
-      pVar->Value_.aDataChannel16[0].DataChannelHdr.diStartAngle;
-          
-
-
-
-
-  uint32_t resolution =
-      pVar->Value_.aDataChannel16[0].DataChannelHdr.uiAngleRes;
-  for (uint16_t dIdx = 0;
-       dIdx <
-       pVar->Value_.aDataChannel16[0].uiLengthaData;
-       dIdx++)
-  {
-    writeScanPoint(
-        pVar->Value_.aDataChannel16[0].aData[dIdx],
-      startAngle
-    );
-    startAngle = startAngle + resolution;
-  }
-
-  */
 
   // please delete the data after processing
   delete pEventData;

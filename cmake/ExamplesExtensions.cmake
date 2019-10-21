@@ -25,18 +25,15 @@ function(CreateExampleTarget)
     message(FATAL_ERROR "CreateExampleTarget: PARSED_EXAMPLE_SOURCES must contain the sources of the application")
   endif()
   
-  if(NOT PARSED_ADDITIONAL_LIBRARIES)
-    
-  else()
-    
-  endif()
-  #if(NOT PARSED_COMPONENTS)
-  #  message(FATAL_ERROR "CreateLibraryTarget: COMPONENTS must contain the list of group names")
-  #endif()
+
 
 
   add_executable(${PARSED_EXAMPLE_NAME} ${PARSED_EXAMPLE_SOURCES})
-  target_link_libraries(${PARSED_EXAMPLE_NAME} ssbl::ssbl)
+  if(NOT PARSED_ADDITIONAL_LIBRARIES)
+    target_link_libraries(${PARSED_EXAMPLE_NAME} ssbl::ssbl)
+  else()
+    target_link_libraries(${PARSED_EXAMPLE_NAME} ssbl::ssbl ${PARSED_ADDITIONAL_LIBRARIES})
+  endif()
   set_target_properties (${PARSED_EXAMPLE_NAME} PROPERTIES FOLDER ${PARSED_VS_SOLUTION_NAME})
 
 endfunction()

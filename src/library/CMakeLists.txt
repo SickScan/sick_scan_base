@@ -77,6 +77,15 @@ ComponentSources(
 )
 
 ComponentSources(
+  NAME SoftwarePLL
+  PATH Components/SoftwarePLL
+  SOURCES 
+  SoftwarePLL.cpp
+)
+
+
+
+ComponentSources(
   NAME Core_Sensor
   PATH Components/Core/Sensor
   SOURCES 
