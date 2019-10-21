@@ -42,7 +42,7 @@ Presumably it is not required that your system matches the versions given above 
 Fetch the source and change into the newly created folder.
 ```powershell
 git clone https://github.com/SickScan/sick_scan_base.git
-```
+
 mkdir sick_scan_base/build
 cd sick_scan_base/build
 ```
