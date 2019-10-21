@@ -5,108 +5,104 @@
 
 SSBL is a standalone C++ library to interface with SICK AG Lidar. Currently, SSBL can be built on Windows 10 and Ubuntu 18.04 using a variety of toolchains.  
 
+# Content
 
-## Content
-
-1. [Getting Started on Windows](#Getting-Started-(Windows-10))
-1. [Getting Started on Linux](#Getting-Started-(Ubuntu-18.04))
+1. [Getting Started](#Getting-Started)
+    1. [Prerequisites](#Prerequisites)
+    2. [Obtain the source code](#Obtain-the-source-code)
+    3. [Create a build directory](#Create-a-build-directory)
+    4. [Configure, Build and Install](#Configure,-Build-and-Install)
+        1. [Windows](Windows,-Visual-Studio-2015,17,19-IDE,-MSBuild,-and-Visual-C++-or-LLVM-Compiler)
+        2. [Linux](Linux,-No-IDE,-Ninja,-GCC)
 2. [Using SSBL](#Using-SSBL)
   1. [API](#API)
   2. [Library naming conventions](#Library-naming-conventions)
 3. [Licensing](#Licensing)  
 
 
+# Getting Started
 
-## Getting Started
-
-### Prerequisites
+## Prerequisites
 
 Install the required tools:
 
-* [Git](https://git-scm.com/download/win)
+* [Git >=2.17.1](https://git-scm.com/download/win)
 * [CMake >= 3.10](https://cmake.org/download)
-* A Compiler / IDE of your choice (see table below). Plain VS2019 with it's built-in Visual C++ 14.2 or flavored with LLVM is recommended.
+* [Ninja >= 1.8.2](https://ninja-build.org) (only on Linux)
+  
+  ```powershell
+  # On Ubuntu these tools can be installed with: 
+  sudo apt install git cmake ninja-build
+  ```
+* On Linux [Visual Studio Code](https://code.visualstudio.com) 
+* On Windows [Visual Studio 2015, 2017 or 2019](https://visualstudio.microsoft.com)
 
-|                                   | Visual C++  14.2 | Visual C++  14.1 | Visual C++  14.0 | [LLVM](https://llvm.org) | [Mingw-w64](https://mingw-w64.org/doku.php) |
-|--------------------------------------|:----------------:|:----------------:|:----------------:|:------:|:-----------:|
-| [Visual Studio 2019 Community Edition](https://visualstudio.microsoft.com) |         o        |         o        |         o        |   o  |     x     |
-| [Visual Studio 2017 Community Edition](https://visualstudio.microsoft.com)  |         x        |         o        |         o        |   [Plugin](https://marketplace.visualstudio.com/items?itemName=LLVMExtensions.llvm-toolchain)  |     x     |
-| [Visual Studio 2015 Community Edition](https://visualstudio.microsoft.com)  |         x        |         x        |         o        |   x  |     x     |
+Presumably it is not required that your system matches the versions given above perfectly. Those are the version that we currently (Oct. '19) use on Ubuntu 18.04 . 
 
-
-
-o = Built-in or available via plugin | x = not supported     
-*Some notes on [VS2019 + LLVM](https://devblogs.microsoft.com/cppblog/clang-llvm-support-in-visual-studio) and [VS2017 + LLVM](https://marketplace.visualstudio.com/items?itemName=LLVMExtensions.llvm-toolchain) can be found here.*
-
-
-### Obtain the source and build
+## Obtain the source code
 Fetch the source and change into the newly created folder.
 ```powershell
 git clone https://github.com/SickScan/sick_scan_base.git
+```
+## Create a build directory
+```powershell
 mkdir sick_scan_base/build
 cd sick_scan_base/build
 ```
 
-### Configuration when using Visual Studio IDE 2015, 2017 or 2019 
-Call cmake to generate a project matching your favorite IDE / Compiler. 
+## Configure, Build and Install
+CMake is a meta-build system to generate native build system files (MSBuild, ninja, make, etc.). Building CMake projects usually involves two / three steps:
+1. A configuration step, in which CMake generates build files for the native build system
+2. A build step, in which the native build system is called and the binaries are created
+3. An optional installation step in which binaries, headers and other files are copied to a user defined installation directory
+
+Unfortunatelly, CMake is not able to fully abstract the underlying native build system. Therefore, configuration parameters and steps vary slightly between OS / Build System / Compiler. The following sequences will build the library in debug and release mode and install the library in ``sick_scan_base/build/install``.
+
+### Windows, Visual Studio 2015,17,19 IDE, MSBuild, and Visual C++ or LLVM Compiler
+
+1. Configure the project, architecture is set up at configuration time
+
 ```powershell
 # 64 Bit builds
-cmake -G"Visual Studio 16 2019" -A"x64"            -DCMAKE_INSTALL_PREFIX=. ..
-cmake -G"Visual Studio 15 2017 Win64"              -DCMAKE_INSTALL_PREFIX=. ..
-cmake -G"Visual Studio 14 2015 Win64"              -DCMAKE_INSTALL_PREFIX=. ..
-cmake -G"Visual Studio 16 2019" -A"x64" -T"llvm"   -DCMAKE_INSTALL_PREFIX=. ..  
+cmake -G"Visual Studio 16 2019" -A"x64"            -DCMAKE_INSTALL_PREFIX=./install ..
+cmake -G"Visual Studio 15 2017 Win64"              -DCMAKE_INSTALL_PREFIX=./install ..
+cmake -G"Visual Studio 14 2015 Win64"              -DCMAKE_INSTALL_PREFIX=./install ..
+cmake -G"Visual Studio 16 2019" -A"x64" -T"llvm"   -DCMAKE_INSTALL_PREFIX=./install ..  
 
 # 32 Bit builds
-cmake -G"Visual Studio 16 2019" -A"Win32"          -DCMAKE_INSTALL_PREFIX=. .. 
-cmake -G"Visual Studio 15 2017"                    -DCMAKE_INSTALL_PREFIX=. .. 
-cmake -G"Visual Studio 14 2015"                    -DCMAKE_INSTALL_PREFIX=. .. 
-cmake -G"Visual Studio 16 2019" -A"Win32" -T"llvm" -DCMAKE_INSTALL_PREFIX=. .. 
+cmake -G"Visual Studio 16 2019" -A"Win32"          -DCMAKE_INSTALL_PREFIX=./install .. 
+cmake -G"Visual Studio 15 2017"                    -DCMAKE_INSTALL_PREFIX=./install .. 
+cmake -G"Visual Studio 14 2015"                    -DCMAKE_INSTALL_PREFIX=./install .. 
+cmake -G"Visual Studio 16 2019" -A"Win32" -T"llvm" -DCMAKE_INSTALL_PREFIX=./install .. 
 ```
-### Build and Install the project
+2. Build and install the library in debug and release mode
 ```powershell
 cmake --build . --target install --config Debug
 cmake --build . --target install --config Release
 ````
 
-### Configuration when using Visual Studio Code, Ninja and GCC 
+### Linux, No IDE, Ninja, GCC
 
+1. Configure the project, architecture and build mode is set up at configuration time
 ```console
-
 # 64 Bit builds
-
-cmake -G"Ninja" -DCMAKE_INSTALL_PREFIX=. .. 
-
+cmake -G"Ninja" -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=. .. 
 # 32 Bit builds
-cmake -G"Ninja" -DSSBL_32BIT -DCMAKE_INSTALL_PREFIX=. ..  
+cmake -G"Ninja" -DSSBL_32BIT -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=. ..  
 ```
-
-
-### Build and Install the project
+2. Build and install the library
 ```powershell
-cmake --build . --target install --config Debug
-cmake --build . --target install --config Release
-```
-
-
-
-
-
-### Prerequisites
-
-Install the required tools:
-
-```console
-sudo apt-get install cmake git ninja-build build-essential default-jdk
-```
-
-### Obtain the source and build
-```console
-git clone https://github.com/SickScan/sick_scan_base.git
-mkdir sick_scan_base/build
-cd sick_scan_base/build
-cmake -G"Eclipse CDT4 - Ninja" -DCMAKE_BUILD_TYPE=Debug ../src
 cmake --build . --target install
-cmake -G"Eclipse CDT4 - Ninja" -DCMAKE_BUILD_TYPE=Release ../src
+```
+3. Reconfigure the project to be build in release mode 
+```console
+# 64 Bit builds
+cmake -G"Ninja" -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=. .. 
+# 32 Bit builds
+cmake -G"Ninja" -DSSBL_32BIT -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=. ..  
+```
+4. Build and install the library
+```powershell
 cmake --build . --target install
 ```
 
@@ -136,9 +132,6 @@ The library employs the following naming scheme:
  │       └── Target OS (Windows, Linux)
  └── Sick Scan Base Library
  ```
-
-
-
 
 ## Licensing
 
