@@ -1,3 +1,3 @@
-add_subdirectory(library)
+add_subdirectory(Library)
 add_subdirectory(ThirdParty)
-add_subdirectory(examples)
+add_subdirectory(Examples)
