@@ -1,5 +1,5 @@
 cmake_minimum_required (VERSION 3.10)
-project(ssbl)
+project(ssbl VERSION 0.0.2)
 
 
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${TOP_DIR}/cmake")

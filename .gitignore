@@ -1,5 +1,6 @@
 build
 install
 src/generator
+src/Library/include/VersionInfo.h
 src/.vscode
 backlog/doc/~$coordinate_definition.pptx

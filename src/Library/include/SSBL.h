@@ -8,3 +8,4 @@
 #include "API/Skeleton/include/SickSkeletonFactory.h"
 #include "API/Skeleton/include/TiM5xxSkeleton/TiM5xxSkeleton.h"
 #include "Core/OS/include/Time.h"
+#include "VersionInfo.h"
