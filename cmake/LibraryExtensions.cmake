@@ -264,7 +264,10 @@ function(CreateLibraryTarget)
   set_target_properties(${PARSED_SSBL_BASE_NAME} PROPERTIES RELEASE_POSTFIX "-rel")
   set_target_properties(${PARSED_SSBL_BASE_NAME} PROPERTIES PREFIX "")
 
-
+  
+  configure_file(${PROJECT_SOURCE_DIR}/../../cmake/VersionInfo.h.in ${CMAKE_CURRENT_SOURCE_DIR}/include/VersionInfo.h)
+  
+  
   set(SSBL_INSTALL_DIR "${CMAKE_INSTALL_PREFIX}")
   
   get_filename_component(SSBL_INSTALL_DIR ${SSBL_INSTALL_DIR} ABSOLUTE)
