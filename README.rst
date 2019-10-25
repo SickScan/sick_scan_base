@@ -65,8 +65,8 @@ Install the required tools:
     # On Ubuntu these tools can be installed with:
     sudo apt install git cmake ninja-build
   
-* On Linux [Visual Studio Code](https://code.visualstudio.com)
-* On Windows [Visual Studio 2015, 2017 or 2019](https://visualstudio.microsoft.com)
+* On Linux `Visual Studio Code <https://code.visualstudio.com>`_
+* On Windows `Visual Studio 2015, 2017 or 2019 <https://visualstudio.microsoft.com>`_
 
 Presumably it is not required that your system matches the versions given above perfectly. Those are the version that we currently (Oct. '19) use on Ubuntu 18.04 .
 
