@@ -291,6 +291,16 @@ function(CreateLibraryTarget)
   target_compile_options(${PARSED_SSBL_BASE_NAME} PRIVATE "$<$<CONFIG:RELEASE>:${RELEASE_FLAGS}>")
   target_link_libraries(${PARSED_SSBL_BASE_NAME}  INTERFACE ${ADDITIONAL_LIBS} )
 
+  # CMake 3.10 does not support this yet
+  if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+    if("${SSBL_32BIT}" )
+      target_link_libraries(${PARSED_SSBL_BASE_NAME} INTERFACE "-m32")   
+  #    target_link_options(${PARSED_SSBL_BASE_NAME} PRIVATE "$<$<CONFIG:DEBUG>:-m elf_i386}>")
+  #    target_link_options(${PARSED_SSBL_BASE_NAME} PRIVATE "$<$<CONFIG:RELEASE>:-m elf_i386>")	
+    endif()
+  
+  endif()
+	
   set(SSBL_INSTALL_CONFIG_DIR ${SSBL_INSTALL_DIR}/cmake)
 
   # Add an install target

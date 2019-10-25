@@ -27,7 +27,6 @@ function(CreateExampleTarget)
   
 
 
-
   add_executable(${PARSED_EXAMPLE_NAME} ${PARSED_EXAMPLE_SOURCES})
   if(NOT PARSED_ADDITIONAL_LIBRARIES)
     target_link_libraries(${PARSED_EXAMPLE_NAME} ssbl::ssbl)
@@ -35,6 +34,29 @@ function(CreateExampleTarget)
     target_link_libraries(${PARSED_EXAMPLE_NAME} ssbl::ssbl ${PARSED_ADDITIONAL_LIBRARIES})
   endif()
   set_target_properties (${PARSED_EXAMPLE_NAME} PROPERTIES FOLDER ${PARSED_VS_SOLUTION_NAME})
+
+  
+
+  if (WIN32)
+    if(MSVC)
+
+    else()
+    endif()
+  else()
+    if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+      if("${SSBL_32BIT}" )
+ 	target_compile_options(${PARSED_EXAMPLE_NAME} PRIVATE "$<$<CONFIG:DEBUG>:-m32>")
+  	target_compile_options(${PARSED_EXAMPLE_NAME} PRIVATE "$<$<CONFIG:RELEASE>:-m32>")
+
+      else()
+ 	target_compile_options(${PARSED_EXAMPLE_NAME} PRIVATE "$<$<CONFIG:DEBUG>:-m64>")
+  	target_compile_options(${PARSED_EXAMPLE_NAME} PRIVATE "$<$<CONFIG:RELEASE>:-m64>")
+      endif()
+      
+    endif()
+  endif()
+ 
+
 
 endfunction()
 
