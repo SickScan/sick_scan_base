@@ -64,7 +64,10 @@ matrix:
 
     - image: Ubuntu1804
       arch_compiler: x64_mingw
-      
+
+install:
+    - sh: sudo apt-get install libc6-dev:i386
+
 init:
     - ps:  $env:buildType = "-DCMAKE_BUILD_TYPE=Release" 
     - ps: >-
