@@ -25,18 +25,18 @@
         </td>
       </tr>
     </table>
-    <p style="margin-bottom:1cm;"/p>
+    
     <img src="doc/img/SICK_Logo_Claim_RGB.png" align="right"  height="120"/>
+    <p style="margin-bottom:1cm;"/p>
   </embed>
 
-================================
+
 SICK AG Scan Base Library (SSBL)
 ================================
 
 **Experimental support for TiM5xx Family !!!**
 
 SSBL is a standalone C++ library to interface with SICK AG Lidar. Currently, SSBL can be built on Windows 10 and Ubuntu 18.04 using a variety of toolchains.  
-
 
 
 Content
