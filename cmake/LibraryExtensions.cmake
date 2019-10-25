@@ -272,6 +272,8 @@ function(CreateLibraryTarget)
   
   get_filename_component(SSBL_INSTALL_DIR ${SSBL_INSTALL_DIR} ABSOLUTE)
   
+  set(SSBL_INSTALL_DIR "${SSBL_INSTALL_DIR}/${PROJECT_NAME}-${PROJECT_VERSION}")
+  
   list(APPEND incdirs "${CMAKE_CURRENT_SOURCE_DIR}/Components" "${CMAKE_CURRENT_SOURCE_DIR}/include")
   
   target_include_directories(${PARSED_SSBL_BASE_NAME}
