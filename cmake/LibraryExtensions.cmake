@@ -243,7 +243,7 @@ function(CreateLibraryTarget)
   else()
       set(GENERAL_FLAGS "-Wall;-Wextra")
       if("${SSBL_32BIT}" )
-        set(GENERAL_FLAGS "${GENERAL_FLAGS} -m32")
+        set(GENERAL_FLAGS "${GENERAL_FLAGS};-m32")
       endif()
       
       set(DEBUG_FLAGS "-g3;-O0;${GENERAL_FLAGS}")
