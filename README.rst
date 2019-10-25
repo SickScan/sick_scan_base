@@ -1,6 +1,7 @@
 .. raw:: html
 
   <embed>
+    
 
     <table class="tg">
       <tr>
@@ -8,6 +9,7 @@
         <th class="tg-0pky">Ext. Link</th>
         <th class="tg-0pky">Documentation</th>
         <th class="tg-0pky">License</th>
+        <th class="tg-0pky" style='width: 100%;' rowspan="5"><img src="doc/img/SICK_Logo_Claim_RGB.png" align="right"  height="120"/></th>
       </tr>
       <tr>
         <td class="tg-0pky">
@@ -26,7 +28,7 @@
       </tr>
     </table>
     
-    <img src="doc/img/SICK_Logo_Claim_RGB.png" align="right"  height="120"/>
+    
     <p style="margin-bottom:1cm;"/p>
   </embed>
 
