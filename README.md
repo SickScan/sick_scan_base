@@ -1,9 +1,3 @@
-<img src="doc/img/SICK_Logo_Claim_RGB.png" align="right"  height="120"/>
-
-
-
-# SICK AG Scan Base Library (SSBL)
-
 <table class="tg">
   <tr>
     <th class="tg-0pky">Library</th>
@@ -22,6 +16,13 @@
     </td>
   </tr>
 </table>
+
+<img src="doc/img/SICK_Logo_Claim_RGB.png" align="right"  height="120"/>
+
+
+
+# SICK AG Scan Base Library (SSBL)
+
 
 ## About
 <b> Experimental support for TiM5xx Family !!! </b>
