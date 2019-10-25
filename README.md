@@ -1,9 +1,15 @@
+<img src="https://github.com/SickScan/sick_scan_base/tree/master/doc/img/SICK_Logo_Claim_RGB.png" align="right"  height="50"/>
+
 # SICK AG Scan Base Library (SSBL)
 [![Build status](https://ci.appveyor.com/api/projects/status/2jbep0ss21bh7jxe/branch/master?svg=true)](https://ci.appveyor.com/project/SickScan/sick-scan-base/branch/master)
 
 <b> Experimental support for TiM5xx Family !!! </b>
 
 SSBL is a standalone C++ library to interface with SICK AG Lidar. Currently, SSBL can be built on Windows 10 and Ubuntu 18.04 using a variety of toolchains.  
+
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+
+
 
 # Content
 
@@ -28,15 +34,15 @@ Install the required tools:
 * [Git >=2.17.1](https://git-scm.com/download/win)
 * [CMake >= 3.10](https://cmake.org/download)
 * [Ninja >= 1.8.2](https://ninja-build.org) (only on Linux)
-  
+
   ```powershell
-  # On Ubuntu these tools can be installed with: 
+  # On Ubuntu these tools can be installed with:
   sudo apt install git cmake ninja-build
   ```
-* On Linux [Visual Studio Code](https://code.visualstudio.com) 
+* On Linux [Visual Studio Code](https://code.visualstudio.com)
 * On Windows [Visual Studio 2015, 2017 or 2019](https://visualstudio.microsoft.com)
 
-Presumably it is not required that your system matches the versions given above perfectly. Those are the version that we currently (Oct. '19) use on Ubuntu 18.04 . 
+Presumably it is not required that your system matches the versions given above perfectly. Those are the version that we currently (Oct. '19) use on Ubuntu 18.04 .
 
 ## Obtain the source code
 Fetch the source and change into the newly created folder.
@@ -67,10 +73,10 @@ cmake -G"Visual Studio 14 2015 Win64"              -DCMAKE_INSTALL_PREFIX=./inst
 cmake -G"Visual Studio 16 2019" -A"x64" -T"llvm"   -DCMAKE_INSTALL_PREFIX=./install ..  
 
 # 32 Bit builds
-cmake -G"Visual Studio 16 2019" -A"Win32"          -DCMAKE_INSTALL_PREFIX=./install .. 
-cmake -G"Visual Studio 15 2017"                    -DCMAKE_INSTALL_PREFIX=./install .. 
-cmake -G"Visual Studio 14 2015"                    -DCMAKE_INSTALL_PREFIX=./install .. 
-cmake -G"Visual Studio 16 2019" -A"Win32" -T"llvm" -DCMAKE_INSTALL_PREFIX=./install .. 
+cmake -G"Visual Studio 16 2019" -A"Win32"          -DCMAKE_INSTALL_PREFIX=./install ..
+cmake -G"Visual Studio 15 2017"                    -DCMAKE_INSTALL_PREFIX=./install ..
+cmake -G"Visual Studio 14 2015"                    -DCMAKE_INSTALL_PREFIX=./install ..
+cmake -G"Visual Studio 16 2019" -A"Win32" -T"llvm" -DCMAKE_INSTALL_PREFIX=./install ..
 ```
 2. Build and install the library in debug and release mode
 ```powershell
@@ -83,7 +89,7 @@ cmake --build . --target install --config Release
 1. Configure the project, architecture and build mode is set up at configuration time
 ```console
 # 64 Bit builds
-cmake -G"Ninja" -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=./install .. 
+cmake -G"Ninja" -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=./install ..
 # 32 Bit builds
 cmake -G"Ninja" -DSSBL_32BIT -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=./install ..  
 ```
@@ -91,10 +97,10 @@ cmake -G"Ninja" -DSSBL_32BIT -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=./i
 ```powershell
 cmake --build . --target install
 ```
-3. Reconfigure the project to be build in release mode 
+3. Reconfigure the project to be build in release mode
 ```console
 # 64 Bit builds
-cmake -G"Ninja" -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=./install .. 
+cmake -G"Ninja" -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=./install ..
 # 32 Bit builds
 cmake -G"Ninja" -DSSBL_32BIT -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=./install ..  
 ```
