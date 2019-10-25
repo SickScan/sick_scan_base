@@ -137,7 +137,7 @@ Linux, No IDE, Ninja, GCC
   cmake -G"Ninja" -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=./install ..
   
   # 32 Bit builds
-  cmake -G"Ninja" -DSSBL_32BIT -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=./install ..  
+  cmake -G"Ninja" -DSSBL_32BIT=1 -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=./install ..  
 
 2. Build and install the library
 
