@@ -67,7 +67,7 @@ matrix:
 
 install:
     - sh: sudo apt-get update
-    - sh: sudo apt-get --assume-yes install libc6-dev:i386 
+    - sh: sudo apt-get --assume-yes install libc6-dev:i386  gcc-multilib g++-multilib
 
 init:
     - ps:  $env:buildType = "-DCMAKE_BUILD_TYPE=Release" 
