@@ -3,12 +3,6 @@
 
 
 # SICK AG Scan Base Library (SSBL)
-[![SSBL Build status](https://ci.appveyor.com/api/projects/status/2jbep0ss21bh7jxe/branch/master?svg=true)](https://ci.appveyor.com/project/SickScan/sick-scan-base/branch/master) (Lib)
-[![Example Build status](https://ci.appveyor.com/api/projects/status/7uy0pko38t6oot6i/branch/master?svg=true)](https://ci.appveyor.com/project/SickScan/sick-scan-base-link-example/branch/master) (App Link)
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-
-
-
 
 <table class="tg">
   <tr>
@@ -24,7 +18,7 @@
       <img src="https://ci.appveyor.com/api/projects/status/7uy0pko38t6oot6i/branch/master?svg=true"/>
     </td>
     <td class="tg-0pky">
-      <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg"/> 
+      <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg"/>
     </td>
   </tr>
 </table>
