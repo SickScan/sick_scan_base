@@ -6,6 +6,7 @@
       <tr>
         <th class="tg-0pky">Library</th>
         <th class="tg-0pky">Ext. Link</th>
+        <th class="tg-0pky">Documentation</th>
         <th class="tg-0pky">License</th>
       </tr>
       <tr>
@@ -15,6 +16,10 @@
         <td class="tg-0pky">
           <img src="https://ci.appveyor.com/api/projects/status/7uy0pko38t6oot6i/branch/master?svg=true"/>
         </td>
+        <td class="tg-0pky">
+          <img src="https://readthedocs.org/projects/sick-scan-documentation/badge/?version=latest"/>
+        </td>
+
         <td class="tg-0pky">
           <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg"/>
         </td>
