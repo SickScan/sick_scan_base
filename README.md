@@ -3,13 +3,16 @@
 
 
 # SICK AG Scan Base Library (SSBL)
-[![Build status](https://ci.appveyor.com/api/projects/status/2jbep0ss21bh7jxe/branch/master?svg=true)](https://ci.appveyor.com/project/SickScan/sick-scan-base/branch/master)
+[![Build status](https://ci.appveyor.com/api/projects/status/2jbep0ss21bh7jxe/branch/master?svg=true)](https://ci.appveyor.com/project/SickScan/sick-scan-base/branch/master) of SSBL (Windows 10, Ubuntu 18.04)
 
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+
+
+
+## About
 <b> Experimental support for TiM5xx Family !!! </b>
 
 SSBL is a standalone C++ library to interface with SICK AG Lidar. Currently, SSBL can be built on Windows 10 and Ubuntu 18.04 using a variety of toolchains.  
-
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 
 
