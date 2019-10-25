@@ -9,12 +9,7 @@
 
 
 
-<style type="text/css">
-.tg  {border-collapse:collapse;border-spacing:0;}
-.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
-.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
-.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
-</style>
+
 <table class="tg">
   <tr>
     <th class="tg-0pky">Library</th>
@@ -22,9 +17,15 @@
     <th class="tg-0pky">License</th>
   </tr>
   <tr>
-    <td class="tg-0pky"> <img src="https://ci.appveyor.com/api/projects/status/7uy0pko38t6oot6i/branch/master?svg=true"/> </td>
-    <td class="tg-0pky"></td>
-    <td class="tg-0pky"></td>
+    <td class="tg-0pky">
+      <img src="https://ci.appveyor.com/api/projects/status/2jbep0ss21bh7jxe/branch/master?svg=true"/>
+    </td>
+    <td class="tg-0pky">
+      <img src="https://ci.appveyor.com/api/projects/status/7uy0pko38t6oot6i/branch/master?svg=true"/>
+    </td>
+    <td class="tg-0pky">
+      <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg"/> 
+    </td>
   </tr>
 </table>
 
