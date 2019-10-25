@@ -1,4 +1,6 @@
-<img src="https://github.com/SickScan/sick_scan_base/tree/master/doc/img/SICK_Logo_Claim_RGB.png" align="right"  height="50"/>
+<img src="doc/img/SICK_Logo_Claim_RGB.png" align="right"  height="120"/>
+
+
 
 # SICK AG Scan Base Library (SSBL)
 [![Build status](https://ci.appveyor.com/api/projects/status/2jbep0ss21bh7jxe/branch/master?svg=true)](https://ci.appveyor.com/project/SickScan/sick-scan-base/branch/master)
