@@ -72,8 +72,9 @@ Install the required tools:
     # On Ubuntu these tools can be installed with:
     sudo apt install git cmake ninja-build
   
-* On Linux `Visual Studio Code <https://code.visualstudio.com>`_
-* On Windows `Visual Studio 2015, 2017 or 2019 <https://visualstudio.microsoft.com>`_
+- IDE  
+    - Linux `Visual Studio Code <https://code.visualstudio.com>`_
+    - Windows `Visual Studio 2015, 2017 or 2019 <https://visualstudio.microsoft.com>`_
 
 Presumably it is not required that your system matches the versions given above perfectly. Those are the version that we currently (Oct. '19) use on Ubuntu 18.04 .
 
@@ -163,6 +164,8 @@ Linux, No IDE, Ninja, GCC
 
 Further Reading
 ===============
+The full documentation can be found `here. <https://sick-scan-documentation.readthedocs.io/en/latest>`_
+
 
 
 
