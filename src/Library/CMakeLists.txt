@@ -152,7 +152,7 @@ message(STATUS "Will install SSBL to: ${CMAKE_INSTALL_PREFIX}")
 CreateLibraryTarget(
   SSBL_BASE_NAME 
     ssbl
-  COMPONENTS
+  CORE_COMPONENTS
     SkeletonApi
     FamilyApiLidar2D
     AutoIp

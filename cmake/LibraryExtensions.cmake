@@ -100,101 +100,16 @@ endfunction()
 
 
 #######################################################################################################
-# CreateLibraryTarget(
-#   SSBL_BASE_NAME
-#   SSBL_INSTALL_DIR
-#   COMPONENTS [componentName1, componentName2, ...]
-#   [SOURCES [sourcesName1, sourcesName2, ...]]
-#   [FILE_SOURCES [fileSourcePath1, fileSourcePath2, ...]]
-# )
-#
-# Adds a library using add_library for the bundle library sources
-#  and a library using add_library for the unittest sources (contains only files from ComponentSources(UNITTESTS) macro.
-#
-# Output file for windows:
-# - ${PARSED_NAME}.${CMAKE_TARGET_NAME}.${CMAKE_BUILD_TYPE}.lib
-# - lib${PARSED_NAME}.a (currently, might change in future to also contain target name and build type)
-#
-# Should be used after ComponentSources() and Sources() macro to automatically add them to the library
-#   by specifying their name in the COMPONENTS or SOURCES list argument.
-# Additionally more sources files can be added using FILE_SOURCES argument.
-#
-# Source groups are automatically created for visual studio.
-#
-#
-# There are following variables set to parent scope to be used in the CMakeLists.txt:
-# - PARSED_SSBL_BASE_NAME: The generated name of the library to be used in target_link_libraries()
-# - LIBRARY_SOURCE_LIST + LIBRARY_SOURCE_UNITTEST_LIST: The lists for the source to e.g. force c++ compilation afterwards
 #######################################################################################################
-function(CreateLibraryTarget)
-  set(options)
-  set(oneValueArgs SSBL_BASE_NAME)
-  set(multiValueArgs COMPONENTS)
-  cmake_parse_arguments(PARSED "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
-
-  if(NOT PARSED_SSBL_BASE_NAME)
-    message(FATAL_ERROR "CreateLibraryTarget: PARSED_SSBL_BASE_NAME must contain the name of the library")
-  endif()
-
-
-  
-  if(NOT PARSED_COMPONENTS)
-    message(FATAL_ERROR "CreateLibraryTarget: COMPONENTS must contain the list of group names")
-  endif()
-
-  if(PARSED_UNPARSED_ARGUMENTS)
-    message(FATAL_ERROR "Unknown arguments given to CreateLibraryTarget(): \"${PARSED_UNPARSED_ARGUMENTS}\"")
-  endif()
-
-  set_property(GLOBAL PROPERTY USE_FOLDERS ON)
-
-  foreach(ComponentName ${PARSED_COMPONENTS})
-    set(COMPONENT_SOURCES_VARIABLE COMPONENT_SOURCES_${ComponentName})
-    set(COMPONENT_HEADERS_VARIABLE COMPONENT_HEADERS_${ComponentName})
-    list(APPEND SourceListInternal "${${COMPONENT_SOURCES_VARIABLE}}" "${${COMPONENT_HEADERS_VARIABLE}}")
-  endforeach()
-  
-  foreach(SetName ${PARSED_SOURCES})
-    set(SOURCES_VARIABLE SOURCES_${SetName})
-    set(HEADERS_VARIABLE HEADERS_${SetName})
-    set(EXTERNAL_SOURCES_VARIABLE EXTERNAL_SOURCES_${SetName})
-    set(EXTERNAL_HEADERS_VARIABLE EXTERNAL_HEADERS_${SetName})
-    list(APPEND SourceListInternal "${${SOURCES_VARIABLE}}" "${${HEADERS_VARIABLE}}" "${${EXTERNAL_SOURCES_VARIABLE}}" "${${EXTERNAL_HEADERS_VARIABLE}}")
-  endforeach()
-  
-  # Create source groups for Visual Studio
-  if(MSVC)
-    if(SourceListInternal)
-      CreateSourceGroupsVS(SOURCES ${SourceListInternal})
-    endif()
-  endif()
-
-  # Append other source files
-  foreach(SourcePath ${PARSED_FILE_SOURCES})
-    list(APPEND SourceListInternal ${SourcePath})
-  endforeach()
-
-  # Add headers from the include-folder to source groups
-  
-  get_filename_component(ComponentPathAbsolute "${PROJECT_SOURCE_DIR}/include" REALPATH)
-  file(GLOB_RECURSE ComponentHeadersAbs RELATIVE "${PROJECT_SOURCE_DIR}" "${ComponentPathAbsolute}/*.h" "${ComponentPathAbsolute}/*.hpp")
-  file(GLOB_RECURSE ComponentHeadersList RELATIVE "${ComponentPathAbsolute}" "${ComponentPathAbsolute}/*.h" "${ComponentPathAbsolute}/*.hpp")
-  if(MSVC)  
-    if(ComponentHeadersList)
-      CreateSourceGroupsVS(SOURCES ${ComponentHeadersList} CATEGORY "include")
-    endif()
-    list(APPEND SourceListInternal ${ComponentHeadersAbs})
-  endif()
-
+function(GetFullLibraryName BASE_NAME LIBRARY_FILE_NAME)
   if (WIN32)
-  
     #only native builds at the moment
     set(SSBL_TARGET_OS "windows")  
     if(MSVC)
       if(NOT "${CMAKE_GENERATOR}" MATCHES "(Win64|IA64)")
-        set(TARGET_ARCHITECTURE "i386")
+        set(TARGET_ARCHITECTURE_NAME "i386")
       else()
-        set(TARGET_ARCHITECTURE "x86_64")
+        set(TARGET_ARCHITECTURE_NAME "x86_64")
       endif()
     
       if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
@@ -207,7 +122,7 @@ function(CreateLibraryTarget)
         message(FATAL_ERROR "Visual Studio builds with ${CMAKE_CXX_COMPILER_ID} are not supported")
       endif()  
     else()    
-      set(TARGET_ARCHITECTURE "x86_64")
+      set(TARGET_ARCHITECTURE_NAME "x86_64")
       set(COMPILER_SUFFIX "mingw")
       set(COMPILER_VERSION ${CMAKE_CXX_COMPILER_VERSION})
     endif()
@@ -216,18 +131,22 @@ function(CreateLibraryTarget)
     set(SSBL_TARGET_OS "linux")  
   
     if("${SSBL_32BIT}" )
-      set(TARGET_ARCHITECTURE "i386")
+      set(TARGET_ARCHITECTURE_NAME "i386")
     else()
-      set(TARGET_ARCHITECTURE "x86_64")
+      set(TARGET_ARCHITECTURE_NAME "x86_64")
     endif()  
     if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
        set(COMPILER_SUFFIX "gcc")
       set(COMPILER_VERSION ${CMAKE_CXX_COMPILER_VERSION})  
     endif()
   endif()
-  
-  set(LIBRARY_FILE_NAME "${PARSED_SSBL_BASE_NAME}-${SSBL_TARGET_OS}-${TARGET_ARCHITECTURE}-${COMPILER_SUFFIX}-${COMPILER_VERSION}")
+  set(LIBRARY_FILE_NAME "${BASE_NAME}-${SSBL_TARGET_OS}-${TARGET_ARCHITECTURE_NAME}-${COMPILER_SUFFIX}-${COMPILER_VERSION}" PARENT_SCOPE)
+endfunction()
 
+#######################################################################################################
+#######################################################################################################
+function(GetLibraryCompileLinkFlags LIB_DBG_FLAGS, LIB_REL_FLAGS, LIB_DEPENDENS)
+  
   if (WIN32)
     if(MSVC)
       set(GENERAL_FLAGS "/Z7;-D_CRT_SECURE_NO_WARNINGS")
@@ -250,33 +169,58 @@ function(CreateLibraryTarget)
       set(RELEASE_FLAGS "-g;-O2;${GENERAL_FLAGS}")
       set(ADDITIONAL_LIBS "-lpthread -lrt")
   endif()
+  
+  set(LIB_DBG_FLAGS  ${DEBUG_FLAGS} PARENT_SCOPE)
+  set(LIB_REL_FLAGS ${RELEASE_FLAGS} PARENT_SCOPE)
+  set(LIB_DEPENDENS ${ADDITIONAL_LIBS} PARENT_SCOPE)
+  
+endfunction()
 
 
-  # Create libraries
-  add_library(${PARSED_SSBL_BASE_NAME} STATIC ${SourceListInternal})
-  set_target_properties(${PARSED_SSBL_BASE_NAME} PROPERTIES OUTPUT_NAME ${LIBRARY_FILE_NAME})
-  set_target_properties (${PARSED_SSBL_BASE_NAME} PROPERTIES FOLDER Library)
+#######################################################################################################
+#######################################################################################################
+function(CreateLibraryTargetInternal)
+  set(options)
+  set(oneValueArgs    SSBL_BASE_NAME COMPONENT_NAME TARGET_NAME LIBRARY_BIN_NAME BUILD_MODE)
+  set(multiValueArgs  CORE_COMPONENTS SENSOR_SKELETONS)
+  cmake_parse_arguments(PARSED "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
 
-  
-  add_library(ssbl::ssbl ALIAS ${PARSED_SSBL_BASE_NAME} )
-  
-  set_target_properties(${PARSED_SSBL_BASE_NAME} PROPERTIES DEBUG_POSTFIX "-dbg")
-  set_target_properties(${PARSED_SSBL_BASE_NAME} PROPERTIES RELEASE_POSTFIX "-rel")
-  set_target_properties(${PARSED_SSBL_BASE_NAME} PROPERTIES PREFIX "")
+  if(NOT PARSED_SSBL_BASE_NAME)
+    message(FATAL_ERROR "CreateLibraryTargetInternal: PARSED_SSBL_BASE_NAME must contain the name of the library")
+  endif()
 
+  if(NOT PARSED_COMPONENT_NAME)
+    message(FATAL_ERROR "CreateLibraryTargetInternal: PARSED_COMPONENT_NAME has to be set")
+  endif()
   
-  configure_file(${PROJECT_SOURCE_DIR}/../../cmake/VersionInfo.h.in ${CMAKE_CURRENT_SOURCE_DIR}/include/VersionInfo.h)
+  if(NOT PARSED_TARGET_NAME)
+    message(FATAL_ERROR "CreateLibraryTargetInternal: PARSED_TARGET_NAME has to be set")
+  endif()
   
+  if(NOT PARSED_BUILD_MODE)
+    message(FATAL_ERROR "CreateLibraryTargetInternal: PARSED_BUILD_MODE must be either STATIC or SHARED")
+  endif()
+
+  if(NOT PARSED_LIBRARY_BIN_NAME)
+    message(FATAL_ERROR "CreateLibraryTargetInternal: PARSED_LIBRARY_BIN_NAME has to be set")
+  endif()
   
-  set(SSBL_INSTALL_DIR "${CMAKE_INSTALL_PREFIX}")
+  add_library(${PARSED_TARGET_NAME} ${PARSED_BUILD_MODE} ${SourceListInternal})
+  set_target_properties(${PARSED_TARGET_NAME} PROPERTIES OUTPUT_NAME ${PARSED_LIBRARY_BIN_NAME})
+  set_target_properties (${PARSED_TARGET_NAME} PROPERTIES FOLDER Library)
   
-  get_filename_component(SSBL_INSTALL_DIR ${SSBL_INSTALL_DIR} ABSOLUTE)
-  
-  set(SSBL_INSTALL_DIR "${SSBL_INSTALL_DIR}/${PROJECT_NAME}-${PROJECT_VERSION}")
-  
-  list(APPEND incdirs "${CMAKE_CURRENT_SOURCE_DIR}/Components" "${CMAKE_CURRENT_SOURCE_DIR}/include")
-  
-  target_include_directories(${PARSED_SSBL_BASE_NAME}
+  #ALIAS
+  if ("${PARSED_BUILD_MODE}" STREQUAL "STATIC")
+    add_library(ssbl::${PARSED_COMPONENT_NAME}::static ALIAS ${PARSED_TARGET_NAME} )
+  else()
+    add_library(ssbl::${PARSED_COMPONENT_NAME}::shared ALIAS ${PARSED_TARGET_NAME} )
+  endif()
+
+  set_target_properties(${PARSED_TARGET_NAME} PROPERTIES DEBUG_POSTFIX "-dbg")
+  set_target_properties(${PARSED_TARGET_NAME} PROPERTIES RELEASE_POSTFIX "-rel")
+  set_target_properties(${PARSED_TARGET_NAME} PROPERTIES PREFIX "")
+
+  target_include_directories(${PARSED_TARGET_NAME}
     PUBLIC
         $<INSTALL_INTERFACE:${SSBL_INSTALL_DIR}/include>
         "$<BUILD_INTERFACE:${incdirs}>"
@@ -284,28 +228,27 @@ function(CreateLibraryTarget)
         ${CMAKE_CURRENT_SOURCE_DIR}/src)
   
   if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
-    target_compile_options(${PARSED_SSBL_BASE_NAME} PRIVATE "$<$<COMPILE_LANGUAGE:CXX>:-std=c++11>" ) 
+    target_compile_options(${PARSED_TARGET_NAME} PRIVATE "$<$<COMPILE_LANGUAGE:CXX>:-std=c++11>" ) 
   endif()
 
-  target_compile_options(${PARSED_SSBL_BASE_NAME} PRIVATE "$<$<CONFIG:DEBUG>:${DEBUG_FLAGS}>")
-  target_compile_options(${PARSED_SSBL_BASE_NAME} PRIVATE "$<$<CONFIG:RELEASE>:${RELEASE_FLAGS}>")
-  target_link_libraries(${PARSED_SSBL_BASE_NAME}  INTERFACE ${ADDITIONAL_LIBS} )
+  target_compile_options(${PARSED_TARGET_NAME} PRIVATE "$<$<CONFIG:DEBUG>:${LIB_DBG_FLAGS}>")
+  target_compile_options(${PARSED_TARGET_NAME} PRIVATE "$<$<CONFIG:RELEASE>:${LIB_REL_FLAGS}>")
+  target_link_libraries(${PARSED_TARGET_NAME}  PRIVATE ${LIB_DEPENDENS} )
 
-  # CMake 3.10 does not support this yet
-  if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
-    if("${SSBL_32BIT}" )
-      target_link_libraries(${PARSED_SSBL_BASE_NAME} INTERFACE "-m32")   
-  #    target_link_options(${PARSED_SSBL_BASE_NAME} PRIVATE "$<$<CONFIG:DEBUG>:-m elf_i386}>")
-  #    target_link_options(${PARSED_SSBL_BASE_NAME} PRIVATE "$<$<CONFIG:RELEASE>:-m elf_i386>")	
+    # CMake 3.10 does not support this yet
+    if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+      if("${SSBL_32BIT}" )
+        target_link_libraries(${PARSED_TARGET_NAME} INTERFACE "-m32")   
+      endif()
+    
     endif()
-  
-  endif()
-	
-  set(SSBL_INSTALL_CONFIG_DIR ${SSBL_INSTALL_DIR}/cmake)
+
+  ## Installing
 
   # Add an install target
-  install(TARGETS ${PARSED_SSBL_BASE_NAME}
+  install(TARGETS ${PARSED_TARGET_NAME}
       EXPORT ${PARSED_SSBL_BASE_NAME}-export
+      RUNTIME DESTINATION ${SSBL_INSTALL_DIR}/bin
       LIBRARY DESTINATION ${SSBL_INSTALL_DIR}/lib
       ARCHIVE DESTINATION ${SSBL_INSTALL_DIR}/lib
       PUBLIC_HEADER DESTINATION ${SSBL_INSTALL_DIR}/include
@@ -321,7 +264,7 @@ function(CreateLibraryTarget)
     DESTINATION
       ${SSBL_INSTALL_CONFIG_DIR}
   )
-  
+
   #fill config and copy to out
   configure_package_config_file(${PROJECT_SOURCE_DIR}/../../cmake/${PARSED_SSBL_BASE_NAME}Config.cmake.in #in
       ${CMAKE_CURRENT_BINARY_DIR}/${PARSED_SSBL_BASE_NAME}Config.cmake #tmp
@@ -355,9 +298,119 @@ function(CreateLibraryTarget)
       install(FILES ${Header} DESTINATION ${SSBL_INSTALL_DIR}/include/${LDIROUT})
     endif()
   endforeach()
+    
+
+endfunction()
+
+
+
+
+
+#######################################################################################################
+#######################################################################################################
+function(CreateLibraryTarget)
+  set(options)
+  set(oneValueArgs    SSBL_BASE_NAME)
+  set(multiValueArgs  CORE_COMPONENTS SENSOR_SKELETONS)
+  cmake_parse_arguments(PARSED "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
+
+  if(NOT PARSED_SSBL_BASE_NAME)
+    message(FATAL_ERROR "CreateLibraryTarget: PARSED_SSBL_BASE_NAME must contain the name of the library")
+  endif()
   
-  set(CMAKE_EXPORT_PACKAGE_REGISTRY ON)
-  export(PACKAGE ssbl)
+  if(NOT PARSED_CORE_COMPONENTS)
+    message(FATAL_ERROR "CreateLibraryTarget: PARSED_CORE_COMPONENTS must not be empty")
+  endif()
+
+ # if(NOT PARSED_SENSOR_SKELETONS)
+ #   message(FATAL_ERROR "CreateLibraryTarget: PARSED_SENSOR_SKELETONS must not be empty")
+ # endif()
+
+  if(PARSED_UNPARSED_ARGUMENTS)
+    message(FATAL_ERROR "Unknown arguments given to CreateLibraryTarget(): \"${PARSED_UNPARSED_ARGUMENTS}\"")
+  endif()
+  
+  #==========================================
+  # GENERAL SETUP
+  # Needed for Visual Studio
+  set_property(GLOBAL PROPERTY USE_FOLDERS ON)
+  
+  # Install location
+  set(SSBL_INSTALL_DIR "${CMAKE_INSTALL_PREFIX}")
+  get_filename_component(SSBL_INSTALL_DIR ${SSBL_INSTALL_DIR} ABSOLUTE)
+  set(SSBL_INSTALL_DIR "${SSBL_INSTALL_DIR}/${PROJECT_NAME}-${PROJECT_VERSION}")
+  set(SSBL_INSTALL_CONFIG_DIR ${SSBL_INSTALL_DIR}/cmake)
+  
+  # Version Info 
+  configure_file(${PROJECT_SOURCE_DIR}/../../cmake/VersionInfo.h.in ${CMAKE_CURRENT_SOURCE_DIR}/include/VersionInfo.h)
+  
+  # Include Directories
+  list(APPEND incdirs "${CMAKE_CURRENT_SOURCE_DIR}/Components" "${CMAKE_CURRENT_SOURCE_DIR}/include")
+  
+
+  #==========================================
+  # CORE Library
+  foreach(ComponentName ${PARSED_CORE_COMPONENTS})
+    set(COMPONENT_SOURCES_VARIABLE COMPONENT_SOURCES_${ComponentName})
+    set(COMPONENT_HEADERS_VARIABLE COMPONENT_HEADERS_${ComponentName})
+    list(APPEND SourceListInternal "${${COMPONENT_SOURCES_VARIABLE}}" "${${COMPONENT_HEADERS_VARIABLE}}")
+  endforeach()
+  
+  # Create source groups for Visual Studio
+  if(MSVC)
+    if(SourceListInternal)
+      CreateSourceGroupsVS(SOURCES ${SourceListInternal})
+    endif()
+  endif()
+
+  # Add headers from the include-folder to source groups
+  get_filename_component(ComponentPathAbsolute "${PROJECT_SOURCE_DIR}/include" REALPATH)
+  file(GLOB_RECURSE ComponentHeadersAbs RELATIVE "${PROJECT_SOURCE_DIR}" "${ComponentPathAbsolute}/*.h" "${ComponentPathAbsolute}/*.hpp")
+  file(GLOB_RECURSE ComponentHeadersList RELATIVE "${ComponentPathAbsolute}" "${ComponentPathAbsolute}/*.h" "${ComponentPathAbsolute}/*.hpp")
+  if(MSVC)  
+    if(ComponentHeadersList)
+      CreateSourceGroupsVS(SOURCES ${ComponentHeadersList} CATEGORY "include")
+    endif()
+    list(APPEND SourceListInternal ${ComponentHeadersAbs})
+  endif()
+
+  # Add the core suffix
+  GetFullLibraryName(${PARSED_SSBL_BASE_NAME}-core LIBRARY_FILE_NAME)
+  GetLibraryCompileLinkFlags(LIB_DBG_FLAGS, LIB_REL_FLAGS, LIB_DEPENDENS)
+
+
+  CreateLibraryTargetInternal(
+    SSBL_BASE_NAME
+      ${PARSED_SSBL_BASE_NAME}
+    COMPONENT_NAME
+      core
+    TARGET_NAME
+      ${PARSED_SSBL_BASE_NAME}-static
+    LIBRARY_BIN_NAME
+      ${LIBRARY_FILE_NAME}-s
+    BUILD_MODE
+      STATIC
+  )
+  
+  CreateLibraryTargetInternal(
+    SSBL_BASE_NAME
+      ${PARSED_SSBL_BASE_NAME}
+    COMPONENT_NAME
+      core
+    TARGET_NAME
+      ${PARSED_SSBL_BASE_NAME}-dynamic
+    LIBRARY_BIN_NAME
+      ${LIBRARY_FILE_NAME}-d
+    BUILD_MODE
+      SHARED
+  )
+
+
+  
+
+  
+  #set(CMAKE_EXPORT_PACKAGE_REGISTRY ON)
+  #export(PACKAGE ssbl)
 
 endfunction()
 
