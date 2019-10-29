@@ -392,18 +392,20 @@ function(CreateLibraryTarget)
       STATIC
   )
   
-  CreateLibraryTargetInternal(
-    SSBL_BASE_NAME
-      ${PARSED_SSBL_BASE_NAME}
-    COMPONENT_NAME
-      core
-    TARGET_NAME
-      ${PARSED_SSBL_BASE_NAME}-dynamic
-    LIBRARY_BIN_NAME
-      ${LIBRARY_FILE_NAME}-d
-    BUILD_MODE
-      SHARED
-  )
+  # Do not create dynamic libs now, there's still 
+  # a lot of work to do to support this
+  #CreateLibraryTargetInternal(
+  #  SSBL_BASE_NAME
+  #    ${PARSED_SSBL_BASE_NAME}
+  #  COMPONENT_NAME
+  #    core
+  #  TARGET_NAME
+  #    ${PARSED_SSBL_BASE_NAME}-dynamic
+  #  LIBRARY_BIN_NAME
+  #    ${LIBRARY_FILE_NAME}-d
+  #  BUILD_MODE
+  #    SHARED
+  #)
 
 
   
