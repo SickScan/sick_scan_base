@@ -2,7 +2,9 @@ get_filename_component(SSBL_CMAKE_DIR "${CMAKE_CURRENT_LIST_FILE}" PATH)
 
 
 if(NOT TARGET ssbl::ssbl)
-    include("${SSBL_CMAKE_DIR}/ssblTargets.cmake")
+    include("${SSBL_CMAKE_DIR}/ssblautoipTargets.cmake")
+    include("${SSBL_CMAKE_DIR}/ssblbaseTargets.cmake")
+    include("${SSBL_CMAKE_DIR}/softwarepllTargets.cmake")
 endif()
 
 set(SSBL_LIBRARIES ssbl::ssbl)

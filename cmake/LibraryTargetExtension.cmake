@@ -223,7 +223,6 @@ function(CreateLibraryTargetInternal)
   
   GetFullLibraryName(${PARSED_BASE_NAME} ${PARSED_COMPONENT_NAME} ${PARSED_BUILD_MODE} LIBRARY_FILE_NAME)
   
-  message(STATUS "MM: ${LIBRARY_FILE_NAME}")
   
   add_library(${TARGET_NAME} ${PARSED_BUILD_MODE} ${PARSED_SOURCES})
   add_library(${ALIAS_TARGET_NAME} ALIAS ${TARGET_NAME} )
@@ -273,17 +272,26 @@ function(CreateLibraryTargetInternal)
   # Export install target
   install(EXPORT ${PARSED_BASE_NAME}-export
     FILE
-      ${PARSED_BASE_NAME}Targets.cmake
+      ${PARSED_BASE_NAME}${PARSED_COMPONENT_NAME}Targets.cmake
     NAMESPACE
       ${PARSED_SSBL_BASE_NAME}::
     DESTINATION
       ${SSBL_INSTALL_CONFIG_DIR}
   )
 
-  install(FILES
-      ${CMAKE_CURRENT_BINARY_DIR}/${PARSED_BASE_NAME}Config.cmake
-      DESTINATION ${SSBL_INSTALL_CONFIG_DIR}
-  )
+
+  if ("${PARSED_BASE_NAME}" STREQUAL "base")
+    #fill config and copy to out
+    configure_package_config_file(${TOP_DIR}/cmake/ssblConfig.cmake.in #in
+        ${CMAKE_CURRENT_BINARY_DIR}/ssblConfig.cmake #tmp
+        INSTALL_DESTINATION ${SSBL_INSTALL_CONFIG_DIR} #out
+    )
+    
+    install(FILES
+        ${CMAKE_CURRENT_BINARY_DIR}/ssblConfig.cmake
+        DESTINATION ${SSBL_INSTALL_CONFIG_DIR}
+    )
+  endif()
   
   get_filename_component(ComponentPathAbsolute "${PROJECT_SOURCE_DIR}/include" REALPATH)
 
@@ -346,7 +354,7 @@ function(CreateLibraryTarget)
   # Install location
   set(SSBL_INSTALL_DIR "${CMAKE_INSTALL_PREFIX}")
   get_filename_component(SSBL_INSTALL_DIR ${SSBL_INSTALL_DIR} ABSOLUTE)
-  set(SSBL_INSTALL_DIR "${SSBL_INSTALL_DIR}/${PROJECT_NAME}-${PROJECT_VERSION}")
+  set(SSBL_INSTALL_DIR "${SSBL_INSTALL_DIR}/${BASE_NAME}-${PROJECT_VERSION}")
   set(SSBL_INSTALL_CONFIG_DIR ${SSBL_INSTALL_DIR}/cmake)
   
 
