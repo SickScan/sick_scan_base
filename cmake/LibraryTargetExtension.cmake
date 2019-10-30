@@ -214,10 +214,10 @@ function(CreateLibraryTargetInternal)
   endif()
 
   if ("${PARSED_BUILD_MODE}" STREQUAL "STATIC")
-    set(TARGET_NAME "${PARSED_BASE_NAME}-static")
+    set(TARGET_NAME "${PARSED_BASE_NAME}-${PARSED_COMPONENT_NAME}-static")
     set(ALIAS_TARGET_NAME "${PARSED_BASE_NAME}::${PARSED_COMPONENT_NAME}::static")
   else()
-    set(TARGET_NAME "${PARSED_BASE_NAME}-shared")
+    set(TARGET_NAME "${PARSED_BASE_NAME}-${PARSED_COMPONENT_NAME}-shared")
     set(ALIAS_TARGET_NAME "${PARSED_BASE_NAME}::${PARSED_COMPONENT_NAME}::shared")
   endif()
   
