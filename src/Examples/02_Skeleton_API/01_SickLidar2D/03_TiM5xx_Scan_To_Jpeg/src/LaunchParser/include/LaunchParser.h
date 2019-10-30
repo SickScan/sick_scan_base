@@ -17,7 +17,6 @@
 #include "tinystr.h"
 #include "tinyxml.h"
 
-
 class LaunchParser {
  public:
   LaunchParser(){};

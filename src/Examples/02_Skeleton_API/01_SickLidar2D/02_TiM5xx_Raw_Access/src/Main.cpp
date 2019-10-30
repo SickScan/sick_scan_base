@@ -20,7 +20,6 @@
 #include <iostream>
 #include "SSBL.h"
 
-
 using namespace std;
 using namespace ssbl;
 using namespace DevTiM5xxSkeleton;

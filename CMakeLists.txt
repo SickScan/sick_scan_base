@@ -1,6 +1,9 @@
 cmake_minimum_required (VERSION 3.10)
 project(sick_scan_base VERSION 0.0.1 LANGUAGES CXX)
 
+set_property(GLOBAL PROPERTY USE_FOLDERS ON)
+set_property(GLOBAL PROPERTY PREDEFINED_TARGETS_FOLDER "CMakeGeneral")
+
 
 execute_process(COMMAND git rev-parse HEAD
   RESULT_VARIABLE

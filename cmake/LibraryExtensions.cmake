@@ -5,6 +5,8 @@
 include(CMakeParseArguments)
 include(CMakePackageConfigHelpers)
 
+
+
 #######################################################################################################
 # ComponentSources(
 #   NAME componentName
@@ -97,7 +99,6 @@ function(CreateSourceGroupsVS)
     source_group(${SourceGroupName} FILES ${SourceItemAbsolute})
   endforeach()
 endfunction()
-
 
 #######################################################################################################
 #######################################################################################################
@@ -205,7 +206,10 @@ function(CreateLibraryTargetInternal)
     message(FATAL_ERROR "CreateLibraryTargetInternal: PARSED_LIBRARY_BIN_NAME has to be set")
   endif()
   
+  
+    
   add_library(${PARSED_TARGET_NAME} ${PARSED_BUILD_MODE} ${SourceListInternal})
+
   set_target_properties(${PARSED_TARGET_NAME} PROPERTIES OUTPUT_NAME ${PARSED_LIBRARY_BIN_NAME})
   set_target_properties (${PARSED_TARGET_NAME} PROPERTIES FOLDER Library)
   
@@ -299,7 +303,6 @@ function(CreateLibraryTargetInternal)
     endif()
   endforeach()
     
-
 endfunction()
 
 
@@ -414,33 +417,14 @@ function(CreateLibraryTarget)
   #set(CMAKE_EXPORT_PACKAGE_REGISTRY ON)
   #export(PACKAGE ssbl)
 
+
+
+    
+
+
 endfunction()
 
-#######################################################################################################
-# CreateClangFormatTarget()
-#######################################################################################################
-function(CreateClangFormatTarget)
-  set(options)
-  set(oneValueArgs)
-  set(multiValueArgs SOURCES)
 
-  cmake_parse_arguments(PARSED "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
-
-  if(NOT PARSED_SOURCES)
-    message(FATAL_ERROR "CreateClangFormatTarget: PARSED_SOURCES must not be empty")
-  endif()
-
-  find_package(ClangFormat)
-
-  if(CLANG_FORMAT_FOUND)
-  add_custom_target(
-    BeautifyCode
-    COMMAND ${CLANG_FORMAT_EXECUTABLE} -style=file -i ${PARSED_SOURCES}  )
-  else()
-    message(STATUS "CreateClangFormatTarget: clang-format not found")
-    message(STATUS "CreateClangFormatTarget: Not creating target BeautifyCode")
-  endif()
-endfunction()
 
 
 
