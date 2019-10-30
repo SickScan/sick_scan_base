@@ -102,7 +102,17 @@ endfunction()
 
 #######################################################################################################
 #######################################################################################################
-function(GetFullLibraryName BASE_NAME LIBRARY_FILE_NAME)
+function(GetFullLibraryName BASE_NAME COMPONENT_NAME BUILD_MODE LIBRARY_FILE_NAME)
+  
+  if ("${BUILD_MODE}" STREQUAL "STATIC")
+    set(BUILD_MODE_SUFFIX "static")
+  elseif ("${BUILD_MODE}" STREQUAL "SHARED")
+    set(BUILD_MODE_SUFFIX "shared")
+  else()
+    message(FATAL_ERROR "Invalid build mode")
+  endif()
+  
+
   if (WIN32)
     #only native builds at the moment
     set(SSBL_TARGET_OS "windows")  
@@ -141,7 +151,7 @@ function(GetFullLibraryName BASE_NAME LIBRARY_FILE_NAME)
       set(COMPILER_VERSION ${CMAKE_CXX_COMPILER_VERSION})  
     endif()
   endif()
-  set(LIBRARY_FILE_NAME "${BASE_NAME}-${SSBL_TARGET_OS}-${TARGET_ARCHITECTURE_NAME}-${COMPILER_SUFFIX}-${COMPILER_VERSION}" PARENT_SCOPE)
+  set(LIBRARY_FILE_NAME "${BASE_NAME}-${COMPONENT_NAME}-${SSBL_TARGET_OS}-${TARGET_ARCHITECTURE_NAME}-${COMPILER_SUFFIX}-${COMPILER_VERSION}-${BUILD_MODE_SUFFIX}" PARENT_SCOPE)
 endfunction()
 
 #######################################################################################################
@@ -182,49 +192,50 @@ endfunction()
 #######################################################################################################
 function(CreateLibraryTargetInternal)
   set(options)
-  set(oneValueArgs    SSBL_BASE_NAME COMPONENT_NAME TARGET_NAME LIBRARY_BIN_NAME BUILD_MODE)
-  set(multiValueArgs  CORE_COMPONENTS SENSOR_SKELETONS)
+  set(oneValueArgs    BASE_NAME COMPONENT_NAME BUILD_MODE)
+  set(multiValueArgs  SOURCES)
   cmake_parse_arguments(PARSED "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
 
-  if(NOT PARSED_SSBL_BASE_NAME)
-    message(FATAL_ERROR "CreateLibraryTargetInternal: PARSED_SSBL_BASE_NAME must contain the name of the library")
+  if(NOT PARSED_BASE_NAME)
+    message(FATAL_ERROR "CreateLibraryTargetInternal: PARSED_BASE_NAME must contain the name of the library")
   endif()
 
   if(NOT PARSED_COMPONENT_NAME)
     message(FATAL_ERROR "CreateLibraryTargetInternal: PARSED_COMPONENT_NAME has to be set")
   endif()
-  
-  if(NOT PARSED_TARGET_NAME)
-    message(FATAL_ERROR "CreateLibraryTargetInternal: PARSED_TARGET_NAME has to be set")
+
+  if(NOT PARSED_SOURCES)
+    message(FATAL_ERROR "CreateLibraryTargetInternal: PARSED_SOURCES must be a list of source files")
   endif()
+  
   
   if(NOT PARSED_BUILD_MODE)
     message(FATAL_ERROR "CreateLibraryTargetInternal: PARSED_BUILD_MODE must be either STATIC or SHARED")
   endif()
 
-  if(NOT PARSED_LIBRARY_BIN_NAME)
-    message(FATAL_ERROR "CreateLibraryTargetInternal: PARSED_LIBRARY_BIN_NAME has to be set")
-  endif()
-  
-  
-    
-  add_library(${PARSED_TARGET_NAME} ${PARSED_BUILD_MODE} ${SourceListInternal})
-
-  set_target_properties(${PARSED_TARGET_NAME} PROPERTIES OUTPUT_NAME ${PARSED_LIBRARY_BIN_NAME})
-  set_target_properties (${PARSED_TARGET_NAME} PROPERTIES FOLDER Library)
-  
-  #ALIAS
   if ("${PARSED_BUILD_MODE}" STREQUAL "STATIC")
-    add_library(ssbl::${PARSED_COMPONENT_NAME}::static ALIAS ${PARSED_TARGET_NAME} )
+    set(TARGET_NAME "${PARSED_BASE_NAME}-static")
+    set(ALIAS_TARGET_NAME "${PARSED_BASE_NAME}::${PARSED_COMPONENT_NAME}::static")
   else()
-    add_library(ssbl::${PARSED_COMPONENT_NAME}::shared ALIAS ${PARSED_TARGET_NAME} )
+    set(TARGET_NAME "${PARSED_BASE_NAME}-shared")
+    set(ALIAS_TARGET_NAME "${PARSED_BASE_NAME}::${PARSED_COMPONENT_NAME}::shared")
   endif()
+  
+  GetFullLibraryName(${PARSED_BASE_NAME} ${PARSED_COMPONENT_NAME} ${PARSED_BUILD_MODE} LIBRARY_FILE_NAME)
+  
+  message(STATUS "MM: ${LIBRARY_FILE_NAME}")
+  
+  add_library(${TARGET_NAME} ${PARSED_BUILD_MODE} ${PARSED_SOURCES})
+  add_library(${ALIAS_TARGET_NAME} ALIAS ${TARGET_NAME} )
 
-  set_target_properties(${PARSED_TARGET_NAME} PROPERTIES DEBUG_POSTFIX "-dbg")
-  set_target_properties(${PARSED_TARGET_NAME} PROPERTIES RELEASE_POSTFIX "-rel")
-  set_target_properties(${PARSED_TARGET_NAME} PROPERTIES PREFIX "")
 
-  target_include_directories(${PARSED_TARGET_NAME}
+  set_target_properties(${TARGET_NAME} PROPERTIES OUTPUT_NAME ${LIBRARY_FILE_NAME})
+  set_target_properties(${TARGET_NAME} PROPERTIES FOLDER Library)
+  set_target_properties(${TARGET_NAME} PROPERTIES DEBUG_POSTFIX "-dbg")
+  set_target_properties(${TARGET_NAME} PROPERTIES RELEASE_POSTFIX "-rel")
+  set_target_properties(${TARGET_NAME} PROPERTIES PREFIX "")
+
+  target_include_directories(${TARGET_NAME}
     PUBLIC
         $<INSTALL_INTERFACE:${SSBL_INSTALL_DIR}/include>
         "$<BUILD_INTERFACE:${incdirs}>"
@@ -232,17 +243,17 @@ function(CreateLibraryTargetInternal)
         ${CMAKE_CURRENT_SOURCE_DIR}/src)
   
   if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
-    target_compile_options(${PARSED_TARGET_NAME} PRIVATE "$<$<COMPILE_LANGUAGE:CXX>:-std=c++11>" ) 
+    target_compile_options(${TARGET_NAME} PRIVATE "$<$<COMPILE_LANGUAGE:CXX>:-std=c++11>" ) 
   endif()
 
-  target_compile_options(${PARSED_TARGET_NAME} PRIVATE "$<$<CONFIG:DEBUG>:${LIB_DBG_FLAGS}>")
-  target_compile_options(${PARSED_TARGET_NAME} PRIVATE "$<$<CONFIG:RELEASE>:${LIB_REL_FLAGS}>")
-  target_link_libraries(${PARSED_TARGET_NAME}  PRIVATE ${LIB_DEPENDENS} )
+  target_compile_options(${TARGET_NAME} PRIVATE "$<$<CONFIG:DEBUG>:${LIB_DBG_FLAGS}>")
+  target_compile_options(${TARGET_NAME} PRIVATE "$<$<CONFIG:RELEASE>:${LIB_REL_FLAGS}>")
+  target_link_libraries(${TARGET_NAME}  PRIVATE ${LIB_DEPENDENS} )
 
     # CMake 3.10 does not support this yet
     if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
       if("${SSBL_32BIT}" )
-        target_link_libraries(${PARSED_TARGET_NAME} INTERFACE "-m32")   
+        target_link_libraries(${TARGET_NAME} INTERFACE "-m32")   
       endif()
     
     endif()
@@ -250,8 +261,8 @@ function(CreateLibraryTargetInternal)
   ## Installing
 
   # Add an install target
-  install(TARGETS ${PARSED_TARGET_NAME}
-      EXPORT ${PARSED_SSBL_BASE_NAME}-export
+  install(TARGETS ${TARGET_NAME}
+      EXPORT ${PARSED_BASE_NAME}-export
       RUNTIME DESTINATION ${SSBL_INSTALL_DIR}/bin
       LIBRARY DESTINATION ${SSBL_INSTALL_DIR}/lib
       ARCHIVE DESTINATION ${SSBL_INSTALL_DIR}/lib
@@ -260,19 +271,17 @@ function(CreateLibraryTargetInternal)
   )
   #set_target_properties (${PARSED_SSBL_BASE_NAME}-export PROPERTIES FOLDER Library)
   # Export install target
-  install(EXPORT ${PARSED_SSBL_BASE_NAME}-export
+  install(EXPORT ${PARSED_BASE_NAME}-export
     FILE
-      ${PARSED_SSBL_BASE_NAME}Targets.cmake
+      ${PARSED_BASE_NAME}Targets.cmake
     NAMESPACE
       ${PARSED_SSBL_BASE_NAME}::
     DESTINATION
       ${SSBL_INSTALL_CONFIG_DIR}
   )
 
-
-  
   install(FILES
-      ${CMAKE_CURRENT_BINARY_DIR}/${PARSED_SSBL_BASE_NAME}Config.cmake
+      ${CMAKE_CURRENT_BINARY_DIR}/${PARSED_BASE_NAME}Config.cmake
       DESTINATION ${SSBL_INSTALL_CONFIG_DIR}
   )
   
@@ -309,21 +318,21 @@ endfunction()
 #######################################################################################################
 function(CreateLibraryTarget)
   set(options)
-  set(oneValueArgs    LIBRARY_BASE_NAME)
+  set(oneValueArgs    BASE_NAME COMPONENT_NAME)
   set(multiValueArgs  COMPONENTS)
   cmake_parse_arguments(PARSED "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
 
-  if(NOT PARSED_LIBRARY_BASE_NAME)
-    message(FATAL_ERROR "CreateLibraryTarget: PARSED_LIBRARY_BASE_NAME must contain the name of the library")
+  if(NOT PARSED_BASE_NAME)
+    message(FATAL_ERROR "CreateLibraryTarget: PARSED_BASE_NAME must contain the base name of the library")
+  endif()
+
+  if(NOT PARSED_COMPONENT_NAME)
+    message(FATAL_ERROR "CreateLibraryTarget: PARSED_COMPONENT_NAME must name a subcomponent of the library")
   endif()
   
   if(NOT PARSED_COMPONENTS)
     message(FATAL_ERROR "CreateLibraryTarget: PARSED_COMPONENTS must not be empty")
   endif()
-
- # if(NOT PARSED_SENSOR_SKELETONS)
- #   message(FATAL_ERROR "CreateLibraryTarget: PARSED_SENSOR_SKELETONS must not be empty")
- # endif()
 
   if(PARSED_UNPARSED_ARGUMENTS)
     message(FATAL_ERROR "Unknown arguments given to CreateLibraryTarget(): \"${PARSED_UNPARSED_ARGUMENTS}\"")
@@ -340,11 +349,9 @@ function(CreateLibraryTarget)
   set(SSBL_INSTALL_DIR "${SSBL_INSTALL_DIR}/${PROJECT_NAME}-${PROJECT_VERSION}")
   set(SSBL_INSTALL_CONFIG_DIR ${SSBL_INSTALL_DIR}/cmake)
   
-  # Version Info 
-  configure_file(${PROJECT_SOURCE_DIR}/../../cmake/VersionInfo.h.in ${CMAKE_CURRENT_SOURCE_DIR}/include/VersionInfo.h)
-  
+
   # Include Directories
-  list(APPEND incdirs "${CMAKE_CURRENT_SOURCE_DIR}/Components" "${CMAKE_CURRENT_SOURCE_DIR}/include")
+  list(APPEND incdirs "${CMAKE_CURRENT_SOURCE_DIR}/../../Components" "${CMAKE_CURRENT_SOURCE_DIR}/../../include")
   
 
   #==========================================
@@ -373,38 +380,20 @@ function(CreateLibraryTarget)
     list(APPEND SourceListInternal ${ComponentHeadersAbs})
   endif()
 
-  # Add the core suffix
-  GetFullLibraryName(${PARSED_LIBRARY_BASE_NAME}-core LIBRARY_FILE_NAME)
+  
   GetLibraryCompileLinkFlags(LIB_DBG_FLAGS, LIB_REL_FLAGS, LIB_DEPENDENS)
 
 
   CreateLibraryTargetInternal(
-    SSBL_BASE_NAME
-      ${PARSED_LIBRARY_BASE_NAME}
+    BASE_NAME
+      ${PARSED_BASE_NAME}
     COMPONENT_NAME
-      core
-    TARGET_NAME
-      ${PARSED_LIBRARY_BASE_NAME}-static
-    LIBRARY_BIN_NAME
-      ${LIBRARY_FILE_NAME}-s
+      ${PARSED_COMPONENT_NAME}
     BUILD_MODE
       STATIC
+    SOURCES
+      ${SourceListInternal}
   )
-  
-  # Do not create dynamic libs now, there's still 
-  # a lot of work to do to support this
-  #CreateLibraryTargetInternal(
-  #  SSBL_BASE_NAME
-  #    ${PARSED_SSBL_BASE_NAME}
-  #  COMPONENT_NAME
-  #    core
-  #  TARGET_NAME
-  #    ${PARSED_SSBL_BASE_NAME}-dynamic
-  #  LIBRARY_BIN_NAME
-  #    ${LIBRARY_FILE_NAME}-d
-  #  BUILD_MODE
-  #    SHARED
-  #)
 
 
   

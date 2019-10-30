@@ -24,9 +24,9 @@
 #include <sstream>
 #include <string>
 #include <vector>
-#include "Core/OS/include/Task.h"
-#include "Core/OS/include/Timer.h"
-#include "Types/include/BasicTypes.h"
+#include "Base/Core/OS/include/Task.h"
+#include "Base/Core/OS/include/Timer.h"
+#include "Base/Types/include/BasicTypes.h"
 
 using namespace std;
 

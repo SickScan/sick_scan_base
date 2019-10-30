@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-#include "Protocol/include/Common/TelegramBuffer.h"
+#include "Base/Protocol/include/Common/TelegramBuffer.h"
 #include <cstring>
 
 //=============================================================================

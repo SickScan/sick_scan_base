@@ -21,12 +21,12 @@
 #include <stdint.h>
 #include <cstddef>
 #include <string>
-#include "Core/OS/include/Event.h"
-#include "Core/OS/include/Mutex.h"
-#include "Core/Sensor/include/Common/SickSensorVariable.h"
-#include "Logger/include/Logger.h"
-#include "Protocol/include/Common/TelegramBuffer.h"
-#include "Types/include/SickSensorReturnCodes.h"
+#include "Base/Core/OS/include/Event.h"
+#include "Base/Core/OS/include/Mutex.h"
+#include "Base/Core/Sensor/include/Common/SickSensorVariable.h"
+#include "Base/Logger/include/Logger.h"
+#include "Base/Protocol/include/Common/TelegramBuffer.h"
+#include "Base/Types/include/SickSensorReturnCodes.h"
 
 namespace ssbl {
 

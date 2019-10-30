@@ -13,8 +13,8 @@
 // limitations under the License.
 
 #pragma once
-#include "Protocol/include/Common/ComObject.h"
-#include "Types/include/BasicTypes.h"
+#include "Base/Protocol/include/Common/ComObject.h"
+#include "Base/Types/include/BasicTypes.h"
 
 namespace ssbl {
 

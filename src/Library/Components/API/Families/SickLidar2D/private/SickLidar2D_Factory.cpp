@@ -20,8 +20,8 @@
 #include "API/Families/SickLidar2D/include/SickLidar2D.h"
 #include "API/Families/SickLidar2D/include/TiM5xxSeries.h"
 
-#include "Core/Common/include/Hash.h"
-#include "Logger/include/Logger.h"
+#include "Base/Core/Common/include/Hash.h"
+#include "Base/Logger/include/Logger.h"
 
 using namespace std;
 

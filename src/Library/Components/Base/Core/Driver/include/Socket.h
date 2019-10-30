@@ -22,8 +22,8 @@
 #include <functional>
 #include <memory>
 #include <string>
-#include "Core/Sensor/include/Common/SickSensorInterface.h"
-#include "Logger/include/Logger.h"
+#include "Base/Core/Sensor/include/Common/SickSensorInterface.h"
+#include "Base/Logger/include/Logger.h"
 
 namespace ssbl {
 

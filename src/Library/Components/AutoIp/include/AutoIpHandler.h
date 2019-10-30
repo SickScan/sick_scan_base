@@ -13,8 +13,8 @@
 // limitations under the License.
 
 #pragma once
-#include "Core/Sensor/include/Common/SickSensorInterface.h"
-#include "Types/include/SickSensorReturnCodes.h"
+#include "Base/Core/Sensor/include/Common/SickSensorInterface.h"
+#include "Base/Types/include/SickSensorReturnCodes.h"
 
 namespace ssbl {
 

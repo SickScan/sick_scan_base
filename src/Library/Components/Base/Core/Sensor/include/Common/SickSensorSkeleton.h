@@ -21,13 +21,13 @@
 #include <string>
 #include <unordered_map>
 #include <vector>
-#include "Core/Sensor/include/Common/SickSensorComObjRepository.h"
-#include "Core/Sensor/include/Common/SickSensorFunction.h"
-#include "Core/Sensor/include/Common/SickSensorVariable.h"
-#include "Logger/include/Logger.h"
-#include "Protocol/include/CoLa/CoLaAProtocol.h"
-#include "Protocol/include/CoLa/CoLaBProtocol.h"
-#include "Types/include/SickSensorReturnCodes.h"
+#include "Base/Core/Sensor/include/Common/SickSensorComObjRepository.h"
+#include "Base/Core/Sensor/include/Common/SickSensorFunction.h"
+#include "Base/Core/Sensor/include/Common/SickSensorVariable.h"
+#include "Base/Logger/include/Logger.h"
+#include "Base/Protocol/include/CoLa/CoLaAProtocol.h"
+#include "Base/Protocol/include/CoLa/CoLaBProtocol.h"
+#include "Base/Types/include/SickSensorReturnCodes.h"
 
 namespace ssbl {
 

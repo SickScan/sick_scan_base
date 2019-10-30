@@ -4,11 +4,11 @@
 #include <string>
 #include <tuple>
 #include <vector>
-#include "Core/Common/include/CallbackProvider.h"
-#include "Core/OS/include/Mutex.h"
-#include "Core/OS/include/Timer.h"
-#include "Types/include/BasicTypes.h"
-#include "Types/include/SickSensorReturnCodes.h"
+#include "Base/Core/Common/include/CallbackProvider.h"
+#include "Base/Core/OS/include/Mutex.h"
+#include "Base/Core/OS/include/Timer.h"
+#include "Base/Types/include/BasicTypes.h"
+#include "Base/Types/include/SickSensorReturnCodes.h"
 
 namespace ssbl {
 enum SensorInterfaceType {

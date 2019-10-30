@@ -20,8 +20,8 @@
 #pragma once
 #include <string>
 #include <vector>
-#include "Core/OS/include/VariableEventQueue.h"
-#include "Protocol/include/Common/Protocol.h"
+#include "Base/Core/OS/include/VariableEventQueue.h"
+#include "Base/Protocol/include/Common/Protocol.h"
 
 #define COLA_AB_REQ_LENGTH 2
 

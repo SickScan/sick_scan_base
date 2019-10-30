@@ -5,7 +5,8 @@ get_filename_component(COMPONENT_SUFFIX ${CMAKE_CURRENT_LIST_DIR} NAME)
 string(REPLACE " " "_" COMPONENT_SUFFIX ${COMPONENT_SUFFIX})
 string(TOLOWER  ${COMPONENT_SUFFIX} COMPONENT_SUFFIX)
 
-set(LOCAL_PROJECT_NAME "ssbl-${COMPONENT_SUFFIX}") 
+set(BASE_NAME "ssbl")
+set(LOCAL_PROJECT_NAME "${BASE_NAME}-${COMPONENT_SUFFIX}") 
  
 project(  ${LOCAL_PROJECT_NAME} 
           VERSION "${SSBL_MAJOR}.${SSBL_MINOR}.${SSBL_REVISION}" 
@@ -14,8 +15,6 @@ project(  ${LOCAL_PROJECT_NAME}
 
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${TOP_DIR}/cmake")
 include(LibraryTargetExtension)
-
-
 
 
 ComponentSources(
@@ -81,7 +80,7 @@ ComponentSources(
 
 ComponentSources(
   NAME Core_Driver
-  PATH Components/Core/Driver
+  PATH Core/Driver
   SOURCES 
   Windows/Socket.cpp
 )
@@ -115,8 +114,10 @@ endif()
 
 
 CreateLibraryTarget(
-  LIBRARY_BASE_NAME 
-    ${LOCAL_PROJECT_NAME}
+  BASE_NAME 
+    ${BASE_NAME}
+  COMPONENT_NAME
+    ${COMPONENT_SUFFIX}
   COMPONENTS
     Protocol
     Types

@@ -22,12 +22,12 @@
 #define _WIN32_WINNT 0x0A00
 #endif
 
-#include "Core/OS/include/Timer.h"
+#include "Base/Core/OS/include/Timer.h"
 #include <Windows.h>
-#include "Core/Common/include/Assert.h"
-#include "Core/Common/include/MakeUnique.h"
-#include "Logger/include/Logger.h"
-#include "Types/include/BasicTypes.h"
+#include "Base/Core/Common/include/Assert.h"
+#include "Base/Core/Common/include/MakeUnique.h"
+#include "Base/Logger/include/Logger.h"
+#include "Base/Types/include/BasicTypes.h"
 
 namespace ssbl {
 #define _SSL_FT_MS ((int64_t)10000)

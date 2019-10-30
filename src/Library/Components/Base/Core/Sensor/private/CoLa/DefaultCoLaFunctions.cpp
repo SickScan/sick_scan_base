@@ -12,10 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "Core/Sensor/private/CoLa/DefaultCoLaFunctions.h"
-#include "Protocol/include/Common/Deserializer.h"
-#include "Protocol/include/Common/Protocol.h"
-#include "Protocol/include/Common/Serializer.h"
+#include "Base/Core/Sensor/private/CoLa/DefaultCoLaFunctions.h"
+#include "Base/Protocol/include/Common/Deserializer.h"
+#include "Base/Protocol/include/Common/Protocol.h"
+#include "Base/Protocol/include/Common/Serializer.h"
 
 using namespace ssbl;
 

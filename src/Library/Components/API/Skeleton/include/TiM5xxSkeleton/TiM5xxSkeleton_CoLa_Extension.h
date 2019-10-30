@@ -5,12 +5,12 @@
 #pragma once
 #include <stdint.h>
 #include "API/Skeleton/include/TiM5xxSkeleton/TiM5xxSkeleton_Types.h"
-#include "Protocol/include/CoLa/CoLaADeserializer.h"
-#include "Protocol/include/CoLa/CoLaAProtocol.h"
-#include "Protocol/include/CoLa/CoLaASerializer.h"
-#include "Protocol/include/CoLa/CoLaBDeserializer.h"
-#include "Protocol/include/CoLa/CoLaBProtocol.h"
-#include "Protocol/include/CoLa/CoLaBSerializer.h"
+#include "Base/Protocol/include/CoLa/CoLaADeserializer.h"
+#include "Base/Protocol/include/CoLa/CoLaAProtocol.h"
+#include "Base/Protocol/include/CoLa/CoLaASerializer.h"
+#include "Base/Protocol/include/CoLa/CoLaBDeserializer.h"
+#include "Base/Protocol/include/CoLa/CoLaBProtocol.h"
+#include "Base/Protocol/include/CoLa/CoLaBSerializer.h"
 
 namespace ssbl {
 namespace DevTiM5xxSkeleton {

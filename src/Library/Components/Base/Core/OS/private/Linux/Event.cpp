@@ -17,12 +17,12 @@
  * limitations under the License.
  */
 
-#include "Core/OS/include/Event.h"
+#include "Base/Core/OS/include/Event.h"
 #include <pthread.h>
 #include <sys/time.h>
-#include "Core/Common/include/Assert.h"
-#include "Core/Common/include/MakeUnique.h"
-#include "Logger/include/Logger.h"
+#include "Base/Core/Common/include/Assert.h"
+#include "Base/Core/Common/include/MakeUnique.h"
+#include "Base/Logger/include/Logger.h"
 
 namespace ssbl {
 

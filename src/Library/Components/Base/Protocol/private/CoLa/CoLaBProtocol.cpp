@@ -17,14 +17,14 @@
  * limitations under the License.
  */
 
-#include "Protocol/include/CoLa/CoLaBProtocol.h"
+#include "Base/Protocol/include/CoLa/CoLaBProtocol.h"
 #include <iostream>
-#include "Core/Common/include/Assert.h"
-#include "Core/Common/include/Endianess.h"
-#include "Core/Sensor/include/Common/SickSensorInterface.h"
-#include "Protocol/include/CoLa/CoLaBDeserializer.h"
-#include "Protocol/include/CoLa/CoLaBSerializer.h"
-#include "Protocol/include/Common/Checksum.h"
+#include "Base/Core/Common/include/Assert.h"
+#include "Base/Core/Common/include/Endianess.h"
+#include "Base/Core/Sensor/include/Common/SickSensorInterface.h"
+#include "Base/Protocol/include/CoLa/CoLaBDeserializer.h"
+#include "Base/Protocol/include/CoLa/CoLaBSerializer.h"
+#include "Base/Protocol/include/Common/Checksum.h"
 
 using namespace ssbl;
 

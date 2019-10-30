@@ -16,12 +16,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-#include "Core/OS/include/Mutex.h"
+#include "Base/Core/OS/include/Mutex.h"
 #include <windows.h>
 #include <memory>
-#include "Core/Common/include/Assert.h"
-#include "Core/Common/include/MakeUnique.h"
-#include "Logger/include/Logger.h"
+#include "Base/Core/Common/include/Assert.h"
+#include "Base/Core/Common/include/MakeUnique.h"
+#include "Base/Logger/include/Logger.h"
 
 namespace ssbl {
 

@@ -22,7 +22,7 @@
 #include <memory>
 #include <string>
 #include <vector>
-#include "Core/Sensor/include/Common/SickSensorVariable.h"
+#include "Base/Core/Sensor/include/Common/SickSensorVariable.h"
 
 namespace ssbl {
 

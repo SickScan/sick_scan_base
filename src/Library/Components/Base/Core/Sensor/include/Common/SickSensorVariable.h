@@ -18,13 +18,13 @@
 #include <string>
 
 #include <iostream>
-#include "Protocol/include/Common/ComObject.h"
-#include "Protocol/include/Common/Deserializer.h"
-#include "Protocol/include/Common/Serializer.h"
+#include "Base/Protocol/include/Common/ComObject.h"
+#include "Base/Protocol/include/Common/Deserializer.h"
+#include "Base/Protocol/include/Common/Serializer.h"
 
-#include "Core/Common/include/Assert.h"
-#include "Core/OS/include/Mutex.h"
-#include "Core/Sensor/include/Common/SickSensorInterface.h"
+#include "Base/Core/Common/include/Assert.h"
+#include "Base/Core/OS/include/Mutex.h"
+#include "Base/Core/Sensor/include/Common/SickSensorInterface.h"
 
 namespace ssbl {
 class Protocol;

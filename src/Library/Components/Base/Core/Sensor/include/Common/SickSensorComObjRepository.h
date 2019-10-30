@@ -22,8 +22,8 @@
 #include <string.h>
 #include <map>
 #include <string>
-#include "Core/OS/include/Mutex.h"
-#include "Protocol/include/Common/ComObject.h"
+#include "Base/Core/OS/include/Mutex.h"
+#include "Base/Protocol/include/Common/ComObject.h"
 
 namespace ssbl {
 

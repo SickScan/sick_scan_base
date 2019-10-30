@@ -20,8 +20,8 @@
 #pragma once
 #include <stdint.h>
 
-#include "Protocol/include/Common/Serializer.h"
-#include "Types/include/SickSensorReturnCodes.h"
+#include "Base/Protocol/include/Common/Serializer.h"
+#include "Base/Types/include/SickSensorReturnCodes.h"
 
 namespace ssbl {
 

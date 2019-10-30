@@ -17,9 +17,9 @@
  * limitations under the License.
  */
 
-#include "Core/Sensor/include/CoLa/CoLaSensorSkeleton.h"
-#include "Core/OS/include/Task.h"
-#include "Core/OS/include/Timer.h"
+#include "Base/Core/Sensor/include/CoLa/CoLaSensorSkeleton.h"
+#include "Base/Core/OS/include/Task.h"
+#include "Base/Core/OS/include/Timer.h"
 
 namespace ssbl {
 

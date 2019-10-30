@@ -12,13 +12,13 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "Core/Sensor/include/Common/SickSensorSkeleton.h"
+#include "Base/Core/Sensor/include/Common/SickSensorSkeleton.h"
 #include <iostream>
 #include <vector>
-#include "Core/Common/include/Assert.h"
-#include "Core/Driver/include/Socket.h"
-#include "Core/Sensor/include/Common/SickSensorInterface.h"
-#include "Logger/include/Logger.h"
+#include "Base/Core/Common/include/Assert.h"
+#include "Base/Core/Driver/include/Socket.h"
+#include "Base/Core/Sensor/include/Common/SickSensorInterface.h"
+#include "Base/Logger/include/Logger.h"
 
 using namespace ssbl;
 

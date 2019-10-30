@@ -17,12 +17,12 @@
  * limitations under the License.
  */
 
-#include "Protocol/include/CoLa/CoLaADeserializer.h"
+#include "Base/Protocol/include/CoLa/CoLaADeserializer.h"
 #include <math.h>
 #include <sstream>
 #include <string>
-#include "Core/Common/include/Endianess.h"
-#include "Core/Sensor/include/Common/SickSensorVariable.h"
+#include "Base/Core/Common/include/Endianess.h"
+#include "Base/Core/Sensor/include/Common/SickSensorVariable.h"
 
 using namespace ssbl;
 

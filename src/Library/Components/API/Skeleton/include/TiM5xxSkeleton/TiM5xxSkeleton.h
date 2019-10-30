@@ -6,8 +6,8 @@
 #include <stdint.h>
 #include "API/Skeleton/include/TiM5xxSkeleton/TiM5xxSkeleton_Functions.h"
 #include "API/Skeleton/include/TiM5xxSkeleton/TiM5xxSkeleton_Variables.h"
-#include "Core/OS/include/VariableEventQueue.h"
-#include "Core/Sensor/include/CoLa/CoLaSensorSkeleton.h"
+#include "Base/Core/OS/include/VariableEventQueue.h"
+#include "Base/Core/Sensor/include/CoLa/CoLaSensorSkeleton.h"
 
 namespace ssbl {
 namespace DevTiM5xxSkeleton {

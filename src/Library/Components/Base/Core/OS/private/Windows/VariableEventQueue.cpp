@@ -17,13 +17,13 @@
  * limitations under the License.
  */
 
-#include "Core/OS/include/VariableEventQueue.h"
+#include "Base/Core/OS/include/VariableEventQueue.h"
 #include <windows.h>
 #include <string>
 
-#include "Core/Common/include/MakeUnique.h"
-#include "Core/OS/include/Mutex.h"
-#include "Logger/include/Logger.h"
+#include "Base/Core/Common/include/MakeUnique.h"
+#include "Base/Core/OS/include/Mutex.h"
+#include "Base/Logger/include/Logger.h"
 #include "mq.h"
 using namespace std;
 

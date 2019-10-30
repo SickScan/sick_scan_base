@@ -19,10 +19,10 @@
 #include <iostream>
 #include <string>
 
-#include "Core/Common/include/Assert.h"
-#include "Core/Driver/include/Socket.h"
-#include "Protocol/include/Common/Protocol.h"
-#include "Protocol/include/Common/TelegramBuffer.h"
+#include "Base/Core/Common/include/Assert.h"
+#include "Base/Core/Driver/include/Socket.h"
+#include "Base/Protocol/include/Common/Protocol.h"
+#include "Base/Protocol/include/Common/TelegramBuffer.h"
 
 using namespace ssbl;
 

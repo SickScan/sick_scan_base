@@ -7,7 +7,7 @@
 #include <cstring>
 #include "API/Skeleton/include/TiM5xxSkeleton/TiM5xxSkeleton_CoLa_Extension.h"
 #include "API/Skeleton/include/TiM5xxSkeleton/TiM5xxSkeleton_Types.h"
-#include "Core/Sensor/include/Common/SickSensorVariable.h"
+#include "Base/Core/Sensor/include/Common/SickSensorVariable.h"
 
 namespace ssbl {
 namespace DevTiM5xxSkeleton {

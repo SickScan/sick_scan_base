@@ -17,11 +17,11 @@
  * limitations under the License.
  */
 
-#include "Protocol/include/CoLa/CoLaBSerializer.h"
+#include "Base/Protocol/include/CoLa/CoLaBSerializer.h"
 #include <math.h>
 #include <cstring>
 #include <string>
-#include "Core/Common/include/Endianess.h"
+#include "Base/Core/Common/include/Endianess.h"
 
 using namespace ssbl;
 

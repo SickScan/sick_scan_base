@@ -19,7 +19,7 @@
 
 #pragma once
 #include <stdint.h>
-#include "Protocol/include/Common/ComObject.h"
+#include "Base/Protocol/include/Common/ComObject.h"
 
 namespace ssbl {
 /**

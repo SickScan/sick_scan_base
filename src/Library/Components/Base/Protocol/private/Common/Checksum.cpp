@@ -17,8 +17,8 @@
  * limitations under the License.
  */
 
-#include "Protocol/include/Common/Checksum.h"
-#include "Core/Common/include/Assert.h"
+#include "Base/Protocol/include/Common/Checksum.h"
+#include "Base/Core/Common/include/Assert.h"
 
 namespace ssbl {
 

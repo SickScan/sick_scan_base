@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License
 #pragma once
-#include "Core/Sensor/include/Common/SickSensorSkeleton.h"
-#include "Core/Sensor/private/CoLa/DefaultCoLaFunctions.h"
+#include "Base/Core/Sensor/include/Common/SickSensorSkeleton.h"
+#include "Base/Core/Sensor/private/CoLa/DefaultCoLaFunctions.h"
 
 namespace ssbl {
 

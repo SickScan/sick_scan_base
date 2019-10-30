@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 #include <stdint.h>
-#include "Core/Sensor/include/Common/SickSensorFunction.h"
-#include "Core/Sensor/include/Common/SickSensorVariable.h"
+#include "Base/Core/Sensor/include/Common/SickSensorFunction.h"
+#include "Base/Core/Sensor/include/Common/SickSensorVariable.h"
 
 namespace ssbl {
 #pragma pack(push, 1)

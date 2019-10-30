@@ -20,7 +20,7 @@
 #include "API/Families/SickLidar2D/include/TiM5xxSeries.h"
 #include <vector>
 #include "API/Skeleton/include/TiM5xxSkeleton/TiM5xxSkeleton.h"
-#include "Core/OS/include/VariableEventQueue.h"
+#include "Base/Core/OS/include/VariableEventQueue.h"
 
 using namespace std;
 using namespace ssbl::DevTiM5xxSkeleton;

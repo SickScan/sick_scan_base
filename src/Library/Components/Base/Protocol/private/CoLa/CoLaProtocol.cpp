@@ -20,13 +20,13 @@
 #include <iostream>
 #include <string>
 
-#include "Core/Common/include/Assert.h"
-#include "Core/Driver/include/Socket.h"
-#include "Core/OS/include/VariableEventQueue.h"
-#include "Logger/include/Logger.h"
-#include "Protocol/include/CoLa/CoLaProtocol.h"
-#include "Protocol/include/Common/Checksum.h"
-#include "Protocol/include/Common/Deserializer.h"
+#include "Base/Core/Common/include/Assert.h"
+#include "Base/Core/Driver/include/Socket.h"
+#include "Base/Core/OS/include/VariableEventQueue.h"
+#include "Base/Logger/include/Logger.h"
+#include "Base/Protocol/include/CoLa/CoLaProtocol.h"
+#include "Base/Protocol/include/Common/Checksum.h"
+#include "Base/Protocol/include/Common/Deserializer.h"
 
 using namespace ssbl;
 

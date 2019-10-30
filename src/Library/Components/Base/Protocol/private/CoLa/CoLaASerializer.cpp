@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-#include "Protocol/include/CoLa/CoLaASerializer.h"
+#include "Base/Protocol/include/CoLa/CoLaASerializer.h"
 #include <math.h>
 #include <algorithm>
 #include <cctype>
@@ -25,7 +25,7 @@
 #include <iostream>
 #include <sstream>
 #include <string>
-#include "Core/Common/include/Endianess.h"
+#include "Base/Core/Common/include/Endianess.h"
 
 using namespace ssbl;
 

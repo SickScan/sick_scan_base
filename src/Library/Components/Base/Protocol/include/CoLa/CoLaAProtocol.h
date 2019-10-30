@@ -18,9 +18,9 @@
  */
 
 #pragma once
-#include "Protocol/include/CoLa/CoLaADeserializer.h"
-#include "Protocol/include/CoLa/CoLaASerializer.h"
-#include "Protocol/include/CoLa/CoLaProtocol.h"
+#include "Base/Protocol/include/CoLa/CoLaADeserializer.h"
+#include "Base/Protocol/include/CoLa/CoLaASerializer.h"
+#include "Base/Protocol/include/CoLa/CoLaProtocol.h"
 
 namespace ssbl {
 

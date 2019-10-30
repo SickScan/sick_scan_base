@@ -30,12 +30,12 @@
 
 #include <unistd.h>
 
-#include "Core/Common/include/Assert.h"
-#include "Core/Common/include/MakeUnique.h"
-#include "Core/Driver/include/Socket.h"
-#include "Core/OS/include/Task.h"
-#include "Core/OS/include/Time.h"
-#include "Types/include/SickSensorReturnCodes.h"
+#include "Base/Core/Common/include/Assert.h"
+#include "Base/Core/Common/include/MakeUnique.h"
+#include "Base/Core/Driver/include/Socket.h"
+#include "Base/Core/OS/include/Task.h"
+#include "Base/Core/OS/include/Time.h"
+#include "Base/Types/include/SickSensorReturnCodes.h"
 
 namespace ssbl {
 

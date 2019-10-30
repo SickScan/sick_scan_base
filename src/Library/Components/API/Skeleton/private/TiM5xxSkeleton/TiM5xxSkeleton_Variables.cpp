@@ -4,8 +4,8 @@
 
 #include "API/Skeleton/include/TiM5xxSkeleton/TiM5xxSkeleton_Variables.h"
 #include <sstream>
-#include "Core/Common/include/Hash.h"
-#include "Logger/include/Logger.h"
+#include "Base/Core/Common/include/Hash.h"
+#include "Base/Logger/include/Logger.h"
 
 #ifdef _MSC_VER
 #pragma warning(disable : 4307)

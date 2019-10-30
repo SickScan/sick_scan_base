@@ -16,12 +16,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-#include "Logger/include/Logger.h"
+#include "Base/Logger/include/Logger.h"
 #include <stdio.h>
 #include <cstdarg>
 #include <string>
-#include "Core/OS/include/Time.h"
-#include "Types/include/BasicTypes.h"
+#include "Base/Core/OS/include/Time.h"
+#include "Base/Types/include/BasicTypes.h"
 
 namespace ssbl {
 

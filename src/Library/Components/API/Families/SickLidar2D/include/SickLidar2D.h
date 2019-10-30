@@ -24,7 +24,7 @@
 #include <string>
 #include <vector>
 #include "API/Families/SickLidar2D/include/SickLidar2D_Models.h"
-#include "Types/include/SickSensorReturnCodes.h"
+#include "Base/Types/include/SickSensorReturnCodes.h"
 
 namespace ssbl {
 

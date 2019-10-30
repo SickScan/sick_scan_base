@@ -19,8 +19,8 @@
 
 #pragma once
 #include <stdint.h>
-#include "Types/include/BasicTypes.h"
-#include "Types/include/SickSensorReturnCodes.h"
+#include "Base/Types/include/BasicTypes.h"
+#include "Base/Types/include/SickSensorReturnCodes.h"
 
 namespace ssbl {
 

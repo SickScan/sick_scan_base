@@ -4,7 +4,7 @@
 
 #include "API/Skeleton/include/SickSkeletonFactory.h"
 #include "API/Skeleton/include/TiM5xxSkeleton/TiM5xxSkeleton.h"
-#include "Core/Common/include/Hash.h"
+#include "Base/Core/Common/include/Hash.h"
 
 #ifdef _MSC_VER
 #pragma warning(disable : 4307)

@@ -4,9 +4,9 @@
 
 #include "API/Skeleton/include/TiM5xxSkeleton/TiM5xxSkeleton.h"
 #include "API/Skeleton/include/TiM5xxSkeleton/TiM5xxSkeleton_CoLa_Extension.h"
-#include "Core/Common/include/Assert.h"
-#include "Core/Common/include/MakeUnique.h"
-#include "Core/OS/include/Time.h"
+#include "Base/Core/Common/include/Assert.h"
+#include "Base/Core/Common/include/MakeUnique.h"
+#include "Base/Core/OS/include/Time.h"
 
 namespace ssbl {
 namespace DevTiM5xxSkeleton {

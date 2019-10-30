@@ -17,13 +17,13 @@
  * limitations under the License.
  */
 
-#include "Core/OS/include/Task.h"
+#include "Base/Core/OS/include/Task.h"
 #include <process.h>
 #include <windows.h>
 #include <memory>
-#include "Core/Common/include/Assert.h"
-#include "Core/Common/include/MakeUnique.h"
-#include "Logger/include/Logger.h"
+#include "Base/Core/Common/include/Assert.h"
+#include "Base/Core/Common/include/MakeUnique.h"
+#include "Base/Logger/include/Logger.h"
 
 namespace ssbl {
 

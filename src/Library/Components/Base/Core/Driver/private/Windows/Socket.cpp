@@ -27,10 +27,10 @@
 #include <winsock2.h>
 #include <ws2tcpip.h>
 
-#include "Core/Driver/include/Socket.h"
-#include "Core/OS/include/Task.h"
-#include "Core/OS/include/Time.h"
-#include "Types/include/SickSensorReturnCodes.h"
+#include "Base/Core/Driver/include/Socket.h"
+#include "Base/Core/OS/include/Task.h"
+#include "Base/Core/OS/include/Time.h"
+#include "Base/Types/include/SickSensorReturnCodes.h"
 namespace ssbl {
 
 enum SocketType {

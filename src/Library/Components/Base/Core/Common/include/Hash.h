@@ -12,7 +12,7 @@
 
 #pragma once
 #include <stdint.h>
-#include "Types/include/BasicTypes.h"
+#include "Base/Types/include/BasicTypes.h"
 
 namespace ssbl {
 constexpr uint64_t val_64_const = 0xcbf29ce484222325;

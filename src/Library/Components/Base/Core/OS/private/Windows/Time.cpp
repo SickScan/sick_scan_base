@@ -20,8 +20,8 @@
 #include <stdio.h>
 
 #include <windows.h>
-#include "Core/OS/include/Time.h"
-#include "Types/include/BasicTypes.h"
+#include "Base/Core/OS/include/Time.h"
+#include "Base/Types/include/BasicTypes.h"
 
 namespace ssbl {
 

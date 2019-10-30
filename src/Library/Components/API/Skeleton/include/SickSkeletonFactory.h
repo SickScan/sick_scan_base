@@ -3,7 +3,7 @@
 //===========================================
 
 #pragma once
-#include "Core/Sensor/include/Common/SickSensorSkeleton.h"
+#include "Base/Core/Sensor/include/Common/SickSensorSkeleton.h"
 
 namespace ssbl {
 SickSensorSkeleton *CreateSensorSkeleton(const std::string &SensorSkeletonName,
