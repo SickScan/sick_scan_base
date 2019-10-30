@@ -280,7 +280,7 @@ function(CreateLibraryTargetInternal)
   )
 
 
-  if ("${PARSED_BASE_NAME}" STREQUAL "base")
+  if ("${PARSED_COMPONENT_NAME}" STREQUAL "base")
     #fill config and copy to out
     configure_package_config_file(${TOP_DIR}/cmake/ssblConfig.cmake.in #in
         ${CMAKE_CURRENT_BINARY_DIR}/ssblConfig.cmake #tmp
@@ -291,29 +291,33 @@ function(CreateLibraryTargetInternal)
         ${CMAKE_CURRENT_BINARY_DIR}/ssblConfig.cmake
         DESTINATION ${SSBL_INSTALL_CONFIG_DIR}
     )
-  endif()
-  
-  get_filename_component(ComponentPathAbsolute "${PROJECT_SOURCE_DIR}/include" REALPATH)
+ 
+    get_filename_component(ComponentPathAbsolute "${PROJECT_SOURCE_DIR}/../../include" REALPATH)
+    message(STATUS "MM: ${ComponentPathAbsolute}")
+    file(GLOB_RECURSE InstallHeaders ABSOLUTE "${ComponentPathAbsolute}" "${ComponentPathAbsolute}/*.h" "${ComponentPathAbsolute}/*.hpp")
 
-  file(GLOB_RECURSE InstallHeaders RELATIVE "${ComponentPathAbsolute}" "${ComponentPathAbsolute}/*.h" "${ComponentPathAbsolute}/*.hpp")
-
-  foreach(Header ${InstallHeaders})
-    STRING(REGEX MATCH "(.\\\*)\\\[/\\\]" LDIR ${Header})
-    install(FILES include/${Header} DESTINATION ${SSBL_INSTALL_DIR}/include/${LDIR})
-  endforeach()
+    foreach(Header ${InstallHeaders})
+      message(STATUS "MM: ${Header}")
+      get_filename_component(fileName ${Header} NAME)
+      install(FILES ${Header} DESTINATION ${SSBL_INSTALL_DIR}/include)
+    endforeach()
   
+  endif() 
+ 
   get_filename_component(ComponentPathAbsolute "${PROJECT_SOURCE_DIR}" REALPATH)
+
+
+  get_filename_component(lastDir "${ComponentPathAbsolute}" NAME)
+  
 
   file(GLOB_RECURSE InstallHeaders RELATIVE "${ComponentPathAbsolute}" "${ComponentPathAbsolute}/*.h" "${ComponentPathAbsolute}/*.hpp")
 
   foreach(Header ${InstallHeaders})
     get_filename_component(LDIR ${Header} DIRECTORY )
     string(FIND "${LDIR}" "include" out)
-    if ("${out}" EQUAL 0)
-    else()
-      string(REPLACE "Components/" "" LDIROUT ${LDIR} )
-      install(FILES ${Header} DESTINATION ${SSBL_INSTALL_DIR}/include/${LDIROUT})
-    endif()
+    string(REPLACE "Components/" "" LDIROUT ${LDIR} )
+    install(FILES ${Header} DESTINATION ${SSBL_INSTALL_DIR}/include/${lastDir}/${LDIROUT})
+
   endforeach()
     
 endfunction()
