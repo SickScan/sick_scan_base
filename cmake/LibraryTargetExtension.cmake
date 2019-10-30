@@ -269,11 +269,7 @@ function(CreateLibraryTargetInternal)
       ${SSBL_INSTALL_CONFIG_DIR}
   )
 
-  #fill config and copy to out
-  configure_package_config_file(${PROJECT_SOURCE_DIR}/../../cmake/${PARSED_SSBL_BASE_NAME}Config.cmake.in #in
-      ${CMAKE_CURRENT_BINARY_DIR}/${PARSED_SSBL_BASE_NAME}Config.cmake #tmp
-      INSTALL_DESTINATION ${SSBL_INSTALL_CONFIG_DIR} #out
-  )
+
   
   install(FILES
       ${CMAKE_CURRENT_BINARY_DIR}/${PARSED_SSBL_BASE_NAME}Config.cmake
@@ -313,16 +309,16 @@ endfunction()
 #######################################################################################################
 function(CreateLibraryTarget)
   set(options)
-  set(oneValueArgs    SSBL_BASE_NAME)
-  set(multiValueArgs  CORE_COMPONENTS SENSOR_SKELETONS)
+  set(oneValueArgs    LIBRARY_BASE_NAME)
+  set(multiValueArgs  COMPONENTS)
   cmake_parse_arguments(PARSED "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
 
-  if(NOT PARSED_SSBL_BASE_NAME)
-    message(FATAL_ERROR "CreateLibraryTarget: PARSED_SSBL_BASE_NAME must contain the name of the library")
+  if(NOT PARSED_LIBRARY_BASE_NAME)
+    message(FATAL_ERROR "CreateLibraryTarget: PARSED_LIBRARY_BASE_NAME must contain the name of the library")
   endif()
   
-  if(NOT PARSED_CORE_COMPONENTS)
-    message(FATAL_ERROR "CreateLibraryTarget: PARSED_CORE_COMPONENTS must not be empty")
+  if(NOT PARSED_COMPONENTS)
+    message(FATAL_ERROR "CreateLibraryTarget: PARSED_COMPONENTS must not be empty")
   endif()
 
  # if(NOT PARSED_SENSOR_SKELETONS)
@@ -353,7 +349,7 @@ function(CreateLibraryTarget)
 
   #==========================================
   # CORE Library
-  foreach(ComponentName ${PARSED_CORE_COMPONENTS})
+  foreach(ComponentName ${PARSED_COMPONENTS})
     set(COMPONENT_SOURCES_VARIABLE COMPONENT_SOURCES_${ComponentName})
     set(COMPONENT_HEADERS_VARIABLE COMPONENT_HEADERS_${ComponentName})
     list(APPEND SourceListInternal "${${COMPONENT_SOURCES_VARIABLE}}" "${${COMPONENT_HEADERS_VARIABLE}}")
@@ -378,17 +374,17 @@ function(CreateLibraryTarget)
   endif()
 
   # Add the core suffix
-  GetFullLibraryName(${PARSED_SSBL_BASE_NAME}-core LIBRARY_FILE_NAME)
+  GetFullLibraryName(${PARSED_LIBRARY_BASE_NAME}-core LIBRARY_FILE_NAME)
   GetLibraryCompileLinkFlags(LIB_DBG_FLAGS, LIB_REL_FLAGS, LIB_DEPENDENS)
 
 
   CreateLibraryTargetInternal(
     SSBL_BASE_NAME
-      ${PARSED_SSBL_BASE_NAME}
+      ${PARSED_LIBRARY_BASE_NAME}
     COMPONENT_NAME
       core
     TARGET_NAME
-      ${PARSED_SSBL_BASE_NAME}-static
+      ${PARSED_LIBRARY_BASE_NAME}-static
     LIBRARY_BIN_NAME
       ${LIBRARY_FILE_NAME}-s
     BUILD_MODE

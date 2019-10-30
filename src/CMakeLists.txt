@@ -8,8 +8,8 @@ add_subdirectory(Generator)
 endif()
 
 add_subdirectory(Library)
-add_subdirectory(ThirdParty)
-add_subdirectory(Examples)
+#add_subdirectory(ThirdParty)
+#add_subdirectory(Examples)
 
 
 list(APPEND CLANG_FORMAT_FOLDERS "${CMAKE_CURRENT_LIST_DIR}/Library")
