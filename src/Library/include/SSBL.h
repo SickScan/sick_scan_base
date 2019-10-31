@@ -3,9 +3,8 @@
 //===========================================
 
 #pragma once
-#include "API/Families/SickLidar2D/include/SickLidar2D.h"
-#include "API/Families/SickLidar2D/include/SickLidar2D_Factory.h"
-#include "API/Skeleton/include/SickSkeletonFactory.h"
-#include "API/Skeleton/include/TiM5xxSkeleton/TiM5xxSkeleton.h"
-#include "Core/OS/include/Time.h"
+#include "Base/Core/OS/include/Time.h"
 #include "VersionInfo.h"
+#include "API/Skeleton/Lidar2D/TiM5xx/TiM561/include/TiM561Skeleton.h"
+#include "API/Skeleton/Lidar2D/TiM5xx/TiM571/include/TiM571Skeleton.h"
+#include "API/Skeleton/Lidar2D/TiM5xx/TiM581/include/TiM581Skeleton.h"

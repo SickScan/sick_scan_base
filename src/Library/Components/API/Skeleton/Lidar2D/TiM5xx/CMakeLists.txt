@@ -1,1 +1,1 @@
-add_subdirectory(TiM561Skeleton)
+add_subdirectory(TiM561)

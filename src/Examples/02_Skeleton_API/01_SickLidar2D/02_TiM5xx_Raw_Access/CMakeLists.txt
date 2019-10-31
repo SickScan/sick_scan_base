@@ -26,4 +26,6 @@ CreateExampleTarget(
     ${APP_SOURCE}
   VS_SOLUTION_NAME
     ${EXAMPLES_SOLUTION_FOLDER}
+  ADDITIONAL_LIBRARIES
+    ssbl::tim561::static
 )

@@ -29,9 +29,9 @@ function(CreateExampleTarget)
 
   add_executable(${PARSED_EXAMPLE_NAME} ${PARSED_EXAMPLE_SOURCES})
   if(NOT PARSED_ADDITIONAL_LIBRARIES)
-    target_link_libraries(${PARSED_EXAMPLE_NAME} ssbl::core::static)
+    target_link_libraries(${PARSED_EXAMPLE_NAME} ssbl::base::static)
   else()
-    target_link_libraries(${PARSED_EXAMPLE_NAME} ssbl::core::static ${PARSED_ADDITIONAL_LIBRARIES})
+    target_link_libraries(${PARSED_EXAMPLE_NAME} ${PARSED_ADDITIONAL_LIBRARIES})
   endif()
   set_target_properties (${PARSED_EXAMPLE_NAME} PROPERTIES FOLDER ${PARSED_VS_SOLUTION_NAME})
 

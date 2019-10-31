@@ -193,7 +193,7 @@ endfunction()
 function(CreateLibraryTargetInternal)
   set(options)
   set(oneValueArgs    BASE_NAME COMPONENT_NAME BUILD_MODE)
-  set(multiValueArgs  SOURCES)
+  set(multiValueArgs  SOURCES DEPENDS)
   cmake_parse_arguments(PARSED "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
 
   if(NOT PARSED_BASE_NAME)
@@ -214,12 +214,14 @@ function(CreateLibraryTargetInternal)
   endif()
 
   if ("${PARSED_BUILD_MODE}" STREQUAL "STATIC")
-    set(TARGET_NAME "${PARSED_BASE_NAME}-${PARSED_COMPONENT_NAME}-static")
-    set(ALIAS_TARGET_NAME "${PARSED_BASE_NAME}::${PARSED_COMPONENT_NAME}::static")
+    set(TARGET_NAME_SUFFIX "static")
   else()
-    set(TARGET_NAME "${PARSED_BASE_NAME}-${PARSED_COMPONENT_NAME}-shared")
-    set(ALIAS_TARGET_NAME "${PARSED_BASE_NAME}::${PARSED_COMPONENT_NAME}::shared")
+    set(TARGET_NAME_SUFFIX "shared")
   endif()
+  
+  set(TARGET_NAME "${PARSED_BASE_NAME}-${PARSED_COMPONENT_NAME}-${TARGET_NAME_SUFFIX}")
+  set(ALIAS_TARGET_NAME "${PARSED_BASE_NAME}::${PARSED_COMPONENT_NAME}::${TARGET_NAME_SUFFIX}")
+  
   
   GetFullLibraryName(${PARSED_BASE_NAME} ${PARSED_COMPONENT_NAME} ${PARSED_BUILD_MODE} LIBRARY_FILE_NAME)
   
@@ -233,6 +235,15 @@ function(CreateLibraryTargetInternal)
   set_target_properties(${TARGET_NAME} PROPERTIES DEBUG_POSTFIX "-dbg")
   set_target_properties(${TARGET_NAME} PROPERTIES RELEASE_POSTFIX "-rel")
   set_target_properties(${TARGET_NAME} PROPERTIES PREFIX "")
+
+
+  if(PARSED_DEPENDS)
+    unset(LIB_DEPENDENS)
+    foreach(Dependency ${PARSED_DEPENDS})
+      list(APPEND LIB_DEPENDENS ${PARSED_BASE_NAME}::${Dependency}::${TARGET_NAME_SUFFIX} )
+    endforeach()
+  endif()
+  
 
   target_include_directories(${TARGET_NAME}
     PUBLIC
@@ -306,7 +317,6 @@ function(CreateLibraryTargetInternal)
  
   get_filename_component(ComponentPathAbsolute "${PROJECT_SOURCE_DIR}" REALPATH)
 
-
   get_filename_component(lastDir "${ComponentPathAbsolute}" NAME)
   
 
@@ -331,7 +341,7 @@ endfunction()
 function(CreateLibraryTarget)
   set(options)
   set(oneValueArgs    BASE_NAME COMPONENT_NAME)
-  set(multiValueArgs  COMPONENTS)
+  set(multiValueArgs  COMPONENTS DEPENDS)
   cmake_parse_arguments(PARSED "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
 
   if(NOT PARSED_BASE_NAME)
@@ -363,7 +373,7 @@ function(CreateLibraryTarget)
   
 
   # Include Directories
-  list(APPEND incdirs "${CMAKE_CURRENT_SOURCE_DIR}/../../Components" "${CMAKE_CURRENT_SOURCE_DIR}/../../include")
+  list(APPEND incdirs "${TOP_DIR}/src/Library/Components" "${TOP_DIR}/src/Library/include")
   
 
   #==========================================
@@ -405,19 +415,12 @@ function(CreateLibraryTarget)
       STATIC
     SOURCES
       ${SourceListInternal}
+    DEPENDS
+      ${PARSED_DEPENDS}
   )
 
-
-  
-
-  
   #set(CMAKE_EXPORT_PACKAGE_REGISTRY ON)
   #export(PACKAGE ssbl)
-
-
-
-    
-
 
 endfunction()
 
