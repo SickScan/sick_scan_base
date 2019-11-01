@@ -192,7 +192,7 @@ endfunction()
 #######################################################################################################
 function(CreateLibraryTargetInternal)
   set(options)
-  set(oneValueArgs    BASE_NAME COMPONENT_NAME BUILD_MODE)
+  set(oneValueArgs    BASE_NAME COMPONENT_NAME BUILD_MODE VS_SOLUTION_NAME)
   set(multiValueArgs  SOURCES DEPENDS)
   cmake_parse_arguments(PARSED "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
 
@@ -208,7 +208,10 @@ function(CreateLibraryTargetInternal)
     message(FATAL_ERROR "CreateLibraryTargetInternal: PARSED_SOURCES must be a list of source files")
   endif()
   
-  
+  if(NOT PARSED_VS_SOLUTION_NAME)
+    message(FATAL_ERROR "CreateLibraryTargetInternal: PARSED_VS_SOLUTION_NAME must be a list of source files")
+  endif()
+   
   if(NOT PARSED_BUILD_MODE)
     message(FATAL_ERROR "CreateLibraryTargetInternal: PARSED_BUILD_MODE must be either STATIC or SHARED")
   endif()
@@ -231,7 +234,7 @@ function(CreateLibraryTargetInternal)
 
 
   set_target_properties(${TARGET_NAME} PROPERTIES OUTPUT_NAME ${LIBRARY_FILE_NAME})
-  set_target_properties(${TARGET_NAME} PROPERTIES FOLDER Library)
+  set_target_properties(${TARGET_NAME} PROPERTIES FOLDER ${PARSED_VS_SOLUTION_NAME})
   set_target_properties(${TARGET_NAME} PROPERTIES DEBUG_POSTFIX "-dbg")
   set_target_properties(${TARGET_NAME} PROPERTIES RELEASE_POSTFIX "-rel")
   set_target_properties(${TARGET_NAME} PROPERTIES PREFIX "")
@@ -340,7 +343,7 @@ endfunction()
 #######################################################################################################
 function(CreateLibraryTarget)
   set(options)
-  set(oneValueArgs    BASE_NAME COMPONENT_NAME)
+  set(oneValueArgs    BASE_NAME COMPONENT_NAME VS_SOLUTION_NAME)
   set(multiValueArgs  COMPONENTS DEPENDS)
   cmake_parse_arguments(PARSED "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
 
@@ -351,6 +354,13 @@ function(CreateLibraryTarget)
   if(NOT PARSED_COMPONENT_NAME)
     message(FATAL_ERROR "CreateLibraryTarget: PARSED_COMPONENT_NAME must name a subcomponent of the library")
   endif()
+  
+   if(NOT PARSED_VS_SOLUTION_NAME)
+    set(PARSED_VS_SOLUTION_NAME "Library")
+   else()
+    set(PARSED_VS_SOLUTION_NAME "Library/${PARSED_VS_SOLUTION_NAME}")
+   endif()
+  
   
   if(NOT PARSED_COMPONENTS)
     message(FATAL_ERROR "CreateLibraryTarget: PARSED_COMPONENTS must not be empty")
@@ -413,6 +423,8 @@ function(CreateLibraryTarget)
       ${PARSED_COMPONENT_NAME}
     BUILD_MODE
       STATIC
+    VS_SOLUTION_NAME
+      ${PARSED_VS_SOLUTION_NAME}
     SOURCES
       ${SourceListInternal}
     DEPENDS
