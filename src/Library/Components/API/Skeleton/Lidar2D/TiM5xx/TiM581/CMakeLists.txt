@@ -15,7 +15,6 @@ include(LibraryTargetExtension)
 
 ComponentSources(
 NAME ${COMPONENT_SUFFIX}-skeleton
-PATH ${CMAKE_CURRENT_LIST_DIR}
 SOURCES
 ${COMPONENT_SUFFIX}Skeleton.cpp
 ${COMPONENT_SUFFIX}Skeleton_CoLa_Extension.cpp

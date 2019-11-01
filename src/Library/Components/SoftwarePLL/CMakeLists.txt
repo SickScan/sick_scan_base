@@ -19,7 +19,6 @@ include(LibraryTargetExtension)
 
 ComponentSources(
   NAME SoftwarePLL
-  PATH ${CMAKE_CURRENT_LIST_DIR}
   SOURCES 
   SoftwarePLL.cpp
 )

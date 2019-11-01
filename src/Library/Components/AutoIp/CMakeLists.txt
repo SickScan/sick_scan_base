@@ -19,7 +19,6 @@ include(LibraryTargetExtension)
 
 ComponentSources(
   NAME AutoIp
-  PATH ${CMAKE_CURRENT_LIST_DIR}
   SOURCES 
   AutoIpHandler.cpp
 )

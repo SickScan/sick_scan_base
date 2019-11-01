@@ -26,10 +26,6 @@ function(ComponentSources)
     message(FATAL_ERROR "ComponentSources: NAME must be set to the name of the component (should be unique in the given CMakeLists.txt)")
   endif()
   
-  if(NOT PARSED_PATH)
-    message(FATAL_ERROR "ComponentSources: PATH must be set to the path of the component sources (relative to CMakeLists.txt)")
-  endif()
-  
   if(NOT PARSED_SOURCES)
     message(FATAL_ERROR "ComponentSources: SOURCES must contain the list of source file paths relative to PATH")
   endif()
@@ -40,18 +36,31 @@ function(ComponentSources)
 
   # Build list of source files
   foreach(SourceFilePath ${PARSED_SOURCES})
-    list(APPEND Sources ${PARSED_PATH}/private/${SourceFilePath})
+    if(NOT PARSED_PATH)
+      list(APPEND Sources "private/${SourceFilePath}")
+    else()
+      list(APPEND Sources ${PARSED_PATH}/private/${SourceFilePath})
+    endif()
   endforeach()
 
   # Set variable with source files in parent scope
   set(COMPONENT_SOURCES_${PARSED_NAME} ${Sources} PARENT_SCOPE)
   
   # Gather header files recursively
-  get_filename_component(BasePathAbsolute ${PARSED_PATH} REALPATH)
-  file(GLOB_RECURSE HeadersTmp RELATIVE ${BasePathAbsolute} ${PARSED_PATH}/*.h ${PARSED_PATH}/*.hpp)
-  foreach(HeaderFilePath ${HeadersTmp})
-    list(APPEND Headers ${PARSED_PATH}/${HeaderFilePath})
-  endforeach()
+  if(NOT PARSED_PATH)
+    get_filename_component(BasePathAbsolute ${CMAKE_CURRENT_LIST_DIR} REALPATH)
+    
+    file(GLOB_RECURSE HeadersTmp RELATIVE ${BasePathAbsolute} ${CMAKE_CURRENT_SOURCE_DIR}/*.h ${CMAKE_CURRENT_SOURCE_DIR}/*.hpp)
+    foreach(HeaderFilePath ${HeadersTmp})
+      list(APPEND Headers ${HeaderFilePath})
+    endforeach()
+  else()
+    get_filename_component(BasePathAbsolute ${PARSED_PATH} REALPATH)
+    file(GLOB_RECURSE HeadersTmp RELATIVE ${BasePathAbsolute} ${PARSED_PATH}/*.h ${PARSED_PATH}/*.hpp)
+    foreach(HeaderFilePath ${HeadersTmp})
+      list(APPEND Headers ${PARSED_PATH}/${HeaderFilePath})
+    endforeach()
+  endif()
   
   # Set variable with header files in parent scope
   set(COMPONENT_HEADERS_${PARSED_NAME} ${Headers} PARENT_SCOPE)
@@ -94,6 +103,7 @@ function(CreateSourceGroupsVS)
     if(PARSED_PATH)
       set(SourceItemAbsolute ${PARSED_PATH}/${SourceItem})
     else()
+      
       set(SourceItemAbsolute ${SourceItem})
     endif()
     source_group(${SourceGroupName} FILES ${SourceItemAbsolute})
@@ -307,11 +317,10 @@ function(CreateLibraryTargetInternal)
     )
  
     get_filename_component(ComponentPathAbsolute "${PROJECT_SOURCE_DIR}/../../include" REALPATH)
-    message(STATUS "MM: ${ComponentPathAbsolute}")
+
     file(GLOB_RECURSE InstallHeaders ABSOLUTE "${ComponentPathAbsolute}" "${ComponentPathAbsolute}/*.h" "${ComponentPathAbsolute}/*.hpp")
 
     foreach(Header ${InstallHeaders})
-      message(STATUS "MM: ${Header}")
       get_filename_component(fileName ${Header} NAME)
       install(FILES ${Header} DESTINATION ${SSBL_INSTALL_DIR}/include)
     endforeach()
