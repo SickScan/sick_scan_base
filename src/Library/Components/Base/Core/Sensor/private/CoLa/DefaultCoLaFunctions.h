@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 #include <stdint.h>
-#include "Base/Core/Sensor/include/Common/SickSensorFunction.h"
-#include "Base/Core/Sensor/include/Common/SickSensorVariable.h"
+#include "Base/Core/Sensor/include/Common/SensorFunction.h"
+#include "Base/Core/Sensor/include/Common/SensorVariable.h"
 
 namespace ssbl {
 #pragma pack(push, 1)
@@ -29,7 +29,7 @@ typedef struct {
 } SetAccessModeReturn_t;
 #pragma pack(pop)
 
-class MethSetAccessMode : public SickSensorFunction {
+class MethSetAccessMode : public SensorFunction {
  public:
   MethSetAccessMode();
 
@@ -44,7 +44,7 @@ class MethSetAccessMode : public SickSensorFunction {
   SetAccessModeReturn_t ReturnValue;
 };
 
-class VarDeviceIdent : public SickSensorVariable {
+class VarDeviceIdent : public SensorVariable {
  public:
   VarDeviceIdent();
 

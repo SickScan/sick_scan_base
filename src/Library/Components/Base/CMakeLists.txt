@@ -58,9 +58,9 @@ ComponentSources(
   NAME Core_Sensor
   PATH Core/Sensor
   SOURCES 
-  Common/SickSensorSkeleton.cpp
-  Common/SickSensorInterface.cpp
-  Common/SickSensorFunction.cpp
+  Common/SensorSkeleton.cpp
+  Common/SensorInterface.cpp
+  Common/SensorFunction.cpp
   CoLa/DefaultCoLaFunctions.cpp
   CoLa/CoLaSensorSkeleton.cpp
 )

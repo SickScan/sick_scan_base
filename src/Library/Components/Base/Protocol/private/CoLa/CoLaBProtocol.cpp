@@ -21,7 +21,7 @@
 #include <iostream>
 #include "Base/Core/Common/include/Assert.h"
 #include "Base/Core/Common/include/Endianess.h"
-#include "Base/Core/Sensor/include/Common/SickSensorInterface.h"
+#include "Base/Core/Sensor/include/Common/SensorInterface.h"
 #include "Base/Protocol/include/CoLa/CoLaBDeserializer.h"
 #include "Base/Protocol/include/CoLa/CoLaBSerializer.h"
 #include "Base/Protocol/include/Common/Checksum.h"
@@ -53,7 +53,7 @@ CoLaBProtocol::CoLaBProtocol(AddressingMode AddrMode, size_t txBufSize,
 
 //=============================================================================
 //=============================================================================
-SensorResult CoLaBProtocol::Init(SickSensorInterface &rInterface) {
+SensorResult CoLaBProtocol::Init(SensorInterface &rInterface) {
   SensorResult ret = SSBL_SUCCESS;
   using namespace std::placeholders;
   ret = InitInternal(rInterface, sizeof(colab::Preamble), 0, colab::Preamble,

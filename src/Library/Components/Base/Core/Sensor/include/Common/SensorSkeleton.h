@@ -14,16 +14,16 @@
 // limitations under the License.
 //=======================================================================================
 //! \file
-//! \brief    Declaration of class SickSensor
+//! \brief    Declaration of class Sensor
 //=======================================================================================
 #pragma once
 
 #include <string>
 #include <unordered_map>
 #include <vector>
-#include "Base/Core/Sensor/include/Common/SickSensorComObjRepository.h"
-#include "Base/Core/Sensor/include/Common/SickSensorFunction.h"
-#include "Base/Core/Sensor/include/Common/SickSensorVariable.h"
+#include "Base/Core/Sensor/include/Common/SensorComObjRepository.h"
+#include "Base/Core/Sensor/include/Common/SensorFunction.h"
+#include "Base/Core/Sensor/include/Common/SensorVariable.h"
 #include "Base/Logger/include/Logger.h"
 #include "Base/Protocol/include/CoLa/CoLaAProtocol.h"
 #include "Base/Protocol/include/CoLa/CoLaBProtocol.h"
@@ -35,10 +35,10 @@ class TelegramBuffer;
 class VariableEventQueue;
 
 //===============================================================================
-//! \brief Base class SickSensor
+//! \brief Base class Sensor
 //
 //  Concrete sensor will be derived from this class
-class SickSensorSkeleton : public CallbackProvider {
+class SensorSkeleton : public CallbackProvider {
  public:
   typedef enum {
     DISCONNECTED,
@@ -61,7 +61,7 @@ class SickSensorSkeleton : public CallbackProvider {
   //  \param rxBufSize Size of the the rx buffer created within this class
   //
   ============================================================================*/
-  SickSensorSkeleton(size_t txBufSize, size_t rxBufSize);
+  SensorSkeleton(size_t txBufSize, size_t rxBufSize);
   //============================================================================
   //! \brief Constructor
   //
@@ -71,13 +71,13 @@ class SickSensorSkeleton : public CallbackProvider {
   //  \param rxBufSize Size of the the rx buffer created within this class
   //
   ============================================================================*/
-  SickSensorSkeleton(const std::string& localName, size_t txBufSize,
+  SensorSkeleton(const std::string& localName, size_t txBufSize,
                      size_t rxBufSize);
 
   //============================================================================
   //! \brief Destructor
   //
-  virtual ~SickSensorSkeleton();
+  virtual ~SensorSkeleton();
 
   //============================================================================
   //! \brief Get the user assigned name
@@ -133,7 +133,7 @@ class SickSensorSkeleton : public CallbackProvider {
   //  \return SSBL_SUCCESS on success
   //
   ============================================================================*/
-  virtual SensorResult ReadVariable(SickSensorVariable& rVar) = 0;
+  virtual SensorResult ReadVariable(SensorVariable& rVar) = 0;
 
   //============================================================================
   //! \brief Write a variable of this device
@@ -143,7 +143,7 @@ class SickSensorSkeleton : public CallbackProvider {
   //  \return SSBL_SUCCESS on success
   //
   ============================================================================*/
-  virtual SensorResult WriteVariable(SickSensorVariable& rVar) = 0;
+  virtual SensorResult WriteVariable(SensorVariable& rVar) = 0;
 
   //============================================================================
   //! \brief Register to a variable event using a callback
@@ -153,7 +153,7 @@ class SickSensorSkeleton : public CallbackProvider {
   //  \return SSBL_SUCCESS on success
   //
   ============================================================================*/
-  virtual SensorResult RegisterEvent(SickSensorVariable& rVar,
+  virtual SensorResult RegisterEvent(SensorVariable& rVar,
                                      std::function<void(uint64_t*)> OnEventCb,
                                      uint64_t cbParam) = 0;
   //============================================================================
@@ -176,7 +176,7 @@ class SickSensorSkeleton : public CallbackProvider {
   //  \return SSBL_SUCCESS on success
   //
   ============================================================================*/
-  virtual SensorResult RegisterEvent(SickSensorVariable& rVar,
+  virtual SensorResult RegisterEvent(SensorVariable& rVar,
                                      VariableEventQueue** ppQueue,
                                      uint32_t nQueueElem) = 0;
 
@@ -200,7 +200,7 @@ class SickSensorSkeleton : public CallbackProvider {
   //  \return SSBL_SUCCESS on success
   //
   ============================================================================*/
-  virtual SensorResult DeregisterEvent(SickSensorVariable& rVar,
+  virtual SensorResult DeregisterEvent(SensorVariable& rVar,
                                        bool isDisconneted = false) = 0;
 
   //============================================================================
@@ -228,20 +228,20 @@ class SickSensorSkeleton : public CallbackProvider {
   //
   /*!
   //  \param varName the name of the variable to be created
-  //  \return SickSensorVariable object or nullptr
+  //  \return SensorVariable object or nullptr
   //
   ============================================================================*/
-  SickSensorVariable* CreateVariable(const std::string& varName);
+  SensorVariable* CreateVariable(const std::string& varName);
 
   //============================================================================
   //! \brief Search for a function with name funcName and create it
   //
   /*!
   //  \param funcName the name of the function to be created
-  //  \return SickSensorFunction object or nullptr
+  //  \return SensorFunction object or nullptr
   //
   ============================================================================*/
-  SickSensorFunction* CreateFunction(const std::string& funcName);
+  SensorFunction* CreateFunction(const std::string& funcName);
 
   //============================================================================
   //! \brief Execute a function
@@ -251,7 +251,7 @@ class SickSensorSkeleton : public CallbackProvider {
   //  \return SSBL_SUCCESS on success
   //
   ============================================================================*/
-  virtual SensorResult CallFunction(SickSensorFunction& rFunc) = 0;
+  virtual SensorResult CallFunction(SensorFunction& rFunc) = 0;
 
   //============================================================================
   //! \brief Store parameters
@@ -298,10 +298,10 @@ class SickSensorSkeleton : public CallbackProvider {
 
   virtual SensorResult DeviceSpecificProtocolSwitch(ProtocolType Protocol) = 0;
 
-  SickSensorInterfaceDescription* GetPreferredInterface();
-  SensorResult TestProtocol(SickSensorInterfaceDescription* pDesc);
-  std::vector<SickSensorInterfaceDescription*> GetAlternateInterfaces(
-      SickSensorInterfaceDescription* pDesiredInterface);
+  SensorInterfaceDescription* GetPreferredInterface();
+  SensorResult TestProtocol(SensorInterfaceDescription* pDesc);
+  std::vector<SensorInterfaceDescription*> GetAlternateInterfaces(
+      SensorInterfaceDescription* pDesiredInterface);
 
   uint32_t GetPassword(AccessLevel lvl) { return passwords_[lvl]; }
 
@@ -316,7 +316,7 @@ class SickSensorSkeleton : public CallbackProvider {
   size_t max_tx_buffer_size_;
   size_t max_rx_buffer_size_;
 
-  SickSensorInterface* pActiveInterface_;
+  SensorInterface* pActiveInterface_;
   Protocol* pActiveProtocol_;
 
   // will be set by derived device class
@@ -324,11 +324,11 @@ class SickSensorSkeleton : public CallbackProvider {
   uint32_t passwords_[MAX_USER_LEVELS];
   std::string UserSelectedIpOrSerial_;
   std::string UserSelectedInterfaceName_;
-  std::vector<std::unique_ptr<SickSensorInterfaceDescription*>>
+  std::vector<std::unique_ptr<SensorInterfaceDescription*>>
       AvailableSensorInterfaces_;
 
-  SickSensorComObjRepository<SickSensorVariable> VariableRepo;
-  SickSensorComObjRepository<SickSensorFunction> FunctionRepo;
+  SensorComObjRepository<SensorVariable> VariableRepo;
+  SensorComObjRepository<SensorFunction> FunctionRepo;
 };
 
 }  // namespace ssbl

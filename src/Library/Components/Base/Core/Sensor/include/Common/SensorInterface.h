@@ -16,13 +16,13 @@ enum SensorInterfaceType {
   ETHERNET_INTERFACE,
 };
 
-class SickSensorInterfaceProtocolSwitchHelper {
+class SensorInterfaceProtocolSwitchHelper {
  public:
 };
 
-class SickSensorInterfaceDescription {
+class SensorInterfaceDescription {
  public:
-  SickSensorInterfaceDescription(
+  SensorInterfaceDescription(
       std::string interfaceName, SensorInterfaceType type,
       ProtocolType protocol, AddressingMode adressingMode, uint32_t port,
       std::vector<std::tuple<ProtocolType, std::string, std::string>> info)
@@ -34,7 +34,7 @@ class SickSensorInterfaceDescription {
         SwitchInfo_(info){
 
         };
-  ~SickSensorInterfaceDescription() { SwitchInfo_.clear(); };
+  ~SensorInterfaceDescription() { SwitchInfo_.clear(); };
 
   std::string GetName(void) { return InterfaceName_; };
   SensorInterfaceType GetInterfaceType(void) { return Type; };
@@ -65,10 +65,10 @@ class SickSensorInterfaceDescription {
   std::vector<std::tuple<ProtocolType, std::string, std::string>> SwitchInfo_;
 };
 
-class SickSensorInterface : public CallbackProvider {
+class SensorInterface : public CallbackProvider {
  public:
-  SickSensorInterface();
-  virtual ~SickSensorInterface(){};
+  SensorInterface();
+  virtual ~SensorInterface(){};
 
   virtual SensorResult Connect(void) { return SSBL_SUCCESS; };
   virtual void Disconnect(void){};
@@ -78,16 +78,16 @@ class SickSensorInterface : public CallbackProvider {
   virtual size_t BytesPending(void) = 0;
   virtual size_t Receive(uint8_t** ppData, size_t nBytesToRead) = 0;
 
-  void SetInterfaceDescription(SickSensorInterfaceDescription* pDesc) {
+  void SetInterfaceDescription(SensorInterfaceDescription* pDesc) {
     pDesc_ = pDesc;
   }
 
-  SickSensorInterfaceDescription* GetInterfaceDescription() { return pDesc_; }
+  SensorInterfaceDescription* GetInterfaceDescription() { return pDesc_; }
 
   bool ProtocolCanBeSwitched() { return pDesc_->ProtocolSwitchingAllowed(); }
 
  protected:
-  SickSensorInterfaceDescription* pDesc_;
+  SensorInterfaceDescription* pDesc_;
   std::function<void()> on_receive_cb_;
 };
 

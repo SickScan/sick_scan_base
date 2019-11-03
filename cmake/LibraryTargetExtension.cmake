@@ -4,7 +4,7 @@
 
 include(CMakeParseArguments)
 include(CMakePackageConfigHelpers)
-
+include(UseSWIG)
 
 
 #######################################################################################################
@@ -198,6 +198,130 @@ function(GetLibraryCompileLinkFlags LIB_DBG_FLAGS, LIB_REL_FLAGS, LIB_DEPENDENS)
 endfunction()
 
 
+
+#######################################################################################################
+#######################################################################################################
+function(CreateSwigTargetInternal)
+  set(options)
+  set(oneValueArgs  BASE_NAME COMPONENT_NAME VS_SOLUTION_FOLDER LANGUAGE )
+  set(multiValueArgs   )
+  cmake_parse_arguments(PARSED "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
+  
+  if(NOT PARSED_LANGUAGE)
+    message(FATAL_ERROR "CreateSwigTargetInternal: PARSED_LANGUAGE must contain the name of the target language")
+  endif()
+  
+  if(NOT PARSED_BASE_NAME)
+    message(FATAL_ERROR "CreateSwigTargetInternal: PARSED_BASE_NAME must contain the name of the library")
+  endif()
+
+  if(NOT PARSED_COMPONENT_NAME)
+    message(FATAL_ERROR "CreateSwigTargetInternal: PARSED_COMPONENT_NAME has to be set")
+  endif()
+  
+  if(NOT PARSED_VS_SOLUTION_FOLDER)
+    message(FATAL_ERROR "CreateSwigTargets: VS_SOLUTION_FOLDER has to be set")
+  endif()
+  
+  
+  set(SWIG_MODULE_NAME ${PARSED_COMPONENT_NAME})
+  set(COMPONENTS_TOP_DIR ${PROJECT_SOURCE_DIR})
+  string(FIND "${COMPONENTS_TOP_DIR}" "API" out)
+  string(SUBSTRING ${COMPONENTS_TOP_DIR} 0 ${out} COMPONENTS_TOP_DIR)
+
+  string(FIND "${PARSED_COMPONENT_NAME}" "_" out)
+   string(SUBSTRING ${PARSED_COMPONENT_NAME} 0 ${out} FAMILY_NAME)
+  
+
+  set(SWIG_INPUT          ${CMAKE_CURRENT_SOURCE_DIR}/interface/swig-in.i.in)
+  set(SWIG_INTERFACE_SPEC ${CMAKE_CURRENT_BINARY_DIR}/${PARSED_COMPONENT_NAME}-${PARSED_LANGUAGE}/in.i)
+  configure_file(${SWIG_INPUT} ${SWIG_INTERFACE_SPEC} @ONLY)
+  set (UseSWIG_TARGET_NAME_PREFERENCE STANDARD)
+  set_property(SOURCE ${SWIG_INTERFACE_SPEC} PROPERTY CPLUSPLUS ON)
+  set_property(SOURCE ${SWIG_INTERFACE_SPEC} PROPERTY USE_LIBRARY_INCLUDE_DIRECTORIES TRUE)
+    
+  if(PARSED_LANGUAGE MATCHES PYTHON)
+    find_package(Python3 COMPONENTS Interpreter Development REQUIRED)
+    
+    message(STATUS "MM: ${PARSED_LANGUAGE}")
+    message(STATUS "MM: ${PARSED_BASE_NAME}")
+    message(STATUS "MM: ${PARSED_COMPONENT_NAME}")
+    message(STATUS "MM: ${PARSED_VS_SOLUTION_FOLDER}")
+    
+    
+    set(TARGET_NAME "${PARSED_BASE_NAME}_${PARSED_COMPONENT_NAME}_${PARSED_LANGUAGE}")
+    
+    swig_add_library(${TARGET_NAME}
+      LANGUAGE
+        python
+      SOURCES
+        ${SWIG_INTERFACE_SPEC})
+    target_include_directories(${TARGET_NAME}  PRIVATE  ${Python3_INCLUDE_DIRS})
+    
+    unset(SWIG_LIB_DEPENDENS)
+    #if (WIN32)
+    #  get_target_property(OUT ${TARGET_NAME} LINK_LIBRARIES)
+   #   message(STATUS "MArkus: ${OUT}")
+
+    #  list(APPEND SWIG_LIB_DEPENDENS ${Python3_LIBRARIES})
+  #  else()
+  #    list(APPEND SWIG_LIB_DEPENDENS ${Python3_LIBRARIES})
+  #  endif()
+    list(APPEND SWIG_LIB_DEPENDENS ${Python3_LIBRARIES})
+    list(APPEND SWIG_LIB_DEPENDENS "ssbl::tim5xx_1_0_0::static")
+   
+    target_link_libraries(${TARGET_NAME}  PRIVATE ${SWIG_LIB_DEPENDENS})
+
+    set_property(TARGET ${TARGET_NAME} PROPERTY SWIG_USE_LIBRARY_INCLUDE_DIRECTORIES TRUE)
+    set_target_properties(${TARGET_NAME} PROPERTIES FOLDER ${PARSED_VS_SOLUTION_FOLDER})
+  endif()
+  
+endfunction()
+
+
+#######################################################################################################
+#######################################################################################################
+function(CreateSwigTargets)
+  set(options)
+  set(oneValueArgs  BASE_NAME COMPONENT_NAME VS_SOLUTION_FOLDER)
+  set(multiValueArgs)
+  cmake_parse_arguments(PARSED "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
+
+
+  if(NOT PARSED_BASE_NAME)
+    message(FATAL_ERROR "CreateSwigTargets: PARSED_BASE_NAME must contain the name of the library")
+  endif()
+
+  if(NOT PARSED_COMPONENT_NAME)
+    message(FATAL_ERROR "CreateSwigTargets: PARSED_COMPONENT_NAME has to be set")
+  endif()
+  
+  if(NOT PARSED_VS_SOLUTION_FOLDER)
+    message(FATAL_ERROR "CreateSwigTargets: VS_SOLUTION_FOLDER has to be set")
+  endif()
+  
+
+  
+  find_package(SWIG 4.0)
+
+  if(SWIG_FOUND)
+  CreateSwigTargetInternal(
+    BASE_NAME
+      ${PARSED_BASE_NAME}
+    COMPONENT_NAME
+      ${PARSED_COMPONENT_NAME}
+    VS_SOLUTION_FOLDER
+      ${PARSED_VS_SOLUTION_FOLDER}
+    LANGUAGE
+      PYTHON
+  )
+
+  
+  endif()
+
+
+endfunction()
+
 #######################################################################################################
 #######################################################################################################
 function(CreateLibraryTargetInternal)
@@ -234,7 +358,7 @@ function(CreateLibraryTargetInternal)
   
   set(TARGET_NAME "${PARSED_BASE_NAME}-${PARSED_COMPONENT_NAME}-${TARGET_NAME_SUFFIX}")
   set(ALIAS_TARGET_NAME "${PARSED_BASE_NAME}::${PARSED_COMPONENT_NAME}::${TARGET_NAME_SUFFIX}")
-  
+  message(STATUS "TARGET ${TARGET_NAME} ALIAS ${ALIAS_TARGET_NAME}" )
   
   GetFullLibraryName(${PARSED_BASE_NAME} ${PARSED_COMPONENT_NAME} ${PARSED_BUILD_MODE} LIBRARY_FILE_NAME)
   
@@ -271,7 +395,7 @@ function(CreateLibraryTargetInternal)
 
   target_compile_options(${TARGET_NAME} PRIVATE "$<$<CONFIG:DEBUG>:${LIB_DBG_FLAGS}>")
   target_compile_options(${TARGET_NAME} PRIVATE "$<$<CONFIG:RELEASE>:${LIB_REL_FLAGS}>")
-  target_link_libraries(${TARGET_NAME}  PRIVATE ${LIB_DEPENDENS} )
+  target_link_libraries(${TARGET_NAME}  PUBLIC ${LIB_DEPENDENS} )
 
     # CMake 3.10 does not support this yet
     if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")

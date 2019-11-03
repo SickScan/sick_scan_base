@@ -18,4 +18,4 @@ list(APPEND CLANG_FORMAT_FOLDERS "${CMAKE_CURRENT_LIST_DIR}/Examples")
 CreateClangFormatTarget(
   FOLDERS
     ${CLANG_FORMAT_FOLDERS}
-  )
+)

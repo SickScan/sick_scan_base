@@ -23,7 +23,7 @@
 #include <string>
 #include "Base/Core/OS/include/Event.h"
 #include "Base/Core/OS/include/Mutex.h"
-#include "Base/Core/Sensor/include/Common/SickSensorVariable.h"
+#include "Base/Core/Sensor/include/Common/SensorVariable.h"
 #include "Base/Logger/include/Logger.h"
 #include "Base/Protocol/include/Common/TelegramBuffer.h"
 #include "Base/Types/include/SickSensorReturnCodes.h"
@@ -31,7 +31,7 @@
 namespace ssbl {
 
 // Forward declarations
-class SickSensorInterface;
+class SensorInterface;
 class Deserializer;
 class Serializer;
 class VariableEventQueue;
@@ -116,7 +116,7 @@ class Protocol {
    * @param rInterface Refernence to the sensor interface that is to be used
    * @return SensorResult SSBL_SUCCESS on success
    */
-  virtual SensorResult Init(SickSensorInterface& rInterface) = 0;
+  virtual SensorResult Init(SensorInterface& rInterface) = 0;
 
   /**
    * @brief Send a request to the sensor
@@ -208,7 +208,7 @@ class Protocol {
   Serializer* pSerializer_;
 
   /// Pointer to the communication interface
-  SickSensorInterface* pInterface_;
+  SensorInterface* pInterface_;
 
   ///  Transmit buffer
   TelegramBuffer* pTxBuffer_;

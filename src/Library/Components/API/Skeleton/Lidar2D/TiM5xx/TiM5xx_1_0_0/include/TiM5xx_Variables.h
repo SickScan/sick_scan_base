@@ -5,35 +5,35 @@
 #pragma once
 #include <stdint.h>
 #include <cstring>
-#include "API/Skeleton/Lidar2D/TiM5xx/TiM5xx_1.0.0/include/TiM5xx_1.0.0Skeleton_Types.h"
-#include "Base/Core/Sensor/include/Common/SickSensorVariable.h"
-#include "API/Skeleton/Lidar2D/TiM5xx/TiM5xx_1.0.0/include/TiM5xx_1.0.0Skeleton_CoLa_Extension.h"
+#include "API/Skeleton/Lidar2D/TiM5xx/TiM5xx_1_0_0/include/TiM5xx_Types.h"
+#include "Base/Core/Sensor/include/Common/SensorVariable.h"
+#include "API/Skeleton/Lidar2D/TiM5xx/TiM5xx_1_0_0/include/TiM5xx_CoLa_Extension.h"
 
 namespace ssbl
 {
-namespace DevTiM5xx_1.0.0Skeleton
+namespace TiM5xx_1_0_0_Skeleton
 {
 template <class T>
-class TiM5xx_1.0.0Skeleton_Var : public SickSensorVariable
+class TiM5xx_Var : public SensorVariable
 {
 public:
-	TiM5xx_1.0.0Skeleton_Var(		std::string name,
+	TiM5xx_Var(		std::string name,
 		std::string comName,
 		uint16_t idx,
 		VariableDirection rwDir,
 		AccessLevel readAccessLvl,
 		AccessLevel writeAccessLvl,
-		int32_t eventIdx) : SickSensorVariable(name, comName, idx, rwDir, readAccessLvl, writeAccessLvl, eventIdx) {};
-	~TiM5xx_1.0.0Skeleton_Var(){};
+		int32_t eventIdx) : SensorVariable(name, comName, idx, rwDir, readAccessLvl, writeAccessLvl, eventIdx) {};
+	~TiM5xx_Var(){};
 	uint32_t SerializeContent(Serializer * pSer, uint8_t * pDest, uint32_t * pOffset)
 	{
 		switch (pSer->GetProtocolType())
 		{
 		case COLA_A:
-			(reinterpret_cast<TiM5xx_1.0.0Skeleton_CoLaASerializer*> (pSer))->Serialize(pDest, this->Value_, pOffset);
+			(reinterpret_cast<TiM5xx_CoLaASerializer*> (pSer))->Serialize(pDest, this->Value_, pOffset);
 			break;
 		case COLA_B:
-			(reinterpret_cast<TiM5xx_1.0.0Skeleton_CoLaBSerializer*> (pSer))->Serialize(pDest, this->Value_, pOffset);
+			(reinterpret_cast<TiM5xx_CoLaBSerializer*> (pSer))->Serialize(pDest, this->Value_, pOffset);
 			break;
 		default:
 			break;
@@ -46,10 +46,10 @@ public:
 		switch (pDes->GetProtocolType())
 		{
 		case COLA_A:
-			(reinterpret_cast<TiM5xx_1.0.0Skeleton_CoLaADeserializer*> (pDes))->Deserialize(pSrc, this->Value_, &offset);
+			(reinterpret_cast<TiM5xx_CoLaADeserializer*> (pDes))->Deserialize(pSrc, this->Value_, &offset);
 			break;
 		case COLA_B:
-			(reinterpret_cast<TiM5xx_1.0.0Skeleton_CoLaBDeserializer*> (pDes))->Deserialize(pSrc, this->Value_, &offset);
+			(reinterpret_cast<TiM5xx_CoLaBDeserializer*> (pDes))->Deserialize(pSrc, this->Value_, &offset);
 			break;
 		default:
 			break;
@@ -82,13 +82,13 @@ public:
 	T Value_;
 };
 
-class ScanConfig_TiM5xx_1.0.0Skeleton_Var : public TiM5xx_1.0.0Skeleton_Var<ScanConfig_t>
+class ScanConfig_TiM5xx_Var : public TiM5xx_Var<ScanConfig_t>
 {
 public:
-	ScanConfig_TiM5xx_1.0.0Skeleton_Var();
-	~ScanConfig_TiM5xx_1.0.0Skeleton_Var(){};
-	ComObj* Clone() { return new ScanConfig_TiM5xx_1.0.0Skeleton_Var(*this); }
-	static SickSensorVariable* Create() { return new ScanConfig_TiM5xx_1.0.0Skeleton_Var; }
+	ScanConfig_TiM5xx_Var();
+	~ScanConfig_TiM5xx_Var(){};
+	ComObj* Clone() { return new ScanConfig_TiM5xx_Var(*this); }
+	static SensorVariable* Create() { return new ScanConfig_TiM5xx_Var; }
 	SensorResult GetBasic(int8_t& value);
 	SensorResult GetBasic(int16_t& value);
 	SensorResult GetBasic(int32_t& value);
@@ -131,13 +131,13 @@ public:
 	SensorResult SetBasicElement(const std::string& elementName, double& value);
 };
 
-class EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var : public TiM5xx_1.0.0Skeleton_Var<Enum8_t>
+class EtherHostCoLaDialect_TiM5xx_Var : public TiM5xx_Var<Enum8_t>
 {
 public:
-	EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var();
-	~EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var(){};
-	ComObj* Clone() { return new EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var(*this); }
-	static SickSensorVariable* Create() { return new EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var; }
+	EtherHostCoLaDialect_TiM5xx_Var();
+	~EtherHostCoLaDialect_TiM5xx_Var(){};
+	ComObj* Clone() { return new EtherHostCoLaDialect_TiM5xx_Var(*this); }
+	static SensorVariable* Create() { return new EtherHostCoLaDialect_TiM5xx_Var; }
 	SensorResult GetBasic(int8_t& value);
 	SensorResult GetBasic(int16_t& value);
 	SensorResult GetBasic(int32_t& value);
@@ -180,13 +180,13 @@ public:
 	SensorResult SetBasicElement(const std::string& elementName, double& value);
 };
 
-class DataOutputRange_TiM5xx_1.0.0Skeleton_Var : public TiM5xx_1.0.0Skeleton_Var<DataOutputRange_t>
+class DataOutputRange_TiM5xx_Var : public TiM5xx_Var<DataOutputRange_t>
 {
 public:
-	DataOutputRange_TiM5xx_1.0.0Skeleton_Var();
-	~DataOutputRange_TiM5xx_1.0.0Skeleton_Var(){};
-	ComObj* Clone() { return new DataOutputRange_TiM5xx_1.0.0Skeleton_Var(*this); }
-	static SickSensorVariable* Create() { return new DataOutputRange_TiM5xx_1.0.0Skeleton_Var; }
+	DataOutputRange_TiM5xx_Var();
+	~DataOutputRange_TiM5xx_Var(){};
+	ComObj* Clone() { return new DataOutputRange_TiM5xx_Var(*this); }
+	static SensorVariable* Create() { return new DataOutputRange_TiM5xx_Var; }
 	SensorResult GetBasic(int8_t& value);
 	SensorResult GetBasic(int16_t& value);
 	SensorResult GetBasic(int32_t& value);
@@ -229,13 +229,13 @@ public:
 	SensorResult SetBasicElement(const std::string& elementName, double& value);
 };
 
-class ScanData_TiM5xx_1.0.0Skeleton_Var : public TiM5xx_1.0.0Skeleton_Var<ScanData_t>
+class ScanData_TiM5xx_Var : public TiM5xx_Var<ScanData_t>
 {
 public:
-	ScanData_TiM5xx_1.0.0Skeleton_Var();
-	~ScanData_TiM5xx_1.0.0Skeleton_Var(){};
-	ComObj* Clone() { return new ScanData_TiM5xx_1.0.0Skeleton_Var(*this); }
-	static SickSensorVariable* Create() { return new ScanData_TiM5xx_1.0.0Skeleton_Var; }
+	ScanData_TiM5xx_Var();
+	~ScanData_TiM5xx_Var(){};
+	ComObj* Clone() { return new ScanData_TiM5xx_Var(*this); }
+	static SensorVariable* Create() { return new ScanData_TiM5xx_Var; }
 	SensorResult GetBasic(int8_t& value);
 	SensorResult GetBasic(int16_t& value);
 	SensorResult GetBasic(int32_t& value);
@@ -278,13 +278,13 @@ public:
 	SensorResult SetBasicElement(const std::string& elementName, double& value);
 };
 
-class ScanDataConfig_TiM5xx_1.0.0Skeleton_Var : public TiM5xx_1.0.0Skeleton_Var<ScanDataConfig_t>
+class ScanDataConfig_TiM5xx_Var : public TiM5xx_Var<ScanDataConfig_t>
 {
 public:
-	ScanDataConfig_TiM5xx_1.0.0Skeleton_Var();
-	~ScanDataConfig_TiM5xx_1.0.0Skeleton_Var(){};
-	ComObj* Clone() { return new ScanDataConfig_TiM5xx_1.0.0Skeleton_Var(*this); }
-	static SickSensorVariable* Create() { return new ScanDataConfig_TiM5xx_1.0.0Skeleton_Var; }
+	ScanDataConfig_TiM5xx_Var();
+	~ScanDataConfig_TiM5xx_Var(){};
+	ComObj* Clone() { return new ScanDataConfig_TiM5xx_Var(*this); }
+	static SensorVariable* Create() { return new ScanDataConfig_TiM5xx_Var; }
 	SensorResult GetBasic(int8_t& value);
 	SensorResult GetBasic(int16_t& value);
 	SensorResult GetBasic(int32_t& value);
@@ -327,13 +327,13 @@ public:
 	SensorResult SetBasicElement(const std::string& elementName, double& value);
 };
 
-class SCdevicestate_TiM5xx_1.0.0Skeleton_Var : public TiM5xx_1.0.0Skeleton_Var<Enum8_t>
+class SCdevicestate_TiM5xx_Var : public TiM5xx_Var<Enum8_t>
 {
 public:
-	SCdevicestate_TiM5xx_1.0.0Skeleton_Var();
-	~SCdevicestate_TiM5xx_1.0.0Skeleton_Var(){};
-	ComObj* Clone() { return new SCdevicestate_TiM5xx_1.0.0Skeleton_Var(*this); }
-	static SickSensorVariable* Create() { return new SCdevicestate_TiM5xx_1.0.0Skeleton_Var; }
+	SCdevicestate_TiM5xx_Var();
+	~SCdevicestate_TiM5xx_Var(){};
+	ComObj* Clone() { return new SCdevicestate_TiM5xx_Var(*this); }
+	static SensorVariable* Create() { return new SCdevicestate_TiM5xx_Var; }
 	SensorResult GetBasic(int8_t& value);
 	SensorResult GetBasic(int16_t& value);
 	SensorResult GetBasic(int32_t& value);
@@ -376,13 +376,13 @@ public:
 	SensorResult SetBasicElement(const std::string& elementName, double& value);
 };
 
-class OrderNumber_TiM5xx_1.0.0Skeleton_Var : public TiM5xx_1.0.0Skeleton_Var<FixString7>
+class OrderNumber_TiM5xx_Var : public TiM5xx_Var<FixString7>
 {
 public:
-	OrderNumber_TiM5xx_1.0.0Skeleton_Var();
-	~OrderNumber_TiM5xx_1.0.0Skeleton_Var(){};
-	ComObj* Clone() { return new OrderNumber_TiM5xx_1.0.0Skeleton_Var(*this); }
-	static SickSensorVariable* Create() { return new OrderNumber_TiM5xx_1.0.0Skeleton_Var; }
+	OrderNumber_TiM5xx_Var();
+	~OrderNumber_TiM5xx_Var(){};
+	ComObj* Clone() { return new OrderNumber_TiM5xx_Var(*this); }
+	static SensorVariable* Create() { return new OrderNumber_TiM5xx_Var; }
 	SensorResult GetBasic(int8_t& value);
 	SensorResult GetBasic(int16_t& value);
 	SensorResult GetBasic(int32_t& value);
@@ -425,6 +425,6 @@ public:
 	SensorResult SetBasicElement(const std::string& elementName, double& value);
 };
 
-} // namespace DevTiM5xx_1.0.0Skeleton
+} // namespace TiM5xx_1_0_0_Skeleton
 } // namespace ssbl
 

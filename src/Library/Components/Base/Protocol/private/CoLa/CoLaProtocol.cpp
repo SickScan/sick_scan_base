@@ -140,7 +140,7 @@ uint32_t CoLaProtocol::AddRequest(uint32_t offset, ProtocolRequest req,
 
 //=============================================================================
 //=============================================================================
-SensorResult CoLaProtocol::InitInternal(SickSensorInterface &rInterface,
+SensorResult CoLaProtocol::InitInternal(SensorInterface &rInterface,
                                         std::size_t preambleLength,
                                         std::size_t postambleLength,
                                         const uint8_t *pPreamble,

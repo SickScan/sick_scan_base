@@ -21,7 +21,7 @@
 #include <iostream>
 #include "Base/Core/Common/include/Assert.h"
 #include "Base/Core/Common/include/Endianess.h"
-#include "Base/Core/Sensor/include/Common/SickSensorInterface.h"
+#include "Base/Core/Sensor/include/Common/SensorInterface.h"
 #include "Base/Protocol/include/CoLa/CoLaADeserializer.h"
 #include "Base/Protocol/include/CoLa/CoLaASerializer.h"
 #include "Base/Protocol/include/Common/Checksum.h"
@@ -48,7 +48,7 @@ CoLaAProtocol::CoLaAProtocol(AddressingMode AddrMode, size_t txBufSize,
 
 //=============================================================================
 //=============================================================================
-SensorResult CoLaAProtocol::Init(SickSensorInterface &rInterface) {
+SensorResult CoLaAProtocol::Init(SensorInterface &rInterface) {
   SensorResult ret = SSBL_SUCCESS;
   using namespace std::placeholders;
   ret = InitInternal(rInterface, sizeof(colaa::Preamble), 0, colaa::Preamble,

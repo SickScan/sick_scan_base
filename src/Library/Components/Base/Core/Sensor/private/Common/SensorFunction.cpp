@@ -12,11 +12,11 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "Base/Core/Sensor/include/Common/SickSensorFunction.h"
+#include "Base/Core/Sensor/include/Common/SensorFunction.h"
 
 using namespace ssbl;
 
-SickSensorFunction::SickSensorFunction(std::string name, std::string comName,
+SensorFunction::SensorFunction(std::string name, std::string comName,
                                        uint16_t idx, AccessLevel accessLevel,
                                        bool hasArgs, bool hasRet)
     : ComObj(name, comName, idx),

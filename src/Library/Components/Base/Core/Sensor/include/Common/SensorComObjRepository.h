@@ -14,7 +14,7 @@
 // limitations under the License.
 //=======================================================================================
 //! \file
-//! \brief    Declaration of class SickSensor
+//! \brief    Declaration of class Sensor
 //=======================================================================================
 #pragma once
 
@@ -28,11 +28,11 @@
 namespace ssbl {
 
 template <class T>
-class SickSensorComObjRepository {
+class SensorComObjRepository {
  public:
   typedef T* (*CreateFunc)();
 
-  virtual ~SickSensorComObjRepository() {
+  virtual ~SensorComObjRepository() {
     RegisterLock_.Unlock();
     Register_.clear();
   }

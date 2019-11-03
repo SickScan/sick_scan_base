@@ -17,9 +17,9 @@
  * limitations under the License.
  */
 
-#include "API/Families/SickLidar2D/include/TiM5xxSeries.h"
+#include "API/Family/Lidar2D/Model/TiM5xx_V0.0.1/include/TiM5xx.h"
 #include <vector>
-#include "API/Skeleton/include/TiM5xxSkeleton/TiM5xxSkeleton.h"
+#include "API/Skeleton/Lidar2D/Common/include/SkeletonFactory.h"
 #include "Base/Core/OS/include/VariableEventQueue.h"
 
 using namespace std;

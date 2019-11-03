@@ -17,8 +17,8 @@
  * limitations under the License.
  */
 
-#include "API/Families/SickLidar2D/include/SickLidar2D.h"
-#include "API/Families/SickLidar2D/include/TiM5xxSeries.h"
+#include "API/Family/Lidar2D/Common/include/Lidar2D.h"
+#include "API/Family/Lidar2D/Model/TiM5xx_V0.0.1/include/TiM5xx.h"
 
 #include "Base/Core/Common/include/Hash.h"
 #include "Base/Logger/include/Logger.h"
@@ -33,8 +33,8 @@ namespace ssbl {
 
 //===========================================================================
 //===========================================================================
-SickLidar2d* CreateSickLidar2d(string ModelName, string IP) {
-  SickLidar2d* pRet = nullptr;
+Lidar2d* CreateSickLidar2d(string ModelName, string IP) {
+  Lidar2d* pRet = nullptr;
   uint64_t test = hash_64_fnv1a(ModelName.c_str(), ModelName.size());
 
   switch (test) {
