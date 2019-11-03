@@ -1,6 +1,6 @@
 /**
  * \file
- * \brief Implementation of SickLidar2d - Family API for SICK AG 2D Lidar
+ * \brief Implementation of Lidar2d - Family API for SICK AG 2D Lidar
  *
  * Copyright 2019, SICK AG, Waldkirch
  *
@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-#include "API/Families/SickLidar2D/include/SickLidar2D.h"
+#include "API/Families/Lidar2d/include/Lidar2d.h"
 #include "API/Skeleton/include/SickSkeletonFactory.h"
 
 #include <iomanip>
@@ -33,16 +33,16 @@ using namespace std;
 namespace ssbl {
 
 typedef struct {
-  SickLidar2dState state_;
+  Lidar2dState state_;
   string name_;
-} SickLidar2dStateText;
+} Lidar2dStateText;
 
-SickLidar2dStateText StateInfo[] = {
+Lidar2dStateText StateInfo[] = {
     {LIDAR2D_STATE_ERROR, "Error"},     {LIDAR2D_STATE_INIT, "Init"},
     {LIDAR2D_STATE_IDLE, "Idle"},       {LIDAR2D_STATE_BUSY_IDLE, "BusyIdle"},
     {LIDAR2D_STATE_STARTED, "Started"}, {LIDAR2D_STATE_STOPPED, "Stopped"}};
 
-SickLidar2dCapabilities SickLidar2dModelCapabilities[] = {
+Lidar2dCapabilities Lidar2dModelCapabilities[] = {
     //{TIM510, 0.05, 4.0, -135.0, +135.0, {0}, {15}},
     {SICK_TiM551,
      "TiM551",
@@ -101,7 +101,7 @@ string cvToString(T value) {
   return oss.str();
 }
 
-ostream& operator<<(std::ostream& so, const SickLidar2dCapabilities& caps) {
+ostream& operator<<(std::ostream& so, const Lidar2dCapabilities& caps) {
   vector<tuple<string, string, string>> rows;
 
   rows.push_back(make_tuple("Min. Range", cvToString(caps.minRange_), "m"));
@@ -142,7 +142,7 @@ ostream& operator<<(std::ostream& so, const SickLidar2dCapabilities& caps) {
 class ReconnectTimer : public Timer, Task {
  public:
   //========================================================================
-  ReconnectTimer(SickLidar2d* pParent)
+  ReconnectTimer(Lidar2d* pParent)
       : Timer(5000), start_(false), pParent_(pParent){};
   //========================================================================
   ~ReconnectTimer() { Timer::Stop(); };
@@ -152,7 +152,7 @@ class ReconnectTimer : public Timer, Task {
   //========================================================================
   bool TaskLoop(void) {
     if (EVENT_RECEIVED == trigger_.WaitForEvent(0xFFFFFFFF)) {
-      SickLidar2dState tmp = pParent_->StoredState_;
+      Lidar2dState tmp = pParent_->StoredState_;
       SensorResult ret = pParent_->ProcessStateMachine(LIDAR2D_STATE_BUSY_IDLE);
       pParent_->StoredState_ = tmp;
 
@@ -186,12 +186,12 @@ class ReconnectTimer : public Timer, Task {
 
  private:
   bool start_;
-  SickLidar2d* pParent_;
+  Lidar2d* pParent_;
   Event trigger_;
 };
 //===========================================================================
 //===========================================================================
-SickLidar2d::SickLidar2d(SickLidar2dModel model, const std::string& IP)
+Lidar2d::Lidar2d(Lidar2dModel model, const std::string& IP)
     : Model_(UNKNOWN_MODEL),
       pLidar2D_(nullptr),
       IsInitialized_(false),
@@ -208,15 +208,15 @@ SickLidar2d::SickLidar2d(SickLidar2dModel model, const std::string& IP)
 
   if (UNKNOWN_MODEL != Model_) {
     pLidar2D_ = CreateSensorSkeleton(
-        SickLidar2dModelCapabilities[Model_].skeletonName_, IP);
+        Lidar2dModelCapabilities[Model_].skeletonName_, IP);
     SSBL_LOG_INFO("Created %s with IP %s",
-                  SickLidar2dModelCapabilities[Model_].modelName_.c_str(),
+                  Lidar2dModelCapabilities[Model_].modelName_.c_str(),
                   IP.c_str());
   }
 }
 //===========================================================================
 //===========================================================================
-SickLidar2d::SickLidar2d(std::string& ModelName, std::string& IP)
+Lidar2d::Lidar2d(std::string& ModelName, std::string& IP)
     : Model_(UNKNOWN_MODEL),
       pLidar2D_(nullptr),
       IsInitialized_(false),
@@ -228,7 +228,7 @@ SickLidar2d::SickLidar2d(std::string& ModelName, std::string& IP)
       CallbackFunc_(NULL),
       CallbackParam_(0),
       ScanProcessorFunc_(NULL) {
-  for (auto x : SickLidar2dModelCapabilities) {
+  for (auto x : Lidar2dModelCapabilities) {
     if (0 == ModelName.compare(x.modelName_)) {
       Model_ = x.model_;
       break;
@@ -238,26 +238,26 @@ SickLidar2d::SickLidar2d(std::string& ModelName, std::string& IP)
   pReconnectTimer = new ReconnectTimer(this);
   if (UNKNOWN_MODEL != Model_) {
     pLidar2D_ = CreateSensorSkeleton(
-        SickLidar2dModelCapabilities[Model_].skeletonName_, IP);
+        Lidar2dModelCapabilities[Model_].skeletonName_, IP);
     SSBL_LOG_INFO("Created %s with IP %s",
-                  SickLidar2dModelCapabilities[Model_].modelName_.c_str(),
+                  Lidar2dModelCapabilities[Model_].modelName_.c_str(),
                   IP.c_str());
   }
 }
 //===========================================================================
 //===========================================================================
-SickLidar2d::~SickLidar2d() {
+Lidar2d::~Lidar2d() {
   Disconnect();
   delete pReconnectTimer;
 }
 
 //===========================================================================
 //===========================================================================
-SickLidar2dState SickLidar2d::GetLidarState() { return LidarState_; }
+Lidar2dState Lidar2d::GetLidarState() { return LidarState_; }
 
 //===========================================================================
 //===========================================================================
-SensorResult SickLidar2d::GetDeviceName(std::string& DeviceName) {
+SensorResult Lidar2d::GetDeviceName(std::string& DeviceName) {
   SensorResult ret = SSBL_ERR_SENSOR_REQUEST_FAILED;
   DeviceName = "";
   if (pLidar2D_ != NULL) {
@@ -268,27 +268,27 @@ SensorResult SickLidar2d::GetDeviceName(std::string& DeviceName) {
 
 //===========================================================================
 //===========================================================================
-SickLidar2dCapabilities SickLidar2d::GetCapabilities(void) {
-  return SickLidar2dModelCapabilities[Model_];
+Lidar2dCapabilities Lidar2d::GetCapabilities(void) {
+  return Lidar2dModelCapabilities[Model_];
 }
 
 //===========================================================================
 //===========================================================================
-void SickLidar2d::SetLidarState(SickLidar2dState LidarState) {
+void Lidar2d::SetLidarState(Lidar2dState LidarState) {
   LidarState_ = LidarState;
 }
 
 //===========================================================================
 //===========================================================================
-void SickLidar2d::SetInitialized() {
+void Lidar2d::SetInitialized() {
   pLidar2D_->RegisterToCallbackEvent(
-      "DeviceLost", std::bind(&SickLidar2d::HandleDeviceLost, this, 0));
+      "DeviceLost", std::bind(&Lidar2d::HandleDeviceLost, this, 0));
   IsInitialized_ = true;
 };
 
 //===========================================================================
 //===========================================================================
-SensorResult SickLidar2d::MoveToLidarState(SickLidar2dState TargetState) {
+SensorResult Lidar2d::MoveToLidarState(Lidar2dState TargetState) {
   SensorResult ret = SSBL_SUCCESS;
 
   switch (LidarState_) {
@@ -317,7 +317,7 @@ SensorResult SickLidar2d::MoveToLidarState(SickLidar2dState TargetState) {
 
 //===========================================================================
 //===========================================================================
-SensorResult SickLidar2d::ProcessStateMachine(SickLidar2dState TargetState) {
+SensorResult Lidar2d::ProcessStateMachine(Lidar2dState TargetState) {
   SensorResult ret = SSBL_SUCCESS;
 
   if (TargetState != GetLidarState()) {
@@ -335,7 +335,7 @@ SensorResult SickLidar2d::ProcessStateMachine(SickLidar2dState TargetState) {
 
 //===========================================================================
 //===========================================================================
-SensorResult SickLidar2d::HandleStateInit(SickLidar2dState TargetState) {
+SensorResult Lidar2d::HandleStateInit(Lidar2dState TargetState) {
   SensorResult ret = SSBL_ERR_INVALID_STATE;
   if (TargetState >= LIDAR2D_STATE_IDLE) {
     if (IsInitialized_) {
@@ -353,7 +353,7 @@ SensorResult SickLidar2d::HandleStateInit(SickLidar2dState TargetState) {
 
 //===========================================================================
 //===========================================================================
-SensorResult SickLidar2d::HandleStateIdle(SickLidar2dState TargetState) {
+SensorResult Lidar2d::HandleStateIdle(Lidar2dState TargetState) {
   SensorResult ret = SSBL_ERR_INVALID_STATE;
   if (TargetState >= LIDAR2D_STATE_BUSY_IDLE) {
     ret = pLidar2D_->Connect();
@@ -375,7 +375,7 @@ SensorResult SickLidar2d::HandleStateIdle(SickLidar2dState TargetState) {
 
 //===========================================================================
 //===========================================================================
-SensorResult SickLidar2d::HandleStateBusyIdle(SickLidar2dState TargetState) {
+SensorResult Lidar2d::HandleStateBusyIdle(Lidar2dState TargetState) {
   SensorResult ret = SSBL_ERR_INVALID_STATE;
 
   switch (TargetState) {
@@ -401,7 +401,7 @@ SensorResult SickLidar2d::HandleStateBusyIdle(SickLidar2dState TargetState) {
 
 //===========================================================================
 //===========================================================================
-SensorResult SickLidar2d::HandleStateStart(SickLidar2dState TargetState) {
+SensorResult Lidar2d::HandleStateStart(Lidar2dState TargetState) {
   SensorResult ret = SSBL_ERR_INVALID_STATE;
 
   switch (TargetState) {
@@ -427,7 +427,7 @@ SensorResult SickLidar2d::HandleStateStart(SickLidar2dState TargetState) {
 
 //===========================================================================
 //===========================================================================
-SensorResult SickLidar2d::HandleStateStop(SickLidar2dState TargetState) {
+SensorResult Lidar2d::HandleStateStop(Lidar2dState TargetState) {
   SensorResult ret = SSBL_ERR_INVALID_STATE;
 
   switch (TargetState) {
@@ -455,7 +455,7 @@ SensorResult SickLidar2d::HandleStateStop(SickLidar2dState TargetState) {
 
 //===========================================================================
 //===========================================================================
-SensorResult SickLidar2d::HandleStateError(SickLidar2dState TargetState,
+SensorResult Lidar2d::HandleStateError(Lidar2dState TargetState,
                                            SensorResult prevResult,
                                            std::string error) {
   SetLidarState(LIDAR2D_STATE_ERROR);
@@ -468,7 +468,7 @@ SensorResult SickLidar2d::HandleStateError(SickLidar2dState TargetState,
 
 //===========================================================================
 //===========================================================================
-void SickLidar2d::HandleDeviceLost(int32_t val) {
+void Lidar2d::HandleDeviceLost(int32_t val) {
   SSBL_UNUSED(val);
   StoredState_ = GetLidarState();
   pLidar2D_->DeregisterAllEvents(true);
