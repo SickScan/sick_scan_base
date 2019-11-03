@@ -19,7 +19,7 @@
 
 #pragma once
 
-#include "API/Families/SickLidar2D/include/SickLidar2D.h"
+#include "API/Families/Lidar2d/include/Lidar2d.h"
 
 namespace ssbl {
 
@@ -30,27 +30,27 @@ class VariableEventQueue;
  * @brief Base class for all TiM5xx 2D Lidar
  *
  */
-class TiM5xx : public SickLidar2d {
+class TiM5xx : public Lidar2d {
  public:
-  using SickLidar2d::Disconnect;
-  using SickLidar2d::Start;
-  using SickLidar2d::Stop;
+  using Lidar2d::Disconnect;
+  using Lidar2d::Start;
+  using Lidar2d::Stop;
 
   /**
    * @brief Construct a new TiM5xx object
    *
-   * @param ModelName name of the SickLidar2dModel to be created
+   * @param ModelName name of the Lidar2dModel to be created
    * @param IP of form xxx.yyy.zzz
    */
   TiM5xx(std::string ModelName, std::string& IP)
-      : SickLidar2d(ModelName, IP), pEventQueue(NULL){};
+      : Lidar2d(ModelName, IP), pEventQueue(NULL){};
 
   /**
    * @brief Initialize the Lidar, will establish connection and configure it for
    * operation
    *
-   * @param StartAngle in 1/10000 degrees in SickLidar2d coordinate system
-   * @param StopAngle in 1/10000 degrees in SickLidar2d coordinate system
+   * @param StartAngle in 1/10000 degrees in Lidar2d coordinate system
+   * @param StopAngle in 1/10000 degrees in Lidar2d coordinate system
    * @param OnScanCb OnScanCb callback to be trigger when scan data arrives
    * @param cbParam cbParam user defined callback parameter
    * @return SensorResult SSBL_SUCCES if successful
@@ -63,8 +63,8 @@ class TiM5xx : public SickLidar2d {
    * @brief Initialize the Lidar, will establish connection and configure it for
    * operation
    *
-   * @param StartAngle in 1/10000 degrees in SickLidar2d coordinate system
-   * @param StopAngle in 1/10000 degrees in SickLidar2d coordinate system
+   * @param StartAngle in 1/10000 degrees in Lidar2d coordinate system
+   * @param StopAngle in 1/10000 degrees in Lidar2d coordinate system
    * @param ScanProcessor function called within wait
    * @return SensorResult SSBL_SUCCES if successful
    */

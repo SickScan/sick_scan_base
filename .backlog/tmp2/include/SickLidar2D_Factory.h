@@ -1,6 +1,6 @@
 /**
  * \file
- * \brief Factory to create SickLidar2d objects
+ * \brief Factory to create Lidar2d objects
  *
  * Copyright 2019, SICK AG, Waldkirch
  *
@@ -19,17 +19,17 @@
 
 #pragma once
 
-#include "API/Families/SickLidar2D/include/SickLidar2D.h"
+#include "API/Families/Lidar2d/include/Lidar2d.h"
 
 namespace ssbl {
 
 /**
- * @brief Create SickLidar2D
+ * @brief Create Lidar2d
  *
- * @param ModelName name of the SickLidar2dModel to be created
+ * @param ModelName name of the Lidar2dModel to be created
  * @param IP of form xxx.yyy.zzz
- * @return SickLidar2d* or NULL
+ * @return Lidar2d* or NULL
  */
-SickLidar2d* CreateSickLidar2d(std::string ModelName, std::string IP);
+Lidar2d* CreateLidar2d(std::string ModelName, std::string IP);
 
 }  // namespace ssbl

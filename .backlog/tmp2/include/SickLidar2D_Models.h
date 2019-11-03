@@ -1,6 +1,6 @@
 /**
  * \file
- * \brief SickLidar2D types and definitions
+ * \brief Lidar2d types and definitions
  *
  * Copyright 2019, SICK AG, Waldkirch
  *
@@ -27,7 +27,7 @@ typedef enum {
   SICK_TiM571,
   SICK_TiM581,
   UNKNOWN_MODEL,
-} SickLidar2dModel;
+} Lidar2dModel;
 
 typedef enum {
   LIDAR2D_STATE_ERROR,
@@ -37,7 +37,7 @@ typedef enum {
   LIDAR2D_STATE_STARTED,
   LIDAR2D_STATE_STOPPED,
 
-} SickLidar2dState;
+} Lidar2dState;
 
 // move this enum
 typedef enum {
@@ -45,15 +45,15 @@ typedef enum {
   CON_STATE_CONNECTED,
   CON_STATE_ERRONEOUS_DISCONNECTED,
   CON_STATE_UNKNOWN,
-} SickLidar2dConnectionState;
+} Lidar2dConnectionState;
 
 typedef struct {
   double horizontalAngleResolution;
   double scanFrequency;
 } FrequencyResolutionPair;
 
-struct SickLidar2dCapabilities {
-  SickLidar2dModel model_;
+struct Lidar2dCapabilities {
+  Lidar2dModel model_;
   std::string modelName_;  // Scanner Model (e.g. TIM561 MRS1000 etc.)
   std::string skeletonName_;
   double minRange_;    ///< Min. Range in m
@@ -65,6 +65,6 @@ struct SickLidar2dCapabilities {
   std::vector<FrequencyResolutionPair> freqResolutionPair_;
 
   friend std::ostream& operator<<(std::ostream& so,
-                                  const SickLidar2dCapabilities& caps);
+                                  const Lidar2dCapabilities& caps);
 };
 }  // namespace ssbl
