@@ -8,7 +8,7 @@
 
 namespace ssbl
 {
-namespace DevTiM5xx_1.0.0Skeleton
+namespace DevTiM5xx_1.0.0_Skeleton
 {
 #pragma pack(push, 1)
 typedef struct 
