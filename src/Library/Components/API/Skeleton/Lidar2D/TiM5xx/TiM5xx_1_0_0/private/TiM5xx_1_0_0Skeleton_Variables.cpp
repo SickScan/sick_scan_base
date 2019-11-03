@@ -2,7 +2,7 @@
 //  Generated file - do not modify
 //===========================================
 
-#include "API/Skeleton/Lidar2D/TiM5xx/TiM5xx_1.0.0/include/TiM5xx_1.0.0Skeleton_Variables.h"
+#include "API/Skeleton/Lidar2D/TiM5xx/TiM5xx_1_0_0/include/TiM5xx_1_0_0Skeleton_Variables.h"
 #include <sstream>
 #include "Base/Core/Common/include/Hash.h"
 #include "Base/Logger/include/Logger.h"
@@ -13,18 +13,18 @@
 
 namespace ssbl
 {
-namespace DevTiM5xx_1.0.0Skeleton
+namespace DevTiM5xx_1_0_0Skeleton
 {
 #define SSBL_LONG_MIN  (-2147483647L - 1)
 #define SSBL_LLONG_MIN  (-9223372036854775807i64 - 1)
 
 
-ScanConfig_TiM5xx_1.0.0Skeleton_Var::ScanConfig_TiM5xx_1.0.0Skeleton_Var()
-	: TiM5xx_1.0.0Skeleton_Var("ScanConfig","LMPscancfg",215,READ_WRITE,LEVEL_RUN,LEVEL_INVALID,85)
+ScanConfig_TiM5xx_1_0_0Skeleton_Var::ScanConfig_TiM5xx_1_0_0Skeleton_Var()
+	: TiM5xx_1_0_0Skeleton_Var("ScanConfig","LMPscancfg",215,READ_WRITE,LEVEL_RUN,LEVEL_INVALID,85)
 {
 }
 
-SensorResult ScanConfig_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::string& elementName, int8_t& value) 
+SensorResult ScanConfig_TiM5xx_1_0_0Skeleton_Var::GetBasicElement(const std::string& elementName, int8_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -33,7 +33,7 @@ SensorResult ScanConfig_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::str
 	return ret;
 }
 
-SensorResult ScanConfig_TiM5xx_1.0.0Skeleton_Var::GetBasic(int8_t& value) 
+SensorResult ScanConfig_TiM5xx_1_0_0Skeleton_Var::GetBasic(int8_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -41,7 +41,7 @@ SensorResult ScanConfig_TiM5xx_1.0.0Skeleton_Var::GetBasic(int8_t& value)
 	return ret;
 }
 
-SensorResult ScanConfig_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::string& elementName, int16_t& value) 
+SensorResult ScanConfig_TiM5xx_1_0_0Skeleton_Var::GetBasicElement(const std::string& elementName, int16_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -50,7 +50,7 @@ SensorResult ScanConfig_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::str
 	return ret;
 }
 
-SensorResult ScanConfig_TiM5xx_1.0.0Skeleton_Var::GetBasic(int16_t& value) 
+SensorResult ScanConfig_TiM5xx_1_0_0Skeleton_Var::GetBasic(int16_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -58,7 +58,7 @@ SensorResult ScanConfig_TiM5xx_1.0.0Skeleton_Var::GetBasic(int16_t& value)
 	return ret;
 }
 
-SensorResult ScanConfig_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::string& elementName, int32_t& value) 
+SensorResult ScanConfig_TiM5xx_1_0_0Skeleton_Var::GetBasicElement(const std::string& elementName, int32_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	uint64_t test = hash_64_fnv1a(elementName.c_str(), elementName.size());
@@ -88,7 +88,7 @@ SensorResult ScanConfig_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::str
 	return ret;
 }
 
-SensorResult ScanConfig_TiM5xx_1.0.0Skeleton_Var::GetBasic(int32_t& value) 
+SensorResult ScanConfig_TiM5xx_1_0_0Skeleton_Var::GetBasic(int32_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -96,7 +96,7 @@ SensorResult ScanConfig_TiM5xx_1.0.0Skeleton_Var::GetBasic(int32_t& value)
 	return ret;
 }
 
-SensorResult ScanConfig_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::string& elementName, int64_t& value) 
+SensorResult ScanConfig_TiM5xx_1_0_0Skeleton_Var::GetBasicElement(const std::string& elementName, int64_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -105,7 +105,7 @@ SensorResult ScanConfig_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::str
 	return ret;
 }
 
-SensorResult ScanConfig_TiM5xx_1.0.0Skeleton_Var::GetBasic(int64_t& value) 
+SensorResult ScanConfig_TiM5xx_1_0_0Skeleton_Var::GetBasic(int64_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -113,7 +113,7 @@ SensorResult ScanConfig_TiM5xx_1.0.0Skeleton_Var::GetBasic(int64_t& value)
 	return ret;
 }
 
-SensorResult ScanConfig_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::string& elementName, uint8_t& value) 
+SensorResult ScanConfig_TiM5xx_1_0_0Skeleton_Var::GetBasicElement(const std::string& elementName, uint8_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -122,7 +122,7 @@ SensorResult ScanConfig_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::str
 	return ret;
 }
 
-SensorResult ScanConfig_TiM5xx_1.0.0Skeleton_Var::GetBasic(uint8_t& value) 
+SensorResult ScanConfig_TiM5xx_1_0_0Skeleton_Var::GetBasic(uint8_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -130,7 +130,7 @@ SensorResult ScanConfig_TiM5xx_1.0.0Skeleton_Var::GetBasic(uint8_t& value)
 	return ret;
 }
 
-SensorResult ScanConfig_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::string& elementName, uint16_t& value) 
+SensorResult ScanConfig_TiM5xx_1_0_0Skeleton_Var::GetBasicElement(const std::string& elementName, uint16_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	uint64_t test = hash_64_fnv1a(elementName.c_str(), elementName.size());
@@ -152,7 +152,7 @@ SensorResult ScanConfig_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::str
 	return ret;
 }
 
-SensorResult ScanConfig_TiM5xx_1.0.0Skeleton_Var::GetBasic(uint16_t& value) 
+SensorResult ScanConfig_TiM5xx_1_0_0Skeleton_Var::GetBasic(uint16_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -160,7 +160,7 @@ SensorResult ScanConfig_TiM5xx_1.0.0Skeleton_Var::GetBasic(uint16_t& value)
 	return ret;
 }
 
-SensorResult ScanConfig_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::string& elementName, uint32_t& value) 
+SensorResult ScanConfig_TiM5xx_1_0_0Skeleton_Var::GetBasicElement(const std::string& elementName, uint32_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	uint64_t test = hash_64_fnv1a(elementName.c_str(), elementName.size());
@@ -186,7 +186,7 @@ SensorResult ScanConfig_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::str
 	return ret;
 }
 
-SensorResult ScanConfig_TiM5xx_1.0.0Skeleton_Var::GetBasic(uint32_t& value) 
+SensorResult ScanConfig_TiM5xx_1_0_0Skeleton_Var::GetBasic(uint32_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -194,7 +194,7 @@ SensorResult ScanConfig_TiM5xx_1.0.0Skeleton_Var::GetBasic(uint32_t& value)
 	return ret;
 }
 
-SensorResult ScanConfig_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::string& elementName, uint64_t& value) 
+SensorResult ScanConfig_TiM5xx_1_0_0Skeleton_Var::GetBasicElement(const std::string& elementName, uint64_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -203,7 +203,7 @@ SensorResult ScanConfig_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::str
 	return ret;
 }
 
-SensorResult ScanConfig_TiM5xx_1.0.0Skeleton_Var::GetBasic(uint64_t& value) 
+SensorResult ScanConfig_TiM5xx_1_0_0Skeleton_Var::GetBasic(uint64_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -211,7 +211,7 @@ SensorResult ScanConfig_TiM5xx_1.0.0Skeleton_Var::GetBasic(uint64_t& value)
 	return ret;
 }
 
-SensorResult ScanConfig_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::string& elementName, float& value) 
+SensorResult ScanConfig_TiM5xx_1_0_0Skeleton_Var::GetBasicElement(const std::string& elementName, float& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -220,7 +220,7 @@ SensorResult ScanConfig_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::str
 	return ret;
 }
 
-SensorResult ScanConfig_TiM5xx_1.0.0Skeleton_Var::GetBasic(float& value) 
+SensorResult ScanConfig_TiM5xx_1_0_0Skeleton_Var::GetBasic(float& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -228,7 +228,7 @@ SensorResult ScanConfig_TiM5xx_1.0.0Skeleton_Var::GetBasic(float& value)
 	return ret;
 }
 
-SensorResult ScanConfig_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::string& elementName, double& value) 
+SensorResult ScanConfig_TiM5xx_1_0_0Skeleton_Var::GetBasicElement(const std::string& elementName, double& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -237,7 +237,7 @@ SensorResult ScanConfig_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::str
 	return ret;
 }
 
-SensorResult ScanConfig_TiM5xx_1.0.0Skeleton_Var::GetBasic(double& value) 
+SensorResult ScanConfig_TiM5xx_1_0_0Skeleton_Var::GetBasic(double& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -245,7 +245,7 @@ SensorResult ScanConfig_TiM5xx_1.0.0Skeleton_Var::GetBasic(double& value)
 	return ret;
 }
 
-SensorResult ScanConfig_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::string& elementName, int8_t& value) 
+SensorResult ScanConfig_TiM5xx_1_0_0Skeleton_Var::SetBasicElement(const std::string& elementName, int8_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -254,7 +254,7 @@ SensorResult ScanConfig_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::str
 	return ret;
 }
 
-SensorResult ScanConfig_TiM5xx_1.0.0Skeleton_Var::SetBasic(int8_t& value) 
+SensorResult ScanConfig_TiM5xx_1_0_0Skeleton_Var::SetBasic(int8_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -262,7 +262,7 @@ SensorResult ScanConfig_TiM5xx_1.0.0Skeleton_Var::SetBasic(int8_t& value)
 	return ret;
 }
 
-SensorResult ScanConfig_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::string& elementName, int16_t& value) 
+SensorResult ScanConfig_TiM5xx_1_0_0Skeleton_Var::SetBasicElement(const std::string& elementName, int16_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -271,7 +271,7 @@ SensorResult ScanConfig_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::str
 	return ret;
 }
 
-SensorResult ScanConfig_TiM5xx_1.0.0Skeleton_Var::SetBasic(int16_t& value) 
+SensorResult ScanConfig_TiM5xx_1_0_0Skeleton_Var::SetBasic(int16_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -279,7 +279,7 @@ SensorResult ScanConfig_TiM5xx_1.0.0Skeleton_Var::SetBasic(int16_t& value)
 	return ret;
 }
 
-SensorResult ScanConfig_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::string& elementName, int32_t& value) 
+SensorResult ScanConfig_TiM5xx_1_0_0Skeleton_Var::SetBasicElement(const std::string& elementName, int32_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	uint64_t test = hash_64_fnv1a(elementName.c_str(), elementName.size());
@@ -329,7 +329,7 @@ SensorResult ScanConfig_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::str
 	return ret;
 }
 
-SensorResult ScanConfig_TiM5xx_1.0.0Skeleton_Var::SetBasic(int32_t& value) 
+SensorResult ScanConfig_TiM5xx_1_0_0Skeleton_Var::SetBasic(int32_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -337,7 +337,7 @@ SensorResult ScanConfig_TiM5xx_1.0.0Skeleton_Var::SetBasic(int32_t& value)
 	return ret;
 }
 
-SensorResult ScanConfig_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::string& elementName, int64_t& value) 
+SensorResult ScanConfig_TiM5xx_1_0_0Skeleton_Var::SetBasicElement(const std::string& elementName, int64_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -346,7 +346,7 @@ SensorResult ScanConfig_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::str
 	return ret;
 }
 
-SensorResult ScanConfig_TiM5xx_1.0.0Skeleton_Var::SetBasic(int64_t& value) 
+SensorResult ScanConfig_TiM5xx_1_0_0Skeleton_Var::SetBasic(int64_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -354,7 +354,7 @@ SensorResult ScanConfig_TiM5xx_1.0.0Skeleton_Var::SetBasic(int64_t& value)
 	return ret;
 }
 
-SensorResult ScanConfig_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::string& elementName, uint8_t& value) 
+SensorResult ScanConfig_TiM5xx_1_0_0Skeleton_Var::SetBasicElement(const std::string& elementName, uint8_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -363,7 +363,7 @@ SensorResult ScanConfig_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::str
 	return ret;
 }
 
-SensorResult ScanConfig_TiM5xx_1.0.0Skeleton_Var::SetBasic(uint8_t& value) 
+SensorResult ScanConfig_TiM5xx_1_0_0Skeleton_Var::SetBasic(uint8_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -371,7 +371,7 @@ SensorResult ScanConfig_TiM5xx_1.0.0Skeleton_Var::SetBasic(uint8_t& value)
 	return ret;
 }
 
-SensorResult ScanConfig_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::string& elementName, uint16_t& value) 
+SensorResult ScanConfig_TiM5xx_1_0_0Skeleton_Var::SetBasicElement(const std::string& elementName, uint16_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	uint64_t test = hash_64_fnv1a(elementName.c_str(), elementName.size());
@@ -403,7 +403,7 @@ SensorResult ScanConfig_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::str
 	return ret;
 }
 
-SensorResult ScanConfig_TiM5xx_1.0.0Skeleton_Var::SetBasic(uint16_t& value) 
+SensorResult ScanConfig_TiM5xx_1_0_0Skeleton_Var::SetBasic(uint16_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -411,7 +411,7 @@ SensorResult ScanConfig_TiM5xx_1.0.0Skeleton_Var::SetBasic(uint16_t& value)
 	return ret;
 }
 
-SensorResult ScanConfig_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::string& elementName, uint32_t& value) 
+SensorResult ScanConfig_TiM5xx_1_0_0Skeleton_Var::SetBasicElement(const std::string& elementName, uint32_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	uint64_t test = hash_64_fnv1a(elementName.c_str(), elementName.size());
@@ -452,7 +452,7 @@ SensorResult ScanConfig_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::str
 	return ret;
 }
 
-SensorResult ScanConfig_TiM5xx_1.0.0Skeleton_Var::SetBasic(uint32_t& value) 
+SensorResult ScanConfig_TiM5xx_1_0_0Skeleton_Var::SetBasic(uint32_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -460,7 +460,7 @@ SensorResult ScanConfig_TiM5xx_1.0.0Skeleton_Var::SetBasic(uint32_t& value)
 	return ret;
 }
 
-SensorResult ScanConfig_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::string& elementName, uint64_t& value) 
+SensorResult ScanConfig_TiM5xx_1_0_0Skeleton_Var::SetBasicElement(const std::string& elementName, uint64_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -469,7 +469,7 @@ SensorResult ScanConfig_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::str
 	return ret;
 }
 
-SensorResult ScanConfig_TiM5xx_1.0.0Skeleton_Var::SetBasic(uint64_t& value) 
+SensorResult ScanConfig_TiM5xx_1_0_0Skeleton_Var::SetBasic(uint64_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -477,7 +477,7 @@ SensorResult ScanConfig_TiM5xx_1.0.0Skeleton_Var::SetBasic(uint64_t& value)
 	return ret;
 }
 
-SensorResult ScanConfig_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::string& elementName, float& value) 
+SensorResult ScanConfig_TiM5xx_1_0_0Skeleton_Var::SetBasicElement(const std::string& elementName, float& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -486,7 +486,7 @@ SensorResult ScanConfig_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::str
 	return ret;
 }
 
-SensorResult ScanConfig_TiM5xx_1.0.0Skeleton_Var::SetBasic(float& value) 
+SensorResult ScanConfig_TiM5xx_1_0_0Skeleton_Var::SetBasic(float& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -494,7 +494,7 @@ SensorResult ScanConfig_TiM5xx_1.0.0Skeleton_Var::SetBasic(float& value)
 	return ret;
 }
 
-SensorResult ScanConfig_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::string& elementName, double& value) 
+SensorResult ScanConfig_TiM5xx_1_0_0Skeleton_Var::SetBasicElement(const std::string& elementName, double& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -503,7 +503,7 @@ SensorResult ScanConfig_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::str
 	return ret;
 }
 
-SensorResult ScanConfig_TiM5xx_1.0.0Skeleton_Var::SetBasic(double& value) 
+SensorResult ScanConfig_TiM5xx_1_0_0Skeleton_Var::SetBasic(double& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -511,7 +511,7 @@ SensorResult ScanConfig_TiM5xx_1.0.0Skeleton_Var::SetBasic(double& value)
 	return ret;
 }
 
-SensorResult ScanConfig_TiM5xx_1.0.0Skeleton_Var::SetBasicFromString(std::string value)
+SensorResult ScanConfig_TiM5xx_1_0_0Skeleton_Var::SetBasicFromString(std::string value)
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -519,12 +519,12 @@ SensorResult ScanConfig_TiM5xx_1.0.0Skeleton_Var::SetBasicFromString(std::string
 	return ret;
 }
 
-EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var::EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var()
-	: TiM5xx_1.0.0Skeleton_Var("EtherHostCoLaDialect","EIHstCola",110,READ_WRITE,LEVEL_RUN,LEVEL_AUTHORIZED_CLIENT,-1)
+EtherHostCoLaDialect_TiM5xx_1_0_0Skeleton_Var::EtherHostCoLaDialect_TiM5xx_1_0_0Skeleton_Var()
+	: TiM5xx_1_0_0Skeleton_Var("EtherHostCoLaDialect","EIHstCola",110,READ_WRITE,LEVEL_RUN,LEVEL_AUTHORIZED_CLIENT,-1)
 {
 }
 
-SensorResult EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::string& elementName, int8_t& value) 
+SensorResult EtherHostCoLaDialect_TiM5xx_1_0_0Skeleton_Var::GetBasicElement(const std::string& elementName, int8_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -533,7 +533,7 @@ SensorResult EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(cons
 	return ret;
 }
 
-SensorResult EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var::GetBasic(int8_t& value) 
+SensorResult EtherHostCoLaDialect_TiM5xx_1_0_0Skeleton_Var::GetBasic(int8_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -541,7 +541,7 @@ SensorResult EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var::GetBasic(int8_t& val
 	return ret;
 }
 
-SensorResult EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::string& elementName, int16_t& value) 
+SensorResult EtherHostCoLaDialect_TiM5xx_1_0_0Skeleton_Var::GetBasicElement(const std::string& elementName, int16_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -550,7 +550,7 @@ SensorResult EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(cons
 	return ret;
 }
 
-SensorResult EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var::GetBasic(int16_t& value) 
+SensorResult EtherHostCoLaDialect_TiM5xx_1_0_0Skeleton_Var::GetBasic(int16_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -558,7 +558,7 @@ SensorResult EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var::GetBasic(int16_t& va
 	return ret;
 }
 
-SensorResult EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::string& elementName, int32_t& value) 
+SensorResult EtherHostCoLaDialect_TiM5xx_1_0_0Skeleton_Var::GetBasicElement(const std::string& elementName, int32_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -567,7 +567,7 @@ SensorResult EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(cons
 	return ret;
 }
 
-SensorResult EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var::GetBasic(int32_t& value) 
+SensorResult EtherHostCoLaDialect_TiM5xx_1_0_0Skeleton_Var::GetBasic(int32_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -575,7 +575,7 @@ SensorResult EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var::GetBasic(int32_t& va
 	return ret;
 }
 
-SensorResult EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::string& elementName, int64_t& value) 
+SensorResult EtherHostCoLaDialect_TiM5xx_1_0_0Skeleton_Var::GetBasicElement(const std::string& elementName, int64_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -584,7 +584,7 @@ SensorResult EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(cons
 	return ret;
 }
 
-SensorResult EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var::GetBasic(int64_t& value) 
+SensorResult EtherHostCoLaDialect_TiM5xx_1_0_0Skeleton_Var::GetBasic(int64_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -592,7 +592,7 @@ SensorResult EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var::GetBasic(int64_t& va
 	return ret;
 }
 
-SensorResult EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::string& elementName, uint8_t& value) 
+SensorResult EtherHostCoLaDialect_TiM5xx_1_0_0Skeleton_Var::GetBasicElement(const std::string& elementName, uint8_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -601,7 +601,7 @@ SensorResult EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(cons
 	return ret;
 }
 
-SensorResult EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var::GetBasic(uint8_t& value) 
+SensorResult EtherHostCoLaDialect_TiM5xx_1_0_0Skeleton_Var::GetBasic(uint8_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	ret = SSBL_SUCCESS;
@@ -609,7 +609,7 @@ SensorResult EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var::GetBasic(uint8_t& va
 	return ret;
 }
 
-SensorResult EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::string& elementName, uint16_t& value) 
+SensorResult EtherHostCoLaDialect_TiM5xx_1_0_0Skeleton_Var::GetBasicElement(const std::string& elementName, uint16_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -618,7 +618,7 @@ SensorResult EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(cons
 	return ret;
 }
 
-SensorResult EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var::GetBasic(uint16_t& value) 
+SensorResult EtherHostCoLaDialect_TiM5xx_1_0_0Skeleton_Var::GetBasic(uint16_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -626,7 +626,7 @@ SensorResult EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var::GetBasic(uint16_t& v
 	return ret;
 }
 
-SensorResult EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::string& elementName, uint32_t& value) 
+SensorResult EtherHostCoLaDialect_TiM5xx_1_0_0Skeleton_Var::GetBasicElement(const std::string& elementName, uint32_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -635,7 +635,7 @@ SensorResult EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(cons
 	return ret;
 }
 
-SensorResult EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var::GetBasic(uint32_t& value) 
+SensorResult EtherHostCoLaDialect_TiM5xx_1_0_0Skeleton_Var::GetBasic(uint32_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -643,7 +643,7 @@ SensorResult EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var::GetBasic(uint32_t& v
 	return ret;
 }
 
-SensorResult EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::string& elementName, uint64_t& value) 
+SensorResult EtherHostCoLaDialect_TiM5xx_1_0_0Skeleton_Var::GetBasicElement(const std::string& elementName, uint64_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -652,7 +652,7 @@ SensorResult EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(cons
 	return ret;
 }
 
-SensorResult EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var::GetBasic(uint64_t& value) 
+SensorResult EtherHostCoLaDialect_TiM5xx_1_0_0Skeleton_Var::GetBasic(uint64_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -660,7 +660,7 @@ SensorResult EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var::GetBasic(uint64_t& v
 	return ret;
 }
 
-SensorResult EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::string& elementName, float& value) 
+SensorResult EtherHostCoLaDialect_TiM5xx_1_0_0Skeleton_Var::GetBasicElement(const std::string& elementName, float& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -669,7 +669,7 @@ SensorResult EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(cons
 	return ret;
 }
 
-SensorResult EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var::GetBasic(float& value) 
+SensorResult EtherHostCoLaDialect_TiM5xx_1_0_0Skeleton_Var::GetBasic(float& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -677,7 +677,7 @@ SensorResult EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var::GetBasic(float& valu
 	return ret;
 }
 
-SensorResult EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::string& elementName, double& value) 
+SensorResult EtherHostCoLaDialect_TiM5xx_1_0_0Skeleton_Var::GetBasicElement(const std::string& elementName, double& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -686,7 +686,7 @@ SensorResult EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(cons
 	return ret;
 }
 
-SensorResult EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var::GetBasic(double& value) 
+SensorResult EtherHostCoLaDialect_TiM5xx_1_0_0Skeleton_Var::GetBasic(double& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -694,7 +694,7 @@ SensorResult EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var::GetBasic(double& val
 	return ret;
 }
 
-SensorResult EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::string& elementName, int8_t& value) 
+SensorResult EtherHostCoLaDialect_TiM5xx_1_0_0Skeleton_Var::SetBasicElement(const std::string& elementName, int8_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -703,7 +703,7 @@ SensorResult EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(cons
 	return ret;
 }
 
-SensorResult EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var::SetBasic(int8_t& value) 
+SensorResult EtherHostCoLaDialect_TiM5xx_1_0_0Skeleton_Var::SetBasic(int8_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -711,7 +711,7 @@ SensorResult EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var::SetBasic(int8_t& val
 	return ret;
 }
 
-SensorResult EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::string& elementName, int16_t& value) 
+SensorResult EtherHostCoLaDialect_TiM5xx_1_0_0Skeleton_Var::SetBasicElement(const std::string& elementName, int16_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -720,7 +720,7 @@ SensorResult EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(cons
 	return ret;
 }
 
-SensorResult EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var::SetBasic(int16_t& value) 
+SensorResult EtherHostCoLaDialect_TiM5xx_1_0_0Skeleton_Var::SetBasic(int16_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -728,7 +728,7 @@ SensorResult EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var::SetBasic(int16_t& va
 	return ret;
 }
 
-SensorResult EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::string& elementName, int32_t& value) 
+SensorResult EtherHostCoLaDialect_TiM5xx_1_0_0Skeleton_Var::SetBasicElement(const std::string& elementName, int32_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -737,7 +737,7 @@ SensorResult EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(cons
 	return ret;
 }
 
-SensorResult EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var::SetBasic(int32_t& value) 
+SensorResult EtherHostCoLaDialect_TiM5xx_1_0_0Skeleton_Var::SetBasic(int32_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -745,7 +745,7 @@ SensorResult EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var::SetBasic(int32_t& va
 	return ret;
 }
 
-SensorResult EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::string& elementName, int64_t& value) 
+SensorResult EtherHostCoLaDialect_TiM5xx_1_0_0Skeleton_Var::SetBasicElement(const std::string& elementName, int64_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -754,7 +754,7 @@ SensorResult EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(cons
 	return ret;
 }
 
-SensorResult EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var::SetBasic(int64_t& value) 
+SensorResult EtherHostCoLaDialect_TiM5xx_1_0_0Skeleton_Var::SetBasic(int64_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -762,7 +762,7 @@ SensorResult EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var::SetBasic(int64_t& va
 	return ret;
 }
 
-SensorResult EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::string& elementName, uint8_t& value) 
+SensorResult EtherHostCoLaDialect_TiM5xx_1_0_0Skeleton_Var::SetBasicElement(const std::string& elementName, uint8_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -771,7 +771,7 @@ SensorResult EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(cons
 	return ret;
 }
 
-SensorResult EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var::SetBasic(uint8_t& value) 
+SensorResult EtherHostCoLaDialect_TiM5xx_1_0_0Skeleton_Var::SetBasic(uint8_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	this->Value_ = value;
@@ -779,7 +779,7 @@ SensorResult EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var::SetBasic(uint8_t& va
 	return ret;
 }
 
-SensorResult EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::string& elementName, uint16_t& value) 
+SensorResult EtherHostCoLaDialect_TiM5xx_1_0_0Skeleton_Var::SetBasicElement(const std::string& elementName, uint16_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -788,7 +788,7 @@ SensorResult EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(cons
 	return ret;
 }
 
-SensorResult EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var::SetBasic(uint16_t& value) 
+SensorResult EtherHostCoLaDialect_TiM5xx_1_0_0Skeleton_Var::SetBasic(uint16_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -796,7 +796,7 @@ SensorResult EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var::SetBasic(uint16_t& v
 	return ret;
 }
 
-SensorResult EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::string& elementName, uint32_t& value) 
+SensorResult EtherHostCoLaDialect_TiM5xx_1_0_0Skeleton_Var::SetBasicElement(const std::string& elementName, uint32_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -805,7 +805,7 @@ SensorResult EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(cons
 	return ret;
 }
 
-SensorResult EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var::SetBasic(uint32_t& value) 
+SensorResult EtherHostCoLaDialect_TiM5xx_1_0_0Skeleton_Var::SetBasic(uint32_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -813,7 +813,7 @@ SensorResult EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var::SetBasic(uint32_t& v
 	return ret;
 }
 
-SensorResult EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::string& elementName, uint64_t& value) 
+SensorResult EtherHostCoLaDialect_TiM5xx_1_0_0Skeleton_Var::SetBasicElement(const std::string& elementName, uint64_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -822,7 +822,7 @@ SensorResult EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(cons
 	return ret;
 }
 
-SensorResult EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var::SetBasic(uint64_t& value) 
+SensorResult EtherHostCoLaDialect_TiM5xx_1_0_0Skeleton_Var::SetBasic(uint64_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -830,7 +830,7 @@ SensorResult EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var::SetBasic(uint64_t& v
 	return ret;
 }
 
-SensorResult EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::string& elementName, float& value) 
+SensorResult EtherHostCoLaDialect_TiM5xx_1_0_0Skeleton_Var::SetBasicElement(const std::string& elementName, float& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -839,7 +839,7 @@ SensorResult EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(cons
 	return ret;
 }
 
-SensorResult EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var::SetBasic(float& value) 
+SensorResult EtherHostCoLaDialect_TiM5xx_1_0_0Skeleton_Var::SetBasic(float& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -847,7 +847,7 @@ SensorResult EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var::SetBasic(float& valu
 	return ret;
 }
 
-SensorResult EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::string& elementName, double& value) 
+SensorResult EtherHostCoLaDialect_TiM5xx_1_0_0Skeleton_Var::SetBasicElement(const std::string& elementName, double& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -856,7 +856,7 @@ SensorResult EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(cons
 	return ret;
 }
 
-SensorResult EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var::SetBasic(double& value) 
+SensorResult EtherHostCoLaDialect_TiM5xx_1_0_0Skeleton_Var::SetBasic(double& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -864,7 +864,7 @@ SensorResult EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var::SetBasic(double& val
 	return ret;
 }
 
-SensorResult EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var::SetBasicFromString(std::string value)
+SensorResult EtherHostCoLaDialect_TiM5xx_1_0_0Skeleton_Var::SetBasicFromString(std::string value)
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	bool isNegative = false;
@@ -885,12 +885,12 @@ SensorResult EtherHostCoLaDialect_TiM5xx_1.0.0Skeleton_Var::SetBasicFromString(s
 	return ret;
 }
 
-DataOutputRange_TiM5xx_1.0.0Skeleton_Var::DataOutputRange_TiM5xx_1.0.0Skeleton_Var()
-	: TiM5xx_1.0.0Skeleton_Var("DataOutputRange","LMPoutputRange",217,READ_WRITE,LEVEL_RUN,LEVEL_AUTHORIZED_CLIENT,87)
+DataOutputRange_TiM5xx_1_0_0Skeleton_Var::DataOutputRange_TiM5xx_1_0_0Skeleton_Var()
+	: TiM5xx_1_0_0Skeleton_Var("DataOutputRange","LMPoutputRange",217,READ_WRITE,LEVEL_RUN,LEVEL_AUTHORIZED_CLIENT,87)
 {
 }
 
-SensorResult DataOutputRange_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::string& elementName, int8_t& value) 
+SensorResult DataOutputRange_TiM5xx_1_0_0Skeleton_Var::GetBasicElement(const std::string& elementName, int8_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -899,7 +899,7 @@ SensorResult DataOutputRange_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std
 	return ret;
 }
 
-SensorResult DataOutputRange_TiM5xx_1.0.0Skeleton_Var::GetBasic(int8_t& value) 
+SensorResult DataOutputRange_TiM5xx_1_0_0Skeleton_Var::GetBasic(int8_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -907,7 +907,7 @@ SensorResult DataOutputRange_TiM5xx_1.0.0Skeleton_Var::GetBasic(int8_t& value)
 	return ret;
 }
 
-SensorResult DataOutputRange_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::string& elementName, int16_t& value) 
+SensorResult DataOutputRange_TiM5xx_1_0_0Skeleton_Var::GetBasicElement(const std::string& elementName, int16_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -916,7 +916,7 @@ SensorResult DataOutputRange_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std
 	return ret;
 }
 
-SensorResult DataOutputRange_TiM5xx_1.0.0Skeleton_Var::GetBasic(int16_t& value) 
+SensorResult DataOutputRange_TiM5xx_1_0_0Skeleton_Var::GetBasic(int16_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -924,7 +924,7 @@ SensorResult DataOutputRange_TiM5xx_1.0.0Skeleton_Var::GetBasic(int16_t& value)
 	return ret;
 }
 
-SensorResult DataOutputRange_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::string& elementName, int32_t& value) 
+SensorResult DataOutputRange_TiM5xx_1_0_0Skeleton_Var::GetBasicElement(const std::string& elementName, int32_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	uint64_t test = hash_64_fnv1a(elementName.c_str(), elementName.size());
@@ -954,7 +954,7 @@ SensorResult DataOutputRange_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std
 	return ret;
 }
 
-SensorResult DataOutputRange_TiM5xx_1.0.0Skeleton_Var::GetBasic(int32_t& value) 
+SensorResult DataOutputRange_TiM5xx_1_0_0Skeleton_Var::GetBasic(int32_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -962,7 +962,7 @@ SensorResult DataOutputRange_TiM5xx_1.0.0Skeleton_Var::GetBasic(int32_t& value)
 	return ret;
 }
 
-SensorResult DataOutputRange_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::string& elementName, int64_t& value) 
+SensorResult DataOutputRange_TiM5xx_1_0_0Skeleton_Var::GetBasicElement(const std::string& elementName, int64_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -971,7 +971,7 @@ SensorResult DataOutputRange_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std
 	return ret;
 }
 
-SensorResult DataOutputRange_TiM5xx_1.0.0Skeleton_Var::GetBasic(int64_t& value) 
+SensorResult DataOutputRange_TiM5xx_1_0_0Skeleton_Var::GetBasic(int64_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -979,7 +979,7 @@ SensorResult DataOutputRange_TiM5xx_1.0.0Skeleton_Var::GetBasic(int64_t& value)
 	return ret;
 }
 
-SensorResult DataOutputRange_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::string& elementName, uint8_t& value) 
+SensorResult DataOutputRange_TiM5xx_1_0_0Skeleton_Var::GetBasicElement(const std::string& elementName, uint8_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -988,7 +988,7 @@ SensorResult DataOutputRange_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std
 	return ret;
 }
 
-SensorResult DataOutputRange_TiM5xx_1.0.0Skeleton_Var::GetBasic(uint8_t& value) 
+SensorResult DataOutputRange_TiM5xx_1_0_0Skeleton_Var::GetBasic(uint8_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -996,7 +996,7 @@ SensorResult DataOutputRange_TiM5xx_1.0.0Skeleton_Var::GetBasic(uint8_t& value)
 	return ret;
 }
 
-SensorResult DataOutputRange_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::string& elementName, uint16_t& value) 
+SensorResult DataOutputRange_TiM5xx_1_0_0Skeleton_Var::GetBasicElement(const std::string& elementName, uint16_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	uint64_t test = hash_64_fnv1a(elementName.c_str(), elementName.size());
@@ -1014,7 +1014,7 @@ SensorResult DataOutputRange_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std
 	return ret;
 }
 
-SensorResult DataOutputRange_TiM5xx_1.0.0Skeleton_Var::GetBasic(uint16_t& value) 
+SensorResult DataOutputRange_TiM5xx_1_0_0Skeleton_Var::GetBasic(uint16_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -1022,7 +1022,7 @@ SensorResult DataOutputRange_TiM5xx_1.0.0Skeleton_Var::GetBasic(uint16_t& value)
 	return ret;
 }
 
-SensorResult DataOutputRange_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::string& elementName, uint32_t& value) 
+SensorResult DataOutputRange_TiM5xx_1_0_0Skeleton_Var::GetBasicElement(const std::string& elementName, uint32_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	uint64_t test = hash_64_fnv1a(elementName.c_str(), elementName.size());
@@ -1044,7 +1044,7 @@ SensorResult DataOutputRange_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std
 	return ret;
 }
 
-SensorResult DataOutputRange_TiM5xx_1.0.0Skeleton_Var::GetBasic(uint32_t& value) 
+SensorResult DataOutputRange_TiM5xx_1_0_0Skeleton_Var::GetBasic(uint32_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -1052,7 +1052,7 @@ SensorResult DataOutputRange_TiM5xx_1.0.0Skeleton_Var::GetBasic(uint32_t& value)
 	return ret;
 }
 
-SensorResult DataOutputRange_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::string& elementName, uint64_t& value) 
+SensorResult DataOutputRange_TiM5xx_1_0_0Skeleton_Var::GetBasicElement(const std::string& elementName, uint64_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -1061,7 +1061,7 @@ SensorResult DataOutputRange_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std
 	return ret;
 }
 
-SensorResult DataOutputRange_TiM5xx_1.0.0Skeleton_Var::GetBasic(uint64_t& value) 
+SensorResult DataOutputRange_TiM5xx_1_0_0Skeleton_Var::GetBasic(uint64_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -1069,7 +1069,7 @@ SensorResult DataOutputRange_TiM5xx_1.0.0Skeleton_Var::GetBasic(uint64_t& value)
 	return ret;
 }
 
-SensorResult DataOutputRange_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::string& elementName, float& value) 
+SensorResult DataOutputRange_TiM5xx_1_0_0Skeleton_Var::GetBasicElement(const std::string& elementName, float& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -1078,7 +1078,7 @@ SensorResult DataOutputRange_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std
 	return ret;
 }
 
-SensorResult DataOutputRange_TiM5xx_1.0.0Skeleton_Var::GetBasic(float& value) 
+SensorResult DataOutputRange_TiM5xx_1_0_0Skeleton_Var::GetBasic(float& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -1086,7 +1086,7 @@ SensorResult DataOutputRange_TiM5xx_1.0.0Skeleton_Var::GetBasic(float& value)
 	return ret;
 }
 
-SensorResult DataOutputRange_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::string& elementName, double& value) 
+SensorResult DataOutputRange_TiM5xx_1_0_0Skeleton_Var::GetBasicElement(const std::string& elementName, double& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -1095,7 +1095,7 @@ SensorResult DataOutputRange_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std
 	return ret;
 }
 
-SensorResult DataOutputRange_TiM5xx_1.0.0Skeleton_Var::GetBasic(double& value) 
+SensorResult DataOutputRange_TiM5xx_1_0_0Skeleton_Var::GetBasic(double& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -1103,7 +1103,7 @@ SensorResult DataOutputRange_TiM5xx_1.0.0Skeleton_Var::GetBasic(double& value)
 	return ret;
 }
 
-SensorResult DataOutputRange_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::string& elementName, int8_t& value) 
+SensorResult DataOutputRange_TiM5xx_1_0_0Skeleton_Var::SetBasicElement(const std::string& elementName, int8_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -1112,7 +1112,7 @@ SensorResult DataOutputRange_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std
 	return ret;
 }
 
-SensorResult DataOutputRange_TiM5xx_1.0.0Skeleton_Var::SetBasic(int8_t& value) 
+SensorResult DataOutputRange_TiM5xx_1_0_0Skeleton_Var::SetBasic(int8_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -1120,7 +1120,7 @@ SensorResult DataOutputRange_TiM5xx_1.0.0Skeleton_Var::SetBasic(int8_t& value)
 	return ret;
 }
 
-SensorResult DataOutputRange_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::string& elementName, int16_t& value) 
+SensorResult DataOutputRange_TiM5xx_1_0_0Skeleton_Var::SetBasicElement(const std::string& elementName, int16_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -1129,7 +1129,7 @@ SensorResult DataOutputRange_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std
 	return ret;
 }
 
-SensorResult DataOutputRange_TiM5xx_1.0.0Skeleton_Var::SetBasic(int16_t& value) 
+SensorResult DataOutputRange_TiM5xx_1_0_0Skeleton_Var::SetBasic(int16_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -1137,7 +1137,7 @@ SensorResult DataOutputRange_TiM5xx_1.0.0Skeleton_Var::SetBasic(int16_t& value)
 	return ret;
 }
 
-SensorResult DataOutputRange_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::string& elementName, int32_t& value) 
+SensorResult DataOutputRange_TiM5xx_1_0_0Skeleton_Var::SetBasicElement(const std::string& elementName, int32_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	uint64_t test = hash_64_fnv1a(elementName.c_str(), elementName.size());
@@ -1187,7 +1187,7 @@ SensorResult DataOutputRange_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std
 	return ret;
 }
 
-SensorResult DataOutputRange_TiM5xx_1.0.0Skeleton_Var::SetBasic(int32_t& value) 
+SensorResult DataOutputRange_TiM5xx_1_0_0Skeleton_Var::SetBasic(int32_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -1195,7 +1195,7 @@ SensorResult DataOutputRange_TiM5xx_1.0.0Skeleton_Var::SetBasic(int32_t& value)
 	return ret;
 }
 
-SensorResult DataOutputRange_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::string& elementName, int64_t& value) 
+SensorResult DataOutputRange_TiM5xx_1_0_0Skeleton_Var::SetBasicElement(const std::string& elementName, int64_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -1204,7 +1204,7 @@ SensorResult DataOutputRange_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std
 	return ret;
 }
 
-SensorResult DataOutputRange_TiM5xx_1.0.0Skeleton_Var::SetBasic(int64_t& value) 
+SensorResult DataOutputRange_TiM5xx_1_0_0Skeleton_Var::SetBasic(int64_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -1212,7 +1212,7 @@ SensorResult DataOutputRange_TiM5xx_1.0.0Skeleton_Var::SetBasic(int64_t& value)
 	return ret;
 }
 
-SensorResult DataOutputRange_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::string& elementName, uint8_t& value) 
+SensorResult DataOutputRange_TiM5xx_1_0_0Skeleton_Var::SetBasicElement(const std::string& elementName, uint8_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -1221,7 +1221,7 @@ SensorResult DataOutputRange_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std
 	return ret;
 }
 
-SensorResult DataOutputRange_TiM5xx_1.0.0Skeleton_Var::SetBasic(uint8_t& value) 
+SensorResult DataOutputRange_TiM5xx_1_0_0Skeleton_Var::SetBasic(uint8_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -1229,7 +1229,7 @@ SensorResult DataOutputRange_TiM5xx_1.0.0Skeleton_Var::SetBasic(uint8_t& value)
 	return ret;
 }
 
-SensorResult DataOutputRange_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::string& elementName, uint16_t& value) 
+SensorResult DataOutputRange_TiM5xx_1_0_0Skeleton_Var::SetBasicElement(const std::string& elementName, uint16_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	uint64_t test = hash_64_fnv1a(elementName.c_str(), elementName.size());
@@ -1252,7 +1252,7 @@ SensorResult DataOutputRange_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std
 	return ret;
 }
 
-SensorResult DataOutputRange_TiM5xx_1.0.0Skeleton_Var::SetBasic(uint16_t& value) 
+SensorResult DataOutputRange_TiM5xx_1_0_0Skeleton_Var::SetBasic(uint16_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -1260,7 +1260,7 @@ SensorResult DataOutputRange_TiM5xx_1.0.0Skeleton_Var::SetBasic(uint16_t& value)
 	return ret;
 }
 
-SensorResult DataOutputRange_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::string& elementName, uint32_t& value) 
+SensorResult DataOutputRange_TiM5xx_1_0_0Skeleton_Var::SetBasicElement(const std::string& elementName, uint32_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	uint64_t test = hash_64_fnv1a(elementName.c_str(), elementName.size());
@@ -1292,7 +1292,7 @@ SensorResult DataOutputRange_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std
 	return ret;
 }
 
-SensorResult DataOutputRange_TiM5xx_1.0.0Skeleton_Var::SetBasic(uint32_t& value) 
+SensorResult DataOutputRange_TiM5xx_1_0_0Skeleton_Var::SetBasic(uint32_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -1300,7 +1300,7 @@ SensorResult DataOutputRange_TiM5xx_1.0.0Skeleton_Var::SetBasic(uint32_t& value)
 	return ret;
 }
 
-SensorResult DataOutputRange_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::string& elementName, uint64_t& value) 
+SensorResult DataOutputRange_TiM5xx_1_0_0Skeleton_Var::SetBasicElement(const std::string& elementName, uint64_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -1309,7 +1309,7 @@ SensorResult DataOutputRange_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std
 	return ret;
 }
 
-SensorResult DataOutputRange_TiM5xx_1.0.0Skeleton_Var::SetBasic(uint64_t& value) 
+SensorResult DataOutputRange_TiM5xx_1_0_0Skeleton_Var::SetBasic(uint64_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -1317,7 +1317,7 @@ SensorResult DataOutputRange_TiM5xx_1.0.0Skeleton_Var::SetBasic(uint64_t& value)
 	return ret;
 }
 
-SensorResult DataOutputRange_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::string& elementName, float& value) 
+SensorResult DataOutputRange_TiM5xx_1_0_0Skeleton_Var::SetBasicElement(const std::string& elementName, float& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -1326,7 +1326,7 @@ SensorResult DataOutputRange_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std
 	return ret;
 }
 
-SensorResult DataOutputRange_TiM5xx_1.0.0Skeleton_Var::SetBasic(float& value) 
+SensorResult DataOutputRange_TiM5xx_1_0_0Skeleton_Var::SetBasic(float& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -1334,7 +1334,7 @@ SensorResult DataOutputRange_TiM5xx_1.0.0Skeleton_Var::SetBasic(float& value)
 	return ret;
 }
 
-SensorResult DataOutputRange_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::string& elementName, double& value) 
+SensorResult DataOutputRange_TiM5xx_1_0_0Skeleton_Var::SetBasicElement(const std::string& elementName, double& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -1343,7 +1343,7 @@ SensorResult DataOutputRange_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std
 	return ret;
 }
 
-SensorResult DataOutputRange_TiM5xx_1.0.0Skeleton_Var::SetBasic(double& value) 
+SensorResult DataOutputRange_TiM5xx_1_0_0Skeleton_Var::SetBasic(double& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -1351,7 +1351,7 @@ SensorResult DataOutputRange_TiM5xx_1.0.0Skeleton_Var::SetBasic(double& value)
 	return ret;
 }
 
-SensorResult DataOutputRange_TiM5xx_1.0.0Skeleton_Var::SetBasicFromString(std::string value)
+SensorResult DataOutputRange_TiM5xx_1_0_0Skeleton_Var::SetBasicFromString(std::string value)
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -1359,12 +1359,12 @@ SensorResult DataOutputRange_TiM5xx_1.0.0Skeleton_Var::SetBasicFromString(std::s
 	return ret;
 }
 
-ScanData_TiM5xx_1.0.0Skeleton_Var::ScanData_TiM5xx_1.0.0Skeleton_Var()
-	: TiM5xx_1.0.0Skeleton_Var("ScanData","LMDscandata",230,READ_ONLY,LEVEL_RUN,LEVEL_INVALID,90)
+ScanData_TiM5xx_1_0_0Skeleton_Var::ScanData_TiM5xx_1_0_0Skeleton_Var()
+	: TiM5xx_1_0_0Skeleton_Var("ScanData","LMDscandata",230,READ_ONLY,LEVEL_RUN,LEVEL_INVALID,90)
 {
 }
 
-SensorResult ScanData_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::string& elementName, int8_t& value) 
+SensorResult ScanData_TiM5xx_1_0_0Skeleton_Var::GetBasicElement(const std::string& elementName, int8_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -1373,7 +1373,7 @@ SensorResult ScanData_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::strin
 	return ret;
 }
 
-SensorResult ScanData_TiM5xx_1.0.0Skeleton_Var::GetBasic(int8_t& value) 
+SensorResult ScanData_TiM5xx_1_0_0Skeleton_Var::GetBasic(int8_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -1381,7 +1381,7 @@ SensorResult ScanData_TiM5xx_1.0.0Skeleton_Var::GetBasic(int8_t& value)
 	return ret;
 }
 
-SensorResult ScanData_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::string& elementName, int16_t& value) 
+SensorResult ScanData_TiM5xx_1_0_0Skeleton_Var::GetBasicElement(const std::string& elementName, int16_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	uint64_t test = hash_64_fnv1a(elementName.c_str(), elementName.size());
@@ -1403,7 +1403,7 @@ SensorResult ScanData_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::strin
 	return ret;
 }
 
-SensorResult ScanData_TiM5xx_1.0.0Skeleton_Var::GetBasic(int16_t& value) 
+SensorResult ScanData_TiM5xx_1_0_0Skeleton_Var::GetBasic(int16_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -1411,7 +1411,7 @@ SensorResult ScanData_TiM5xx_1.0.0Skeleton_Var::GetBasic(int16_t& value)
 	return ret;
 }
 
-SensorResult ScanData_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::string& elementName, int32_t& value) 
+SensorResult ScanData_TiM5xx_1_0_0Skeleton_Var::GetBasicElement(const std::string& elementName, int32_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	uint64_t test = hash_64_fnv1a(elementName.c_str(), elementName.size());
@@ -1449,7 +1449,7 @@ SensorResult ScanData_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::strin
 	return ret;
 }
 
-SensorResult ScanData_TiM5xx_1.0.0Skeleton_Var::GetBasic(int32_t& value) 
+SensorResult ScanData_TiM5xx_1_0_0Skeleton_Var::GetBasic(int32_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -1457,7 +1457,7 @@ SensorResult ScanData_TiM5xx_1.0.0Skeleton_Var::GetBasic(int32_t& value)
 	return ret;
 }
 
-SensorResult ScanData_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::string& elementName, int64_t& value) 
+SensorResult ScanData_TiM5xx_1_0_0Skeleton_Var::GetBasicElement(const std::string& elementName, int64_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -1466,7 +1466,7 @@ SensorResult ScanData_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::strin
 	return ret;
 }
 
-SensorResult ScanData_TiM5xx_1.0.0Skeleton_Var::GetBasic(int64_t& value) 
+SensorResult ScanData_TiM5xx_1_0_0Skeleton_Var::GetBasic(int64_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -1474,7 +1474,7 @@ SensorResult ScanData_TiM5xx_1.0.0Skeleton_Var::GetBasic(int64_t& value)
 	return ret;
 }
 
-SensorResult ScanData_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::string& elementName, uint8_t& value) 
+SensorResult ScanData_TiM5xx_1_0_0Skeleton_Var::GetBasicElement(const std::string& elementName, uint8_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	uint64_t test = hash_64_fnv1a(elementName.c_str(), elementName.size());
@@ -1528,7 +1528,7 @@ SensorResult ScanData_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::strin
 	return ret;
 }
 
-SensorResult ScanData_TiM5xx_1.0.0Skeleton_Var::GetBasic(uint8_t& value) 
+SensorResult ScanData_TiM5xx_1_0_0Skeleton_Var::GetBasic(uint8_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -1536,7 +1536,7 @@ SensorResult ScanData_TiM5xx_1.0.0Skeleton_Var::GetBasic(uint8_t& value)
 	return ret;
 }
 
-SensorResult ScanData_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::string& elementName, uint16_t& value) 
+SensorResult ScanData_TiM5xx_1_0_0Skeleton_Var::GetBasicElement(const std::string& elementName, uint16_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	uint64_t test = hash_64_fnv1a(elementName.c_str(), elementName.size());
@@ -1658,7 +1658,7 @@ SensorResult ScanData_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::strin
 	return ret;
 }
 
-SensorResult ScanData_TiM5xx_1.0.0Skeleton_Var::GetBasic(uint16_t& value) 
+SensorResult ScanData_TiM5xx_1_0_0Skeleton_Var::GetBasic(uint16_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -1666,7 +1666,7 @@ SensorResult ScanData_TiM5xx_1.0.0Skeleton_Var::GetBasic(uint16_t& value)
 	return ret;
 }
 
-SensorResult ScanData_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::string& elementName, uint32_t& value) 
+SensorResult ScanData_TiM5xx_1_0_0Skeleton_Var::GetBasicElement(const std::string& elementName, uint32_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	uint64_t test = hash_64_fnv1a(elementName.c_str(), elementName.size());
@@ -1744,7 +1744,7 @@ SensorResult ScanData_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::strin
 	return ret;
 }
 
-SensorResult ScanData_TiM5xx_1.0.0Skeleton_Var::GetBasic(uint32_t& value) 
+SensorResult ScanData_TiM5xx_1_0_0Skeleton_Var::GetBasic(uint32_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -1752,7 +1752,7 @@ SensorResult ScanData_TiM5xx_1.0.0Skeleton_Var::GetBasic(uint32_t& value)
 	return ret;
 }
 
-SensorResult ScanData_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::string& elementName, uint64_t& value) 
+SensorResult ScanData_TiM5xx_1_0_0Skeleton_Var::GetBasicElement(const std::string& elementName, uint64_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -1761,7 +1761,7 @@ SensorResult ScanData_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::strin
 	return ret;
 }
 
-SensorResult ScanData_TiM5xx_1.0.0Skeleton_Var::GetBasic(uint64_t& value) 
+SensorResult ScanData_TiM5xx_1_0_0Skeleton_Var::GetBasic(uint64_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -1769,7 +1769,7 @@ SensorResult ScanData_TiM5xx_1.0.0Skeleton_Var::GetBasic(uint64_t& value)
 	return ret;
 }
 
-SensorResult ScanData_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::string& elementName, float& value) 
+SensorResult ScanData_TiM5xx_1_0_0Skeleton_Var::GetBasicElement(const std::string& elementName, float& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	uint64_t test = hash_64_fnv1a(elementName.c_str(), elementName.size());
@@ -1863,7 +1863,7 @@ SensorResult ScanData_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::strin
 	return ret;
 }
 
-SensorResult ScanData_TiM5xx_1.0.0Skeleton_Var::GetBasic(float& value) 
+SensorResult ScanData_TiM5xx_1_0_0Skeleton_Var::GetBasic(float& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -1871,7 +1871,7 @@ SensorResult ScanData_TiM5xx_1.0.0Skeleton_Var::GetBasic(float& value)
 	return ret;
 }
 
-SensorResult ScanData_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::string& elementName, double& value) 
+SensorResult ScanData_TiM5xx_1_0_0Skeleton_Var::GetBasicElement(const std::string& elementName, double& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -1880,7 +1880,7 @@ SensorResult ScanData_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::strin
 	return ret;
 }
 
-SensorResult ScanData_TiM5xx_1.0.0Skeleton_Var::GetBasic(double& value) 
+SensorResult ScanData_TiM5xx_1_0_0Skeleton_Var::GetBasic(double& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -1888,7 +1888,7 @@ SensorResult ScanData_TiM5xx_1.0.0Skeleton_Var::GetBasic(double& value)
 	return ret;
 }
 
-SensorResult ScanData_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::string& elementName, int8_t& value) 
+SensorResult ScanData_TiM5xx_1_0_0Skeleton_Var::SetBasicElement(const std::string& elementName, int8_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -1897,7 +1897,7 @@ SensorResult ScanData_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::strin
 	return ret;
 }
 
-SensorResult ScanData_TiM5xx_1.0.0Skeleton_Var::SetBasic(int8_t& value) 
+SensorResult ScanData_TiM5xx_1_0_0Skeleton_Var::SetBasic(int8_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -1905,7 +1905,7 @@ SensorResult ScanData_TiM5xx_1.0.0Skeleton_Var::SetBasic(int8_t& value)
 	return ret;
 }
 
-SensorResult ScanData_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::string& elementName, int16_t& value) 
+SensorResult ScanData_TiM5xx_1_0_0Skeleton_Var::SetBasicElement(const std::string& elementName, int16_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	uint64_t test = hash_64_fnv1a(elementName.c_str(), elementName.size());
@@ -1927,7 +1927,7 @@ SensorResult ScanData_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::strin
 	return ret;
 }
 
-SensorResult ScanData_TiM5xx_1.0.0Skeleton_Var::SetBasic(int16_t& value) 
+SensorResult ScanData_TiM5xx_1_0_0Skeleton_Var::SetBasic(int16_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -1935,7 +1935,7 @@ SensorResult ScanData_TiM5xx_1.0.0Skeleton_Var::SetBasic(int16_t& value)
 	return ret;
 }
 
-SensorResult ScanData_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::string& elementName, int32_t& value) 
+SensorResult ScanData_TiM5xx_1_0_0Skeleton_Var::SetBasicElement(const std::string& elementName, int32_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	uint64_t test = hash_64_fnv1a(elementName.c_str(), elementName.size());
@@ -1973,7 +1973,7 @@ SensorResult ScanData_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::strin
 	return ret;
 }
 
-SensorResult ScanData_TiM5xx_1.0.0Skeleton_Var::SetBasic(int32_t& value) 
+SensorResult ScanData_TiM5xx_1_0_0Skeleton_Var::SetBasic(int32_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -1981,7 +1981,7 @@ SensorResult ScanData_TiM5xx_1.0.0Skeleton_Var::SetBasic(int32_t& value)
 	return ret;
 }
 
-SensorResult ScanData_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::string& elementName, int64_t& value) 
+SensorResult ScanData_TiM5xx_1_0_0Skeleton_Var::SetBasicElement(const std::string& elementName, int64_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -1990,7 +1990,7 @@ SensorResult ScanData_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::strin
 	return ret;
 }
 
-SensorResult ScanData_TiM5xx_1.0.0Skeleton_Var::SetBasic(int64_t& value) 
+SensorResult ScanData_TiM5xx_1_0_0Skeleton_Var::SetBasic(int64_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -1998,7 +1998,7 @@ SensorResult ScanData_TiM5xx_1.0.0Skeleton_Var::SetBasic(int64_t& value)
 	return ret;
 }
 
-SensorResult ScanData_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::string& elementName, uint8_t& value) 
+SensorResult ScanData_TiM5xx_1_0_0Skeleton_Var::SetBasicElement(const std::string& elementName, uint8_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	uint64_t test = hash_64_fnv1a(elementName.c_str(), elementName.size());
@@ -2102,7 +2102,7 @@ SensorResult ScanData_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::strin
 	return ret;
 }
 
-SensorResult ScanData_TiM5xx_1.0.0Skeleton_Var::SetBasic(uint8_t& value) 
+SensorResult ScanData_TiM5xx_1_0_0Skeleton_Var::SetBasic(uint8_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -2110,7 +2110,7 @@ SensorResult ScanData_TiM5xx_1.0.0Skeleton_Var::SetBasic(uint8_t& value)
 	return ret;
 }
 
-SensorResult ScanData_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::string& elementName, uint16_t& value) 
+SensorResult ScanData_TiM5xx_1_0_0Skeleton_Var::SetBasicElement(const std::string& elementName, uint16_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	uint64_t test = hash_64_fnv1a(elementName.c_str(), elementName.size());
@@ -2302,7 +2302,7 @@ SensorResult ScanData_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::strin
 	return ret;
 }
 
-SensorResult ScanData_TiM5xx_1.0.0Skeleton_Var::SetBasic(uint16_t& value) 
+SensorResult ScanData_TiM5xx_1_0_0Skeleton_Var::SetBasic(uint16_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -2310,7 +2310,7 @@ SensorResult ScanData_TiM5xx_1.0.0Skeleton_Var::SetBasic(uint16_t& value)
 	return ret;
 }
 
-SensorResult ScanData_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::string& elementName, uint32_t& value) 
+SensorResult ScanData_TiM5xx_1_0_0Skeleton_Var::SetBasicElement(const std::string& elementName, uint32_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	uint64_t test = hash_64_fnv1a(elementName.c_str(), elementName.size());
@@ -2398,7 +2398,7 @@ SensorResult ScanData_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::strin
 	return ret;
 }
 
-SensorResult ScanData_TiM5xx_1.0.0Skeleton_Var::SetBasic(uint32_t& value) 
+SensorResult ScanData_TiM5xx_1_0_0Skeleton_Var::SetBasic(uint32_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -2406,7 +2406,7 @@ SensorResult ScanData_TiM5xx_1.0.0Skeleton_Var::SetBasic(uint32_t& value)
 	return ret;
 }
 
-SensorResult ScanData_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::string& elementName, uint64_t& value) 
+SensorResult ScanData_TiM5xx_1_0_0Skeleton_Var::SetBasicElement(const std::string& elementName, uint64_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -2415,7 +2415,7 @@ SensorResult ScanData_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::strin
 	return ret;
 }
 
-SensorResult ScanData_TiM5xx_1.0.0Skeleton_Var::SetBasic(uint64_t& value) 
+SensorResult ScanData_TiM5xx_1_0_0Skeleton_Var::SetBasic(uint64_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -2423,7 +2423,7 @@ SensorResult ScanData_TiM5xx_1.0.0Skeleton_Var::SetBasic(uint64_t& value)
 	return ret;
 }
 
-SensorResult ScanData_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::string& elementName, float& value) 
+SensorResult ScanData_TiM5xx_1_0_0Skeleton_Var::SetBasicElement(const std::string& elementName, float& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	uint64_t test = hash_64_fnv1a(elementName.c_str(), elementName.size());
@@ -2517,7 +2517,7 @@ SensorResult ScanData_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::strin
 	return ret;
 }
 
-SensorResult ScanData_TiM5xx_1.0.0Skeleton_Var::SetBasic(float& value) 
+SensorResult ScanData_TiM5xx_1_0_0Skeleton_Var::SetBasic(float& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -2525,7 +2525,7 @@ SensorResult ScanData_TiM5xx_1.0.0Skeleton_Var::SetBasic(float& value)
 	return ret;
 }
 
-SensorResult ScanData_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::string& elementName, double& value) 
+SensorResult ScanData_TiM5xx_1_0_0Skeleton_Var::SetBasicElement(const std::string& elementName, double& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -2534,7 +2534,7 @@ SensorResult ScanData_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::strin
 	return ret;
 }
 
-SensorResult ScanData_TiM5xx_1.0.0Skeleton_Var::SetBasic(double& value) 
+SensorResult ScanData_TiM5xx_1_0_0Skeleton_Var::SetBasic(double& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -2542,7 +2542,7 @@ SensorResult ScanData_TiM5xx_1.0.0Skeleton_Var::SetBasic(double& value)
 	return ret;
 }
 
-SensorResult ScanData_TiM5xx_1.0.0Skeleton_Var::SetBasicFromString(std::string value)
+SensorResult ScanData_TiM5xx_1_0_0Skeleton_Var::SetBasicFromString(std::string value)
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -2550,12 +2550,12 @@ SensorResult ScanData_TiM5xx_1.0.0Skeleton_Var::SetBasicFromString(std::string v
 	return ret;
 }
 
-ScanDataConfig_TiM5xx_1.0.0Skeleton_Var::ScanDataConfig_TiM5xx_1.0.0Skeleton_Var()
-	: TiM5xx_1.0.0Skeleton_Var("ScanDataConfig","LMDscandatacfg",212,READ_WRITE,LEVEL_RUN,LEVEL_AUTHORIZED_CLIENT,-1)
+ScanDataConfig_TiM5xx_1_0_0Skeleton_Var::ScanDataConfig_TiM5xx_1_0_0Skeleton_Var()
+	: TiM5xx_1_0_0Skeleton_Var("ScanDataConfig","LMDscandatacfg",212,READ_WRITE,LEVEL_RUN,LEVEL_AUTHORIZED_CLIENT,-1)
 {
 }
 
-SensorResult ScanDataConfig_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::string& elementName, int8_t& value) 
+SensorResult ScanDataConfig_TiM5xx_1_0_0Skeleton_Var::GetBasicElement(const std::string& elementName, int8_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -2564,7 +2564,7 @@ SensorResult ScanDataConfig_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std:
 	return ret;
 }
 
-SensorResult ScanDataConfig_TiM5xx_1.0.0Skeleton_Var::GetBasic(int8_t& value) 
+SensorResult ScanDataConfig_TiM5xx_1_0_0Skeleton_Var::GetBasic(int8_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -2572,7 +2572,7 @@ SensorResult ScanDataConfig_TiM5xx_1.0.0Skeleton_Var::GetBasic(int8_t& value)
 	return ret;
 }
 
-SensorResult ScanDataConfig_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::string& elementName, int16_t& value) 
+SensorResult ScanDataConfig_TiM5xx_1_0_0Skeleton_Var::GetBasicElement(const std::string& elementName, int16_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -2581,7 +2581,7 @@ SensorResult ScanDataConfig_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std:
 	return ret;
 }
 
-SensorResult ScanDataConfig_TiM5xx_1.0.0Skeleton_Var::GetBasic(int16_t& value) 
+SensorResult ScanDataConfig_TiM5xx_1_0_0Skeleton_Var::GetBasic(int16_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -2589,7 +2589,7 @@ SensorResult ScanDataConfig_TiM5xx_1.0.0Skeleton_Var::GetBasic(int16_t& value)
 	return ret;
 }
 
-SensorResult ScanDataConfig_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::string& elementName, int32_t& value) 
+SensorResult ScanDataConfig_TiM5xx_1_0_0Skeleton_Var::GetBasicElement(const std::string& elementName, int32_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -2598,7 +2598,7 @@ SensorResult ScanDataConfig_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std:
 	return ret;
 }
 
-SensorResult ScanDataConfig_TiM5xx_1.0.0Skeleton_Var::GetBasic(int32_t& value) 
+SensorResult ScanDataConfig_TiM5xx_1_0_0Skeleton_Var::GetBasic(int32_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -2606,7 +2606,7 @@ SensorResult ScanDataConfig_TiM5xx_1.0.0Skeleton_Var::GetBasic(int32_t& value)
 	return ret;
 }
 
-SensorResult ScanDataConfig_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::string& elementName, int64_t& value) 
+SensorResult ScanDataConfig_TiM5xx_1_0_0Skeleton_Var::GetBasicElement(const std::string& elementName, int64_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -2615,7 +2615,7 @@ SensorResult ScanDataConfig_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std:
 	return ret;
 }
 
-SensorResult ScanDataConfig_TiM5xx_1.0.0Skeleton_Var::GetBasic(int64_t& value) 
+SensorResult ScanDataConfig_TiM5xx_1_0_0Skeleton_Var::GetBasic(int64_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -2623,7 +2623,7 @@ SensorResult ScanDataConfig_TiM5xx_1.0.0Skeleton_Var::GetBasic(int64_t& value)
 	return ret;
 }
 
-SensorResult ScanDataConfig_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::string& elementName, uint8_t& value) 
+SensorResult ScanDataConfig_TiM5xx_1_0_0Skeleton_Var::GetBasicElement(const std::string& elementName, uint8_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	uint64_t test = hash_64_fnv1a(elementName.c_str(), elementName.size());
@@ -2677,7 +2677,7 @@ SensorResult ScanDataConfig_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std:
 	return ret;
 }
 
-SensorResult ScanDataConfig_TiM5xx_1.0.0Skeleton_Var::GetBasic(uint8_t& value) 
+SensorResult ScanDataConfig_TiM5xx_1_0_0Skeleton_Var::GetBasic(uint8_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -2685,7 +2685,7 @@ SensorResult ScanDataConfig_TiM5xx_1.0.0Skeleton_Var::GetBasic(uint8_t& value)
 	return ret;
 }
 
-SensorResult ScanDataConfig_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::string& elementName, uint16_t& value) 
+SensorResult ScanDataConfig_TiM5xx_1_0_0Skeleton_Var::GetBasicElement(const std::string& elementName, uint16_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	uint64_t test = hash_64_fnv1a(elementName.c_str(), elementName.size());
@@ -2703,7 +2703,7 @@ SensorResult ScanDataConfig_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std:
 	return ret;
 }
 
-SensorResult ScanDataConfig_TiM5xx_1.0.0Skeleton_Var::GetBasic(uint16_t& value) 
+SensorResult ScanDataConfig_TiM5xx_1_0_0Skeleton_Var::GetBasic(uint16_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -2711,7 +2711,7 @@ SensorResult ScanDataConfig_TiM5xx_1.0.0Skeleton_Var::GetBasic(uint16_t& value)
 	return ret;
 }
 
-SensorResult ScanDataConfig_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::string& elementName, uint32_t& value) 
+SensorResult ScanDataConfig_TiM5xx_1_0_0Skeleton_Var::GetBasicElement(const std::string& elementName, uint32_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -2720,7 +2720,7 @@ SensorResult ScanDataConfig_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std:
 	return ret;
 }
 
-SensorResult ScanDataConfig_TiM5xx_1.0.0Skeleton_Var::GetBasic(uint32_t& value) 
+SensorResult ScanDataConfig_TiM5xx_1_0_0Skeleton_Var::GetBasic(uint32_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -2728,7 +2728,7 @@ SensorResult ScanDataConfig_TiM5xx_1.0.0Skeleton_Var::GetBasic(uint32_t& value)
 	return ret;
 }
 
-SensorResult ScanDataConfig_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::string& elementName, uint64_t& value) 
+SensorResult ScanDataConfig_TiM5xx_1_0_0Skeleton_Var::GetBasicElement(const std::string& elementName, uint64_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -2737,7 +2737,7 @@ SensorResult ScanDataConfig_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std:
 	return ret;
 }
 
-SensorResult ScanDataConfig_TiM5xx_1.0.0Skeleton_Var::GetBasic(uint64_t& value) 
+SensorResult ScanDataConfig_TiM5xx_1_0_0Skeleton_Var::GetBasic(uint64_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -2745,7 +2745,7 @@ SensorResult ScanDataConfig_TiM5xx_1.0.0Skeleton_Var::GetBasic(uint64_t& value)
 	return ret;
 }
 
-SensorResult ScanDataConfig_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::string& elementName, float& value) 
+SensorResult ScanDataConfig_TiM5xx_1_0_0Skeleton_Var::GetBasicElement(const std::string& elementName, float& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -2754,7 +2754,7 @@ SensorResult ScanDataConfig_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std:
 	return ret;
 }
 
-SensorResult ScanDataConfig_TiM5xx_1.0.0Skeleton_Var::GetBasic(float& value) 
+SensorResult ScanDataConfig_TiM5xx_1_0_0Skeleton_Var::GetBasic(float& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -2762,7 +2762,7 @@ SensorResult ScanDataConfig_TiM5xx_1.0.0Skeleton_Var::GetBasic(float& value)
 	return ret;
 }
 
-SensorResult ScanDataConfig_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::string& elementName, double& value) 
+SensorResult ScanDataConfig_TiM5xx_1_0_0Skeleton_Var::GetBasicElement(const std::string& elementName, double& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -2771,7 +2771,7 @@ SensorResult ScanDataConfig_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std:
 	return ret;
 }
 
-SensorResult ScanDataConfig_TiM5xx_1.0.0Skeleton_Var::GetBasic(double& value) 
+SensorResult ScanDataConfig_TiM5xx_1_0_0Skeleton_Var::GetBasic(double& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -2779,7 +2779,7 @@ SensorResult ScanDataConfig_TiM5xx_1.0.0Skeleton_Var::GetBasic(double& value)
 	return ret;
 }
 
-SensorResult ScanDataConfig_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::string& elementName, int8_t& value) 
+SensorResult ScanDataConfig_TiM5xx_1_0_0Skeleton_Var::SetBasicElement(const std::string& elementName, int8_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -2788,7 +2788,7 @@ SensorResult ScanDataConfig_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std:
 	return ret;
 }
 
-SensorResult ScanDataConfig_TiM5xx_1.0.0Skeleton_Var::SetBasic(int8_t& value) 
+SensorResult ScanDataConfig_TiM5xx_1_0_0Skeleton_Var::SetBasic(int8_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -2796,7 +2796,7 @@ SensorResult ScanDataConfig_TiM5xx_1.0.0Skeleton_Var::SetBasic(int8_t& value)
 	return ret;
 }
 
-SensorResult ScanDataConfig_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::string& elementName, int16_t& value) 
+SensorResult ScanDataConfig_TiM5xx_1_0_0Skeleton_Var::SetBasicElement(const std::string& elementName, int16_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -2805,7 +2805,7 @@ SensorResult ScanDataConfig_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std:
 	return ret;
 }
 
-SensorResult ScanDataConfig_TiM5xx_1.0.0Skeleton_Var::SetBasic(int16_t& value) 
+SensorResult ScanDataConfig_TiM5xx_1_0_0Skeleton_Var::SetBasic(int16_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -2813,7 +2813,7 @@ SensorResult ScanDataConfig_TiM5xx_1.0.0Skeleton_Var::SetBasic(int16_t& value)
 	return ret;
 }
 
-SensorResult ScanDataConfig_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::string& elementName, int32_t& value) 
+SensorResult ScanDataConfig_TiM5xx_1_0_0Skeleton_Var::SetBasicElement(const std::string& elementName, int32_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -2822,7 +2822,7 @@ SensorResult ScanDataConfig_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std:
 	return ret;
 }
 
-SensorResult ScanDataConfig_TiM5xx_1.0.0Skeleton_Var::SetBasic(int32_t& value) 
+SensorResult ScanDataConfig_TiM5xx_1_0_0Skeleton_Var::SetBasic(int32_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -2830,7 +2830,7 @@ SensorResult ScanDataConfig_TiM5xx_1.0.0Skeleton_Var::SetBasic(int32_t& value)
 	return ret;
 }
 
-SensorResult ScanDataConfig_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::string& elementName, int64_t& value) 
+SensorResult ScanDataConfig_TiM5xx_1_0_0Skeleton_Var::SetBasicElement(const std::string& elementName, int64_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -2839,7 +2839,7 @@ SensorResult ScanDataConfig_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std:
 	return ret;
 }
 
-SensorResult ScanDataConfig_TiM5xx_1.0.0Skeleton_Var::SetBasic(int64_t& value) 
+SensorResult ScanDataConfig_TiM5xx_1_0_0Skeleton_Var::SetBasic(int64_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -2847,7 +2847,7 @@ SensorResult ScanDataConfig_TiM5xx_1.0.0Skeleton_Var::SetBasic(int64_t& value)
 	return ret;
 }
 
-SensorResult ScanDataConfig_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::string& elementName, uint8_t& value) 
+SensorResult ScanDataConfig_TiM5xx_1_0_0Skeleton_Var::SetBasicElement(const std::string& elementName, uint8_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	uint64_t test = hash_64_fnv1a(elementName.c_str(), elementName.size());
@@ -2901,7 +2901,7 @@ SensorResult ScanDataConfig_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std:
 	return ret;
 }
 
-SensorResult ScanDataConfig_TiM5xx_1.0.0Skeleton_Var::SetBasic(uint8_t& value) 
+SensorResult ScanDataConfig_TiM5xx_1_0_0Skeleton_Var::SetBasic(uint8_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -2909,7 +2909,7 @@ SensorResult ScanDataConfig_TiM5xx_1.0.0Skeleton_Var::SetBasic(uint8_t& value)
 	return ret;
 }
 
-SensorResult ScanDataConfig_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::string& elementName, uint16_t& value) 
+SensorResult ScanDataConfig_TiM5xx_1_0_0Skeleton_Var::SetBasicElement(const std::string& elementName, uint16_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	uint64_t test = hash_64_fnv1a(elementName.c_str(), elementName.size());
@@ -2932,7 +2932,7 @@ SensorResult ScanDataConfig_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std:
 	return ret;
 }
 
-SensorResult ScanDataConfig_TiM5xx_1.0.0Skeleton_Var::SetBasic(uint16_t& value) 
+SensorResult ScanDataConfig_TiM5xx_1_0_0Skeleton_Var::SetBasic(uint16_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -2940,7 +2940,7 @@ SensorResult ScanDataConfig_TiM5xx_1.0.0Skeleton_Var::SetBasic(uint16_t& value)
 	return ret;
 }
 
-SensorResult ScanDataConfig_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::string& elementName, uint32_t& value) 
+SensorResult ScanDataConfig_TiM5xx_1_0_0Skeleton_Var::SetBasicElement(const std::string& elementName, uint32_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -2949,7 +2949,7 @@ SensorResult ScanDataConfig_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std:
 	return ret;
 }
 
-SensorResult ScanDataConfig_TiM5xx_1.0.0Skeleton_Var::SetBasic(uint32_t& value) 
+SensorResult ScanDataConfig_TiM5xx_1_0_0Skeleton_Var::SetBasic(uint32_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -2957,7 +2957,7 @@ SensorResult ScanDataConfig_TiM5xx_1.0.0Skeleton_Var::SetBasic(uint32_t& value)
 	return ret;
 }
 
-SensorResult ScanDataConfig_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::string& elementName, uint64_t& value) 
+SensorResult ScanDataConfig_TiM5xx_1_0_0Skeleton_Var::SetBasicElement(const std::string& elementName, uint64_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -2966,7 +2966,7 @@ SensorResult ScanDataConfig_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std:
 	return ret;
 }
 
-SensorResult ScanDataConfig_TiM5xx_1.0.0Skeleton_Var::SetBasic(uint64_t& value) 
+SensorResult ScanDataConfig_TiM5xx_1_0_0Skeleton_Var::SetBasic(uint64_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -2974,7 +2974,7 @@ SensorResult ScanDataConfig_TiM5xx_1.0.0Skeleton_Var::SetBasic(uint64_t& value)
 	return ret;
 }
 
-SensorResult ScanDataConfig_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::string& elementName, float& value) 
+SensorResult ScanDataConfig_TiM5xx_1_0_0Skeleton_Var::SetBasicElement(const std::string& elementName, float& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -2983,7 +2983,7 @@ SensorResult ScanDataConfig_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std:
 	return ret;
 }
 
-SensorResult ScanDataConfig_TiM5xx_1.0.0Skeleton_Var::SetBasic(float& value) 
+SensorResult ScanDataConfig_TiM5xx_1_0_0Skeleton_Var::SetBasic(float& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -2991,7 +2991,7 @@ SensorResult ScanDataConfig_TiM5xx_1.0.0Skeleton_Var::SetBasic(float& value)
 	return ret;
 }
 
-SensorResult ScanDataConfig_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::string& elementName, double& value) 
+SensorResult ScanDataConfig_TiM5xx_1_0_0Skeleton_Var::SetBasicElement(const std::string& elementName, double& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -3000,7 +3000,7 @@ SensorResult ScanDataConfig_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std:
 	return ret;
 }
 
-SensorResult ScanDataConfig_TiM5xx_1.0.0Skeleton_Var::SetBasic(double& value) 
+SensorResult ScanDataConfig_TiM5xx_1_0_0Skeleton_Var::SetBasic(double& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -3008,7 +3008,7 @@ SensorResult ScanDataConfig_TiM5xx_1.0.0Skeleton_Var::SetBasic(double& value)
 	return ret;
 }
 
-SensorResult ScanDataConfig_TiM5xx_1.0.0Skeleton_Var::SetBasicFromString(std::string value)
+SensorResult ScanDataConfig_TiM5xx_1_0_0Skeleton_Var::SetBasicFromString(std::string value)
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -3016,12 +3016,12 @@ SensorResult ScanDataConfig_TiM5xx_1.0.0Skeleton_Var::SetBasicFromString(std::st
 	return ret;
 }
 
-SCdevicestate_TiM5xx_1.0.0Skeleton_Var::SCdevicestate_TiM5xx_1.0.0Skeleton_Var()
-	: TiM5xx_1.0.0Skeleton_Var("SCdevicestate","SCdevicestate",10,READ_ONLY,LEVEL_RUN,LEVEL_INVALID,1)
+SCdevicestate_TiM5xx_1_0_0Skeleton_Var::SCdevicestate_TiM5xx_1_0_0Skeleton_Var()
+	: TiM5xx_1_0_0Skeleton_Var("SCdevicestate","SCdevicestate",10,READ_ONLY,LEVEL_RUN,LEVEL_INVALID,1)
 {
 }
 
-SensorResult SCdevicestate_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::string& elementName, int8_t& value) 
+SensorResult SCdevicestate_TiM5xx_1_0_0Skeleton_Var::GetBasicElement(const std::string& elementName, int8_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -3030,7 +3030,7 @@ SensorResult SCdevicestate_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::
 	return ret;
 }
 
-SensorResult SCdevicestate_TiM5xx_1.0.0Skeleton_Var::GetBasic(int8_t& value) 
+SensorResult SCdevicestate_TiM5xx_1_0_0Skeleton_Var::GetBasic(int8_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -3038,7 +3038,7 @@ SensorResult SCdevicestate_TiM5xx_1.0.0Skeleton_Var::GetBasic(int8_t& value)
 	return ret;
 }
 
-SensorResult SCdevicestate_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::string& elementName, int16_t& value) 
+SensorResult SCdevicestate_TiM5xx_1_0_0Skeleton_Var::GetBasicElement(const std::string& elementName, int16_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -3047,7 +3047,7 @@ SensorResult SCdevicestate_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::
 	return ret;
 }
 
-SensorResult SCdevicestate_TiM5xx_1.0.0Skeleton_Var::GetBasic(int16_t& value) 
+SensorResult SCdevicestate_TiM5xx_1_0_0Skeleton_Var::GetBasic(int16_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -3055,7 +3055,7 @@ SensorResult SCdevicestate_TiM5xx_1.0.0Skeleton_Var::GetBasic(int16_t& value)
 	return ret;
 }
 
-SensorResult SCdevicestate_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::string& elementName, int32_t& value) 
+SensorResult SCdevicestate_TiM5xx_1_0_0Skeleton_Var::GetBasicElement(const std::string& elementName, int32_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -3064,7 +3064,7 @@ SensorResult SCdevicestate_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::
 	return ret;
 }
 
-SensorResult SCdevicestate_TiM5xx_1.0.0Skeleton_Var::GetBasic(int32_t& value) 
+SensorResult SCdevicestate_TiM5xx_1_0_0Skeleton_Var::GetBasic(int32_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -3072,7 +3072,7 @@ SensorResult SCdevicestate_TiM5xx_1.0.0Skeleton_Var::GetBasic(int32_t& value)
 	return ret;
 }
 
-SensorResult SCdevicestate_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::string& elementName, int64_t& value) 
+SensorResult SCdevicestate_TiM5xx_1_0_0Skeleton_Var::GetBasicElement(const std::string& elementName, int64_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -3081,7 +3081,7 @@ SensorResult SCdevicestate_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::
 	return ret;
 }
 
-SensorResult SCdevicestate_TiM5xx_1.0.0Skeleton_Var::GetBasic(int64_t& value) 
+SensorResult SCdevicestate_TiM5xx_1_0_0Skeleton_Var::GetBasic(int64_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -3089,7 +3089,7 @@ SensorResult SCdevicestate_TiM5xx_1.0.0Skeleton_Var::GetBasic(int64_t& value)
 	return ret;
 }
 
-SensorResult SCdevicestate_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::string& elementName, uint8_t& value) 
+SensorResult SCdevicestate_TiM5xx_1_0_0Skeleton_Var::GetBasicElement(const std::string& elementName, uint8_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -3098,7 +3098,7 @@ SensorResult SCdevicestate_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::
 	return ret;
 }
 
-SensorResult SCdevicestate_TiM5xx_1.0.0Skeleton_Var::GetBasic(uint8_t& value) 
+SensorResult SCdevicestate_TiM5xx_1_0_0Skeleton_Var::GetBasic(uint8_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	ret = SSBL_SUCCESS;
@@ -3106,7 +3106,7 @@ SensorResult SCdevicestate_TiM5xx_1.0.0Skeleton_Var::GetBasic(uint8_t& value)
 	return ret;
 }
 
-SensorResult SCdevicestate_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::string& elementName, uint16_t& value) 
+SensorResult SCdevicestate_TiM5xx_1_0_0Skeleton_Var::GetBasicElement(const std::string& elementName, uint16_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -3115,7 +3115,7 @@ SensorResult SCdevicestate_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::
 	return ret;
 }
 
-SensorResult SCdevicestate_TiM5xx_1.0.0Skeleton_Var::GetBasic(uint16_t& value) 
+SensorResult SCdevicestate_TiM5xx_1_0_0Skeleton_Var::GetBasic(uint16_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -3123,7 +3123,7 @@ SensorResult SCdevicestate_TiM5xx_1.0.0Skeleton_Var::GetBasic(uint16_t& value)
 	return ret;
 }
 
-SensorResult SCdevicestate_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::string& elementName, uint32_t& value) 
+SensorResult SCdevicestate_TiM5xx_1_0_0Skeleton_Var::GetBasicElement(const std::string& elementName, uint32_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -3132,7 +3132,7 @@ SensorResult SCdevicestate_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::
 	return ret;
 }
 
-SensorResult SCdevicestate_TiM5xx_1.0.0Skeleton_Var::GetBasic(uint32_t& value) 
+SensorResult SCdevicestate_TiM5xx_1_0_0Skeleton_Var::GetBasic(uint32_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -3140,7 +3140,7 @@ SensorResult SCdevicestate_TiM5xx_1.0.0Skeleton_Var::GetBasic(uint32_t& value)
 	return ret;
 }
 
-SensorResult SCdevicestate_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::string& elementName, uint64_t& value) 
+SensorResult SCdevicestate_TiM5xx_1_0_0Skeleton_Var::GetBasicElement(const std::string& elementName, uint64_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -3149,7 +3149,7 @@ SensorResult SCdevicestate_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::
 	return ret;
 }
 
-SensorResult SCdevicestate_TiM5xx_1.0.0Skeleton_Var::GetBasic(uint64_t& value) 
+SensorResult SCdevicestate_TiM5xx_1_0_0Skeleton_Var::GetBasic(uint64_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -3157,7 +3157,7 @@ SensorResult SCdevicestate_TiM5xx_1.0.0Skeleton_Var::GetBasic(uint64_t& value)
 	return ret;
 }
 
-SensorResult SCdevicestate_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::string& elementName, float& value) 
+SensorResult SCdevicestate_TiM5xx_1_0_0Skeleton_Var::GetBasicElement(const std::string& elementName, float& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -3166,7 +3166,7 @@ SensorResult SCdevicestate_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::
 	return ret;
 }
 
-SensorResult SCdevicestate_TiM5xx_1.0.0Skeleton_Var::GetBasic(float& value) 
+SensorResult SCdevicestate_TiM5xx_1_0_0Skeleton_Var::GetBasic(float& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -3174,7 +3174,7 @@ SensorResult SCdevicestate_TiM5xx_1.0.0Skeleton_Var::GetBasic(float& value)
 	return ret;
 }
 
-SensorResult SCdevicestate_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::string& elementName, double& value) 
+SensorResult SCdevicestate_TiM5xx_1_0_0Skeleton_Var::GetBasicElement(const std::string& elementName, double& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -3183,7 +3183,7 @@ SensorResult SCdevicestate_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::
 	return ret;
 }
 
-SensorResult SCdevicestate_TiM5xx_1.0.0Skeleton_Var::GetBasic(double& value) 
+SensorResult SCdevicestate_TiM5xx_1_0_0Skeleton_Var::GetBasic(double& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -3191,7 +3191,7 @@ SensorResult SCdevicestate_TiM5xx_1.0.0Skeleton_Var::GetBasic(double& value)
 	return ret;
 }
 
-SensorResult SCdevicestate_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::string& elementName, int8_t& value) 
+SensorResult SCdevicestate_TiM5xx_1_0_0Skeleton_Var::SetBasicElement(const std::string& elementName, int8_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -3200,7 +3200,7 @@ SensorResult SCdevicestate_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::
 	return ret;
 }
 
-SensorResult SCdevicestate_TiM5xx_1.0.0Skeleton_Var::SetBasic(int8_t& value) 
+SensorResult SCdevicestate_TiM5xx_1_0_0Skeleton_Var::SetBasic(int8_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -3208,7 +3208,7 @@ SensorResult SCdevicestate_TiM5xx_1.0.0Skeleton_Var::SetBasic(int8_t& value)
 	return ret;
 }
 
-SensorResult SCdevicestate_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::string& elementName, int16_t& value) 
+SensorResult SCdevicestate_TiM5xx_1_0_0Skeleton_Var::SetBasicElement(const std::string& elementName, int16_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -3217,7 +3217,7 @@ SensorResult SCdevicestate_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::
 	return ret;
 }
 
-SensorResult SCdevicestate_TiM5xx_1.0.0Skeleton_Var::SetBasic(int16_t& value) 
+SensorResult SCdevicestate_TiM5xx_1_0_0Skeleton_Var::SetBasic(int16_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -3225,7 +3225,7 @@ SensorResult SCdevicestate_TiM5xx_1.0.0Skeleton_Var::SetBasic(int16_t& value)
 	return ret;
 }
 
-SensorResult SCdevicestate_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::string& elementName, int32_t& value) 
+SensorResult SCdevicestate_TiM5xx_1_0_0Skeleton_Var::SetBasicElement(const std::string& elementName, int32_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -3234,7 +3234,7 @@ SensorResult SCdevicestate_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::
 	return ret;
 }
 
-SensorResult SCdevicestate_TiM5xx_1.0.0Skeleton_Var::SetBasic(int32_t& value) 
+SensorResult SCdevicestate_TiM5xx_1_0_0Skeleton_Var::SetBasic(int32_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -3242,7 +3242,7 @@ SensorResult SCdevicestate_TiM5xx_1.0.0Skeleton_Var::SetBasic(int32_t& value)
 	return ret;
 }
 
-SensorResult SCdevicestate_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::string& elementName, int64_t& value) 
+SensorResult SCdevicestate_TiM5xx_1_0_0Skeleton_Var::SetBasicElement(const std::string& elementName, int64_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -3251,7 +3251,7 @@ SensorResult SCdevicestate_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::
 	return ret;
 }
 
-SensorResult SCdevicestate_TiM5xx_1.0.0Skeleton_Var::SetBasic(int64_t& value) 
+SensorResult SCdevicestate_TiM5xx_1_0_0Skeleton_Var::SetBasic(int64_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -3259,7 +3259,7 @@ SensorResult SCdevicestate_TiM5xx_1.0.0Skeleton_Var::SetBasic(int64_t& value)
 	return ret;
 }
 
-SensorResult SCdevicestate_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::string& elementName, uint8_t& value) 
+SensorResult SCdevicestate_TiM5xx_1_0_0Skeleton_Var::SetBasicElement(const std::string& elementName, uint8_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -3268,7 +3268,7 @@ SensorResult SCdevicestate_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::
 	return ret;
 }
 
-SensorResult SCdevicestate_TiM5xx_1.0.0Skeleton_Var::SetBasic(uint8_t& value) 
+SensorResult SCdevicestate_TiM5xx_1_0_0Skeleton_Var::SetBasic(uint8_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	this->Value_ = value;
@@ -3276,7 +3276,7 @@ SensorResult SCdevicestate_TiM5xx_1.0.0Skeleton_Var::SetBasic(uint8_t& value)
 	return ret;
 }
 
-SensorResult SCdevicestate_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::string& elementName, uint16_t& value) 
+SensorResult SCdevicestate_TiM5xx_1_0_0Skeleton_Var::SetBasicElement(const std::string& elementName, uint16_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -3285,7 +3285,7 @@ SensorResult SCdevicestate_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::
 	return ret;
 }
 
-SensorResult SCdevicestate_TiM5xx_1.0.0Skeleton_Var::SetBasic(uint16_t& value) 
+SensorResult SCdevicestate_TiM5xx_1_0_0Skeleton_Var::SetBasic(uint16_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -3293,7 +3293,7 @@ SensorResult SCdevicestate_TiM5xx_1.0.0Skeleton_Var::SetBasic(uint16_t& value)
 	return ret;
 }
 
-SensorResult SCdevicestate_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::string& elementName, uint32_t& value) 
+SensorResult SCdevicestate_TiM5xx_1_0_0Skeleton_Var::SetBasicElement(const std::string& elementName, uint32_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -3302,7 +3302,7 @@ SensorResult SCdevicestate_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::
 	return ret;
 }
 
-SensorResult SCdevicestate_TiM5xx_1.0.0Skeleton_Var::SetBasic(uint32_t& value) 
+SensorResult SCdevicestate_TiM5xx_1_0_0Skeleton_Var::SetBasic(uint32_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -3310,7 +3310,7 @@ SensorResult SCdevicestate_TiM5xx_1.0.0Skeleton_Var::SetBasic(uint32_t& value)
 	return ret;
 }
 
-SensorResult SCdevicestate_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::string& elementName, uint64_t& value) 
+SensorResult SCdevicestate_TiM5xx_1_0_0Skeleton_Var::SetBasicElement(const std::string& elementName, uint64_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -3319,7 +3319,7 @@ SensorResult SCdevicestate_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::
 	return ret;
 }
 
-SensorResult SCdevicestate_TiM5xx_1.0.0Skeleton_Var::SetBasic(uint64_t& value) 
+SensorResult SCdevicestate_TiM5xx_1_0_0Skeleton_Var::SetBasic(uint64_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -3327,7 +3327,7 @@ SensorResult SCdevicestate_TiM5xx_1.0.0Skeleton_Var::SetBasic(uint64_t& value)
 	return ret;
 }
 
-SensorResult SCdevicestate_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::string& elementName, float& value) 
+SensorResult SCdevicestate_TiM5xx_1_0_0Skeleton_Var::SetBasicElement(const std::string& elementName, float& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -3336,7 +3336,7 @@ SensorResult SCdevicestate_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::
 	return ret;
 }
 
-SensorResult SCdevicestate_TiM5xx_1.0.0Skeleton_Var::SetBasic(float& value) 
+SensorResult SCdevicestate_TiM5xx_1_0_0Skeleton_Var::SetBasic(float& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -3344,7 +3344,7 @@ SensorResult SCdevicestate_TiM5xx_1.0.0Skeleton_Var::SetBasic(float& value)
 	return ret;
 }
 
-SensorResult SCdevicestate_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::string& elementName, double& value) 
+SensorResult SCdevicestate_TiM5xx_1_0_0Skeleton_Var::SetBasicElement(const std::string& elementName, double& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -3353,7 +3353,7 @@ SensorResult SCdevicestate_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::
 	return ret;
 }
 
-SensorResult SCdevicestate_TiM5xx_1.0.0Skeleton_Var::SetBasic(double& value) 
+SensorResult SCdevicestate_TiM5xx_1_0_0Skeleton_Var::SetBasic(double& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -3361,7 +3361,7 @@ SensorResult SCdevicestate_TiM5xx_1.0.0Skeleton_Var::SetBasic(double& value)
 	return ret;
 }
 
-SensorResult SCdevicestate_TiM5xx_1.0.0Skeleton_Var::SetBasicFromString(std::string value)
+SensorResult SCdevicestate_TiM5xx_1_0_0Skeleton_Var::SetBasicFromString(std::string value)
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	bool isNegative = false;
@@ -3382,12 +3382,12 @@ SensorResult SCdevicestate_TiM5xx_1.0.0Skeleton_Var::SetBasicFromString(std::str
 	return ret;
 }
 
-OrderNumber_TiM5xx_1.0.0Skeleton_Var::OrderNumber_TiM5xx_1.0.0Skeleton_Var()
-	: TiM5xx_1.0.0Skeleton_Var("OrderNumber","DIornr",371,READ_WRITE,LEVEL_RUN,LEVEL_INVALID,-1)
+OrderNumber_TiM5xx_1_0_0Skeleton_Var::OrderNumber_TiM5xx_1_0_0Skeleton_Var()
+	: TiM5xx_1_0_0Skeleton_Var("OrderNumber","DIornr",371,READ_WRITE,LEVEL_RUN,LEVEL_INVALID,-1)
 {
 }
 
-SensorResult OrderNumber_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::string& elementName, int8_t& value) 
+SensorResult OrderNumber_TiM5xx_1_0_0Skeleton_Var::GetBasicElement(const std::string& elementName, int8_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -3396,7 +3396,7 @@ SensorResult OrderNumber_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::st
 	return ret;
 }
 
-SensorResult OrderNumber_TiM5xx_1.0.0Skeleton_Var::GetBasic(int8_t& value) 
+SensorResult OrderNumber_TiM5xx_1_0_0Skeleton_Var::GetBasic(int8_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -3404,7 +3404,7 @@ SensorResult OrderNumber_TiM5xx_1.0.0Skeleton_Var::GetBasic(int8_t& value)
 	return ret;
 }
 
-SensorResult OrderNumber_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::string& elementName, int16_t& value) 
+SensorResult OrderNumber_TiM5xx_1_0_0Skeleton_Var::GetBasicElement(const std::string& elementName, int16_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -3413,7 +3413,7 @@ SensorResult OrderNumber_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::st
 	return ret;
 }
 
-SensorResult OrderNumber_TiM5xx_1.0.0Skeleton_Var::GetBasic(int16_t& value) 
+SensorResult OrderNumber_TiM5xx_1_0_0Skeleton_Var::GetBasic(int16_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -3421,7 +3421,7 @@ SensorResult OrderNumber_TiM5xx_1.0.0Skeleton_Var::GetBasic(int16_t& value)
 	return ret;
 }
 
-SensorResult OrderNumber_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::string& elementName, int32_t& value) 
+SensorResult OrderNumber_TiM5xx_1_0_0Skeleton_Var::GetBasicElement(const std::string& elementName, int32_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -3430,7 +3430,7 @@ SensorResult OrderNumber_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::st
 	return ret;
 }
 
-SensorResult OrderNumber_TiM5xx_1.0.0Skeleton_Var::GetBasic(int32_t& value) 
+SensorResult OrderNumber_TiM5xx_1_0_0Skeleton_Var::GetBasic(int32_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -3438,7 +3438,7 @@ SensorResult OrderNumber_TiM5xx_1.0.0Skeleton_Var::GetBasic(int32_t& value)
 	return ret;
 }
 
-SensorResult OrderNumber_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::string& elementName, int64_t& value) 
+SensorResult OrderNumber_TiM5xx_1_0_0Skeleton_Var::GetBasicElement(const std::string& elementName, int64_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -3447,7 +3447,7 @@ SensorResult OrderNumber_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::st
 	return ret;
 }
 
-SensorResult OrderNumber_TiM5xx_1.0.0Skeleton_Var::GetBasic(int64_t& value) 
+SensorResult OrderNumber_TiM5xx_1_0_0Skeleton_Var::GetBasic(int64_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -3455,7 +3455,7 @@ SensorResult OrderNumber_TiM5xx_1.0.0Skeleton_Var::GetBasic(int64_t& value)
 	return ret;
 }
 
-SensorResult OrderNumber_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::string& elementName, uint8_t& value) 
+SensorResult OrderNumber_TiM5xx_1_0_0Skeleton_Var::GetBasicElement(const std::string& elementName, uint8_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -3464,7 +3464,7 @@ SensorResult OrderNumber_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::st
 	return ret;
 }
 
-SensorResult OrderNumber_TiM5xx_1.0.0Skeleton_Var::GetBasic(uint8_t& value) 
+SensorResult OrderNumber_TiM5xx_1_0_0Skeleton_Var::GetBasic(uint8_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -3472,7 +3472,7 @@ SensorResult OrderNumber_TiM5xx_1.0.0Skeleton_Var::GetBasic(uint8_t& value)
 	return ret;
 }
 
-SensorResult OrderNumber_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::string& elementName, uint16_t& value) 
+SensorResult OrderNumber_TiM5xx_1_0_0Skeleton_Var::GetBasicElement(const std::string& elementName, uint16_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -3481,7 +3481,7 @@ SensorResult OrderNumber_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::st
 	return ret;
 }
 
-SensorResult OrderNumber_TiM5xx_1.0.0Skeleton_Var::GetBasic(uint16_t& value) 
+SensorResult OrderNumber_TiM5xx_1_0_0Skeleton_Var::GetBasic(uint16_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -3489,7 +3489,7 @@ SensorResult OrderNumber_TiM5xx_1.0.0Skeleton_Var::GetBasic(uint16_t& value)
 	return ret;
 }
 
-SensorResult OrderNumber_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::string& elementName, uint32_t& value) 
+SensorResult OrderNumber_TiM5xx_1_0_0Skeleton_Var::GetBasicElement(const std::string& elementName, uint32_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -3498,7 +3498,7 @@ SensorResult OrderNumber_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::st
 	return ret;
 }
 
-SensorResult OrderNumber_TiM5xx_1.0.0Skeleton_Var::GetBasic(uint32_t& value) 
+SensorResult OrderNumber_TiM5xx_1_0_0Skeleton_Var::GetBasic(uint32_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -3506,7 +3506,7 @@ SensorResult OrderNumber_TiM5xx_1.0.0Skeleton_Var::GetBasic(uint32_t& value)
 	return ret;
 }
 
-SensorResult OrderNumber_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::string& elementName, uint64_t& value) 
+SensorResult OrderNumber_TiM5xx_1_0_0Skeleton_Var::GetBasicElement(const std::string& elementName, uint64_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -3515,7 +3515,7 @@ SensorResult OrderNumber_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::st
 	return ret;
 }
 
-SensorResult OrderNumber_TiM5xx_1.0.0Skeleton_Var::GetBasic(uint64_t& value) 
+SensorResult OrderNumber_TiM5xx_1_0_0Skeleton_Var::GetBasic(uint64_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -3523,7 +3523,7 @@ SensorResult OrderNumber_TiM5xx_1.0.0Skeleton_Var::GetBasic(uint64_t& value)
 	return ret;
 }
 
-SensorResult OrderNumber_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::string& elementName, float& value) 
+SensorResult OrderNumber_TiM5xx_1_0_0Skeleton_Var::GetBasicElement(const std::string& elementName, float& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -3532,7 +3532,7 @@ SensorResult OrderNumber_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::st
 	return ret;
 }
 
-SensorResult OrderNumber_TiM5xx_1.0.0Skeleton_Var::GetBasic(float& value) 
+SensorResult OrderNumber_TiM5xx_1_0_0Skeleton_Var::GetBasic(float& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -3540,7 +3540,7 @@ SensorResult OrderNumber_TiM5xx_1.0.0Skeleton_Var::GetBasic(float& value)
 	return ret;
 }
 
-SensorResult OrderNumber_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::string& elementName, double& value) 
+SensorResult OrderNumber_TiM5xx_1_0_0Skeleton_Var::GetBasicElement(const std::string& elementName, double& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -3549,7 +3549,7 @@ SensorResult OrderNumber_TiM5xx_1.0.0Skeleton_Var::GetBasicElement(const std::st
 	return ret;
 }
 
-SensorResult OrderNumber_TiM5xx_1.0.0Skeleton_Var::GetBasic(double& value) 
+SensorResult OrderNumber_TiM5xx_1_0_0Skeleton_Var::GetBasic(double& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -3557,7 +3557,7 @@ SensorResult OrderNumber_TiM5xx_1.0.0Skeleton_Var::GetBasic(double& value)
 	return ret;
 }
 
-SensorResult OrderNumber_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::string& elementName, int8_t& value) 
+SensorResult OrderNumber_TiM5xx_1_0_0Skeleton_Var::SetBasicElement(const std::string& elementName, int8_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -3566,7 +3566,7 @@ SensorResult OrderNumber_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::st
 	return ret;
 }
 
-SensorResult OrderNumber_TiM5xx_1.0.0Skeleton_Var::SetBasic(int8_t& value) 
+SensorResult OrderNumber_TiM5xx_1_0_0Skeleton_Var::SetBasic(int8_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -3574,7 +3574,7 @@ SensorResult OrderNumber_TiM5xx_1.0.0Skeleton_Var::SetBasic(int8_t& value)
 	return ret;
 }
 
-SensorResult OrderNumber_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::string& elementName, int16_t& value) 
+SensorResult OrderNumber_TiM5xx_1_0_0Skeleton_Var::SetBasicElement(const std::string& elementName, int16_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -3583,7 +3583,7 @@ SensorResult OrderNumber_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::st
 	return ret;
 }
 
-SensorResult OrderNumber_TiM5xx_1.0.0Skeleton_Var::SetBasic(int16_t& value) 
+SensorResult OrderNumber_TiM5xx_1_0_0Skeleton_Var::SetBasic(int16_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -3591,7 +3591,7 @@ SensorResult OrderNumber_TiM5xx_1.0.0Skeleton_Var::SetBasic(int16_t& value)
 	return ret;
 }
 
-SensorResult OrderNumber_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::string& elementName, int32_t& value) 
+SensorResult OrderNumber_TiM5xx_1_0_0Skeleton_Var::SetBasicElement(const std::string& elementName, int32_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -3600,7 +3600,7 @@ SensorResult OrderNumber_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::st
 	return ret;
 }
 
-SensorResult OrderNumber_TiM5xx_1.0.0Skeleton_Var::SetBasic(int32_t& value) 
+SensorResult OrderNumber_TiM5xx_1_0_0Skeleton_Var::SetBasic(int32_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -3608,7 +3608,7 @@ SensorResult OrderNumber_TiM5xx_1.0.0Skeleton_Var::SetBasic(int32_t& value)
 	return ret;
 }
 
-SensorResult OrderNumber_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::string& elementName, int64_t& value) 
+SensorResult OrderNumber_TiM5xx_1_0_0Skeleton_Var::SetBasicElement(const std::string& elementName, int64_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -3617,7 +3617,7 @@ SensorResult OrderNumber_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::st
 	return ret;
 }
 
-SensorResult OrderNumber_TiM5xx_1.0.0Skeleton_Var::SetBasic(int64_t& value) 
+SensorResult OrderNumber_TiM5xx_1_0_0Skeleton_Var::SetBasic(int64_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -3625,7 +3625,7 @@ SensorResult OrderNumber_TiM5xx_1.0.0Skeleton_Var::SetBasic(int64_t& value)
 	return ret;
 }
 
-SensorResult OrderNumber_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::string& elementName, uint8_t& value) 
+SensorResult OrderNumber_TiM5xx_1_0_0Skeleton_Var::SetBasicElement(const std::string& elementName, uint8_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -3634,7 +3634,7 @@ SensorResult OrderNumber_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::st
 	return ret;
 }
 
-SensorResult OrderNumber_TiM5xx_1.0.0Skeleton_Var::SetBasic(uint8_t& value) 
+SensorResult OrderNumber_TiM5xx_1_0_0Skeleton_Var::SetBasic(uint8_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -3642,7 +3642,7 @@ SensorResult OrderNumber_TiM5xx_1.0.0Skeleton_Var::SetBasic(uint8_t& value)
 	return ret;
 }
 
-SensorResult OrderNumber_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::string& elementName, uint16_t& value) 
+SensorResult OrderNumber_TiM5xx_1_0_0Skeleton_Var::SetBasicElement(const std::string& elementName, uint16_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -3651,7 +3651,7 @@ SensorResult OrderNumber_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::st
 	return ret;
 }
 
-SensorResult OrderNumber_TiM5xx_1.0.0Skeleton_Var::SetBasic(uint16_t& value) 
+SensorResult OrderNumber_TiM5xx_1_0_0Skeleton_Var::SetBasic(uint16_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -3659,7 +3659,7 @@ SensorResult OrderNumber_TiM5xx_1.0.0Skeleton_Var::SetBasic(uint16_t& value)
 	return ret;
 }
 
-SensorResult OrderNumber_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::string& elementName, uint32_t& value) 
+SensorResult OrderNumber_TiM5xx_1_0_0Skeleton_Var::SetBasicElement(const std::string& elementName, uint32_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -3668,7 +3668,7 @@ SensorResult OrderNumber_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::st
 	return ret;
 }
 
-SensorResult OrderNumber_TiM5xx_1.0.0Skeleton_Var::SetBasic(uint32_t& value) 
+SensorResult OrderNumber_TiM5xx_1_0_0Skeleton_Var::SetBasic(uint32_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -3676,7 +3676,7 @@ SensorResult OrderNumber_TiM5xx_1.0.0Skeleton_Var::SetBasic(uint32_t& value)
 	return ret;
 }
 
-SensorResult OrderNumber_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::string& elementName, uint64_t& value) 
+SensorResult OrderNumber_TiM5xx_1_0_0Skeleton_Var::SetBasicElement(const std::string& elementName, uint64_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -3685,7 +3685,7 @@ SensorResult OrderNumber_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::st
 	return ret;
 }
 
-SensorResult OrderNumber_TiM5xx_1.0.0Skeleton_Var::SetBasic(uint64_t& value) 
+SensorResult OrderNumber_TiM5xx_1_0_0Skeleton_Var::SetBasic(uint64_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -3693,7 +3693,7 @@ SensorResult OrderNumber_TiM5xx_1.0.0Skeleton_Var::SetBasic(uint64_t& value)
 	return ret;
 }
 
-SensorResult OrderNumber_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::string& elementName, float& value) 
+SensorResult OrderNumber_TiM5xx_1_0_0Skeleton_Var::SetBasicElement(const std::string& elementName, float& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -3702,7 +3702,7 @@ SensorResult OrderNumber_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::st
 	return ret;
 }
 
-SensorResult OrderNumber_TiM5xx_1.0.0Skeleton_Var::SetBasic(float& value) 
+SensorResult OrderNumber_TiM5xx_1_0_0Skeleton_Var::SetBasic(float& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -3710,7 +3710,7 @@ SensorResult OrderNumber_TiM5xx_1.0.0Skeleton_Var::SetBasic(float& value)
 	return ret;
 }
 
-SensorResult OrderNumber_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::string& elementName, double& value) 
+SensorResult OrderNumber_TiM5xx_1_0_0Skeleton_Var::SetBasicElement(const std::string& elementName, double& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -3719,7 +3719,7 @@ SensorResult OrderNumber_TiM5xx_1.0.0Skeleton_Var::SetBasicElement(const std::st
 	return ret;
 }
 
-SensorResult OrderNumber_TiM5xx_1.0.0Skeleton_Var::SetBasic(double& value) 
+SensorResult OrderNumber_TiM5xx_1_0_0Skeleton_Var::SetBasic(double& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -3727,13 +3727,13 @@ SensorResult OrderNumber_TiM5xx_1.0.0Skeleton_Var::SetBasic(double& value)
 	return ret;
 }
 
-SensorResult OrderNumber_TiM5xx_1.0.0Skeleton_Var::SetBasicFromString(std::string value)
+SensorResult OrderNumber_TiM5xx_1_0_0Skeleton_Var::SetBasicFromString(std::string value)
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
 	SSBL_LOG_WARNING("Variable is not a simple type");
 	return ret;
 }
-} // namespace DevTiM5xx_1.0.0Skeleton
+} // namespace DevTiM5xx_1_0_0Skeleton
 } // namespace ssbl
 
