@@ -4,23 +4,23 @@
 
 #pragma once
 #include <stdint.h>
-#include "API/Skeleton/Lidar2D/TiM5xx/TiM5xx_1_0_0/include/TiM5xx_1_0_0Skeleton_Variables.h"
-#include "API/Skeleton/Lidar2D/TiM5xx/TiM5xx_1_0_0/include/TiM5xx_1_0_0Skeleton_Functions.h"
+#include "API/Skeleton/Lidar2D/TiM5xx/TiM5xx_1_0_0/include/TiM5xx_1_0_0_Skeleton_Variables.h"
+#include "API/Skeleton/Lidar2D/TiM5xx/TiM5xx_1_0_0/include/TiM5xx_1_0_0_Skeleton_Functions.h"
 #include "Base/Core/Sensor/include/CoLa/CoLaSensorSkeleton.h"
 #include "Base/Core/OS/include/VariableEventQueue.h"
 
 namespace ssbl
 {
-namespace DevTiM5xx_1_0_0Skeleton
+namespace DevTiM5xx_1_0_0_Skeleton
 {
 
-class TiM5xx_1_0_0Skeleton : public CoLaSensorSkeleton
+class TiM5xx_1_0_0_Skeleton : public CoLaSensorSkeleton
 {
 public:
-	TiM5xx_1_0_0Skeleton(const std::string& Ip, const std::string& interfaceName = std::string("CoLa Port"),const std::string& localName = std::string("TiM5xx_1_0_0"));
-	~TiM5xx_1_0_0Skeleton();
+	TiM5xx_1_0_0_Skeleton(const std::string& Ip, const std::string& interfaceName = std::string("CoLa Port"),const std::string& localName = std::string("TiM5xx_1_0_0"));
+	~TiM5xx_1_0_0_Skeleton();
 	template <class T>
-	SensorResult ReadVariable(TiM5xx_1_0_0Skeleton_Var<T> & rVar)
+	SensorResult ReadVariable(TiM5xx_1_0_0_Skeleton_Var<T> & rVar)
 	{
 		return CoLaSensorSkeleton::ReadVariable(rVar);
 	}
@@ -30,37 +30,37 @@ public:
 	SensorResult DeviceSpecificProtocolSwitch(ProtocolType Protocol);
 
 	template <class T>
-	SensorResult WriteVariable(TiM5xx_1_0_0Skeleton_Var<T> & rVar)
+	SensorResult WriteVariable(TiM5xx_1_0_0_Skeleton_Var<T> & rVar)
 	{
 		return CoLaSensorSkeleton::WriteVariable(rVar);
 	}
 
 	
-	SensorResult CallFunction(TiM5xx_1_0_0Skeleton_Func_NANR & rFunc)
+	SensorResult CallFunction(TiM5xx_1_0_0_Skeleton_Func_NANR & rFunc)
 	{
 		return CoLaSensorSkeleton::CallFunction(rFunc);
 	}
 
 	template<class Args>
-	SensorResult CallFunction(TiM5xx_1_0_0Skeleton_Func_ANR<Args> & rFunc)
+	SensorResult CallFunction(TiM5xx_1_0_0_Skeleton_Func_ANR<Args> & rFunc)
 	{
 		return CoLaSensorSkeleton::CallFunction(rFunc);
 	}
 
 	template<class Return>
-	SensorResult CallFunction(TiM5xx_1_0_0Skeleton_Func_NAR<Return> & rFunc)
+	SensorResult CallFunction(TiM5xx_1_0_0_Skeleton_Func_NAR<Return> & rFunc)
 	{
 		return CoLaSensorSkeleton::CallFunction(rFunc);
 	}
 
 	template <class Args, class Return>
-	SensorResult CallFunction(TiM5xx_1_0_0Skeleton_Func_AR<Args, Return> & rFunc)
+	SensorResult CallFunction(TiM5xx_1_0_0_Skeleton_Func_AR<Args, Return> & rFunc)
 	{
 		return CoLaSensorSkeleton::CallFunction(rFunc);
 	}
 
 	template <class T>
-	SensorResult RegisterEvent(TiM5xx_1_0_0Skeleton_Var<T>& rVar, std::function<void(uint64_t*)> OnEventCb, uint64_t cbParam)
+	SensorResult RegisterEvent(TiM5xx_1_0_0_Skeleton_Var<T>& rVar, std::function<void(uint64_t*)> OnEventCb, uint64_t cbParam)
 	{
 		return CoLaSensorSkeleton::RegisterEvent(rVar,OnEventCb,cbParam);
 	}
@@ -71,7 +71,7 @@ public:
 	}
 
 	template <class T>
-	SensorResult RegisterEvent(TiM5xx_1_0_0Skeleton_Var<T>& rVar, VariableEventQueue** ppQueue, uint32_t nQueueElem)
+	SensorResult RegisterEvent(TiM5xx_1_0_0_Skeleton_Var<T>& rVar, VariableEventQueue** ppQueue, uint32_t nQueueElem)
 	{
 		return CoLaSensorSkeleton::RegisterEvent(rVar,ppQueue,nQueueElem);
 	}
@@ -82,7 +82,7 @@ public:
 	}
 
 	template <class T>
-	SensorResult DeregisterEvent(TiM5xx_1_0_0Skeleton_Var<T>& rVar)
+	SensorResult DeregisterEvent(TiM5xx_1_0_0_Skeleton_Var<T>& rVar)
 	{
 		return CoLaSensorSkeleton::DeregisterEvent(rVar);
 	}
@@ -96,6 +96,6 @@ public:
 	SensorResult RebootSensor();
 };
 
-} // namespace DevTiM5xx_1_0_0Skeleton
+} // namespace DevTiM5xx_1_0_0_Skeleton
 } // namespace ssbl
 

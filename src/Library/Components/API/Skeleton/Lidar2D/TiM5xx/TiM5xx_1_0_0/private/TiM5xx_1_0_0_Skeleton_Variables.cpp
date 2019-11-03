@@ -2,7 +2,7 @@
 //  Generated file - do not modify
 //===========================================
 
-#include "API/Skeleton/Lidar2D/TiM5xx/TiM5xx_1_0_0/include/TiM5xx_1_0_0Skeleton_Variables.h"
+#include "API/Skeleton/Lidar2D/TiM5xx/TiM5xx_1_0_0/include/TiM5xx_1_0_0_Skeleton_Variables.h"
 #include <sstream>
 #include "Base/Core/Common/include/Hash.h"
 #include "Base/Logger/include/Logger.h"
@@ -13,14 +13,14 @@
 
 namespace ssbl
 {
-namespace DevTiM5xx_1_0_0Skeleton
+namespace DevTiM5xx_1_0_0_Skeleton
 {
 #define SSBL_LONG_MIN  (-2147483647L - 1)
 #define SSBL_LLONG_MIN  (-9223372036854775807i64 - 1)
 
 
-ScanConfig_TiM5xx_1_0_0Skeleton_Var::ScanConfig_TiM5xx_1_0_0Skeleton_Var()
-	: TiM5xx_1_0_0Skeleton_Var("ScanConfig","LMPscancfg",215,READ_WRITE,LEVEL_RUN,LEVEL_INVALID,85)
+ScanConfig_TiM5xx_1_0_0_Skeleton_Var::ScanConfig_TiM5xx_1_0_0_Skeleton_Var()
+	: TiM5xx_1_0_0_Skeleton_Var("ScanConfig","LMPscancfg",215,READ_WRITE,LEVEL_RUN,LEVEL_INVALID,85)
 {
 }
 
@@ -519,8 +519,8 @@ SensorResult ScanConfig_TiM5xx_1_0_0Skeleton_Var::SetBasicFromString(std::string
 	return ret;
 }
 
-EtherHostCoLaDialect_TiM5xx_1_0_0Skeleton_Var::EtherHostCoLaDialect_TiM5xx_1_0_0Skeleton_Var()
-	: TiM5xx_1_0_0Skeleton_Var("EtherHostCoLaDialect","EIHstCola",110,READ_WRITE,LEVEL_RUN,LEVEL_AUTHORIZED_CLIENT,-1)
+EtherHostCoLaDialect_TiM5xx_1_0_0_Skeleton_Var::EtherHostCoLaDialect_TiM5xx_1_0_0_Skeleton_Var()
+	: TiM5xx_1_0_0_Skeleton_Var("EtherHostCoLaDialect","EIHstCola",110,READ_WRITE,LEVEL_RUN,LEVEL_AUTHORIZED_CLIENT,-1)
 {
 }
 
@@ -885,8 +885,8 @@ SensorResult EtherHostCoLaDialect_TiM5xx_1_0_0Skeleton_Var::SetBasicFromString(s
 	return ret;
 }
 
-DataOutputRange_TiM5xx_1_0_0Skeleton_Var::DataOutputRange_TiM5xx_1_0_0Skeleton_Var()
-	: TiM5xx_1_0_0Skeleton_Var("DataOutputRange","LMPoutputRange",217,READ_WRITE,LEVEL_RUN,LEVEL_AUTHORIZED_CLIENT,87)
+DataOutputRange_TiM5xx_1_0_0_Skeleton_Var::DataOutputRange_TiM5xx_1_0_0_Skeleton_Var()
+	: TiM5xx_1_0_0_Skeleton_Var("DataOutputRange","LMPoutputRange",217,READ_WRITE,LEVEL_RUN,LEVEL_AUTHORIZED_CLIENT,87)
 {
 }
 
@@ -1359,8 +1359,8 @@ SensorResult DataOutputRange_TiM5xx_1_0_0Skeleton_Var::SetBasicFromString(std::s
 	return ret;
 }
 
-ScanData_TiM5xx_1_0_0Skeleton_Var::ScanData_TiM5xx_1_0_0Skeleton_Var()
-	: TiM5xx_1_0_0Skeleton_Var("ScanData","LMDscandata",230,READ_ONLY,LEVEL_RUN,LEVEL_INVALID,90)
+ScanData_TiM5xx_1_0_0_Skeleton_Var::ScanData_TiM5xx_1_0_0_Skeleton_Var()
+	: TiM5xx_1_0_0_Skeleton_Var("ScanData","LMDscandata",230,READ_ONLY,LEVEL_RUN,LEVEL_INVALID,90)
 {
 }
 
@@ -2550,8 +2550,8 @@ SensorResult ScanData_TiM5xx_1_0_0Skeleton_Var::SetBasicFromString(std::string v
 	return ret;
 }
 
-ScanDataConfig_TiM5xx_1_0_0Skeleton_Var::ScanDataConfig_TiM5xx_1_0_0Skeleton_Var()
-	: TiM5xx_1_0_0Skeleton_Var("ScanDataConfig","LMDscandatacfg",212,READ_WRITE,LEVEL_RUN,LEVEL_AUTHORIZED_CLIENT,-1)
+ScanDataConfig_TiM5xx_1_0_0_Skeleton_Var::ScanDataConfig_TiM5xx_1_0_0_Skeleton_Var()
+	: TiM5xx_1_0_0_Skeleton_Var("ScanDataConfig","LMDscandatacfg",212,READ_WRITE,LEVEL_RUN,LEVEL_AUTHORIZED_CLIENT,-1)
 {
 }
 
@@ -3016,8 +3016,8 @@ SensorResult ScanDataConfig_TiM5xx_1_0_0Skeleton_Var::SetBasicFromString(std::st
 	return ret;
 }
 
-SCdevicestate_TiM5xx_1_0_0Skeleton_Var::SCdevicestate_TiM5xx_1_0_0Skeleton_Var()
-	: TiM5xx_1_0_0Skeleton_Var("SCdevicestate","SCdevicestate",10,READ_ONLY,LEVEL_RUN,LEVEL_INVALID,1)
+SCdevicestate_TiM5xx_1_0_0_Skeleton_Var::SCdevicestate_TiM5xx_1_0_0_Skeleton_Var()
+	: TiM5xx_1_0_0_Skeleton_Var("SCdevicestate","SCdevicestate",10,READ_ONLY,LEVEL_RUN,LEVEL_INVALID,1)
 {
 }
 
@@ -3382,8 +3382,8 @@ SensorResult SCdevicestate_TiM5xx_1_0_0Skeleton_Var::SetBasicFromString(std::str
 	return ret;
 }
 
-OrderNumber_TiM5xx_1_0_0Skeleton_Var::OrderNumber_TiM5xx_1_0_0Skeleton_Var()
-	: TiM5xx_1_0_0Skeleton_Var("OrderNumber","DIornr",371,READ_WRITE,LEVEL_RUN,LEVEL_INVALID,-1)
+OrderNumber_TiM5xx_1_0_0_Skeleton_Var::OrderNumber_TiM5xx_1_0_0_Skeleton_Var()
+	: TiM5xx_1_0_0_Skeleton_Var("OrderNumber","DIornr",371,READ_WRITE,LEVEL_RUN,LEVEL_INVALID,-1)
 {
 }
 
@@ -3734,6 +3734,6 @@ SensorResult OrderNumber_TiM5xx_1_0_0Skeleton_Var::SetBasicFromString(std::strin
 	SSBL_LOG_WARNING("Variable is not a simple type");
 	return ret;
 }
-} // namespace DevTiM5xx_1_0_0Skeleton
+} // namespace DevTiM5xx_1_0_0_Skeleton
 } // namespace ssbl
 
