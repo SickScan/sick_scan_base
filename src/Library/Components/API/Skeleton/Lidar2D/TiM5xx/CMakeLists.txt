@@ -1,3 +1,1 @@
-add_subdirectory(TiM561)
-add_subdirectory(TiM571)
-add_subdirectory(TiM581)
+add_subdirectory(TiM5xx_1.0.0)
