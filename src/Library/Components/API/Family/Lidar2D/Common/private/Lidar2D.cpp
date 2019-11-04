@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-#include "API/Families/Lidar2d/include/Lidar2d.h"
+#include "API/Family/Lidar2d/Common/include/Lidar2d.h"
 #include "API/Skeleton/include/SickSkeletonFactory.h"
 
 #include <iomanip>
