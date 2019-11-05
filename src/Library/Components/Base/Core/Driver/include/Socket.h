@@ -22,7 +22,7 @@
 #include <functional>
 #include <memory>
 #include <string>
-#include "Base/Core/Sensor/include/Common/SickSensorInterface.h"
+#include "Base/Core/Sensor/include/Common/SensorInterface.h"
 #include "Base/Logger/include/Logger.h"
 
 namespace ssbl {
@@ -32,7 +32,7 @@ namespace ssbl {
  * @brief Socket class to connect to sensors via Ethernet
  *
  */
-class Socket : public SickSensorInterface {
+class Socket : public SensorInterface {
  public:
   /**
    * @brief Constructor: Create a TCP Client socket to connect to a servert

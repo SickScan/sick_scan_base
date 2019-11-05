@@ -18,14 +18,14 @@
 
 namespace ssbl {
 
-class SickSensorFunction : public ComObj {
+class SensorFunction : public ComObj {
  public:
   using ::ssbl::ComObj::GetComIndex;
   using ::ssbl::ComObj::GetComName;
 
-  SickSensorFunction(std::string name, std::string comName, uint16_t idx,
+  SensorFunction(std::string name, std::string comName, uint16_t idx,
                      AccessLevel accessLevel, bool hasArgs, bool hasRet);
-  virtual ~SickSensorFunction(){};
+  virtual ~SensorFunction(){};
 
   AccessLevel GetAccessLevel(void) { return invocationAccessLevel_; };
 

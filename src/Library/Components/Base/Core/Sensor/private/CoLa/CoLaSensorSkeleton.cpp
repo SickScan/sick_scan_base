@@ -77,7 +77,7 @@ class CoLaDeviceTimeoutMonitor : public Timer, Task {
 //=============================================================================
 CoLaSensorSkeleton::CoLaSensorSkeleton(const std::string &localName,
                                        size_t txBufSize, size_t rxBufSize)
-    : SickSensorSkeleton(localName, txBufSize, rxBufSize)
+    : SensorSkeleton(localName, txBufSize, rxBufSize)
 
 {
   pTimoutMonior = new CoLaDeviceTimeoutMonitor(this);
@@ -142,7 +142,7 @@ SensorResult CoLaSensorSkeleton::LogOff(AccessLevel userLevel) {
 //=============================================================================
 //=============================================================================
 SensorResult CoLaSensorSkeleton::Connect(void) {
-  SensorResult ret = SickSensorSkeleton::Connect();
+  SensorResult ret = SensorSkeleton::Connect();
 
   if ((SSBL_SUCCESS == ret) && (READY_FOR_USER_REQUEST == stateInternal_)) {
     pTimoutMonior->StartTimerTask();
@@ -155,14 +155,14 @@ SensorResult CoLaSensorSkeleton::Connect(void) {
 //=============================================================================
 SensorResult CoLaSensorSkeleton::Disconnect(bool force) {
   SensorResult ret;
-  ret = SickSensorSkeleton::Disconnect(force);
+  ret = SensorSkeleton::Disconnect(force);
 
   return ret;
 }
 
 //=============================================================================
 //=============================================================================
-SensorResult CoLaSensorSkeleton::ReadVariable(SickSensorVariable &rVar) {
+SensorResult CoLaSensorSkeleton::ReadVariable(SensorVariable &rVar) {
   AccessLevel lvl;
   SensorResult ret = SSBL_ERR_SENSOR_NOT_IN_READY_FOR_REQUEST_STATE;
 
@@ -196,7 +196,7 @@ SensorResult CoLaSensorSkeleton::ReadVariable(SickSensorVariable &rVar) {
 
 //=============================================================================
 //=============================================================================
-SensorResult CoLaSensorSkeleton::WriteVariable(SickSensorVariable &rVar) {
+SensorResult CoLaSensorSkeleton::WriteVariable(SensorVariable &rVar) {
   AccessLevel lvl;
   SensorResult ret = SSBL_ERR_SENSOR_NOT_IN_READY_FOR_REQUEST_STATE;
 
@@ -231,7 +231,7 @@ SensorResult CoLaSensorSkeleton::WriteVariable(SickSensorVariable &rVar) {
 //=============================================================================
 //=============================================================================
 SensorResult CoLaSensorSkeleton::RegisterEvent(
-    SickSensorVariable &rVar, std::function<void(uint64_t *)> OnEventCb,
+    SensorVariable &rVar, std::function<void(uint64_t *)> OnEventCb,
     uint64_t cbParam) {
   AccessLevel lvl;
   SensorResult ret = SSBL_ERR_SENSOR_NOT_IN_READY_FOR_REQUEST_STATE;
@@ -278,7 +278,7 @@ SensorResult CoLaSensorSkeleton::RegisterEvent(
     const std::string &varName, std::function<void(uint64_t *)> OnEventCb,
     uint64_t cbParam) {
   SensorResult ret = SSBL_ERR_VARIABLE_DOES_NOT_BELONG_TO_THIS_SENSOR;
-  SickSensorVariable *pVar = this->CreateVariable(varName);
+  SensorVariable *pVar = this->CreateVariable(varName);
 
   if (pVar != nullptr) {
     ret = RegisterEvent(*pVar, OnEventCb, cbParam);
@@ -289,7 +289,7 @@ SensorResult CoLaSensorSkeleton::RegisterEvent(
 
 //=============================================================================
 //=============================================================================
-SensorResult CoLaSensorSkeleton::RegisterEvent(SickSensorVariable &rVar,
+SensorResult CoLaSensorSkeleton::RegisterEvent(SensorVariable &rVar,
                                                VariableEventQueue **ppQueue,
                                                uint32_t nQueueElem) {
   AccessLevel lvl;
@@ -342,7 +342,7 @@ SensorResult CoLaSensorSkeleton::RegisterEvent(const std::string &varName,
                                                VariableEventQueue **ppQueue,
                                                uint32_t nQueueElem) {
   SensorResult ret = SSBL_ERR_VARIABLE_DOES_NOT_BELONG_TO_THIS_SENSOR;
-  SickSensorVariable *pVar = this->CreateVariable(varName);
+  SensorVariable *pVar = this->CreateVariable(varName);
 
   if (pVar != nullptr) {
     ret = RegisterEvent(*pVar, ppQueue, nQueueElem);
@@ -353,7 +353,7 @@ SensorResult CoLaSensorSkeleton::RegisterEvent(const std::string &varName,
 
 //=============================================================================
 //=============================================================================
-SensorResult CoLaSensorSkeleton::DeregisterEvent(SickSensorVariable &rVar,
+SensorResult CoLaSensorSkeleton::DeregisterEvent(SensorVariable &rVar,
                                                  bool isDisconneted) {
   AccessLevel lvl;
   SensorResult ret = SSBL_ERR_SENSOR_NOT_IN_READY_FOR_REQUEST_STATE;
@@ -400,7 +400,7 @@ SensorResult CoLaSensorSkeleton::DeregisterEvent(SickSensorVariable &rVar,
 SensorResult CoLaSensorSkeleton::DeregisterEvent(const std::string &varName,
                                                  bool isDisconneted) {
   SensorResult ret = SSBL_ERR_VARIABLE_DOES_NOT_BELONG_TO_THIS_SENSOR;
-  SickSensorVariable *pVar = this->CreateVariable(varName);
+  SensorVariable *pVar = this->CreateVariable(varName);
 
   if (pVar != nullptr) {
     ret = DeregisterEvent(*pVar, isDisconneted);
@@ -431,7 +431,7 @@ SensorResult CoLaSensorSkeleton::DeregisterAllEvents(bool isDisconneted) {
 }
 //=============================================================================
 //=============================================================================
-SensorResult CoLaSensorSkeleton::CallFunction(SickSensorFunction &rFunc) {
+SensorResult CoLaSensorSkeleton::CallFunction(SensorFunction &rFunc) {
   AccessLevel lvl;
   SensorResult ret = SSBL_ERR_SENSOR_NOT_IN_READY_FOR_REQUEST_STATE;
 

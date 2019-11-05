@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License
 #pragma once
-#include "Base/Core/Sensor/include/Common/SickSensorSkeleton.h"
+#include "Base/Core/Sensor/include/Common/SensorSkeleton.h"
 #include "Base/Core/Sensor/private/CoLa/DefaultCoLaFunctions.h"
 
 namespace ssbl {
@@ -20,7 +20,7 @@ namespace ssbl {
 class CoLaDeviceTimeoutMonitor;
 class MsgQueue;
 
-class CoLaSensorSkeleton : public SickSensorSkeleton {
+class CoLaSensorSkeleton : public SensorSkeleton {
  public:
   CoLaSensorSkeleton(const std::string& localName, size_t txBufSize,
                      size_t rxBufSize);
@@ -28,28 +28,28 @@ class CoLaSensorSkeleton : public SickSensorSkeleton {
 
   SensorResult Connect(void);
   SensorResult Disconnect(bool force = false);
-  SensorResult ReadVariable(SickSensorVariable& rVar);
-  SensorResult WriteVariable(SickSensorVariable& rVar);
-  SensorResult RegisterEvent(SickSensorVariable& rVar,
+  SensorResult ReadVariable(SensorVariable& rVar);
+  SensorResult WriteVariable(SensorVariable& rVar);
+  SensorResult RegisterEvent(SensorVariable& rVar,
                              std::function<void(uint64_t*)> OnEventCb,
                              uint64_t cbParam);
   SensorResult RegisterEvent(const std::string& varName,
                              std::function<void(uint64_t*)> OnEventCb,
                              uint64_t cbParam);
 
-  SensorResult RegisterEvent(SickSensorVariable& rVar,
+  SensorResult RegisterEvent(SensorVariable& rVar,
                              VariableEventQueue** ppQueue, uint32_t nQueueElem);
 
   SensorResult RegisterEvent(const std::string& varName,
                              VariableEventQueue** ppQueue, uint32_t nQueueElem);
 
-  SensorResult DeregisterEvent(SickSensorVariable& rVar,
+  SensorResult DeregisterEvent(SensorVariable& rVar,
                                bool isDisconneted = false);
   SensorResult DeregisterEvent(const std::string& varName,
                                bool isDisconneted = false);
   SensorResult DeregisterAllEvents(bool isDisconneted = false);
 
-  SensorResult CallFunction(SickSensorFunction& rFunc);
+  SensorResult CallFunction(SensorFunction& rFunc);
 
   SensorResult GetDeviceName(std::string& DeviceName);
 

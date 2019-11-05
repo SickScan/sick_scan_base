@@ -1,9 +1,9 @@
-#include "Base/Core/Sensor/include/Common/SickSensorInterface.h"
+#include "Base/Core/Sensor/include/Common/SensorInterface.h"
 
 using namespace ssbl;
 
 //=============================================================================
 //=============================================================================
-SickSensorInterface::SickSensorInterface() : pDesc_(nullptr) {
+SensorInterface::SensorInterface() : pDesc_(nullptr) {
   ProvideCallbackEvent("OnReceive");
 };

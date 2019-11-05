@@ -10,16 +10,17 @@ set(LOCAL_PROJECT_NAME "${BASE_NAME}-${COMPONENT_SUFFIX}")
 project(${LOCAL_PROJECT_NAME}
 VERSION "${SSBL_MAJOR}.${SSBL_MINOR}.${SSBL_REVISION}"
 LANGUAGES CXX)
-set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH}  "${TOP_DIR}/cmake")
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${TOP_DIR}/cmake")
 include(LibraryTargetExtension)
 
 ComponentSources(
 NAME ${COMPONENT_SUFFIX}-skeleton
 SOURCES
-${COMPONENT_SUFFIX}Skeleton.cpp
-${COMPONENT_SUFFIX}Skeleton_CoLa_Extension.cpp
-${COMPONENT_SUFFIX}Skeleton_Functions.cpp
-${COMPONENT_SUFFIX}Skeleton_Variables.cpp)
+TiM5xx_1_0_0_Skeleton.cpp
+TiM5xx_1_0_0_Skeleton_CoLa_Extension.cpp
+TiM5xx_1_0_0_Skeleton_Functions.cpp
+TiM5xx_1_0_0_Skeleton_Variables.cpp
+)
 
 CreateLibraryTarget(
 BASE_NAME

@@ -5,13 +5,13 @@
 #pragma once
 #include <stdint.h>
 #include <cstring>
-#include "API/Skeleton/Lidar2D/TiM5xx/TiM5xx_1_0_0/include/TiM5xx_1_0_0_Skeleton_Types.h"
+#include "API/Skeleton/Lidar2D/TiM5xx/TiM5xx/include/TiM5xx_1_0_0_Skeleton_Types.h"
 #include "Base/Core/Sensor/include/Common/SickSensorVariable.h"
-#include "API/Skeleton/Lidar2D/TiM5xx/TiM5xx_1_0_0/include/TiM5xx_1_0_0_Skeleton_CoLa_Extension.h"
+#include "API/Skeleton/Lidar2D/TiM5xx/TiM5xx/include/TiM5xx_1_0_0_Skeleton_CoLa_Extension.h"
 
 namespace ssbl
 {
-namespace DevTiM5xx_1_0_0_Skeleton
+namespace TiM5xx_1_0_0_Skeleton
 {
 template <class T>
 class TiM5xx_1_0_0_Skeleton_Var : public SickSensorVariable
@@ -425,6 +425,6 @@ public:
 	SensorResult SetBasicElement(const std::string& elementName, double& value);
 };
 
-} // namespace DevTiM5xx_1_0_0_Skeleton
+} // namespace TiM5xx_1_0_0_Skeleton
 } // namespace ssbl
 

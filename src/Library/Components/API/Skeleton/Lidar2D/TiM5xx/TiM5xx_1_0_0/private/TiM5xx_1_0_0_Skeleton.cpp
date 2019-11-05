@@ -2,15 +2,15 @@
 //  Generated file - do not modify
 //===========================================
 
-#include "API/Skeleton/Lidar2D/TiM5xx/TiM5xx_1_0_0/include/TiM5xx_1_0_0_Skeleton.h"
-#include "API/Skeleton/Lidar2D/TiM5xx/TiM5xx_1_0_0/include/TiM5xx_1_0_0_Skeleton_CoLa_Extension.h"
+#include "API/Skeleton/Lidar2D/TiM5xx/TiM5xx/include/TiM5xx_1_0_0_Skeleton.h"
+#include "API/Skeleton/Lidar2D/TiM5xx/TiM5xx/include/TiM5xx_1_0_0_Skeleton_CoLa_Extension.h"
 #include "Base/Core/Common/include/Assert.h"
 #include "Base/Core/Common/include/MakeUnique.h"
 #include "Base/Core/OS/include/Time.h"
 
 namespace ssbl
 {
-namespace DevTiM5xx_1_0_0_Skeleton
+namespace TiM5xx_1_0_0_Skeleton
 {
 
 //TODO: Buffer size is set fixed
@@ -127,5 +127,5 @@ SensorResult TiM5xx_1_0_0_Skeleton::RebootSensor()
 	delete m;
 	return ret;
 }
-} // namespace DevTiM5xx_1_0_0_Skeleton
+} // namespace TiM5xx_1_0_0_Skeleton
 } // namespace ssbl

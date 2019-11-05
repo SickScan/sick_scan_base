@@ -24,17 +24,17 @@
 
 #include "Base/Core/Common/include/Assert.h"
 #include "Base/Core/OS/include/Mutex.h"
-#include "Base/Core/Sensor/include/Common/SickSensorInterface.h"
+#include "Base/Core/Sensor/include/Common/SensorInterface.h"
 
 namespace ssbl {
 class Protocol;
 
-class SickSensorVariable : public ComObj {
+class SensorVariable : public ComObj {
  public:
   using ::ssbl::ComObj::GetComIndex;
   using ::ssbl::ComObj::GetComName;
 
-  SickSensorVariable(const std::string& Name, const std::string& comName,
+  SensorVariable(const std::string& Name, const std::string& comName,
                      uint16_t idx, VariableDirection rwDir,
                      AccessLevel readAccessLvl, AccessLevel writeAccessLvl,
                      int32_t eventIdx)
@@ -51,7 +51,7 @@ class SickSensorVariable : public ComObj {
     }
   };
 
-  ~SickSensorVariable(){};
+  ~SensorVariable(){};
 
   AccessLevel GetReadAccessLevel(void) { return readAccessLvl_; };
 

@@ -4,7 +4,7 @@
 
 #pragma once
 #include <stdint.h>
-#include "API/Skeleton/Lidar2D/TiM5xx/TiM5xx_1_0_0/include/TiM5xx_1_0_0_Skeleton_Types.h"
+#include "API/Skeleton/Lidar2D/TiM5xx/TiM5xx/include/TiM5xx_1_0_0_Skeleton_Types.h"
 #include "Base/Protocol/include/CoLa/CoLaADeserializer.h"
 #include "Base/Protocol/include/CoLa/CoLaASerializer.h"
 #include "Base/Protocol/include/CoLa/CoLaAProtocol.h"
@@ -15,7 +15,7 @@
 
 namespace ssbl
 {
-namespace DevTiM5xx_1_0_0_Skeleton
+namespace TiM5xx_1_0_0_Skeleton
 {
 class TiM5xx_1_0_0_Skeleton_CoLaASerializer : public CoLaASerializer
 {
@@ -60,13 +60,13 @@ public:
 	void Serialize(uint8_t* pDest, WriteEeprom_t & rSrc, uint32_t* pOffset);
 }; //TiM5xx_1_0_0_Skeleton_CoLaASerializer
 
-} // namespace DevTiM5xx_1_0_0_Skeleton
+} // namespace TiM5xx_1_0_0_Skeleton
 } // namespace ssbl
 
 
 namespace ssbl
 {
-namespace DevTiM5xx_1_0_0_Skeleton
+namespace TiM5xx_1_0_0_Skeleton
 {
 class TiM5xx_1_0_0_Skeleton_CoLaADeserializer : public CoLaADeserializer
 {
@@ -111,13 +111,13 @@ public:
 	void Deserialize(uint8_t* pSrc, WriteEeprom_t& rDest, uint32_t* pOffset);
 }; //TiM5xx_1_0_0_Skeleton_CoLaADeserializer
 
-} // namespace DevTiM5xx_1_0_0_Skeleton
+} // namespace TiM5xx_1_0_0_Skeleton
 } // namespace ssbl
 
 
 namespace ssbl
 {
-namespace DevTiM5xx_1_0_0_Skeleton
+namespace TiM5xx_1_0_0_Skeleton
 {
 class TiM5xx_1_0_0_Skeleton_CoLaAProtocol : public CoLaAProtocol
 {
@@ -134,14 +134,14 @@ public:
 		TiM5xx_1_0_0_Skeleton_CoLaADeserializer Deserializer_;
 	};
 
-} // namespace DevTiM5xx_1_0_0_Skeleton
+} // namespace TiM5xx_1_0_0_Skeleton
 } // namespace ssbl
 
 
 
 namespace ssbl
 {
-namespace DevTiM5xx_1_0_0_Skeleton
+namespace TiM5xx_1_0_0_Skeleton
 {
 class TiM5xx_1_0_0_Skeleton_CoLaBSerializer : public CoLaBSerializer
 {
@@ -186,13 +186,13 @@ public:
 	void Serialize(uint8_t* pDest, WriteEeprom_t & rSrc, uint32_t* pOffset);
 }; //TiM5xx_1_0_0_Skeleton_CoLaBSerializer
 
-} // namespace DevTiM5xx_1_0_0_Skeleton
+} // namespace TiM5xx_1_0_0_Skeleton
 } // namespace ssbl
 
 
 namespace ssbl
 {
-namespace DevTiM5xx_1_0_0_Skeleton
+namespace TiM5xx_1_0_0_Skeleton
 {
 class TiM5xx_1_0_0_Skeleton_CoLaBDeserializer : public CoLaBDeserializer
 {
@@ -237,13 +237,13 @@ public:
 	void Deserialize(uint8_t* pSrc, WriteEeprom_t& rDest, uint32_t* pOffset);
 }; //TiM5xx_1_0_0_Skeleton_CoLaBDeserializer
 
-} // namespace DevTiM5xx_1_0_0_Skeleton
+} // namespace TiM5xx_1_0_0_Skeleton
 } // namespace ssbl
 
 
 namespace ssbl
 {
-namespace DevTiM5xx_1_0_0_Skeleton
+namespace TiM5xx_1_0_0_Skeleton
 {
 class TiM5xx_1_0_0_Skeleton_CoLaBProtocol : public CoLaBProtocol
 {
@@ -260,6 +260,6 @@ public:
 		TiM5xx_1_0_0_Skeleton_CoLaBDeserializer Deserializer_;
 	};
 
-} // namespace DevTiM5xx_1_0_0_Skeleton
+} // namespace TiM5xx_1_0_0_Skeleton
 } // namespace ssbl
 

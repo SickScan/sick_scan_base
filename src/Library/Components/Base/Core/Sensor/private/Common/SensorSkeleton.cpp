@@ -12,19 +12,19 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include "Base/Core/Sensor/include/Common/SickSensorSkeleton.h"
+#include "Base/Core/Sensor/include/Common/SensorSkeleton.h"
 #include <iostream>
 #include <vector>
 #include "Base/Core/Common/include/Assert.h"
 #include "Base/Core/Driver/include/Socket.h"
-#include "Base/Core/Sensor/include/Common/SickSensorInterface.h"
+#include "Base/Core/Sensor/include/Common/SensorInterface.h"
 #include "Base/Logger/include/Logger.h"
 
 using namespace ssbl;
 
 //=============================================================================
 //=============================================================================
-SickSensorSkeleton::SickSensorSkeleton(size_t txBufSize, size_t rxBufSize)
+SensorSkeleton::SensorSkeleton(size_t txBufSize, size_t rxBufSize)
     : stateInternal_(NOT_INITIALIZED),
       localName_("undefined"),
       localId_(std::hash<std::string>()(localName_)),
@@ -40,7 +40,7 @@ SickSensorSkeleton::SickSensorSkeleton(size_t txBufSize, size_t rxBufSize)
 
 //=============================================================================
 //=============================================================================
-SickSensorSkeleton::SickSensorSkeleton(const std::string &localName,
+SensorSkeleton::SensorSkeleton(const std::string &localName,
                                        size_t txBufSize, size_t rxBufSize)
     : stateInternal_(NOT_INITIALIZED),
       localName_(localName),
@@ -57,7 +57,7 @@ SickSensorSkeleton::SickSensorSkeleton(const std::string &localName,
 
 //=============================================================================
 //=============================================================================
-SickSensorSkeleton::~SickSensorSkeleton() {
+SensorSkeleton::~SensorSkeleton() {
   AvailableSensorInterfaces_.clear();
 
   if (nullptr != pActiveProtocol_) {
@@ -73,8 +73,8 @@ SickSensorSkeleton::~SickSensorSkeleton() {
 
 //=============================================================================
 //=============================================================================
-SickSensorInterfaceDescription *SickSensorSkeleton::GetPreferredInterface() {
-  SickSensorInterfaceDescription *pInterfaceDesc = nullptr;
+SensorInterfaceDescription *SensorSkeleton::GetPreferredInterface() {
+  SensorInterfaceDescription *pInterfaceDesc = nullptr;
   for (auto &x : AvailableSensorInterfaces_) {
     if (0 == UserSelectedInterfaceName_.compare((*(x.get()))->GetName())) {
       pInterfaceDesc = *(x.get());
@@ -85,10 +85,10 @@ SickSensorInterfaceDescription *SickSensorSkeleton::GetPreferredInterface() {
 }
 //=============================================================================
 //=============================================================================
-std::vector<SickSensorInterfaceDescription *>
-SickSensorSkeleton::GetAlternateInterfaces(
-    SickSensorInterfaceDescription *pDesiredInterface) {
-  std::vector<SickSensorInterfaceDescription *> Interfaces;
+std::vector<SensorInterfaceDescription *>
+SensorSkeleton::GetAlternateInterfaces(
+    SensorInterfaceDescription *pDesiredInterface) {
+  std::vector<SensorInterfaceDescription *> Interfaces;
   for (auto &x : AvailableSensorInterfaces_) {
     if ((pDesiredInterface->GetProtocolType() !=
          (*(x.get()))->GetProtocolType()) &&
@@ -101,8 +101,8 @@ SickSensorSkeleton::GetAlternateInterfaces(
 
 //=============================================================================
 //=============================================================================
-SensorResult SickSensorSkeleton::TestProtocol(
-    SickSensorInterfaceDescription *pInterfaceDesc) {
+SensorResult SensorSkeleton::TestProtocol(
+    SensorInterfaceDescription *pInterfaceDesc) {
   SensorResult ret = SSBL_ERR_SENSOR_INTERFACE_NOT_SUPPORTED;
 
   if (nullptr == pInterfaceDesc) {
@@ -154,7 +154,7 @@ SensorResult SickSensorSkeleton::TestProtocol(
 
 //=============================================================================
 //=============================================================================
-bool SickSensorSkeleton::IsReadyForRequest(void) {
+bool SensorSkeleton::IsReadyForRequest(void) {
   bool ret = false;
 
   switch (ConnState_) {
@@ -174,9 +174,9 @@ bool SickSensorSkeleton::IsReadyForRequest(void) {
 }
 //=============================================================================
 //=============================================================================
-SensorResult SickSensorSkeleton::Init() {
+SensorResult SensorSkeleton::Init() {
   SensorResult ret = SSBL_ERR_PROTOCOL_NOT_DETECTED;
-  SickSensorInterfaceDescription *pInterfaceDesc = nullptr;
+  SensorInterfaceDescription *pInterfaceDesc = nullptr;
 
   // get the preferred interface
   pInterfaceDesc = GetPreferredInterface();
@@ -191,7 +191,7 @@ SensorResult SickSensorSkeleton::Init() {
     SSBL_LOG_WARNING(
         "Desired protocol not enabled. Trying to switch to other "
         "protocol...");
-    std::vector<SickSensorInterfaceDescription *> Interfaces =
+    std::vector<SensorInterfaceDescription *> Interfaces =
         GetAlternateInterfaces(pInterfaceDesc);
 
     // loop over all other interfaces on this port
@@ -220,7 +220,7 @@ SensorResult SickSensorSkeleton::Init() {
 
 //=============================================================================
 //=============================================================================
-SensorResult SickSensorSkeleton::Connect(void) {
+SensorResult SensorSkeleton::Connect(void) {
   SensorResult ret = SSBL_ERR_SENSOR_NOT_IN_DISCONNECTED_STATE;
   stateInternal_ = NOT_INITIALIZED;
 
@@ -253,7 +253,7 @@ SensorResult SickSensorSkeleton::Connect(void) {
 
 //=============================================================================
 //=============================================================================
-SensorResult SickSensorSkeleton::Disconnect(bool force) {
+SensorResult SensorSkeleton::Disconnect(bool force) {
   SensorResult ret = SSBL_ERR_SENSOR_NOT_IN_DISCONNECTED_STATE;
 
   if (force) {
@@ -292,7 +292,7 @@ SensorResult SickSensorSkeleton::Disconnect(bool force) {
 
 //=============================================================================
 //=============================================================================
-SickSensorVariable *SickSensorSkeleton::CreateVariable(
+SensorVariable *SensorSkeleton::CreateVariable(
     const std::string &varName) {
   std::string final = SensorName_ + varName;
   return VariableRepo.Create(final);
@@ -300,7 +300,7 @@ SickSensorVariable *SickSensorSkeleton::CreateVariable(
 
 //=============================================================================
 //=============================================================================
-SickSensorFunction *SickSensorSkeleton::CreateFunction(
+SensorFunction *SensorSkeleton::CreateFunction(
     const std::string &funcName) {
   std::string final = SensorName_ + funcName;
   return FunctionRepo.Create(final);

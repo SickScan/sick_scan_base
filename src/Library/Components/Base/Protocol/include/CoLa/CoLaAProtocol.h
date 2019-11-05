@@ -25,7 +25,7 @@
 namespace ssbl {
 
 // Forward declarations
-class SickSensorInterface;
+class SensorInterface;
 class CoLaADeserializer;
 
 /**
@@ -56,7 +56,7 @@ class CoLaAProtocol : public CoLaProtocol {
    * @param rInterface Reference to the sensor interface that is to be used
    * @return SensorResult SSBL_SUCCESS on success
    */
-  SensorResult Init(SickSensorInterface& rInterface);
+  SensorResult Init(SensorInterface& rInterface);
 
   /**
    * @brief Create a request and transmit it

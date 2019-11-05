@@ -32,7 +32,7 @@ namespace ssbl {
 #define MAX_POSTAMBLE_LENGTH 10
 
 // Forward declarations
-class SickSensorInterface;
+class SensorInterface;
 class Deserializer;
 class Serializer;
 
@@ -102,7 +102,7 @@ class CoLaProtocol : public Protocol {
    * @param rInterface
    * @return SensorResult SSBL_SUCCESS on success
    */
-  virtual SensorResult Init(SickSensorInterface& rInterface) = 0;
+  virtual SensorResult Init(SensorInterface& rInterface) = 0;
 
   /**
    * @brief Send a request to the sensor
@@ -317,7 +317,7 @@ class CoLaProtocol : public Protocol {
    * @param pPostamble Pointer to the postamble
    * @return SensorResult SSBL_SUCCESS - always
    */
-  SensorResult InitInternal(SickSensorInterface& rInterface,
+  SensorResult InitInternal(SensorInterface& rInterface,
                             std::size_t preambleLength,
                             std::size_t postambleLength,
                             const uint8_t* pPreamble,

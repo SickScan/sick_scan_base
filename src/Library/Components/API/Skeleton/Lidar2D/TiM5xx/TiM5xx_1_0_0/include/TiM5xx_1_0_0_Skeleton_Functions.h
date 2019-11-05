@@ -4,13 +4,13 @@
 
 #pragma once
 #include <stdint.h>
-#include "API/Skeleton/Lidar2D/TiM5xx/TiM5xx_1_0_0/include/TiM5xx_1_0_0_Skeleton_Types.h"
-#include "API/Skeleton/Lidar2D/TiM5xx/TiM5xx_1_0_0/include/TiM5xx_1_0_0_Skeleton_CoLa_Extension.h"
+#include "API/Skeleton/Lidar2D/TiM5xx/TiM5xx/include/TiM5xx_1_0_0_Skeleton_Types.h"
+#include "API/Skeleton/Lidar2D/TiM5xx/TiM5xx/include/TiM5xx_1_0_0_Skeleton_CoLa_Extension.h"
 #include "Base/Core/Sensor/include/Common/SickSensorFunction.h"
 
 namespace ssbl
 {
-namespace DevTiM5xx_1_0_0_Skeleton
+namespace TiM5xx_1_0_0_Skeleton
 {
 class TiM5xx_1_0_0_Skeleton_Func_NANR : public SickSensorFunction
 {
@@ -231,6 +231,6 @@ public:
 	static SickSensorFunction* Create() { return new LoadApplicationDefaults_TiM5xx_1_0_0_Skeleton_Func; }
 };
 
-} // namespace DevTiM5xx_1_0_0_Skeleton
+} // namespace TiM5xx_1_0_0_Skeleton
 } // namespace ssbl
 

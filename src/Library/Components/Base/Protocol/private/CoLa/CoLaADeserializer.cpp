@@ -22,7 +22,7 @@
 #include <sstream>
 #include <string>
 #include "Base/Core/Common/include/Endianess.h"
-#include "Base/Core/Sensor/include/Common/SickSensorVariable.h"
+#include "Base/Core/Sensor/include/Common/SensorVariable.h"
 
 using namespace ssbl;
 

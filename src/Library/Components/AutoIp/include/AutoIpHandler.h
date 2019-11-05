@@ -13,7 +13,7 @@
 // limitations under the License.
 
 #pragma once
-#include "Base/Core/Sensor/include/Common/SickSensorInterface.h"
+#include "Base/Core/Sensor/include/Common/SensorInterface.h"
 #include "Base/Types/include/SickSensorReturnCodes.h"
 
 namespace ssbl {
@@ -39,6 +39,6 @@ class AutoIpHandler {
   void SocketEvent(int32_t value);
 
   int32_t rndSeed_;
-  SickSensorInterface* pActiveInterface_;  // UDP Socket
+  SensorInterface* pActiveInterface_;  // UDP Socket
 };
 }  // namespace ssbl

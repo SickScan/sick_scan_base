@@ -4,8 +4,8 @@
 
 #pragma once
 #include <stdint.h>
-#include "API/Skeleton/Lidar2D/TiM5xx/TiM5xx_1_0_0/include/TiM5xx_1_0_0_Skeleton_Variables.h"
-#include "API/Skeleton/Lidar2D/TiM5xx/TiM5xx_1_0_0/include/TiM5xx_1_0_0_Skeleton_Functions.h"
+#include "API/Skeleton/Lidar2D/TiM5xx/TiM5xx/include/TiM5xx_1_0_0_Skeleton_Variables.h"
+#include "API/Skeleton/Lidar2D/TiM5xx/TiM5xx/include/TiM5xx_1_0_0_Skeleton_Functions.h"
 #include "Base/Core/Sensor/include/CoLa/CoLaSensorSkeleton.h"
 #include "Base/Core/OS/include/VariableEventQueue.h"
 
@@ -17,7 +17,7 @@ namespace DevTiM5xx_1_0_0_Skeleton
 class TiM5xx_1_0_0_Skeleton : public CoLaSensorSkeleton
 {
 public:
-	TiM5xx_1_0_0_Skeleton(const std::string& Ip, const std::string& interfaceName = std::string("CoLa Port"),const std::string& localName = std::string("TiM5xx_1_0_0"));
+	TiM5xx_1_0_0_Skeleton(const std::string& Ip, const std::string& interfaceName = std::string("CoLa Port"),const std::string& localName = std::string("TiM5xx"));
 	~TiM5xx_1_0_0_Skeleton();
 	template <class T>
 	SensorResult ReadVariable(TiM5xx_1_0_0_Skeleton_Var<T> & rVar)
