@@ -316,6 +316,6 @@ typedef struct
 #pragma pack(pop)
 
 
-} // namespace DevTiM5xx_1_0_0_Skeleton
+} // namespace TiM5xx_1_0_0_Skeleton
 } // namespace ssbl
 

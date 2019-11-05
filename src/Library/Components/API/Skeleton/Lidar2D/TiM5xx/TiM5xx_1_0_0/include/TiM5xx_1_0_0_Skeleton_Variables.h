@@ -5,16 +5,16 @@
 #pragma once
 #include <stdint.h>
 #include <cstring>
-#include "API/Skeleton/Lidar2D/TiM5xx/TiM5xx/include/TiM5xx_1_0_0_Skeleton_Types.h"
-#include "Base/Core/Sensor/include/Common/SickSensorVariable.h"
-#include "API/Skeleton/Lidar2D/TiM5xx/TiM5xx/include/TiM5xx_1_0_0_Skeleton_CoLa_Extension.h"
+#include "API/Skeleton/Lidar2D/TiM5xx/TiM5xx_1_0_0/include/TiM5xx_1_0_0_Skeleton_Types.h"
+#include "Base/Core/Sensor/include/Common/SensorVariable.h"
+#include "API/Skeleton/Lidar2D/TiM5xx/TiM5xx_1_0_0/include/TiM5xx_1_0_0_Skeleton_CoLa_Extension.h"
 
 namespace ssbl
 {
 namespace TiM5xx_1_0_0_Skeleton
 {
 template <class T>
-class TiM5xx_1_0_0_Skeleton_Var : public SickSensorVariable
+class TiM5xx_1_0_0_Skeleton_Var : public SensorVariable
 {
 public:
 	TiM5xx_1_0_0_Skeleton_Var(		std::string name,
@@ -23,7 +23,7 @@ public:
 		VariableDirection rwDir,
 		AccessLevel readAccessLvl,
 		AccessLevel writeAccessLvl,
-		int32_t eventIdx) : SickSensorVariable(name, comName, idx, rwDir, readAccessLvl, writeAccessLvl, eventIdx) {};
+		int32_t eventIdx) : SensorVariable(name, comName, idx, rwDir, readAccessLvl, writeAccessLvl, eventIdx) {};
 	~TiM5xx_1_0_0_Skeleton_Var(){};
 	uint32_t SerializeContent(Serializer * pSer, uint8_t * pDest, uint32_t * pOffset)
 	{
@@ -88,7 +88,7 @@ public:
 	ScanConfig_TiM5xx_1_0_0_Skeleton_Var();
 	~ScanConfig_TiM5xx_1_0_0_Skeleton_Var(){};
 	ComObj* Clone() { return new ScanConfig_TiM5xx_1_0_0_Skeleton_Var(*this); }
-	static SickSensorVariable* Create() { return new ScanConfig_TiM5xx_1_0_0_Skeleton_Var; }
+	static SensorVariable* Create() { return new ScanConfig_TiM5xx_1_0_0_Skeleton_Var; }
 	SensorResult GetBasic(int8_t& value);
 	SensorResult GetBasic(int16_t& value);
 	SensorResult GetBasic(int32_t& value);
@@ -137,7 +137,7 @@ public:
 	EtherHostCoLaDialect_TiM5xx_1_0_0_Skeleton_Var();
 	~EtherHostCoLaDialect_TiM5xx_1_0_0_Skeleton_Var(){};
 	ComObj* Clone() { return new EtherHostCoLaDialect_TiM5xx_1_0_0_Skeleton_Var(*this); }
-	static SickSensorVariable* Create() { return new EtherHostCoLaDialect_TiM5xx_1_0_0_Skeleton_Var; }
+	static SensorVariable* Create() { return new EtherHostCoLaDialect_TiM5xx_1_0_0_Skeleton_Var; }
 	SensorResult GetBasic(int8_t& value);
 	SensorResult GetBasic(int16_t& value);
 	SensorResult GetBasic(int32_t& value);
@@ -186,7 +186,7 @@ public:
 	DataOutputRange_TiM5xx_1_0_0_Skeleton_Var();
 	~DataOutputRange_TiM5xx_1_0_0_Skeleton_Var(){};
 	ComObj* Clone() { return new DataOutputRange_TiM5xx_1_0_0_Skeleton_Var(*this); }
-	static SickSensorVariable* Create() { return new DataOutputRange_TiM5xx_1_0_0_Skeleton_Var; }
+	static SensorVariable* Create() { return new DataOutputRange_TiM5xx_1_0_0_Skeleton_Var; }
 	SensorResult GetBasic(int8_t& value);
 	SensorResult GetBasic(int16_t& value);
 	SensorResult GetBasic(int32_t& value);
@@ -235,7 +235,7 @@ public:
 	ScanData_TiM5xx_1_0_0_Skeleton_Var();
 	~ScanData_TiM5xx_1_0_0_Skeleton_Var(){};
 	ComObj* Clone() { return new ScanData_TiM5xx_1_0_0_Skeleton_Var(*this); }
-	static SickSensorVariable* Create() { return new ScanData_TiM5xx_1_0_0_Skeleton_Var; }
+	static SensorVariable* Create() { return new ScanData_TiM5xx_1_0_0_Skeleton_Var; }
 	SensorResult GetBasic(int8_t& value);
 	SensorResult GetBasic(int16_t& value);
 	SensorResult GetBasic(int32_t& value);
@@ -284,7 +284,7 @@ public:
 	ScanDataConfig_TiM5xx_1_0_0_Skeleton_Var();
 	~ScanDataConfig_TiM5xx_1_0_0_Skeleton_Var(){};
 	ComObj* Clone() { return new ScanDataConfig_TiM5xx_1_0_0_Skeleton_Var(*this); }
-	static SickSensorVariable* Create() { return new ScanDataConfig_TiM5xx_1_0_0_Skeleton_Var; }
+	static SensorVariable* Create() { return new ScanDataConfig_TiM5xx_1_0_0_Skeleton_Var; }
 	SensorResult GetBasic(int8_t& value);
 	SensorResult GetBasic(int16_t& value);
 	SensorResult GetBasic(int32_t& value);
@@ -333,7 +333,7 @@ public:
 	SCdevicestate_TiM5xx_1_0_0_Skeleton_Var();
 	~SCdevicestate_TiM5xx_1_0_0_Skeleton_Var(){};
 	ComObj* Clone() { return new SCdevicestate_TiM5xx_1_0_0_Skeleton_Var(*this); }
-	static SickSensorVariable* Create() { return new SCdevicestate_TiM5xx_1_0_0_Skeleton_Var; }
+	static SensorVariable* Create() { return new SCdevicestate_TiM5xx_1_0_0_Skeleton_Var; }
 	SensorResult GetBasic(int8_t& value);
 	SensorResult GetBasic(int16_t& value);
 	SensorResult GetBasic(int32_t& value);
@@ -382,7 +382,7 @@ public:
 	OrderNumber_TiM5xx_1_0_0_Skeleton_Var();
 	~OrderNumber_TiM5xx_1_0_0_Skeleton_Var(){};
 	ComObj* Clone() { return new OrderNumber_TiM5xx_1_0_0_Skeleton_Var(*this); }
-	static SickSensorVariable* Create() { return new OrderNumber_TiM5xx_1_0_0_Skeleton_Var; }
+	static SensorVariable* Create() { return new OrderNumber_TiM5xx_1_0_0_Skeleton_Var; }
 	SensorResult GetBasic(int8_t& value);
 	SensorResult GetBasic(int16_t& value);
 	SensorResult GetBasic(int32_t& value);

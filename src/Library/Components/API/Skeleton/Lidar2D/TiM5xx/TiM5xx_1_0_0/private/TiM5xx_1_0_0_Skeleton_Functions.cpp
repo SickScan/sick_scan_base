@@ -2,8 +2,8 @@
 //  Generated file - do not modify
 //===========================================
 
-#include "API/Skeleton/Lidar2D/TiM5xx/TiM5xx/include/TiM5xx_1_0_0_Skeleton_Functions.h"
-#include "API/Skeleton/Lidar2D/TiM5xx/TiM5xx/include/TiM5xx_1_0_0_Skeleton_Variables.h"
+#include "API/Skeleton/Lidar2D/TiM5xx/TiM5xx_1_0_0/include/TiM5xx_1_0_0_Skeleton_Functions.h"
+#include "API/Skeleton/Lidar2D/TiM5xx/TiM5xx_1_0_0/include/TiM5xx_1_0_0_Skeleton_Variables.h"
 
 namespace ssbl
 {

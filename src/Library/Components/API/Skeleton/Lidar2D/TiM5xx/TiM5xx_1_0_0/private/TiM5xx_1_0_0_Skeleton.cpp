@@ -2,8 +2,8 @@
 //  Generated file - do not modify
 //===========================================
 
-#include "API/Skeleton/Lidar2D/TiM5xx/TiM5xx/include/TiM5xx_1_0_0_Skeleton.h"
-#include "API/Skeleton/Lidar2D/TiM5xx/TiM5xx/include/TiM5xx_1_0_0_Skeleton_CoLa_Extension.h"
+#include "API/Skeleton/Lidar2D/TiM5xx/TiM5xx_1_0_0/include/TiM5xx_1_0_0_Skeleton.h"
+#include "API/Skeleton/Lidar2D/TiM5xx/TiM5xx_1_0_0/include/TiM5xx_1_0_0_Skeleton_CoLa_Extension.h"
 #include "Base/Core/Common/include/Assert.h"
 #include "Base/Core/Common/include/MakeUnique.h"
 #include "Base/Core/OS/include/Time.h"
@@ -26,11 +26,11 @@ TiM5xx_1_0_0_Skeleton::TiM5xx_1_0_0_Skeleton(const std::string& Ip, const std::s
 	passwords_[LEVEL_SERVICE] = 0x81BE23AA;
 	UserSelectedIpOrSerial_ = Ip;
 	UserSelectedInterfaceName_ = interfaceName;
-	AvailableSensorInterfaces_.push_back(ssbl::make_unique<SickSensorInterfaceDescription*>( new SickSensorInterfaceDescription("CoLaA Port" , ETHERNET_INTERFACE , COLA_A , BY_NAME , 2111 , 
+	AvailableSensorInterfaces_.push_back(ssbl::make_unique<SensorInterfaceDescription*>( new SensorInterfaceDescription("CoLaA Port" , ETHERNET_INTERFACE , COLA_A , BY_NAME , 2111 , 
 		{})));
-	AvailableSensorInterfaces_.push_back(ssbl::make_unique<SickSensorInterfaceDescription*>( new SickSensorInterfaceDescription("CoLa Port" , ETHERNET_INTERFACE , COLA_B , BY_NAME , 2112 , 
+	AvailableSensorInterfaces_.push_back(ssbl::make_unique<SensorInterfaceDescription*>( new SensorInterfaceDescription("CoLa Port" , ETHERNET_INTERFACE , COLA_B , BY_NAME , 2112 , 
 		{std::make_tuple(COLA_B, "EtherHostCoLaDialect", "1"),std::make_tuple(COLA_A, "EtherHostCoLaDialect", "0")		})));
-	AvailableSensorInterfaces_.push_back(ssbl::make_unique<SickSensorInterfaceDescription*>( new SickSensorInterfaceDescription("CoLa Port" , ETHERNET_INTERFACE , COLA_A , BY_NAME , 2112 , 
+	AvailableSensorInterfaces_.push_back(ssbl::make_unique<SensorInterfaceDescription*>( new SensorInterfaceDescription("CoLa Port" , ETHERNET_INTERFACE , COLA_A , BY_NAME , 2112 , 
 		{std::make_tuple(COLA_B, "EtherHostCoLaDialect", "1"),std::make_tuple(COLA_A, "EtherHostCoLaDialect", "0")		})));
 	VariableRepo.RegisterComObj("TiM5xx_1_0_0_SkeletonScanConfig",ScanConfig_TiM5xx_1_0_0_Skeleton_Var::Create); 
 	VariableRepo.RegisterComObj("TiM5xx_1_0_0_SkeletonEtherHostCoLaDialect",EtherHostCoLaDialect_TiM5xx_1_0_0_Skeleton_Var::Create); 
@@ -53,7 +53,7 @@ TiM5xx_1_0_0_Skeleton::TiM5xx_1_0_0_Skeleton(const std::string& Ip, const std::s
 TiM5xx_1_0_0_Skeleton::~TiM5xx_1_0_0_Skeleton()
 {
 	for (auto& x : AvailableSensorInterfaces_) {
-		SickSensorInterfaceDescription* p = *(x.release());
+		SensorInterfaceDescription* p = *(x.release());
 		delete p;
 	}
 	AvailableSensorInterfaces_.clear();

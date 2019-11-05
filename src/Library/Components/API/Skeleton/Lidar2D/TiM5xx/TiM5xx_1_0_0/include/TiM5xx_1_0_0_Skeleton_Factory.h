@@ -3,9 +3,9 @@
 //===========================================
 
 #pragma once
-#include "Base/Core/Sensor/include/Common/SickSensorSkeleton.h"
+#include "Base/Core/Sensor/include/Common/SensorSkeleton.h"
 
 namespace ssbl
 {
-SickSensorSkeleton * CreateSensorSkeleton(const std::string &SensorSkeletonName, const std::string &IP);
+SensorSkeleton * CreateSensorSkeleton(const std::string &SensorSkeletonName, const std::string &IP);
 } // namespace ssbl

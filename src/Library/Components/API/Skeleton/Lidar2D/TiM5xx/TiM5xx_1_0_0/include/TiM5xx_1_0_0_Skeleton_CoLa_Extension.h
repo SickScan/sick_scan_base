@@ -4,7 +4,7 @@
 
 #pragma once
 #include <stdint.h>
-#include "API/Skeleton/Lidar2D/TiM5xx/TiM5xx/include/TiM5xx_1_0_0_Skeleton_Types.h"
+#include "API/Skeleton/Lidar2D/TiM5xx/TiM5xx_1_0_0/include/TiM5xx_1_0_0_Skeleton_Types.h"
 #include "Base/Protocol/include/CoLa/CoLaADeserializer.h"
 #include "Base/Protocol/include/CoLa/CoLaASerializer.h"
 #include "Base/Protocol/include/CoLa/CoLaAProtocol.h"
