@@ -22,7 +22,7 @@
 
 using namespace std;
 using namespace ssbl;
-using namespace DevTiM561Skeleton;
+using namespace TiM5xx_1_0_0_Skeleton;
 
 // Callback function which will be triggered when scan data arrives
 void OnScan(uint64_t *pEventData);
@@ -48,16 +48,16 @@ myScanConfig_t gScanConfig;
 */
 
 int main(void) {
-  mStartMeasure_TiM561Skeleton_Func
+  mStartMeasure_TiM5xx_Func
       startFunction;  // Function which puts the Lidar into measurement mode
-  Run_TiM561Skeleton_Func
+  Run_TiM5xx_Func
       runFunction;  // Function which puts the Lidar into run mode
-  DataOutputRange_TiM561Skeleton_Var
+  DataOutputRange_TiM5xx_Var
       orVariable;  // Variable which contains start angle, stop angle and angle
                    // resolution
-  ScanDataConfig_TiM561Skeleton_Var
+  ScanDataConfig_TiM5xx_Var
       sdcVariable;  // Variable which contains the scan output configuration
-  ScanData_TiM561Skeleton_Var scanDataVariable;  // Scan data variable
+  ScanData_TiM5xx_Var scanDataVariable;  // Scan data variable
 #ifndef USE_CALLBACK
   timespec x, y;
   VariableEventQueue *pEventQueue = NULL;
@@ -72,7 +72,7 @@ int main(void) {
   //===============================================================================
   // Step 1) Create a Lidar Skeleton (change the IP to your needs)
   //===============================================================================
-  auto DUT = new TiM561Skeleton("192.168.100.235");
+  auto DUT = new TiM5xx("192.168.100.235");
 
   //===============================================================================
   // Step 2) Connect to the Lidar
@@ -227,7 +227,7 @@ int main(void) {
 // Callback function which will be triggered when
 // scan data arrives
 void OnScan(uint64_t *pEventData) {
-  ScanData_TiM561Skeleton_Var *pVar;
+  ScanData_TiM5xx_Var *pVar;
   SsblEventContainer *pEvent =
       reinterpret_cast<SsblEventContainer *>(pEventData);
   myScanConfig_t *pCfg =
@@ -239,7 +239,7 @@ void OnScan(uint64_t *pEventData) {
   printf("Scan stop angle: %.2lf degrees\n",
          (double)pCfg->stopAngle / 10000.00);
 
-  pVar = dynamic_cast<ScanData_TiM561Skeleton_Var *>(pEvent->pComObj);
+  pVar = dynamic_cast<ScanData_TiM5xx_Var *>(pEvent->pComObj);
 
   // please delete the data after processing
   delete pEventData;

@@ -2,8 +2,8 @@
 //  Generated file - do not modify
 //===========================================
 
-#include "API/Skeleton/Lidar2D/TiM5xx/TiM5xx_1_0_0/include/TiM5xx_1_0_0_Skeleton.h"
-#include "API/Skeleton/Lidar2D/TiM5xx/TiM5xx_1_0_0/include/TiM5xx_1_0_0_Skeleton_CoLa_Extension.h"
+#include "API/Skeleton/Lidar2D/TiM5xx/TiM5xx_1_0_0/include/TiM5xx.h"
+#include "API/Skeleton/Lidar2D/TiM5xx/TiM5xx_1_0_0/include/TiM5xx_CoLa_Extension.h"
 #include "Base/Core/Common/include/Assert.h"
 #include "Base/Core/Common/include/MakeUnique.h"
 #include "Base/Core/OS/include/Time.h"
@@ -15,10 +15,10 @@ namespace TiM5xx_1_0_0_Skeleton
 
 //TODO: Buffer size is set fixed
 //TODO: default interface
-TiM5xx_1_0_0_Skeleton::TiM5xx_1_0_0_Skeleton(const std::string& Ip, const std::string& interfaceName,const std::string& localName)
+TiM5xx::TiM5xx(const std::string& Ip, const std::string& interfaceName,const std::string& localName)
 	: CoLaSensorSkeleton(localName,16 * 1024,16 * 1024)
 {
-	SensorName_="TiM5xx_1_0_0_Skeleton";
+	SensorName_="TiM5xx";
 	passwords_[LEVEL_INVALID] = 0;
 	passwords_[LEVEL_RUN] = 0x00000000;
 	passwords_[LEVEL_MAINTAINANCE] = 0xB21ACE26;
@@ -32,25 +32,25 @@ TiM5xx_1_0_0_Skeleton::TiM5xx_1_0_0_Skeleton(const std::string& Ip, const std::s
 		{std::make_tuple(COLA_B, "EtherHostCoLaDialect", "1"),std::make_tuple(COLA_A, "EtherHostCoLaDialect", "0")		})));
 	AvailableSensorInterfaces_.push_back(ssbl::make_unique<SensorInterfaceDescription*>( new SensorInterfaceDescription("CoLa Port" , ETHERNET_INTERFACE , COLA_A , BY_NAME , 2112 , 
 		{std::make_tuple(COLA_B, "EtherHostCoLaDialect", "1"),std::make_tuple(COLA_A, "EtherHostCoLaDialect", "0")		})));
-	VariableRepo.RegisterComObj("TiM5xx_1_0_0_SkeletonScanConfig",ScanConfig_TiM5xx_1_0_0_Skeleton_Var::Create); 
-	VariableRepo.RegisterComObj("TiM5xx_1_0_0_SkeletonEtherHostCoLaDialect",EtherHostCoLaDialect_TiM5xx_1_0_0_Skeleton_Var::Create); 
-	VariableRepo.RegisterComObj("TiM5xx_1_0_0_SkeletonDataOutputRange",DataOutputRange_TiM5xx_1_0_0_Skeleton_Var::Create); 
-	VariableRepo.RegisterComObj("TiM5xx_1_0_0_SkeletonScanData",ScanData_TiM5xx_1_0_0_Skeleton_Var::Create); 
-	VariableRepo.RegisterComObj("TiM5xx_1_0_0_SkeletonScanDataConfig",ScanDataConfig_TiM5xx_1_0_0_Skeleton_Var::Create); 
-	VariableRepo.RegisterComObj("TiM5xx_1_0_0_SkeletonSCdevicestate",SCdevicestate_TiM5xx_1_0_0_Skeleton_Var::Create); 
-	VariableRepo.RegisterComObj("TiM5xx_1_0_0_SkeletonOrderNumber",OrderNumber_TiM5xx_1_0_0_Skeleton_Var::Create); 
-	FunctionRepo.RegisterComObj("TiM5xx_1_0_0_SkeletonSetScanConfig",SetScanConfig_TiM5xx_1_0_0_Skeleton_Func::Create); 
-	FunctionRepo.RegisterComObj("TiM5xx_1_0_0_SkeletonmStartMeasure",mStartMeasure_TiM5xx_1_0_0_Skeleton_Func::Create); 
-	FunctionRepo.RegisterComObj("TiM5xx_1_0_0_SkeletonmStopMeasure",mStopMeasure_TiM5xx_1_0_0_Skeleton_Func::Create); 
-	FunctionRepo.RegisterComObj("TiM5xx_1_0_0_SkeletonmSetDateTime",mSetDateTime_TiM5xx_1_0_0_Skeleton_Func::Create); 
-	FunctionRepo.RegisterComObj("TiM5xx_1_0_0_SkeletonRun",Run_TiM5xx_1_0_0_Skeleton_Func::Create); 
-	FunctionRepo.RegisterComObj("TiM5xx_1_0_0_SkeletonWriteEeprom",WriteEeprom_TiM5xx_1_0_0_Skeleton_Func::Create); 
-	FunctionRepo.RegisterComObj("TiM5xx_1_0_0_SkeletonRebootDevice",RebootDevice_TiM5xx_1_0_0_Skeleton_Func::Create); 
-	FunctionRepo.RegisterComObj("TiM5xx_1_0_0_SkeletonLoadFactoryDefaults",LoadFactoryDefaults_TiM5xx_1_0_0_Skeleton_Func::Create); 
-	FunctionRepo.RegisterComObj("TiM5xx_1_0_0_SkeletonLoadApplicationDefaults",LoadApplicationDefaults_TiM5xx_1_0_0_Skeleton_Func::Create); 
+	VariableRepo.RegisterComObj("TiM5xxScanConfig",ScanConfig_TiM5xx_Var::Create); 
+	VariableRepo.RegisterComObj("TiM5xxEtherHostCoLaDialect",EtherHostCoLaDialect_TiM5xx_Var::Create); 
+	VariableRepo.RegisterComObj("TiM5xxDataOutputRange",DataOutputRange_TiM5xx_Var::Create); 
+	VariableRepo.RegisterComObj("TiM5xxScanData",ScanData_TiM5xx_Var::Create); 
+	VariableRepo.RegisterComObj("TiM5xxScanDataConfig",ScanDataConfig_TiM5xx_Var::Create); 
+	VariableRepo.RegisterComObj("TiM5xxSCdevicestate",SCdevicestate_TiM5xx_Var::Create); 
+	VariableRepo.RegisterComObj("TiM5xxOrderNumber",OrderNumber_TiM5xx_Var::Create); 
+	FunctionRepo.RegisterComObj("TiM5xxSetScanConfig",SetScanConfig_TiM5xx_Func::Create); 
+	FunctionRepo.RegisterComObj("TiM5xxmStartMeasure",mStartMeasure_TiM5xx_Func::Create); 
+	FunctionRepo.RegisterComObj("TiM5xxmStopMeasure",mStopMeasure_TiM5xx_Func::Create); 
+	FunctionRepo.RegisterComObj("TiM5xxmSetDateTime",mSetDateTime_TiM5xx_Func::Create); 
+	FunctionRepo.RegisterComObj("TiM5xxRun",Run_TiM5xx_Func::Create); 
+	FunctionRepo.RegisterComObj("TiM5xxWriteEeprom",WriteEeprom_TiM5xx_Func::Create); 
+	FunctionRepo.RegisterComObj("TiM5xxRebootDevice",RebootDevice_TiM5xx_Func::Create); 
+	FunctionRepo.RegisterComObj("TiM5xxLoadFactoryDefaults",LoadFactoryDefaults_TiM5xx_Func::Create); 
+	FunctionRepo.RegisterComObj("TiM5xxLoadApplicationDefaults",LoadApplicationDefaults_TiM5xx_Func::Create); 
 }
 
-TiM5xx_1_0_0_Skeleton::~TiM5xx_1_0_0_Skeleton()
+TiM5xx::~TiM5xx()
 {
 	for (auto& x : AvailableSensorInterfaces_) {
 		SensorInterfaceDescription* p = *(x.release());
@@ -59,16 +59,16 @@ TiM5xx_1_0_0_Skeleton::~TiM5xx_1_0_0_Skeleton()
 	AvailableSensorInterfaces_.clear();
 }
 
-Protocol * TiM5xx_1_0_0_Skeleton::DeviceSpecificProtocolInit(ProtocolType Protocol, AddressingMode AddrMode)
+Protocol * TiM5xx::DeviceSpecificProtocolInit(ProtocolType Protocol, AddressingMode AddrMode)
 {
 	ssbl::Protocol * pRet = NULL;
 	switch (Protocol)
 	{
 	case COLA_A:
-		pRet = new TiM5xx_1_0_0_Skeleton_CoLaAProtocol(AddrMode, max_tx_buffer_size_, max_rx_buffer_size_);
+		pRet = new TiM5xx_CoLaAProtocol(AddrMode, max_tx_buffer_size_, max_rx_buffer_size_);
 		break;
 	case COLA_B:
-		pRet = new TiM5xx_1_0_0_Skeleton_CoLaBProtocol(AddrMode, max_tx_buffer_size_, max_rx_buffer_size_);
+		pRet = new TiM5xx_CoLaBProtocol(AddrMode, max_tx_buffer_size_, max_rx_buffer_size_);
 		break;
 	default:
 		SSBL_LOG_ERROR("Unknown protocol");
@@ -78,7 +78,7 @@ Protocol * TiM5xx_1_0_0_Skeleton::DeviceSpecificProtocolInit(ProtocolType Protoc
 	return pRet;
 }
 
-SensorResult TiM5xx_1_0_0_Skeleton::DeviceSpecificProtocolSwitch(ProtocolType Protocol)
+SensorResult TiM5xx::DeviceSpecificProtocolSwitch(ProtocolType Protocol)
 {
 	SensorResult ret = SSBL_ERR_PROTOCOL_NOT_DETECTED;
 	if(pActiveInterface_->ProtocolCanBeSwitched()){
@@ -108,7 +108,7 @@ SensorResult TiM5xx_1_0_0_Skeleton::DeviceSpecificProtocolSwitch(ProtocolType Pr
 	return ret;
 }
 
-SensorResult TiM5xx_1_0_0_Skeleton::StoreParameter()
+SensorResult TiM5xx::StoreParameter()
 {
 	SensorResult ret = SSBL_ERR_FEATURE_NOT_SUPPORTED;
 	auto m = CreateFunction("WriteEeprom");
@@ -118,7 +118,7 @@ SensorResult TiM5xx_1_0_0_Skeleton::StoreParameter()
 	return ret;
 }
 
-SensorResult TiM5xx_1_0_0_Skeleton::RebootSensor()
+SensorResult TiM5xx::RebootSensor()
 {
 	SensorResult ret = SSBL_ERR_FEATURE_NOT_SUPPORTED;
 	auto m = CreateFunction("RebootDevice");

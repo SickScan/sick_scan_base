@@ -16,10 +16,11 @@ include(LibraryTargetExtension)
 ComponentSources(
 NAME ${COMPONENT_SUFFIX}-skeleton
 SOURCES
-TiM5xx_1_0_0_Skeleton.cpp
-TiM5xx_1_0_0_Skeleton_CoLa_Extension.cpp
-TiM5xx_1_0_0_Skeleton_Functions.cpp
-TiM5xx_1_0_0_Skeleton_Variables.cpp
+TiM5xx.cpp
+TiM5xx_CoLa_Extension.cpp
+TiM5xx_Factory.cpp
+TiM5xx_Functions.cpp
+TiM5xx_Variables.cpp
 )
 
 CreateLibraryTarget(

@@ -4,7 +4,7 @@
 
 #pragma once
 #include <stdint.h>
-#include "API/Skeleton/Lidar2D/TiM5xx/TiM5xx_1_0_0/include/TiM5xx_1_0_0_Skeleton_Types.h"
+#include "API/Skeleton/Lidar2D/TiM5xx/TiM5xx_1_0_0/include/TiM5xx_Types.h"
 #include "Base/Protocol/include/CoLa/CoLaADeserializer.h"
 #include "Base/Protocol/include/CoLa/CoLaASerializer.h"
 #include "Base/Protocol/include/CoLa/CoLaAProtocol.h"
@@ -17,11 +17,11 @@ namespace ssbl
 {
 namespace TiM5xx_1_0_0_Skeleton
 {
-class TiM5xx_1_0_0_Skeleton_CoLaASerializer : public CoLaASerializer
+class TiM5xx_CoLaASerializer : public CoLaASerializer
 {
 public:
-	TiM5xx_1_0_0_Skeleton_CoLaASerializer(){};
-	~TiM5xx_1_0_0_Skeleton_CoLaASerializer(){};
+	TiM5xx_CoLaASerializer(){};
+	~TiM5xx_CoLaASerializer(){};
 
 	using::ssbl::CoLaASerializer::Serialize;
 
@@ -58,9 +58,9 @@ public:
 	void Serialize(uint8_t* pDest, mSetDateTime_t & rSrc, uint32_t* pOffset);
 	void Serialize(uint8_t* pDest, Run_t & rSrc, uint32_t* pOffset);
 	void Serialize(uint8_t* pDest, WriteEeprom_t & rSrc, uint32_t* pOffset);
-}; //TiM5xx_1_0_0_Skeleton_CoLaASerializer
+}; //TiM5xx_CoLaASerializer
 
-} // namespace TiM5xx_1_0_0_Skeleton
+} // namespace TiM5xx
 } // namespace ssbl
 
 
@@ -68,11 +68,11 @@ namespace ssbl
 {
 namespace TiM5xx_1_0_0_Skeleton
 {
-class TiM5xx_1_0_0_Skeleton_CoLaADeserializer : public CoLaADeserializer
+class TiM5xx_CoLaADeserializer : public CoLaADeserializer
 {
 public:
-	TiM5xx_1_0_0_Skeleton_CoLaADeserializer(){};
-	~TiM5xx_1_0_0_Skeleton_CoLaADeserializer(){};
+	TiM5xx_CoLaADeserializer(){};
+	~TiM5xx_CoLaADeserializer(){};
 
 	using::ssbl::CoLaADeserializer::Deserialize;
 
@@ -109,7 +109,7 @@ public:
 	void Deserialize(uint8_t* pSrc, mSetDateTime_t& rDest, uint32_t* pOffset);
 	void Deserialize(uint8_t* pSrc, Run_t& rDest, uint32_t* pOffset);
 	void Deserialize(uint8_t* pSrc, WriteEeprom_t& rDest, uint32_t* pOffset);
-}; //TiM5xx_1_0_0_Skeleton_CoLaADeserializer
+}; //TiM5xx_CoLaADeserializer
 
 } // namespace TiM5xx_1_0_0_Skeleton
 } // namespace ssbl
@@ -119,19 +119,19 @@ namespace ssbl
 {
 namespace TiM5xx_1_0_0_Skeleton
 {
-class TiM5xx_1_0_0_Skeleton_CoLaAProtocol : public CoLaAProtocol
+class TiM5xx_CoLaAProtocol : public CoLaAProtocol
 {
 public:
-	TiM5xx_1_0_0_Skeleton_CoLaAProtocol(AddressingMode AddrMode,size_t txBufSize, size_t rxBufSize)
+	TiM5xx_CoLaAProtocol(AddressingMode AddrMode,size_t txBufSize, size_t rxBufSize)
 		:CoLaAProtocol(AddrMode, txBufSize, rxBufSize)
 	{
 		pSerializer_ = &Serializer_;
 		pDeserializer_ = &Deserializer_;
 	};
-	~TiM5xx_1_0_0_Skeleton_CoLaAProtocol(){};
+	~TiM5xx_CoLaAProtocol(){};
 	private:
-		TiM5xx_1_0_0_Skeleton_CoLaASerializer Serializer_;
-		TiM5xx_1_0_0_Skeleton_CoLaADeserializer Deserializer_;
+		TiM5xx_CoLaASerializer Serializer_;
+		TiM5xx_CoLaADeserializer Deserializer_;
 	};
 
 } // namespace TiM5xx_1_0_0_Skeleton
@@ -143,11 +143,11 @@ namespace ssbl
 {
 namespace TiM5xx_1_0_0_Skeleton
 {
-class TiM5xx_1_0_0_Skeleton_CoLaBSerializer : public CoLaBSerializer
+class TiM5xx_CoLaBSerializer : public CoLaBSerializer
 {
 public:
-	TiM5xx_1_0_0_Skeleton_CoLaBSerializer(){};
-	~TiM5xx_1_0_0_Skeleton_CoLaBSerializer(){};
+	TiM5xx_CoLaBSerializer(){};
+	~TiM5xx_CoLaBSerializer(){};
 
 	using::ssbl::CoLaBSerializer::Serialize;
 
@@ -184,9 +184,9 @@ public:
 	void Serialize(uint8_t* pDest, mSetDateTime_t & rSrc, uint32_t* pOffset);
 	void Serialize(uint8_t* pDest, Run_t & rSrc, uint32_t* pOffset);
 	void Serialize(uint8_t* pDest, WriteEeprom_t & rSrc, uint32_t* pOffset);
-}; //TiM5xx_1_0_0_Skeleton_CoLaBSerializer
+}; //TiM5xx_CoLaBSerializer
 
-} // namespace TiM5xx_1_0_0_Skeleton
+} // namespace TiM5xx
 } // namespace ssbl
 
 
@@ -194,11 +194,11 @@ namespace ssbl
 {
 namespace TiM5xx_1_0_0_Skeleton
 {
-class TiM5xx_1_0_0_Skeleton_CoLaBDeserializer : public CoLaBDeserializer
+class TiM5xx_CoLaBDeserializer : public CoLaBDeserializer
 {
 public:
-	TiM5xx_1_0_0_Skeleton_CoLaBDeserializer(){};
-	~TiM5xx_1_0_0_Skeleton_CoLaBDeserializer(){};
+	TiM5xx_CoLaBDeserializer(){};
+	~TiM5xx_CoLaBDeserializer(){};
 
 	using::ssbl::CoLaBDeserializer::Deserialize;
 
@@ -235,7 +235,7 @@ public:
 	void Deserialize(uint8_t* pSrc, mSetDateTime_t& rDest, uint32_t* pOffset);
 	void Deserialize(uint8_t* pSrc, Run_t& rDest, uint32_t* pOffset);
 	void Deserialize(uint8_t* pSrc, WriteEeprom_t& rDest, uint32_t* pOffset);
-}; //TiM5xx_1_0_0_Skeleton_CoLaBDeserializer
+}; //TiM5xx_CoLaBDeserializer
 
 } // namespace TiM5xx_1_0_0_Skeleton
 } // namespace ssbl
@@ -245,19 +245,19 @@ namespace ssbl
 {
 namespace TiM5xx_1_0_0_Skeleton
 {
-class TiM5xx_1_0_0_Skeleton_CoLaBProtocol : public CoLaBProtocol
+class TiM5xx_CoLaBProtocol : public CoLaBProtocol
 {
 public:
-	TiM5xx_1_0_0_Skeleton_CoLaBProtocol(AddressingMode AddrMode,size_t txBufSize, size_t rxBufSize)
+	TiM5xx_CoLaBProtocol(AddressingMode AddrMode,size_t txBufSize, size_t rxBufSize)
 		:CoLaBProtocol(AddrMode, txBufSize, rxBufSize)
 	{
 		pSerializer_ = &Serializer_;
 		pDeserializer_ = &Deserializer_;
 	};
-	~TiM5xx_1_0_0_Skeleton_CoLaBProtocol(){};
+	~TiM5xx_CoLaBProtocol(){};
 	private:
-		TiM5xx_1_0_0_Skeleton_CoLaBSerializer Serializer_;
-		TiM5xx_1_0_0_Skeleton_CoLaBDeserializer Deserializer_;
+		TiM5xx_CoLaBSerializer Serializer_;
+		TiM5xx_CoLaBDeserializer Deserializer_;
 	};
 
 } // namespace TiM5xx_1_0_0_Skeleton
