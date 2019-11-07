@@ -1,0 +1,8 @@
+%module SwigTest
+
+%{
+#include "@PROJECT_SOURCE_DIR@/src/include/SwigTest.h"
+%}
+
+/* Let's just grab the original header file here */
+%include "@PROJECT_SOURCE_DIR@/src/include/SwigTest.h"
