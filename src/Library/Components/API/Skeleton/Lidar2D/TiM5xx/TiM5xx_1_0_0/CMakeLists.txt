@@ -13,7 +13,6 @@ LANGUAGES CXX)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${TOP_DIR}/cmake")
 include(LibraryTargetExtension)
 
-
 ComponentSources(
 NAME ${COMPONENT_SUFFIX}-skeleton
 SOURCES
@@ -36,17 +35,14 @@ Skeleton/Lidar2D/TiM5xx
 DEPENDS
 base)
 
-
 CreateSwigTargets(
 BASE_NAME
 ${BASE_NAME}
 COMPONENT_NAME
 ${COMPONENT_SUFFIX}
 MODULE_SUFFIX
- skeleton
+skeleton
 VS_SOLUTION_FOLDER
 SWIG/Skeleton/Lidar2D/TiM5xx
 DEPENDS
-  ${BASE_NAME}::${COMPONENT_SUFFIX}::static
-)
-
+${BASE_NAME}::${COMPONENT_SUFFIX}::static)

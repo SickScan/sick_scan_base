@@ -35,18 +35,13 @@
 %import "@COMPONENTS_TOP_DIR@Base/Protocol/include/Common/TelegramBuffer.h"
 %import "@COMPONENTS_TOP_DIR@Base/Types/include/BasicTypes.h"
 %import "@COMPONENTS_TOP_DIR@Base/Types/include/SickSensorReturnCodes.h"
-
 %import "@PROJECT_SOURCE_DIR@/include/@FAMILY_NAME@_Types.h"
-%import "@PROJECT_SOURCE_DIR@/include/@FAMILY_NAME@_Functions.h"
 %import "@PROJECT_SOURCE_DIR@/include/@FAMILY_NAME@_Variables.h"
+%import "@PROJECT_SOURCE_DIR@/include/@FAMILY_NAME@_Functions.h"
 %import "@PROJECT_SOURCE_DIR@/include/@FAMILY_NAME@_Factory.h"
-
-
 
 %{
 #include "@PROJECT_SOURCE_DIR@/include/@FAMILY_NAME@.h"
 %}
 
 %include "@PROJECT_SOURCE_DIR@/include/@FAMILY_NAME@.h"
-
-
