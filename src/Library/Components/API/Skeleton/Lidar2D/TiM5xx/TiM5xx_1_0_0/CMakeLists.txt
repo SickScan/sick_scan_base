@@ -42,59 +42,11 @@ BASE_NAME
 ${BASE_NAME}
 COMPONENT_NAME
 ${COMPONENT_SUFFIX}
+MODULE_SUFFIX
+ skeleton
 VS_SOLUTION_FOLDER
 SWIG/Skeleton/Lidar2D/TiM5xx
+DEPENDS
+  ${BASE_NAME}::${COMPONENT_SUFFIX}::static
 )
 
-#if(SWIG_FOUND)
-#  message(STATUS "Found SWIG ${SWIG_VERSION}")
-#
-#  set(FAMILY_NAME "TiM5xx")
-#  set(COMPONENTS_TOP_DIR ${PROJECT_SOURCE_DIR})
-#  string(FIND "${COMPONENTS_TOP_DIR}" "API" out)
-#  string(SUBSTRING ${COMPONENTS_TOP_DIR} 0 ${out} COMPONENTS_TOP_DIR)
-
-#  set(SWIG_INPUT          ${CMAKE_CURRENT_SOURCE_DIR}/interface/python/TiM5xx.i.in)
-#  set(SWIG_INTERFACE_SPEC ${CMAKE_CURRENT_BINARY_DIR}/${COMPONENT_SUFFIX}-skeleton-ipython/TiM5xx.i)
-#  configure_file(${SWIG_INPUT} ${SWIG_INTERFACE_SPEC} @ONLY)
-#  set (UseSWIG_TARGET_NAME_PREFERENCE STANDARD)
-
-#  set_property(SOURCE ${SWIG_INTERFACE_SPEC} PROPERTY CPLUSPLUS ON)
-#  set_property(SOURCE ${SWIG_INTERFACE_SPEC} PROPERTY USE_LIBRARY_INCLUDE_DIRECTORIES TRUE)
-  
- # set(t ${COMPONENT_SUFFIX}-ipython)
-#  set(t "xl")
-
- 
-#  message(STATUS "MM: ${COMPONENTS_TOP_DIR}")
-  
-#  swig_add_library(${t}
-#                 LANGUAGE
-#                   python
-#                 SOURCES
-#                   ${SWIG_INTERFACE_SPEC})
-
-  
-#  target_include_directories(${t}  PRIVATE  ${Python3_INCLUDE_DIRS})
-#  
-#  get_target_property(OUT ssbl::tim5xx_1_0_0::static INTERFACE_INCLUDE_DIRECTORIES)
-# 
-#  message(STATUS "Found SWIG ${Python3_LIBRARIES}")
-#  message(STATUS "Found SWIG ${OUT}")
-#  
-#  unset(SWIG_LIB_DEPENDENS)
-#  
-#  list(APPEND SWIG_LIB_DEPENDENS ${Python3_LIBRARIES})
-
-  
-#  list(APPEND SWIG_LIB_DEPENDENS "ssbl::tim5xx_1_0_0::static")
-# 
-#  target_link_libraries(${t}  PRIVATE ${SWIG_LIB_DEPENDENS})
-#  get_target_property(OUT ${t} SWIG_USE_LIBRARY_INCLUDE_DIRECTORIES)
-#    message(STATUS "Found SWIG ${OUT}")
-
-#  set_property(TARGET ${t}  PROPERTY SWIG_USE_LIBRARY_INCLUDE_DIRECTORIES TRUE)
-  
-#else()
-#message(STATUS "SWIG not found")
-#endif()
