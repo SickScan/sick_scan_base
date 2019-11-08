@@ -127,7 +127,7 @@ function(GetFullLibraryName BASE_NAME COMPONENT_NAME BUILD_MODE LIBRARY_FILE_NAM
     #only native builds at the moment
     set(SSBL_TARGET_OS "windows")  
     if(MSVC)
-      if(NOT "${CMAKE_GENERATOR}" MATCHES "(Win64|IA64)")
+      if("${CMAKE_SIZEOF_VOID_P}" STREQUAL "4")
         set(TARGET_ARCHITECTURE_NAME "i386")
       else()
         set(TARGET_ARCHITECTURE_NAME "x86_64")
@@ -203,8 +203,8 @@ endfunction()
 #######################################################################################################
 function(CreateSwigTargetInternal)
   set(options)
-  set(oneValueArgs  BASE_NAME COMPONENT_NAME VS_SOLUTION_FOLDER LANGUAGE )
-  set(multiValueArgs   )
+  set(oneValueArgs  BASE_NAME COMPONENT_NAME MODULE_SUFFIX VS_SOLUTION_FOLDER LANGUAGE )
+  set(multiValueArgs  DEPENDS )
   cmake_parse_arguments(PARSED "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
   
   if(NOT PARSED_LANGUAGE)
@@ -230,7 +230,11 @@ function(CreateSwigTargetInternal)
   string(SUBSTRING ${COMPONENTS_TOP_DIR} 0 ${out} COMPONENTS_TOP_DIR)
 
   string(FIND "${PARSED_COMPONENT_NAME}" "_" out)
-   string(SUBSTRING ${PARSED_COMPONENT_NAME} 0 ${out} FAMILY_NAME)
+  string(SUBSTRING ${PARSED_COMPONENT_NAME} 0 ${out} FAMILY_NAME)
+  
+  set(SSBL_INSTALL_DIR "${CMAKE_INSTALL_PREFIX}")
+  get_filename_component(SSBL_INSTALL_DIR ${SSBL_INSTALL_DIR} ABSOLUTE)
+  set(SSBL_INSTALL_DIR "${SSBL_INSTALL_DIR}/${BASE_NAME}-${PROJECT_VERSION}")
   
 
   set(SWIG_INPUT          ${CMAKE_CURRENT_SOURCE_DIR}/interface/swig-in.i.in)
@@ -243,13 +247,8 @@ function(CreateSwigTargetInternal)
   if(PARSED_LANGUAGE MATCHES PYTHON)
     find_package(Python3 COMPONENTS Interpreter Development REQUIRED)
     
-    message(STATUS "MM: ${PARSED_LANGUAGE}")
-    message(STATUS "MM: ${PARSED_BASE_NAME}")
-    message(STATUS "MM: ${PARSED_COMPONENT_NAME}")
-    message(STATUS "MM: ${PARSED_VS_SOLUTION_FOLDER}")
     
-    
-    set(TARGET_NAME "${PARSED_BASE_NAME}_${PARSED_COMPONENT_NAME}_${PARSED_LANGUAGE}")
+    set(TARGET_NAME "${PARSED_BASE_NAME}_${PARSED_COMPONENT_NAME}_${PARSED_MODULE_SUFFIX}_${PARSED_LANGUAGE}")
     
     swig_add_library(${TARGET_NAME}
       LANGUAGE
@@ -258,22 +257,27 @@ function(CreateSwigTargetInternal)
         ${SWIG_INTERFACE_SPEC})
     target_include_directories(${TARGET_NAME}  PRIVATE  ${Python3_INCLUDE_DIRS})
     
+    set_target_properties(${TARGET_NAME} PROPERTIES OUTPUT_NAME "${PARSED_BASE_NAME}_${PARSED_COMPONENT_NAME}_${PARSED_MODULE_SUFFIX}")
+    
+    
     unset(SWIG_LIB_DEPENDENS)
-    #if (WIN32)
-    #  get_target_property(OUT ${TARGET_NAME} LINK_LIBRARIES)
-   #   message(STATUS "MArkus: ${OUT}")
-
-    #  list(APPEND SWIG_LIB_DEPENDENS ${Python3_LIBRARIES})
-  #  else()
-  #    list(APPEND SWIG_LIB_DEPENDENS ${Python3_LIBRARIES})
-  #  endif()
     list(APPEND SWIG_LIB_DEPENDENS ${Python3_LIBRARIES})
-    list(APPEND SWIG_LIB_DEPENDENS "ssbl::tim5xx_1_0_0::static")
+    list(APPEND SWIG_LIB_DEPENDENS ${PARSED_DEPENDS})
    
     target_link_libraries(${TARGET_NAME}  PRIVATE ${SWIG_LIB_DEPENDENS})
 
     set_property(TARGET ${TARGET_NAME} PROPERTY SWIG_USE_LIBRARY_INCLUDE_DIRECTORIES TRUE)
-    set_target_properties(${TARGET_NAME} PROPERTIES FOLDER ${PARSED_VS_SOLUTION_FOLDER})
+    set_target_properties(${TARGET_NAME} PROPERTIES FOLDER "${PARSED_VS_SOLUTION_FOLDER}/${PARSED_LANGUAGE}")
+    
+
+   install(TARGETS ${TARGET_NAME}
+
+      LIBRARY DESTINATION ${SSBL_INSTALL_DIR}/Modules/${PARSED_LANGUAGE}
+   )    
+  
+
+    
+    
   endif()
   
 endfunction()
@@ -283,8 +287,8 @@ endfunction()
 #######################################################################################################
 function(CreateSwigTargets)
   set(options)
-  set(oneValueArgs  BASE_NAME COMPONENT_NAME VS_SOLUTION_FOLDER)
-  set(multiValueArgs)
+  set(oneValueArgs  BASE_NAME COMPONENT_NAME MODULE_SUFFIX VS_SOLUTION_FOLDER)
+  set(multiValueArgs DEPENDS)
   cmake_parse_arguments(PARSED "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
 
 
@@ -300,6 +304,9 @@ function(CreateSwigTargets)
     message(FATAL_ERROR "CreateSwigTargets: VS_SOLUTION_FOLDER has to be set")
   endif()
   
+  if(NOT PARSED_MODULE_SUFFIX)
+    message(FATAL_ERROR "CreateSwigTargets: MODULE_SUFFIX has to be set")
+  endif()
 
   
   find_package(SWIG 4.0)
@@ -310,10 +317,14 @@ function(CreateSwigTargets)
       ${PARSED_BASE_NAME}
     COMPONENT_NAME
       ${PARSED_COMPONENT_NAME}
+    MODULE_SUFFIX
+      ${PARSED_MODULE_SUFFIX}
     VS_SOLUTION_FOLDER
       ${PARSED_VS_SOLUTION_FOLDER}
     LANGUAGE
       PYTHON
+    DEPENDS
+      ${PARSED_DEPENDS}
   )
 
   
@@ -415,7 +426,7 @@ function(CreateLibraryTargetInternal)
       ARCHIVE DESTINATION ${SSBL_INSTALL_DIR}/lib
       PUBLIC_HEADER DESTINATION ${SSBL_INSTALL_DIR}/include
       PRIVATE_HEADER DESTINATION ${SSBL_INSTALL_DIR}/include
-  )
+  )  
   #set_target_properties (${PARSED_SSBL_BASE_NAME}-export PROPERTIES FOLDER Library)
   # Export install target
   install(EXPORT ${PARSED_BASE_NAME}-export
