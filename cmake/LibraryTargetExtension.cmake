@@ -243,41 +243,39 @@ function(CreateSwigTargetInternal)
   set (UseSWIG_TARGET_NAME_PREFERENCE STANDARD)
   set_property(SOURCE ${SWIG_INTERFACE_SPEC} PROPERTY CPLUSPLUS ON)
   set_property(SOURCE ${SWIG_INTERFACE_SPEC} PROPERTY USE_LIBRARY_INCLUDE_DIRECTORIES TRUE)
-    
-  if(PARSED_LANGUAGE MATCHES PYTHON)
-    find_package(Python3 COMPONENTS Interpreter Development REQUIRED)
-    
-    
-    set(TARGET_NAME "${PARSED_BASE_NAME}_${PARSED_COMPONENT_NAME}_${PARSED_MODULE_SUFFIX}_${PARSED_LANGUAGE}")
-    
-    swig_add_library(${TARGET_NAME}
-      LANGUAGE
-        python
-      SOURCES
-        ${SWIG_INTERFACE_SPEC})
-    target_include_directories(${TARGET_NAME}  PRIVATE  ${Python3_INCLUDE_DIRS})
-    
-    set_target_properties(${TARGET_NAME} PROPERTIES OUTPUT_NAME "${PARSED_BASE_NAME}_${PARSED_COMPONENT_NAME}_${PARSED_MODULE_SUFFIX}")
-    
-    
-    unset(SWIG_LIB_DEPENDENS)
-    list(APPEND SWIG_LIB_DEPENDENS ${Python3_LIBRARIES})
-    list(APPEND SWIG_LIB_DEPENDENS ${PARSED_DEPENDS})
-   
-    target_link_libraries(${TARGET_NAME}  PRIVATE ${SWIG_LIB_DEPENDENS})
-
-    set_property(TARGET ${TARGET_NAME} PROPERTY SWIG_USE_LIBRARY_INCLUDE_DIRECTORIES TRUE)
-    set_target_properties(${TARGET_NAME} PROPERTIES FOLDER "${PARSED_VS_SOLUTION_FOLDER}/${PARSED_LANGUAGE}")
-    
-
-   install(TARGETS ${TARGET_NAME}
-
-      LIBRARY DESTINATION ${SSBL_INSTALL_DIR}/Modules/${PARSED_LANGUAGE}
-   )    
   
+  if(SSBL_BUILD_PYTHON_MODULES)
+    if(PARSED_LANGUAGE MATCHES PYTHON)
+      find_package(Python3 COMPONENTS Interpreter Development REQUIRED)
+      
+      
+      set(TARGET_NAME "${PARSED_BASE_NAME}_${PARSED_COMPONENT_NAME}_${PARSED_MODULE_SUFFIX}_${PARSED_LANGUAGE}")
+      
+      swig_add_library(${TARGET_NAME}
+        LANGUAGE
+          python
+        SOURCES
+          ${SWIG_INTERFACE_SPEC})
+      target_include_directories(${TARGET_NAME}  PRIVATE  ${Python3_INCLUDE_DIRS})
+      
+      set_target_properties(${TARGET_NAME} PROPERTIES OUTPUT_NAME "${PARSED_BASE_NAME}_${PARSED_COMPONENT_NAME}_${PARSED_MODULE_SUFFIX}")
+      
+      
+      unset(SWIG_LIB_DEPENDENS)
+      list(APPEND SWIG_LIB_DEPENDENS ${Python3_LIBRARIES})
+      list(APPEND SWIG_LIB_DEPENDENS ${PARSED_DEPENDS})
+     
+      target_link_libraries(${TARGET_NAME}  PRIVATE ${SWIG_LIB_DEPENDENS})
 
-    
-    
+      set_property(TARGET ${TARGET_NAME} PROPERTY SWIG_USE_LIBRARY_INCLUDE_DIRECTORIES TRUE)
+      set_target_properties(${TARGET_NAME} PROPERTIES FOLDER "${PARSED_VS_SOLUTION_FOLDER}/${PARSED_LANGUAGE}")
+      
+
+     install(TARGETS ${TARGET_NAME}
+
+        LIBRARY DESTINATION ${SSBL_INSTALL_DIR}/Modules/${PARSED_LANGUAGE}
+     )
+    endif()
   endif()
   
 endfunction()
