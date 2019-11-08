@@ -48,24 +48,36 @@ if(SWIG_FOUND)
   set(SWIG_INTERFACE_SPEC ${CMAKE_CURRENT_BINARY_DIR}/${COMPONENT_SUFFIX}-skeleton-ipython/TiM5xx.i)
   configure_file(${SWIG_INPUT} ${SWIG_INTERFACE_SPEC} @ONLY)
   set (UseSWIG_TARGET_NAME_PREFERENCE STANDARD)
-  
+
   set_property(SOURCE ${SWIG_INTERFACE_SPEC} PROPERTY CPLUSPLUS ON)
+  set_property(SOURCE ${SWIG_INTERFACE_SPEC} PROPERTY USE_LIBRARY_INCLUDE_DIRECTORIES TRUE)
   
-  swig_add_library(${COMPONENT_SUFFIX}-ipython
+ # set(t ${COMPONENT_SUFFIX}-ipython)
+  set(t "xl")
+  swig_add_library(${t}
                  LANGUAGE
                    python
                  SOURCES
                    ${SWIG_INTERFACE_SPEC})
 
-  #target_include_directories(swigtest  PRIVATE  ${Python3_INCLUDE_DIRS})
   
-  get_target_property(OUT ${COMPONENT_SUFFIX}-ipython INTERFACE_LINK_LIBRARIES)
-  get_target_property(OUT ${COMPONENT_SUFFIX}-ipython INTERFACE_LINK_LIBRARIES)
+  target_include_directories(${t}  PRIVATE  ${Python3_INCLUDE_DIRS})
   
+  get_target_property(OUT ssbl::tim5xx_1_0_0::static INTERFACE_INCLUDE_DIRECTORIES)
+ 
   message(STATUS "Found SWIG ${Python3_LIBRARIES}")
   message(STATUS "Found SWIG ${OUT}")
   
-  target_link_libraries(${COMPONENT_SUFFIX}-ipython  PRIVATE ${Python3_LIBRARIES} ssbl::tim5xx_1_0_0::static)
+  unset(SWIG_LIB_DEPENDENS)
+  
+  list(APPEND SWIG_LIB_DEPENDENS ${Python3_LIBRARIES})
+  list(APPEND SWIG_LIB_DEPENDENS "ssbl::tim5xx_1_0_0::static")
+ 
+  target_link_libraries(${t}  PRIVATE ${SWIG_LIB_DEPENDENS})
+  get_target_property(OUT ${t} SWIG_USE_LIBRARY_INCLUDE_DIRECTORIES)
+    message(STATUS "Found SWIG ${OUT}")
+
+  set_property(TARGET ${t}  PROPERTY SWIG_USE_LIBRARY_INCLUDE_DIRECTORIES TRUE)
   
 else()
 message(STATUS "SWIG not found")

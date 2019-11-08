@@ -271,7 +271,7 @@ function(CreateLibraryTargetInternal)
 
   target_compile_options(${TARGET_NAME} PRIVATE "$<$<CONFIG:DEBUG>:${LIB_DBG_FLAGS}>")
   target_compile_options(${TARGET_NAME} PRIVATE "$<$<CONFIG:RELEASE>:${LIB_REL_FLAGS}>")
-  target_link_libraries(${TARGET_NAME}  PRIVATE ${LIB_DEPENDENS} )
+  target_link_libraries(${TARGET_NAME}  PUBLIC ${LIB_DEPENDENS} )
 
     # CMake 3.10 does not support this yet
     if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")

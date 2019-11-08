@@ -1,8 +1,10 @@
-%module SwigTest
+%module TiM5xx
+
 
 %{
-#include "@PROJECT_SOURCE_DIR@/src/include/SwigTest.h"
+#include "@PROJECT_SOURCE_DIR@/include/TiM5xx_Factory.h"
+#include "@PROJECT_SOURCE_DIR@/include/TiM5xx.h"
 %}
 
 /* Let's just grab the original header file here */
-%include "@PROJECT_SOURCE_DIR@/src/include/SwigTest.h"
+%include "@PROJECT_SOURCE_DIR@/include/TiM5xx.h"
