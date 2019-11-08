@@ -1,4 +1,4 @@
-%module TiM5xx
+%module @SWIG_MODULE_NAME@
 
 %import "@COMPONENTS_TOP_DIR@Base/Core/Common/include/Assert.h"
 %import "@COMPONENTS_TOP_DIR@Base/Core/Common/include/CallbackProvider.h"
@@ -45,7 +45,6 @@
 
 %{
 #include "@PROJECT_SOURCE_DIR@/include/@FAMILY_NAME@.h"
-
 %}
 
 %include "@PROJECT_SOURCE_DIR@/include/@FAMILY_NAME@.h"
