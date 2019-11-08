@@ -324,11 +324,8 @@ function(CreateSwigTargets)
     DEPENDS
       ${PARSED_DEPENDS}
   )
-
-  
   endif()
-
-
+  
 endfunction()
 
 #######################################################################################################
@@ -371,17 +368,14 @@ function(CreateLibraryTargetInternal)
   
   GetFullLibraryName(${PARSED_BASE_NAME} ${PARSED_COMPONENT_NAME} ${PARSED_BUILD_MODE} LIBRARY_FILE_NAME)
   
-  
   add_library(${TARGET_NAME} ${PARSED_BUILD_MODE} ${PARSED_SOURCES})
   add_library(${ALIAS_TARGET_NAME} ALIAS ${TARGET_NAME} )
-
 
   set_target_properties(${TARGET_NAME} PROPERTIES OUTPUT_NAME ${LIBRARY_FILE_NAME})
   set_target_properties(${TARGET_NAME} PROPERTIES FOLDER ${PARSED_VS_SOLUTION_NAME})
   set_target_properties(${TARGET_NAME} PROPERTIES DEBUG_POSTFIX "-dbg")
   set_target_properties(${TARGET_NAME} PROPERTIES RELEASE_POSTFIX "-rel")
   set_target_properties(${TARGET_NAME} PROPERTIES PREFIX "")
-
 
   if(PARSED_DEPENDS)
     unset(LIB_DEPENDENS)
@@ -462,16 +456,20 @@ function(CreateLibraryTargetInternal)
  
   get_filename_component(ComponentPathAbsolute "${PROJECT_SOURCE_DIR}" REALPATH)
 
-  get_filename_component(lastDir "${ComponentPathAbsolute}" NAME)
-  
 
-  file(GLOB_RECURSE InstallHeaders RELATIVE "${ComponentPathAbsolute}" "${ComponentPathAbsolute}/*.h" "${ComponentPathAbsolute}/*.hpp")
+  file(GLOB_RECURSE InstallHeaders ABSOLUTE "${ComponentPathAbsolute}" "${ComponentPathAbsolute}/*.h" "${ComponentPathAbsolute}/*.hpp")
 
   foreach(Header ${InstallHeaders})
+    message(STATUS "MM:  ${Header}")
     get_filename_component(LDIR ${Header} DIRECTORY )
-    string(FIND "${LDIR}" "include" out)
-    string(REPLACE "Components/" "" LDIROUT ${LDIR} )
-    install(FILES ${Header} DESTINATION ${SSBL_INSTALL_DIR}/include/${lastDir}/${LDIROUT})
+    string(FIND "${LDIR}" "Components/" out REVERSE )
+    
+    string(SUBSTRING ${LDIR} ${out} -1 lastDir)
+    string(SUBSTRING ${lastDir}  11 -1 lastDir)
+    
+    message(STATUS "MM:  ${lastDir}")
+    
+    install(FILES ${Header} DESTINATION ${SSBL_INSTALL_DIR}/include/${lastDir})
 
   endforeach()
     
