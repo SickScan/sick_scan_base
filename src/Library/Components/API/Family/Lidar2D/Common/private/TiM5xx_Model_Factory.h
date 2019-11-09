@@ -1,6 +1,6 @@
 /**
  * \file
- * \brief Factory to create Lidar2d objects
+ * \brief Factory to create SickLidar2d objects
  *
  * Copyright 2019, SICK AG, Waldkirch
  *
@@ -17,17 +17,15 @@
  * limitations under the License.
  */
 
-#pragma once
 #include <string>
-
 #include "API/Family/Lidar2D/Common/include/Lidar2D_Model.h"
 
+#ifdef _MSC_VER
+#pragma warning(disable : 4307)
+#endif
 
 namespace ssbl {
 
-
-
-
-
+    Lidar2d_Model* Create_TiM5xx_Model(std::string& ModelName, std::string& ModelVersion);
 
 }  // namespace ssbl

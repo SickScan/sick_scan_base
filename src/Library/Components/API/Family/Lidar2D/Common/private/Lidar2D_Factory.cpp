@@ -18,10 +18,12 @@
  */
 
 #include "API/Family/Lidar2D/Common/include/Lidar2D.h"
-#include "API/Family/Lidar2D/Model/TiM5xx_V0.0.1/include/TiM5xx.h"
-
+#include "API/Family/Lidar2D/Common/private/TiM5xx_Model_Factory.h"
+#include "API/Family/Lidar2D/Common/private/TiM5xx_Skeleton_Factory.h"
 #include "Base/Core/Common/include/Hash.h"
 #include "Base/Logger/include/Logger.h"
+
+#include <string>
 
 using namespace std;
 
@@ -31,35 +33,55 @@ using namespace std;
 
 namespace ssbl {
 
+struct Lidars_t {
+  string sensorName_;
+  string familyName_;
+  string skeletonVersion_;
+  string modelVersion_;
+};
+
+Lidars_t LidarLookUp[] = {{"TiM561", "TiM5xx", "1.0.0", "1.0.0"},
+                          {"TiM571", "TiM5xx", "1.0.0", "1.0.0"},
+                          {"TiM581", "TiM5xx", "1.0.0", "1.0.0"}};
+
 //===========================================================================
 //===========================================================================
-Lidar2d* CreateSickLidar2d(string ModelName, string IP) {
-  Lidar2d* pRet = nullptr;
+bool Lidar2d::Create_Lidar2d(string& ModelName, string& IP,
+                             string& SkeletonVersion) {
+  bool bRet = true;
+
+  SensorSkeleton* pSkeleton = nullptr;
   uint64_t test = hash_64_fnv1a(ModelName.c_str(), ModelName.size());
 
   switch (test) {
     //--------------------------
-    case hash_64_fnv1a_const("TiM551"):
-      pRet = new TiM551(IP);
-      break;
-    //--------------------------
     case hash_64_fnv1a_const("TiM561"):
-      pRet = new TiM561(IP);
+      pSkeleton = Create_TiM5xx_Skeleton(ModelName, SkeletonVersion, IP);
+      pLidarModel_ =
+          Create_TiM5xx_Model(ModelName, pSkeleton->GetBehavorialVersion());
       break;
     //--------------------------
     case hash_64_fnv1a_const("TiM571"):
-      pRet = new TiM571(IP);
+      pSkeleton = Create_TiM5xx_Skeleton(ModelName, SkeletonVersion, IP);
+      pLidarModel_ =
+          Create_TiM5xx_Model(ModelName, pSkeleton->GetBehavorialVersion());
       break;
     //--------------------------
     case hash_64_fnv1a_const("TiM581"):
-      pRet = new TiM581(IP);
+      pSkeleton = Create_TiM5xx_Skeleton(ModelName, SkeletonVersion, IP);
+      pLidarModel_ =
+          Create_TiM5xx_Model(ModelName, pSkeleton->GetBehavorialVersion());
       break;
     //--------------------------
     default:
+      bRet = false;
       SSBL_LOG_ERROR("No such device: %s", ModelName.c_str());
-
       break;
   }
-  return pRet;
+
+  if (bRet) {
+  }
+
+  return bRet;
 }
 }  // namespace ssbl

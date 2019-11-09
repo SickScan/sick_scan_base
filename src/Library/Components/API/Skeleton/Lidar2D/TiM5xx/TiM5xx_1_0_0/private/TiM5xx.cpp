@@ -48,6 +48,7 @@ TiM5xx::TiM5xx(const std::string& Ip, const std::string& interfaceName,const std
 	FunctionRepo.RegisterComObj("TiM5xxRebootDevice",RebootDevice_TiM5xx_Func::Create); 
 	FunctionRepo.RegisterComObj("TiM5xxLoadFactoryDefaults",LoadFactoryDefaults_TiM5xx_Func::Create); 
 	FunctionRepo.RegisterComObj("TiM5xxLoadApplicationDefaults",LoadApplicationDefaults_TiM5xx_Func::Create); 
+  BehavorialVersion_ = "1.0.0";
 }
 
 TiM5xx::~TiM5xx()

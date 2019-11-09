@@ -1,6 +1,6 @@
 /**
  * \file
- * \brief Factory to create Lidar2d objects
+ * \brief Family API for TiM5xx Family (TiM510 is not supported)
  *
  * Copyright 2019, SICK AG, Waldkirch
  *
@@ -18,16 +18,18 @@
  */
 
 #pragma once
-#include <string>
 
 #include "API/Family/Lidar2D/Common/include/Lidar2D_Model.h"
-
 
 namespace ssbl {
 
 
+class TiM5xx_1_0_0_Model : public Lidar2d_Model {
+ public:
+  TiM5xx_1_0_0_Model(){};
+  ~TiM5xx_1_0_0_Model(){};
 
 
-
+};
 
 }  // namespace ssbl

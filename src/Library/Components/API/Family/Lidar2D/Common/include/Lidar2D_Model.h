@@ -1,6 +1,6 @@
 /**
  * \file
- * \brief Factory to create Lidar2d objects
+ * \brief Lidar2d types and definitions
  *
  * Copyright 2019, SICK AG, Waldkirch
  *
@@ -18,16 +18,15 @@
  */
 
 #pragma once
-#include <string>
-
-#include "API/Family/Lidar2D/Common/include/Lidar2D_Model.h"
-
 
 namespace ssbl {
 
+  class Lidar2d_Model {
+    
+    public:
+      Lidar2d_Model(){};
+      ~Lidar2d_Model(){};
 
-
-
-
+  };
 
 }  // namespace ssbl

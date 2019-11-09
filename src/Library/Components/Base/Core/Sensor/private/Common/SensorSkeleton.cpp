@@ -26,6 +26,7 @@ using namespace ssbl;
 //=============================================================================
 SensorSkeleton::SensorSkeleton(size_t txBufSize, size_t rxBufSize)
     : stateInternal_(NOT_INITIALIZED),
+      BehavorialVersion_("0.0.0"),
       localName_("undefined"),
       localId_(std::hash<std::string>()(localName_)),
       max_tx_buffer_size_(txBufSize),
@@ -43,6 +44,7 @@ SensorSkeleton::SensorSkeleton(size_t txBufSize, size_t rxBufSize)
 SensorSkeleton::SensorSkeleton(const std::string &localName,
                                        size_t txBufSize, size_t rxBufSize)
     : stateInternal_(NOT_INITIALIZED),
+      BehavorialVersion_("0.0.0"),
       localName_(localName),
       localId_(std::hash<std::string>()(localName_)),
       max_tx_buffer_size_(txBufSize),
