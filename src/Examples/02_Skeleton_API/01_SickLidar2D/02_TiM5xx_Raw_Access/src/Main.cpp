@@ -50,8 +50,7 @@ myScanConfig_t gScanConfig;
 int main(void) {
   mStartMeasure_TiM5xx_Func
       startFunction;  // Function which puts the Lidar into measurement mode
-  Run_TiM5xx_Func
-      runFunction;  // Function which puts the Lidar into run mode
+  Run_TiM5xx_Func runFunction;  // Function which puts the Lidar into run mode
   DataOutputRange_TiM5xx_Var
       orVariable;  // Variable which contains start angle, stop angle and angle
                    // resolution

@@ -23,15 +23,30 @@
 #include <memory>
 #include <string>
 #include <vector>
-#include "API/Family/Lidar2d/Common/include/Lidar2d_Models.h"
+
 #include "Base/Types/include/SickSensorReturnCodes.h"
 
 namespace ssbl {
 
 // Forward declarations
-class SickSensorSkeleton;
+class Lidar2d_Model;
+class SensorSkeleton;
 class ReconnectTimer;
 class VariableEventQueue;
+
+typedef enum {
+  LIDAR2D_STATE_ERROR,
+  LIDAR2D_STATE_INIT,
+  LIDAR2D_STATE_IDLE,
+  LIDAR2D_STATE_BUSY_IDLE,
+  LIDAR2D_STATE_STARTED,
+  LIDAR2D_STATE_STOPPED,
+} Lidar2dState;
+
+typedef struct {
+  Lidar2dState state_;
+  std::string name_;
+} Lidar2dStateText;
 
 /**
  * @class Lidar2d
@@ -43,85 +58,56 @@ class Lidar2d {
   /**
    * @brief Construct a new Sick 2D Lidar object
    *
-   * @param Model the model to create
-   * @param IP of form xxx.yyy.zzz
-   */
-  Lidar2d(Lidar2dModel Model, const std::string& IP);
-
-  /**
-   * @brief Construct a new Sick 2D Lidar object
-   *
    * @param ModelName name of the Lidar2dModel to be created
    * @param IP of form xxx.yyy.zzz
    */
-  Lidar2d(std::string& ModelName, std::string& IP);
+  Lidar2d(std::string ModelName, std::string IP, std::string SkeletonVersion);
 
   /**
    * @brief Destroy the Sick 2D Lidar object
    *
    */
-  virtual ~Lidar2d();
-
-  /**
-   * @brief Initialize the Lidar for receiving scan events via callback, will
-   * establish connection and configure the sensor for operation
-   *
-   * @param StartAngle in 1/10000째 in Lidar2d coordinate system
-   * @param StopAngle in 1/10000째 in Lidar2d coordinate system
-   * @param OnScanCb  callback to be trigger when scan data arrives
-   * @param cbParam user defined callback parameter
-   * @return SensorResult SSBL_SUCCES if successful
-   */
-  virtual SensorResult Initialize(int32_t StartAngle, int32_t StopAngle,
-                                  std::function<void(uint64_t*)> OnScanCb,
-                                  uint64_t cbParam) = 0;
+  virtual ~Lidar2d(){};
 
   /**
    * @brief Initialize the Lidar for receiving scan events via queue, will
    * establish connection and configure the sensor for operation
    *
-   * @param StartAngle in 1/10000째 in Lidar2d coordinate system
-   * @param StopAngle in 1/10000째 in Lidar2d coordinate system
+   * @param StartAngle in 1/10000� in Lidar2d coordinate system
+   * @param StopAngle in 1/10000� in Lidar2d coordinate system
    * @param ScanProcessor user defined function to convert and publish scan data
    * @return SensorResult SSBL_SUCCES if successful
    */
-  virtual SensorResult Initialize(
-      int32_t StartAngle, int32_t StopAngle,
-      std::function<void(uint64_t*)> ScanProcessor) = 0;
+  SensorResult Initialize(int32_t StartAngle, int32_t StopAngle,
+                          std::function<void(uint64_t*)> ScanProcessor);
 
   /**
    * @brief Start receiving scan data
    *
    * @return SensorResult SSBL_SUCCES if successful
    */
-  virtual SensorResult Start() {
-    return ProcessStateMachine(LIDAR2D_STATE_STARTED);
-  };
+  SensorResult Start(void);
 
   /**
    * @brief Stop receiving scan data
    *
    * @return SensorResult SSBL_SUCCES if successful
    */
-  virtual SensorResult Stop() {
-    return ProcessStateMachine(LIDAR2D_STATE_STOPPED);
-  };
+  SensorResult Stop(void);
 
   /**
    * @brief Disconnect from the Lidar
    *
    * @return SensorResult SSBL_SUCCES if successful
    */
-  virtual SensorResult Disconnect() {
-    return ProcessStateMachine(LIDAR2D_STATE_IDLE);
-  };
+  SensorResult Disconnect(void);
 
   /**
    * @brief Blocking wait for scans. If scan is received the scan processor will
    * be called
    *
    */
-  virtual bool WaitForScanEvent(uint32_t TimeoutMs) = 0;
+  bool WaitForScanEvent(uint32_t TimeoutMs);
 
   /**
    * @brief Get device name from sensor
@@ -132,153 +118,46 @@ class Lidar2d {
   SensorResult GetDeviceName(std::string& DeviceName);
 
   /**
+   * @brief Disable reconnect attempts if sensor is lost
+   *
+   */
+  void DisableAutoReconnect();
+
+  /**
    * @brief Get the capabilities of the Lidar
    *
-   * @return Lidar2dCapabilities
+   * @return SickLidar2dCapabilities
    */
-  Lidar2dCapabilities GetCapabilities(void);
+  // SickLidar2dCapabilities GetCapabilities(void);
 
   /**
    * @brief Get a pointer to the underlying skeleton
    *
    * @return std::shared_ptr<SickSensorSkeleton*>
    */
-  std::shared_ptr<SickSensorSkeleton*> GetSkeleton() {
-    return std::make_shared<SickSensorSkeleton*>(pLidar2D_);
-  }
+  // std::shared_ptr<SickSensorSkeleton*> GetSkeleton() {
+  //  return std::make_shared<SickSensorSkeleton*>(pLidar2D_);
+  //}
 
   /**
    * @brief Get the Lidar State
    *
-   * @return Lidar2dState
+   * @return SickLidar2dState
    */
-  Lidar2dState GetLidarState();
-
-  /**
-   * @brief Disable reconnect attempts if sensor is lost
-   *
-   */
-  void DisableAutoReconnect() { AutoReconnect_ = false; }
+  Lidar2dState GetLidarState(void);
 
  protected:
-  /**
-   * @brief Set the initialized flag (required by derived class)
-   *
-   */
-  void SetInitialized();
-
-  /**
-   * @brief Handle a Lidar configure request (implemented by derived class)
-   *
-   * @return SensorResult if successful
-   */
-  virtual SensorResult HandleLidarConfigure() = 0;
-  /**
-   * @brief Handle a Lidar start request (implemented by derived class)
-   *
-   * @return SensorResult if successful
-   */
-  virtual SensorResult HandleLidarStart() = 0;
-
-  /**
-   * @brief Handle a Lidar stop request (implemented by derived class)
-   *
-   * @return SensorResult if successful
-   */
-  virtual SensorResult HandleLidarStop() = 0;
-
-  /**
-   * @brief Trigger the Lidar state machine state (will call internal state
-   * machine MoveToLidarState)
-   *
-   * @param TargetState the desired state
-   * @return SensorResult if successful
-   */
-  SensorResult ProcessStateMachine(Lidar2dState TargetState);
-
  private:
-  friend class ReconnectTimer;
-  /**
-   * @brief Set the Lidar statemachine to state LidarState
-   *
-   * @param LidarState
-   */
-  void SetLidarState(Lidar2dState LidarState);
-  /**
-   * @brief Process the internal state machine
-   *
-   * @param TargetState the desired state
-   * @return SensorResult SSBL_SUCCESS on success
-   */
-  SensorResult MoveToLidarState(Lidar2dState TargetState);
+  bool Create_Lidar2d(
+      std::string const& ModelName,
+      std::string const& SkeletonVersion, std::string const& IP
+                      );
 
-  /**
-   * @brief Handle transition from init to TargetState
-   *
-   * @param TargetState
-   * @return SensorResult
-   */
-  SensorResult HandleStateInit(Lidar2dState TargetState);
-  /**
-   * @brief Handle transition from idle to TargetState
-   *
-   * @param TargetState
-   * @return SensorResult
-   */
-  SensorResult HandleStateIdle(Lidar2dState TargetState);
-  /**
-   * @brief Handle transition from busy idle to TargetState
-   *
-   * @param TargetState
-   * @return SensorResult
-   */
-  SensorResult HandleStateBusyIdle(Lidar2dState TargetState);
-  /**
-   * @brief Handle transition from start to TargetState
-   *
-   * @param TargetState
-   * @return SensorResult
-   */
-  SensorResult HandleStateStart(Lidar2dState TargetState);
-  /**
-   * @brief Handle transition from stop to TargetState
-   *
-   * @param TargetState
-   * @return SensorResult
-   */
-  SensorResult HandleStateStop(Lidar2dState TargetState);
+  std::string ModelName_;
+  std::string SkeletonVersion_;
+  std::string IP_;
 
-  /**
-   * @brief Handle transition to error state
-   *
-   * @param TargetState
-   * @return SensorResult
-   */
-  SensorResult HandleStateError(Lidar2dState TargetState,
-                                SensorResult prevResult, std::string error);
-  ReconnectTimer* pReconnectTimer;
-
-  /**
-   * @brief Try to handle a device lost event
-   *
-   * @param val
-   */
-  void HandleDeviceLost(int32_t val);
-
- protected:
-  Lidar2dModel Model_;        ///<
-  SickSensorSkeleton* pLidar2D_;  ///< Pointer to the skelton
-  bool IsInitialized_;            ///< Is this Lidar initialized?
-  bool AutoReconnect_;            ///< Shall we try to reconnect on device lost?
-  Lidar2dState LidarState_;   ///< The state
-  Lidar2dState StoredState_;  ///< Stored state - required when device is
-                                  ///< lost and we need go through init again
-  int32_t StartAngle_;            ///< measurement start
-  int32_t StopAngle_;             ///< measurement stop
-  std::function<void(uint64_t*)> CallbackFunc_;  ///< scan event callback
-  uint64_t CallbackParam_;  ///< scan even callback parameter
-  std::function<void(uint64_t*)>
-      ScanProcessorFunc_;  ///< scan processor callback
+  Lidar2d_Model* pLidarModel_;
 };
 
 }  // namespace ssbl

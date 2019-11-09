@@ -57,7 +57,7 @@
 
 using namespace std;
 using namespace ssbl;
-using namespace DevTiM5xxSkeleton;
+using namespace TiM5xx_1_0_0_Skeleton;
 
 // Callback function which will be triggered when scan data arrives
 void OnScan(uint64_t *pEventData);
@@ -194,16 +194,16 @@ void dumpConfig(ParamHandle *pParamHandle, myScanConfig_t *gScanConfig) {
 }
 
 int main(int argc, char *argv[]) {
-  mStartMeasure_TiM5xxSkeleton_Func
+  mStartMeasure_TiM5xx_Func
       startFunction;  // Function which puts the Lidar into measurement mode
-  Run_TiM5xxSkeleton_Func
+  Run_TiM5xx_Func
       runFunction;  // Function which puts the Lidar into run mode
-  DataOutputRange_TiM5xxSkeleton_Var
+  DataOutputRange_TiM5xx_Var
       orVariable;  // Variable which contains start angle, stop angle and angle
                    // resolution
-  ScanDataConfig_TiM5xxSkeleton_Var
+  ScanDataConfig_TiM5xx_Var
       sdcVariable;  // Variable which contains the scan output configuration
-  ScanData_TiM5xxSkeleton_Var scanDataVariable;  // Scan data variable
+  ScanData_TiM5xx_Var scanDataVariable;  // Scan data variable
   std::vector<std::string> keys;
 
   printf("5_scan_dump_example\n");
@@ -246,7 +246,7 @@ int main(int argc, char *argv[]) {
   //===============================================================================
   // Step 1) Create a Lidar Skeleton (change the IP to your needs)
   //===============================================================================
-  auto DUT = new TiM5xxSkeleton(ipAddress);
+  auto DUT = CreateSensorSkeleton("TiM576", ipAddress);
   dutInitialized = true;
   //===============================================================================
   // Step 2) Connect to the Lidar
@@ -379,7 +379,7 @@ int main(int argc, char *argv[]) {
 // Callback function which will be triggered when
 // scan data arrives
 void OnScan(uint64_t *pEventData) {
-  ScanData_TiM5xxSkeleton_Var *pVar;
+  ScanData_TiM5xx_Var *pVar;
   SsblEventContainer *pEvent =
       reinterpret_cast<SsblEventContainer *>(pEventData);
   myScanConfig_t *pCfg =
@@ -391,7 +391,7 @@ void OnScan(uint64_t *pEventData) {
   printf("Scan stop angle: %.2lf degrees\n",
          (double)pCfg->stopAngle / 10000.00);
 
-  pVar = dynamic_cast<ScanData_TiM5xxSkeleton_Var *>(pEvent->pComObj);
+  pVar = dynamic_cast<ScanData_TiM5xx_Var *>(pEvent->pComObj);
 
   int32_t startAngle =
       pVar->Value_.aDataChannel16[0].DataChannelHdr.diStartAngle;

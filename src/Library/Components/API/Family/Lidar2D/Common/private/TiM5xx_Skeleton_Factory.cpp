@@ -17,9 +17,7 @@
  * limitations under the License.
  */
 
-#include "API/Family/Lidar2D/Common/include/Lidar2D.h"
-#include "API/Family/Lidar2D/Model/TiM5xx_V0.0.1/include/TiM5xx.h"
-
+#include "API/Skeleton/Lidar2D/TiM5xx/TiM5xx_1_0_0/include/TiM5xx_Factory.h"
 #include "Base/Core/Common/include/Hash.h"
 #include "Base/Logger/include/Logger.h"
 
@@ -32,34 +30,25 @@ using namespace std;
 namespace ssbl {
 
 //===========================================================================
-//===========================================================================
-Lidar2d* CreateSickLidar2d(string ModelName, string IP) {
-  Lidar2d* pRet = nullptr;
-  uint64_t test = hash_64_fnv1a(ModelName.c_str(), ModelName.size());
-
+SensorSkeleton* Create_TiM5xx_Skeleton(string const& ModelName,
+                                       string const& SkeletonVersion,
+                                       string const& IP) {
+  SensorSkeleton* pRet = nullptr;
+  uint64_t test =
+      hash_64_fnv1a(SkeletonVersion.c_str(), SkeletonVersion.size());
   switch (test) {
     //--------------------------
-    case hash_64_fnv1a_const("TiM551"):
-      pRet = new TiM551(IP);
-      break;
-    //--------------------------
-    case hash_64_fnv1a_const("TiM561"):
-      pRet = new TiM561(IP);
-      break;
-    //--------------------------
-    case hash_64_fnv1a_const("TiM571"):
-      pRet = new TiM571(IP);
-      break;
-    //--------------------------
-    case hash_64_fnv1a_const("TiM581"):
-      pRet = new TiM581(IP);
+    case hash_64_fnv1a_const("1.0.0"):
+      pRet = TiM5xx_1_0_0_Skeleton::CreateSensorSkeleton(ModelName, IP);
       break;
     //--------------------------
     default:
-      SSBL_LOG_ERROR("No such device: %s", ModelName.c_str());
+      SSBL_LOG_ERROR("Skeleton version %s not found for device %s",
+                     SkeletonVersion.c_str(), ModelName.c_str());
 
       break;
   }
+
   return pRet;
 }
 }  // namespace ssbl

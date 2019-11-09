@@ -1,6 +1,6 @@
 /**
  * \file
- * \brief Factory to create Lidar2d objects
+ * \brief Factory to create SickLidar2d objects
  *
  * Copyright 2019, SICK AG, Waldkirch
  *
@@ -17,19 +17,17 @@
  * limitations under the License.
  */
 
-#pragma once
+#include <string>
+#include "API/Skeleton/Lidar2D/TiM5xx/TiM5xx_1_0_0/include/TiM5xx_Factory.h"
 
-#include "API/Families/Lidar2d/include/Lidar2d.h"
+#ifdef _MSC_VER
+#pragma warning(disable : 4307)
+#endif
 
 namespace ssbl {
 
-/**
- * @brief Create Lidar2d
- *
- * @param ModelName name of the Lidar2dModel to be created
- * @param IP of form xxx.yyy.zzz
- * @return Lidar2d* or NULL
- */
-Lidar2d* CreateLidar2d(std::string ModelName, std::string IP);
+SensorSkeleton* Create_TiM5xx_Skeleton(std::string const& ModelName,
+                                       std::string const& SkeletonVersion,
+                                       std::string const& IP);
 
 }  // namespace ssbl

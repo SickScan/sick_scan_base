@@ -32,4 +32,5 @@ CreateExampleTarget(
   ADDITIONAL_LIBRARIES
     tinyxml::tinyxml
     toojpeg::toojpeg
+    ssbl::tim5xx_1_0_0_skeleton::static
 )

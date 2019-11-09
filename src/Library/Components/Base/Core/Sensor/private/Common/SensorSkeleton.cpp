@@ -26,6 +26,7 @@ using namespace ssbl;
 //=============================================================================
 SensorSkeleton::SensorSkeleton(size_t txBufSize, size_t rxBufSize)
     : stateInternal_(NOT_INITIALIZED),
+      BehavorialVersion_("0.0.0"),
       localName_("undefined"),
       localId_(std::hash<std::string>()(localName_)),
       max_tx_buffer_size_(txBufSize),
@@ -40,9 +41,10 @@ SensorSkeleton::SensorSkeleton(size_t txBufSize, size_t rxBufSize)
 
 //=============================================================================
 //=============================================================================
-SensorSkeleton::SensorSkeleton(const std::string &localName,
-                                       size_t txBufSize, size_t rxBufSize)
+SensorSkeleton::SensorSkeleton(const std::string &localName, size_t txBufSize,
+                               size_t rxBufSize)
     : stateInternal_(NOT_INITIALIZED),
+      BehavorialVersion_("0.0.0"),
       localName_(localName),
       localId_(std::hash<std::string>()(localName_)),
       max_tx_buffer_size_(txBufSize),
@@ -292,16 +294,14 @@ SensorResult SensorSkeleton::Disconnect(bool force) {
 
 //=============================================================================
 //=============================================================================
-SensorVariable *SensorSkeleton::CreateVariable(
-    const std::string &varName) {
+SensorVariable *SensorSkeleton::CreateVariable(const std::string &varName) {
   std::string final = SensorName_ + varName;
   return VariableRepo.Create(final);
 }
 
 //=============================================================================
 //=============================================================================
-SensorFunction *SensorSkeleton::CreateFunction(
-    const std::string &funcName) {
+SensorFunction *SensorSkeleton::CreateFunction(const std::string &funcName) {
   std::string final = SensorName_ + funcName;
   return FunctionRepo.Create(final);
 }

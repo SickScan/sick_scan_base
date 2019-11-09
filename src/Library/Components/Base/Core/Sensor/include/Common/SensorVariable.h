@@ -35,9 +35,9 @@ class SensorVariable : public ComObj {
   using ::ssbl::ComObj::GetComName;
 
   SensorVariable(const std::string& Name, const std::string& comName,
-                     uint16_t idx, VariableDirection rwDir,
-                     AccessLevel readAccessLvl, AccessLevel writeAccessLvl,
-                     int32_t eventIdx)
+                 uint16_t idx, VariableDirection rwDir,
+                 AccessLevel readAccessLvl, AccessLevel writeAccessLvl,
+                 int32_t eventIdx)
       : ComObj(Name, comName, idx),
         rwDir_(rwDir),
         readAccessLvl_(readAccessLvl),

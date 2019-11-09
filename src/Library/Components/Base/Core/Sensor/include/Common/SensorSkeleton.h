@@ -72,7 +72,7 @@ class SensorSkeleton : public CallbackProvider {
   //
   ============================================================================*/
   SensorSkeleton(const std::string& localName, size_t txBufSize,
-                     size_t rxBufSize);
+                 size_t rxBufSize);
 
   //============================================================================
   //! \brief Destructor
@@ -285,11 +285,19 @@ class SensorSkeleton : public CallbackProvider {
   //! \brief Read the serial number
   //
   /*!
-  //  \param SN will contain the SN upon successful read
-  //  \return SSBL_SUCCESS on success
+  //  \return Serial Number as string
   //
   ============================================================================*/
   virtual std::string GetSerialNumber() { return "NOT IMPLEMENTED YET!"; };
+
+  //============================================================================
+  //! \brief Get comptiable behavorial version
+  //
+  /*!
+  //  \return Behavorial version as string
+  //
+  ============================================================================*/
+  std::string GetBehavorialVersion() { return BehavorialVersion_; };
 
  protected:
   virtual Protocol* DeviceSpecificProtocolInit(ProtocolType Protocol,
@@ -310,6 +318,7 @@ class SensorSkeleton : public CallbackProvider {
   SensorState stateInternal_;
   ConnectionState ConnState_;
 
+  std::string BehavorialVersion_;
   std::string localName_;
   size_t localId_;
 

@@ -27,5 +27,5 @@ CreateExampleTarget(
   VS_SOLUTION_NAME
     ${EXAMPLES_SOLUTION_FOLDER}
   ADDITIONAL_LIBRARIES
-    ssbl::tim5xx_1_0_0::static
+    ssbl::tim5xx_1_0_0_skeleton::static
 )

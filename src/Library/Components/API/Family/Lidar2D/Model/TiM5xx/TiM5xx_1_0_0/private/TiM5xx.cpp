@@ -17,39 +17,24 @@
  * limitations under the License.
  */
 
-#include "API/Family/Lidar2D/Model/TiM5xx_V0.0.1/include/TiM5xx.h"
+#include "API/Family/Lidar2D/Model/TiM5xx/TiM5xx_1_0_0/include/TiM5xx.h"
 #include <vector>
-#include "API/Skeleton/Lidar2D/Common/include/SkeletonFactory.h"
-#include "Base/Core/OS/include/VariableEventQueue.h"
+#include "API/Skeleton/Lidar2D/TiM5xx/TiM5xx_1_0_0/include/TiM5xx.h"
 
 using namespace std;
-using namespace ssbl::DevTiM5xxSkeleton;
 
 namespace ssbl {
 
 //===========================================================================
 //===========================================================================
-SensorResult TiM5xx::Initialize(int32_t StartAngle, int32_t StopAngle,
-                                std::function<void(uint64_t*)> OnScanCb,
-                                uint64_t cbParam) {
-  SensorResult ret = SSBL_SUCCESS;
-
-  CallbackFunc_ = OnScanCb;
-  CallbackParam_ = cbParam;
-
-  StartAngle_ = StartAngle;
-  StopAngle_ = StopAngle;
-  SetInitialized();
-
-  ret = ProcessStateMachine(LIDAR2D_STATE_BUSY_IDLE);
-
-  return ret;
-}
+TiM5xx_1_0_0_Model::TiM5xx_1_0_0_Model(SensorSkeleton * pSkeleton)
+    : Lidar2d_Model(pSkeleton), pEventQueue_(nullptr) {}
 
 //===========================================================================
 //===========================================================================
-SensorResult TiM5xx::Initialize(int32_t StartAngle, int32_t StopAngle,
-                                std::function<void(uint64_t*)> ScanProcessor) {
+SensorResult TiM5xx_1_0_0_Model::Initialize(
+    int32_t StartAngle, int32_t StopAngle,
+    std::function<void(uint64_t*)> ScanProcessor) {
   SensorResult ret = SSBL_SUCCESS;
 
   ScanProcessorFunc_ = ScanProcessor;
@@ -64,18 +49,18 @@ SensorResult TiM5xx::Initialize(int32_t StartAngle, int32_t StopAngle,
 
 //===========================================================================
 //===========================================================================
-SensorResult TiM5xx::HandleLidarConfigure() {
+SensorResult TiM5xx_1_0_0_Model::HandleLidarConfigure() {
   SensorResult ret = SSBL_SUCCESS;
-  ScanDataConfig_TiM5xxSkeleton_Var* pT;
-  auto outputRange = pLidar2D_->CreateVariable("DataOutputRange");
-  auto scanDataCfg = pLidar2D_->CreateVariable("ScanDataConfig");
+  TiM5xx_1_0_0_Skeleton::ScanDataConfig_TiM5xx_Var* pT;
+  auto outputRange = pLidar2DSkeleton_->CreateVariable("DataOutputRange");
+  auto scanDataCfg = pLidar2DSkeleton_->CreateVariable("ScanDataConfig");
 
-  vector<SickSensorVariable*> readFirst;
+  vector<SensorVariable*> readFirst;
   readFirst.push_back(outputRange);
   readFirst.push_back(scanDataCfg);
 
   for (auto v : readFirst) {
-    ret = pLidar2D_->ReadVariable(*v);
+    ret = pLidar2DSkeleton_->ReadVariable(*v);
     if (SSBL_SUCCESS != ret) {
       SSBL_LOG_ERROR("Error when trying to read variable %s",
                      v->GetName().c_str());
@@ -92,7 +77,7 @@ SensorResult TiM5xx::HandleLidarConfigure() {
     goto exit;
   }
 
-  ret = pLidar2D_->WriteVariable(*outputRange);
+  ret = pLidar2DSkeleton_->WriteVariable(*outputRange);
 
   if (SSBL_SUCCESS != ret) {
     SSBL_LOG_ERROR("Error when trying to write variable %s",
@@ -100,7 +85,8 @@ SensorResult TiM5xx::HandleLidarConfigure() {
     goto exit;
   }
 
-  pT = dynamic_cast<ScanDataConfig_TiM5xxSkeleton_Var*>(scanDataCfg);
+  pT = dynamic_cast<TiM5xx_1_0_0_Skeleton::ScanDataConfig_TiM5xx_Var*>(
+      scanDataCfg);
 
   pT->Value_.DistDataConfig[0] = 1;           // Enable output channel 1
   pT->Value_.DistDataConfig[1] = 0;           // (distance values)
@@ -116,7 +102,7 @@ SensorResult TiM5xx::HandleLidarConfigure() {
 
   pT->Value_.uiOutputInterval = 1;  // no down sampling
 
-  ret = pLidar2D_->WriteVariable(*scanDataCfg);
+  ret = pLidar2DSkeleton_->WriteVariable(*scanDataCfg);
 
   if (SSBL_SUCCESS != ret) {
     SSBL_LOG_ERROR("Error when trying to write variable %s",
@@ -127,7 +113,7 @@ SensorResult TiM5xx::HandleLidarConfigure() {
   goto finalize;
 
 exit:
-  pLidar2D_->Disconnect();
+  pLidar2DSkeleton_->Disconnect();
 
 finalize:
   delete outputRange;
@@ -138,16 +124,16 @@ finalize:
 
 //===========================================================================
 //===========================================================================
-bool TiM5xx::WaitForScanEvent(uint32_t TimeoutMs) {
+bool TiM5xx_1_0_0_Model::WaitForScanEvent(uint32_t TimeoutMs) {
   bool ret = false;
 
-  if (NULL != pEventQueue) {
-    std::shared_ptr<ComObj> pEvent = pEventQueue->Wait(TimeoutMs);
+  if (NULL != pEventQueue_) {
+    std::shared_ptr<ComObj> pEvent = pEventQueue_->Wait(TimeoutMs);
     if (NULL != pEvent) {
       if (NULL != ScanProcessorFunc_) {
         ScanProcessorFunc_(reinterpret_cast<uint64_t*>(pEvent.get()));
       }
-      pEventQueue->Release(pEvent);
+      pEventQueue_->Release(pEvent);
       ret = true;
     }
   }
@@ -156,35 +142,36 @@ bool TiM5xx::WaitForScanEvent(uint32_t TimeoutMs) {
 
 //===========================================================================
 //===========================================================================
-SensorResult TiM5xx::HandleLidarStart() {
+SensorResult TiM5xx_1_0_0_Model::HandleLidarStart() {
   SensorResult ret = SSBL_SUCCESS;
-  mStopMeasure_TiM5xxSkeleton_Func stopFunction;
-  mStartMeasure_TiM5xxSkeleton_Func startFunction;
-  Run_TiM5xxSkeleton_Func runFunction;
+  TiM5xx_1_0_0_Skeleton::mStopMeasure_TiM5xx_Func stopFunction;
+  TiM5xx_1_0_0_Skeleton::mStartMeasure_TiM5xx_Func startFunction;
+  TiM5xx_1_0_0_Skeleton::Run_TiM5xx_Func runFunction;
 
-  ret = pLidar2D_->CallFunction(stopFunction);
+  ret = pLidar2DSkeleton_->CallFunction(stopFunction);
   if (SSBL_SUCCESS != ret) {
     SSBL_LOG_ERROR("can't put the Lidar into stop mode");
     goto exit;
   }
 
   if (nullptr != CallbackFunc_) {
-    ret = pLidar2D_->RegisterEvent("ScanData", CallbackFunc_, CallbackParam_);
+    ret = pLidar2DSkeleton_->RegisterEvent("ScanData", CallbackFunc_,
+                                           CallbackParam_);
   } else if (nullptr != ScanProcessorFunc_) {
-    ret = pLidar2D_->RegisterEvent("ScanData", &pEventQueue, 2);
+    ret = pLidar2DSkeleton_->RegisterEvent("ScanData", &pEventQueue_, 2);
   }
   if (SSBL_SUCCESS != ret) {
     SSBL_LOG_ERROR("can't register to scan data");
     goto exit;
   }
 
-  ret = pLidar2D_->CallFunction(startFunction);
+  ret = pLidar2DSkeleton_->CallFunction(startFunction);
   if (SSBL_SUCCESS != ret) {
     SSBL_LOG_ERROR("can't put the Lidar into measurement mode");
     goto exit;
   }
 
-  ret = pLidar2D_->CallFunction(runFunction);
+  ret = pLidar2DSkeleton_->CallFunction(runFunction);
   if (SSBL_SUCCESS != ret) {
     SSBL_LOG_ERROR("can't put the Lidar into run mode");
     goto exit;
@@ -195,16 +182,16 @@ exit:
 
 //===========================================================================
 //===========================================================================
-SensorResult TiM5xx::HandleLidarStop() {
+SensorResult TiM5xx_1_0_0_Model::HandleLidarStop() {
   SensorResult ret = SSBL_SUCCESS;
-  mStopMeasure_TiM5xxSkeleton_Func stopFunction;
-  ret = pLidar2D_->CallFunction(stopFunction);
+  TiM5xx_1_0_0_Skeleton::mStopMeasure_TiM5xx_Func stopFunction;
+  ret = pLidar2DSkeleton_->CallFunction(stopFunction);
   if (SSBL_SUCCESS != ret) {
     SSBL_LOG_ERROR("can't put the Lidar into stop mode");
     goto exit;
   }
 
-  ret = pLidar2D_->DeregisterEvent("ScanData");
+  ret = pLidar2DSkeleton_->DeregisterEvent("ScanData");
 
   if (SSBL_SUCCESS != ret) {
     ret = SSBL_SUCCESS;
@@ -212,5 +199,4 @@ SensorResult TiM5xx::HandleLidarStop() {
 exit:
   return ret;
 }
-
 }  // namespace ssbl

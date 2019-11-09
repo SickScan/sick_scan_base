@@ -24,7 +24,7 @@ class SensorFunction : public ComObj {
   using ::ssbl::ComObj::GetComName;
 
   SensorFunction(std::string name, std::string comName, uint16_t idx,
-                     AccessLevel accessLevel, bool hasArgs, bool hasRet);
+                 AccessLevel accessLevel, bool hasArgs, bool hasRet);
   virtual ~SensorFunction(){};
 
   AccessLevel GetAccessLevel(void) { return invocationAccessLevel_; };

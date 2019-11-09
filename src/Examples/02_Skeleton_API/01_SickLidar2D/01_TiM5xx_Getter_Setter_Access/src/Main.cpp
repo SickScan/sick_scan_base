@@ -23,7 +23,7 @@
 
 using namespace std;
 using namespace ssbl;
-using namespace DevTiM5xxSkeleton;
+
 
 int main(void) {
   int32_t x;
@@ -46,10 +46,11 @@ int main(void) {
   // Variables created using "CreateVariable" can be stored in a standard
   // container such as vector and therefore easily processed in a loop.
 
-  vector<SickSensorVariable*> readFirst;
+  vector<SensorVariable*> readFirst;
 
   // Create a DUT by specifying the name of the Skeleton and its IP
-  auto DUT = CreateSensorSkeleton("TiM5xxSkeleton", "192.168.0.1");
+  auto DUT = TiM5xx_1_0_0_Skeleton::CreateSensorSkeleton("TiM576", "192.168.0.1");
+
 
   if (NULL == DUT) {
     cout << "Skeleton not found!" << endl;
