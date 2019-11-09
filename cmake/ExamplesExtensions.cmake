@@ -54,8 +54,15 @@ function(CreateExampleTarget)
     endif()
   endif()
  
+  # Install location
+  set(SSBL_INSTALL_DIR "${CMAKE_INSTALL_PREFIX}")
+  get_filename_component(SSBL_INSTALL_DIR ${SSBL_INSTALL_DIR} ABSOLUTE)
+  set(SSBL_INSTALL_DIR "${SSBL_INSTALL_DIR}/ssbl-${SSBL_MAJOR}.${SSBL_MINOR}.${SSBL_REVISION}")
 
-
+  install(TARGETS ${PARSED_EXAMPLE_NAME}
+      RUNTIME DESTINATION ${SSBL_INSTALL_DIR}/bin/${PARSED_VS_SOLUTION_NAME}
+  )  
+  
 endfunction()
 
 
