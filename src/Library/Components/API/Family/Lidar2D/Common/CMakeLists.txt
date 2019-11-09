@@ -32,6 +32,6 @@ ${COMPONENT_SUFFIX}
 VS_SOLUTION_NAME
 Family/Lidar2D
 DEPENDS
-tim5xx_1_0_0-skeleton
-tim5xx_1_0_0-model
+tim5xx_1_0_0_skeleton
+tim5xx_1_0_0_model
 )
