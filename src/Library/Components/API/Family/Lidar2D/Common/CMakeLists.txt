@@ -15,9 +15,10 @@ ComponentSources(
 NAME ${COMPONENT_SUFFIX}
 SOURCES
 Lidar2D.cpp
-Lidar2D_Factory.cpp
+Lidar2D_Model.cpp
 TiM5xx_Skeleton_Factory.cpp
 TiM5xx_Model_Factory.cpp
+
 )
 
 
@@ -31,5 +32,6 @@ ${COMPONENT_SUFFIX}
 VS_SOLUTION_NAME
 Family/Lidar2D
 DEPENDS
-base
+tim5xx_1_0_0-skeleton
+tim5xx_1_0_0-model
 )

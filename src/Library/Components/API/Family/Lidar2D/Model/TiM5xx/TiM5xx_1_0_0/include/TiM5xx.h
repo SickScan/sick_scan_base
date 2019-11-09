@@ -23,12 +23,62 @@
 
 namespace ssbl {
 
+class VariableEventQueue;
 
 class TiM5xx_1_0_0_Model : public Lidar2d_Model {
  public:
-  TiM5xx_1_0_0_Model(){};
+  using Lidar2d_Model::Disconnect;
+  using Lidar2d_Model::Start;
+  using Lidar2d_Model::Stop;
+
+  TiM5xx_1_0_0_Model();
   ~TiM5xx_1_0_0_Model(){};
 
+  /**
+   * @brief Initialize the Lidar, will establish connection and configure it for
+   * operation
+   *
+   * @param StartAngle in 1/10000 degrees in SickLidar2d coordinate system
+   * @param StopAngle in 1/10000 degrees in SickLidar2d coordinate system
+   * @param ScanProcessor function called within wait
+   * @return SensorResult SSBL_SUCCES if successful
+   */
+  virtual SensorResult Initialize(int32_t StartAngle, int32_t StopAngle,
+                                  std::function<void(uint64_t*)> ScanProcessor);
+
+  /**
+   * @brief Blocking wait for scan
+   *
+   * @param TimeoutMs time to wait in ms
+   * @return true scan arrived in time
+   * @return false timeout
+   */
+  bool WaitForScanEvent(uint32_t TimeoutMs);
+
+ protected:
+  /**
+   * @brief Request scan data from the Lidar, called by base class
+   *
+   * @return SensorResult SSBL_SUCCES if successful
+   */
+  virtual SensorResult HandleLidarStart();
+
+  /**
+   * @brief Stop scan data output, called by base class
+   *
+   * @return SensorResult SSBL_SUCCES if successful
+   */
+  virtual SensorResult HandleLidarStop();
+
+  /**
+   * @brief Configure scan data output, called by base class
+   *
+   * @return SensorResult SSBL_SUCCES if successful
+   */
+  virtual SensorResult HandleLidarConfigure();
+
+ private:
+  VariableEventQueue* pEventQueue_;
 
 };
 

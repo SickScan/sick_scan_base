@@ -460,14 +460,11 @@ function(CreateLibraryTargetInternal)
   file(GLOB_RECURSE InstallHeaders ABSOLUTE "${ComponentPathAbsolute}" "${ComponentPathAbsolute}/*.h" "${ComponentPathAbsolute}/*.hpp")
 
   foreach(Header ${InstallHeaders})
-    message(STATUS "MM:  ${Header}")
     get_filename_component(LDIR ${Header} DIRECTORY )
     string(FIND "${LDIR}" "Components/" out REVERSE )
     
     string(SUBSTRING ${LDIR} ${out} -1 lastDir)
     string(SUBSTRING ${lastDir}  11 -1 lastDir)
-    
-    message(STATUS "MM:  ${lastDir}")
     
     install(FILES ${Header} DESTINATION ${SSBL_INSTALL_DIR}/include/${lastDir})
 

@@ -18,8 +18,7 @@
  */
 
 #include "API/Family/Lidar2d/Common/include/Lidar2d.h"
-
-
+#include "API/Family/Lidar2D/Common/include/Lidar2D_Model.h"
 
 #include <iomanip>
 #include <sstream>
@@ -33,11 +32,67 @@ using namespace std;
 
 namespace ssbl {
 
-Lidar2d::Lidar2d(string& ModelName, string& IP, std::string& SkeletonVersion) {
-  
+
+
+
+
+Lidar2d::Lidar2d(string ModelName, string IP, std::string SkeletonVersion)
+    : pLidarModel_(nullptr)
+{
   Create_Lidar2d(ModelName, IP, SkeletonVersion);
+}
 
+//=============================================================================
+//=============================================================================
+SensorResult Lidar2d::Initialize(int32_t StartAngle, int32_t StopAngle,
+                                 std::function<void(uint64_t*)> ScanProcessor) {
+  return pLidarModel_->Initialize(StartAngle, StopAngle, ScanProcessor);
+}
 
+//=============================================================================
+//=============================================================================
+SensorResult Lidar2d::Start(void) { return pLidarModel_->Start(); }
+
+//=============================================================================
+//=============================================================================
+SensorResult Lidar2d::Stop(void) { return pLidarModel_->Stop(); }
+
+//=============================================================================
+//=============================================================================
+SensorResult Lidar2d::Disconnect(void) { return pLidarModel_->Disconnect(); }
+
+//=============================================================================
+//=============================================================================
+bool Lidar2d::WaitForScanEvent(uint32_t TimeoutMs) {
+  return pLidarModel_->WaitForScanEvent(TimeoutMs);
+}
+
+//=============================================================================
+//=============================================================================
+SensorResult Lidar2d::GetDeviceName(std::string& DeviceName) {
+  return pLidarModel_->GetDeviceName(DeviceName);
+}
+
+/**
+ * @brief Get the capabilities of the Lidar
+ *
+ * @return SickLidar2dCapabilities
+ */
+// SickLidar2dCapabilities GetCapabilities(void);
+
+/**
+ * @brief Get a pointer to the underlying skeleton
+ *
+ * @return std::shared_ptr<SickSensorSkeleton*>
+ */
+// std::shared_ptr<SickSensorSkeleton*> GetSkeleton() {
+//  return std::make_shared<SickSensorSkeleton*>(pLidar2D_);
+//}
+
+//=============================================================================
+//=============================================================================
+Lidar2dState Lidar2d::GetLidarState(void) {
+  return pLidarModel_->GetLidarState();
 }
 
 }  // namespace ssbl

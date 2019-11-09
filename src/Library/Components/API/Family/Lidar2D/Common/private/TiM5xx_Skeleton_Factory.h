@@ -26,9 +26,9 @@
 
 namespace ssbl {
 
-SensorSkeleton* Create_TiM5xx_Skeleton(std::string& ModelName,
-                                       std::string& SkeletonVersion,
-                                       std::string IP);
+SensorSkeleton* Create_TiM5xx_Skeleton(std::string const& ModelName,
+                                       std::string const& SkeletonVersion,
+                                       std::string const& IP);
 
 
 }  // namespace ssbl

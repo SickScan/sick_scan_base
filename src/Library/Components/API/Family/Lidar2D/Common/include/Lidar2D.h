@@ -30,11 +30,24 @@ namespace ssbl {
 
 // Forward declarations
 class Lidar2d_Model;
-  
 class SensorSkeleton;
 class ReconnectTimer;
 class VariableEventQueue;
 
+
+typedef enum {
+  LIDAR2D_STATE_ERROR,
+  LIDAR2D_STATE_INIT,
+  LIDAR2D_STATE_IDLE,
+  LIDAR2D_STATE_BUSY_IDLE,
+  LIDAR2D_STATE_STARTED,
+  LIDAR2D_STATE_STOPPED,
+} Lidar2dState;
+
+typedef struct {
+  Lidar2dState state_;
+  std::string name_;
+} Lidar2dStateText;
 
 
 /**
@@ -51,7 +64,7 @@ class Lidar2d {
    * @param ModelName name of the Lidar2dModel to be created
    * @param IP of form xxx.yyy.zzz
    */
-  Lidar2d(std::string& ModelName, std::string& IP, std::string& SkeletonVersion);
+  Lidar2d(std::string ModelName, std::string IP, std::string SkeletonVersion);
 
   /**
    * @brief Destroy the Sick 2D Lidar object
@@ -59,15 +72,84 @@ class Lidar2d {
    */
   virtual ~Lidar2d(){};
 
+  /**
+   * @brief Initialize the Lidar for receiving scan events via queue, will
+   * establish connection and configure the sensor for operation
+   *
+   * @param StartAngle in 1/10000° in Lidar2d coordinate system
+   * @param StopAngle in 1/10000° in Lidar2d coordinate system
+   * @param ScanProcessor user defined function to convert and publish scan data
+   * @return SensorResult SSBL_SUCCES if successful
+   */
+  SensorResult Initialize(
+      int32_t StartAngle, int32_t StopAngle,
+      std::function<void(uint64_t*)> ScanProcessor);
 
- protected:
+ /**
+   * @brief Start receiving scan data
+   *
+   * @return SensorResult SSBL_SUCCES if successful
+   */
+  SensorResult Start(void);
+
+  /**
+   * @brief Stop receiving scan data
+   *
+   * @return SensorResult SSBL_SUCCES if successful
+   */
+  SensorResult Stop(void);
+
+  /**
+   * @brief Disconnect from the Lidar
+   *
+   * @return SensorResult SSBL_SUCCES if successful
+   */
+  SensorResult Disconnect(void);
+
+  /**
+   * @brief Blocking wait for scans. If scan is received the scan processor will
+   * be called
+   *
+   */
+  bool WaitForScanEvent(uint32_t TimeoutMs);
+
+  /**
+   * @brief Get device name from sensor
+   *
+   * @param DeviceName will contain the device name if successful
+   * @return SensorResult SSBL_SUCCES if successful
+   */
+  SensorResult GetDeviceName(std::string& DeviceName);
+
+  /**
+   * @brief Get the capabilities of the Lidar
+   *
+   * @return SickLidar2dCapabilities
+   */
+  //SickLidar2dCapabilities GetCapabilities(void);
+
+  /**
+   * @brief Get a pointer to the underlying skeleton
+   *
+   * @return std::shared_ptr<SickSensorSkeleton*>
+   */
+  //std::shared_ptr<SickSensorSkeleton*> GetSkeleton() {
+  //  return std::make_shared<SickSensorSkeleton*>(pLidar2D_);
+  //}
+
+  /**
+   * @brief Get the Lidar State
+   *
+   * @return SickLidar2dState
+   */
+  Lidar2dState GetLidarState(void);
 
  protected:
 
 
   private:
-    bool Create_Lidar2d(std::string& ModelName, std::string& IP,
-                      std::string& SkeletonVersion);
+    bool Create_Lidar2d(std::string const& ModelName, std::string const& IP,
+                        std::string const& SkeletonVersion);
     
     
     Lidar2d_Model * pLidarModel_;

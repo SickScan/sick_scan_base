@@ -33,8 +33,8 @@ using namespace std;
 namespace ssbl {
 
 //===========================================================================
-Lidar2d_Model* Create_TiM5xx_Model( string& ModelName,
-                                    string& ModelVersion) {
+Lidar2d_Model* Create_TiM5xx_Model( string const& ModelName,
+                                    string const& ModelVersion) {
   Lidar2d_Model* pRet = nullptr;
   uint64_t test = hash_64_fnv1a(ModelVersion.c_str(), ModelVersion.size());
   switch (test) {

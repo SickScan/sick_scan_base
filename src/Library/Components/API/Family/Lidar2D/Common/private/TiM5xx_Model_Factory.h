@@ -26,6 +26,6 @@
 
 namespace ssbl {
 
-    Lidar2d_Model* Create_TiM5xx_Model(std::string& ModelName, std::string& ModelVersion);
+    Lidar2d_Model* Create_TiM5xx_Model(std::string const& ModelName, std::string const& ModelVersion);
 
 }  // namespace ssbl

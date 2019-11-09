@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-#include "API/Family/Lidar2D/Common/include/Lidar2D_Factory.h"
+
 #include "API/Skeleton/Lidar2D/TiM5xx/TiM5xx_1_0_0/include/TiM5xx_Factory.h"
 #include "Base/Core/Common/include/Hash.h"
 #include "Base/Logger/include/Logger.h"
@@ -31,8 +31,9 @@ using namespace std;
 namespace ssbl {
 
 //===========================================================================
-SensorSkeleton* Create_TiM5xx_Skeleton(string& ModelName,
-                                      string& SkeletonVersion, string IP) {
+SensorSkeleton* Create_TiM5xx_Skeleton(string const& ModelName,
+                                       string const& SkeletonVersion,
+                                       string const& IP) {
   SensorSkeleton* pRet = nullptr;
   uint64_t test =
       hash_64_fnv1a(SkeletonVersion.c_str(), SkeletonVersion.size());

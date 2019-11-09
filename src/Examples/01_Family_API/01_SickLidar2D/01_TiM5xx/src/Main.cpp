@@ -26,6 +26,7 @@ using namespace ssbl;
 
 
 int main(void) {
+  Lidar2d DUT("TiM571", "1.0.0", "192.168.0.1");
 
   return 0;
 }
