@@ -79,7 +79,6 @@ class TiM5xx_1_0_0_Model : public Lidar2d_Model {
 
  private:
   VariableEventQueue* pEventQueue_;
-
 };
 
 }  // namespace ssbl

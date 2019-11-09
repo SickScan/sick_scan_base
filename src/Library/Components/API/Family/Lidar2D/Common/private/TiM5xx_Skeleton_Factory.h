@@ -17,8 +17,8 @@
  * limitations under the License.
  */
 
-#include "API/Skeleton/Lidar2D/TiM5xx/TiM5xx_1_0_0/include/TiM5xx_Factory.h"
 #include <string>
+#include "API/Skeleton/Lidar2D/TiM5xx/TiM5xx_1_0_0/include/TiM5xx_Factory.h"
 
 #ifdef _MSC_VER
 #pragma warning(disable : 4307)
@@ -29,6 +29,5 @@ namespace ssbl {
 SensorSkeleton* Create_TiM5xx_Skeleton(std::string const& ModelName,
                                        std::string const& SkeletonVersion,
                                        std::string const& IP);
-
 
 }  // namespace ssbl

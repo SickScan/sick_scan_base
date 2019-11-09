@@ -44,7 +44,6 @@ Lidar2dStateText StateInfo[] = {{LIDAR2D_STATE_ERROR, "Error"},
 
 };
 
-
 class ReconnectTimer : public Timer, Task {
  public:
   //========================================================================
@@ -96,7 +95,6 @@ class ReconnectTimer : public Timer, Task {
   Event trigger_;
 };
 
-
 Lidar2d_Model::Lidar2d_Model()
     : pLidar2DSkeleton_(nullptr),
       IsInitialized_(false),
@@ -108,9 +106,7 @@ Lidar2d_Model::Lidar2d_Model()
       CallbackFunc_(nullptr),
       CallbackParam_(0),
       ScanProcessorFunc_(nullptr) {
-
   pReconnectTimer = new ReconnectTimer(this);
-
 }
 
 //===========================================================================
@@ -312,8 +308,8 @@ SensorResult Lidar2d_Model::HandleStateStop(Lidar2dState TargetState) {
 //===========================================================================
 //===========================================================================
 SensorResult Lidar2d_Model::HandleStateError(Lidar2dState TargetState,
-                                           SensorResult prevResult,
-                                           std::string error) {
+                                             SensorResult prevResult,
+                                             std::string error) {
   SetLidarState(LIDAR2D_STATE_ERROR);
   SSBL_LOG_ERROR("Error during transition from %s to %s",
                  StateInfo[LidarState_].name_.c_str(),
@@ -338,7 +334,6 @@ void Lidar2d_Model::HandleDeviceLost(int32_t val) {
     SSBL_LOG_INFO("Automatic reconnect disabled.");
   }
 }
-
 
 //===========================================================================
 //===========================================================================

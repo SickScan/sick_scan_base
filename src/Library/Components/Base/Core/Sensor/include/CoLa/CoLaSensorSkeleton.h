@@ -37,8 +37,8 @@ class CoLaSensorSkeleton : public SensorSkeleton {
                              std::function<void(uint64_t*)> OnEventCb,
                              uint64_t cbParam);
 
-  SensorResult RegisterEvent(SensorVariable& rVar,
-                             VariableEventQueue** ppQueue, uint32_t nQueueElem);
+  SensorResult RegisterEvent(SensorVariable& rVar, VariableEventQueue** ppQueue,
+                             uint32_t nQueueElem);
 
   SensorResult RegisterEvent(const std::string& varName,
                              VariableEventQueue** ppQueue, uint32_t nQueueElem);

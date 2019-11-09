@@ -32,13 +32,8 @@ using namespace std;
 
 namespace ssbl {
 
-
-
-
-
 Lidar2d::Lidar2d(string ModelName, string IP, std::string SkeletonVersion)
-    : pLidarModel_(nullptr)
-{
+    : pLidarModel_(nullptr) {
   Create_Lidar2d(ModelName, IP, SkeletonVersion);
 }
 

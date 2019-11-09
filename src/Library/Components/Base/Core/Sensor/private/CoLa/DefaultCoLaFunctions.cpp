@@ -22,8 +22,8 @@ using namespace ssbl;
 //=============================================================================
 //=============================================================================
 MethSetAccessMode::MethSetAccessMode()
-    : SensorFunction("SetAccessMode", "SetAccessMode", 0, LEVEL_INVALID,
-                         true, true),
+    : SensorFunction("SetAccessMode", "SetAccessMode", 0, LEVEL_INVALID, true,
+                     true),
       Args({0, 0}),
       ReturnValue({0}) {}
 
@@ -49,7 +49,7 @@ uint32_t MethSetAccessMode::DeserializeContent(Deserializer *pDes,
 //=============================================================================
 VarDeviceIdent::VarDeviceIdent()
     : SensorVariable("DeviceIdent", "DeviceIdent", 1, READ_ONLY, LEVEL_RUN,
-                         LEVEL_INVALID, -1) {
+                     LEVEL_INVALID, -1) {
   /*
 
   typedef struct DeviceIdent_Struct_S {

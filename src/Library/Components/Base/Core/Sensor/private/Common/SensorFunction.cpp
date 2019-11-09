@@ -17,8 +17,8 @@
 using namespace ssbl;
 
 SensorFunction::SensorFunction(std::string name, std::string comName,
-                                       uint16_t idx, AccessLevel accessLevel,
-                                       bool hasArgs, bool hasRet)
+                               uint16_t idx, AccessLevel accessLevel,
+                               bool hasArgs, bool hasRet)
     : ComObj(name, comName, idx),
       invocationAccessLevel_(accessLevel),
       hasArguments_(hasArgs),

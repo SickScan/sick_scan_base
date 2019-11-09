@@ -34,7 +34,6 @@ class SensorSkeleton;
 class ReconnectTimer;
 class VariableEventQueue;
 
-
 typedef enum {
   LIDAR2D_STATE_ERROR,
   LIDAR2D_STATE_INIT,
@@ -49,7 +48,6 @@ typedef struct {
   std::string name_;
 } Lidar2dStateText;
 
-
 /**
  * @class Lidar2d
  * @brief Base class for all 2D Lidar
@@ -57,7 +55,6 @@ typedef struct {
  */
 class Lidar2d {
  public:
-
   /**
    * @brief Construct a new Sick 2D Lidar object
    *
@@ -81,11 +78,10 @@ class Lidar2d {
    * @param ScanProcessor user defined function to convert and publish scan data
    * @return SensorResult SSBL_SUCCES if successful
    */
-  SensorResult Initialize(
-      int32_t StartAngle, int32_t StopAngle,
-      std::function<void(uint64_t*)> ScanProcessor);
+  SensorResult Initialize(int32_t StartAngle, int32_t StopAngle,
+                          std::function<void(uint64_t*)> ScanProcessor);
 
- /**
+  /**
    * @brief Start receiving scan data
    *
    * @return SensorResult SSBL_SUCCES if successful
@@ -126,14 +122,14 @@ class Lidar2d {
    *
    * @return SickLidar2dCapabilities
    */
-  //SickLidar2dCapabilities GetCapabilities(void);
+  // SickLidar2dCapabilities GetCapabilities(void);
 
   /**
    * @brief Get a pointer to the underlying skeleton
    *
    * @return std::shared_ptr<SickSensorSkeleton*>
    */
-  //std::shared_ptr<SickSensorSkeleton*> GetSkeleton() {
+  // std::shared_ptr<SickSensorSkeleton*> GetSkeleton() {
   //  return std::make_shared<SickSensorSkeleton*>(pLidar2D_);
   //}
 
@@ -145,15 +141,11 @@ class Lidar2d {
   Lidar2dState GetLidarState(void);
 
  protected:
+ private:
+  bool Create_Lidar2d(std::string const& ModelName, std::string const& IP,
+                      std::string const& SkeletonVersion);
 
-
-  private:
-    bool Create_Lidar2d(std::string const& ModelName, std::string const& IP,
-                        std::string const& SkeletonVersion);
-    
-    
-    Lidar2d_Model * pLidarModel_;
-
+  Lidar2d_Model* pLidarModel_;
 };
 
 }  // namespace ssbl

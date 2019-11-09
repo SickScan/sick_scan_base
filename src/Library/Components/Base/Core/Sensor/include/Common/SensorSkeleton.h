@@ -72,7 +72,7 @@ class SensorSkeleton : public CallbackProvider {
   //
   ============================================================================*/
   SensorSkeleton(const std::string& localName, size_t txBufSize,
-                     size_t rxBufSize);
+                 size_t rxBufSize);
 
   //============================================================================
   //! \brief Destructor
@@ -298,8 +298,6 @@ class SensorSkeleton : public CallbackProvider {
   //
   ============================================================================*/
   std::string GetBehavorialVersion() { return BehavorialVersion_; };
-
-
 
  protected:
   virtual Protocol* DeviceSpecificProtocolInit(ProtocolType Protocol,
