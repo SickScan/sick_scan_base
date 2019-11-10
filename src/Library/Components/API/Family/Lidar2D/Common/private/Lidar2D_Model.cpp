@@ -95,8 +95,8 @@ class ReconnectTimer : public Timer, Task {
   Event trigger_;
 };
 
-Lidar2d_Model::Lidar2d_Model()
-    : pLidar2DSkeleton_(nullptr),
+Lidar2d_Model::Lidar2d_Model(SensorSkeleton* pSkeleton)
+    : pLidar2DSkeleton_(pSkeleton),
       IsInitialized_(false),
       AutoReconnect_(true),
       LidarState_(LIDAR2D_STATE_ERROR),
@@ -337,8 +337,8 @@ void Lidar2d_Model::HandleDeviceLost(int32_t val) {
 
 //===========================================================================
 //===========================================================================
-bool Lidar2d::Create_Lidar2d(string const& ModelName, string const& IP,
-                             string const& SkeletonVersion) {
+bool Lidar2d::Create_Lidar2d(string const& ModelName,
+                             string const& SkeletonVersion, string const& IP) {
   bool bRet = true;
 
   SensorSkeleton* pSkeleton = nullptr;
@@ -348,20 +348,26 @@ bool Lidar2d::Create_Lidar2d(string const& ModelName, string const& IP,
     //--------------------------
     case hash_64_fnv1a_const("TiM561"):
       pSkeleton = Create_TiM5xx_Skeleton(ModelName, SkeletonVersion, IP);
-      pLidarModel_ =
-          Create_TiM5xx_Model(ModelName, pSkeleton->GetBehavorialVersion());
+      if (nullptr != pSkeleton) {
+        pLidarModel_ =
+            Create_TiM5xx_Model(ModelName, pSkeleton);
+      }
       break;
     //--------------------------
     case hash_64_fnv1a_const("TiM571"):
       pSkeleton = Create_TiM5xx_Skeleton(ModelName, SkeletonVersion, IP);
-      pLidarModel_ =
-          Create_TiM5xx_Model(ModelName, pSkeleton->GetBehavorialVersion());
+      if (nullptr != pSkeleton) {
+        pLidarModel_ =
+            Create_TiM5xx_Model(ModelName, pSkeleton);
+      }
       break;
     //--------------------------
     case hash_64_fnv1a_const("TiM581"):
       pSkeleton = Create_TiM5xx_Skeleton(ModelName, SkeletonVersion, IP);
-      pLidarModel_ =
-          Create_TiM5xx_Model(ModelName, pSkeleton->GetBehavorialVersion());
+      if (nullptr != pSkeleton) {
+        pLidarModel_ =
+            Create_TiM5xx_Model(ModelName, pSkeleton);
+      }
       break;
     //--------------------------
     default:
@@ -371,6 +377,12 @@ bool Lidar2d::Create_Lidar2d(string const& ModelName, string const& IP,
   }
 
   if (bRet) {
+    if (nullptr == pLidarModel_) {
+      if (nullptr != pSkeleton) {
+        delete pSkeleton;
+      }
+      bRet = false;
+    }
   }
 
   return bRet;

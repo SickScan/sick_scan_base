@@ -33,15 +33,20 @@ using namespace std;
 namespace ssbl {
 
 Lidar2d::Lidar2d(string ModelName, string IP, std::string SkeletonVersion)
-    : pLidarModel_(nullptr) {
-  Create_Lidar2d(ModelName, IP, SkeletonVersion);
-}
+    : ModelName_(ModelName),
+      SkeletonVersion_(SkeletonVersion),
+      IP_(IP),
+      pLidarModel_(nullptr)
+{}
 
 //=============================================================================
 //=============================================================================
 SensorResult Lidar2d::Initialize(int32_t StartAngle, int32_t StopAngle,
                                  std::function<void(uint64_t*)> ScanProcessor) {
-  return pLidarModel_->Initialize(StartAngle, StopAngle, ScanProcessor);
+  if (Create_Lidar2d(ModelName_, SkeletonVersion_, IP_)) {
+    return pLidarModel_->Initialize(StartAngle, StopAngle, ScanProcessor);
+  }
+  return SSBL_ERR_CREATING_FAMILY_DEVICE;
 }
 
 //=============================================================================
@@ -67,6 +72,10 @@ bool Lidar2d::WaitForScanEvent(uint32_t TimeoutMs) {
 SensorResult Lidar2d::GetDeviceName(std::string& DeviceName) {
   return pLidarModel_->GetDeviceName(DeviceName);
 }
+
+//=============================================================================
+//=============================================================================
+void Lidar2d::DisableAutoReconnect() { pLidarModel_->DisableAutoReconnect(); }
 
 /**
  * @brief Get the capabilities of the Lidar

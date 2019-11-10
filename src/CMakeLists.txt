@@ -11,7 +11,7 @@ add_subdirectory(Generator)
 endif()
 
 add_subdirectory(Library)
-#add_subdirectory(ThirdParty)
+add_subdirectory(ThirdParty)
 add_subdirectory(Examples)
 
 

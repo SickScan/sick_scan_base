@@ -23,6 +23,7 @@
 
 namespace ssbl {
 
+class SensorSkeleton;
 class VariableEventQueue;
 
 class TiM5xx_1_0_0_Model : public Lidar2d_Model {
@@ -31,7 +32,7 @@ class TiM5xx_1_0_0_Model : public Lidar2d_Model {
   using Lidar2d_Model::Start;
   using Lidar2d_Model::Stop;
 
-  TiM5xx_1_0_0_Model();
+  TiM5xx_1_0_0_Model(SensorSkeleton * pSkeleton);
   ~TiM5xx_1_0_0_Model(){};
 
   /**

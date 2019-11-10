@@ -18,6 +18,7 @@
  */
 
 #include "API/Family/Lidar2D/Model/TiM5xx/TiM5xx_1_0_0/include/TiM5xx.h"
+#include "Base/Core/Sensor/include/Common/SensorSkeleton.h"
 
 #include "Base/Core/Common/include/Hash.h"
 #include "Base/Logger/include/Logger.h"
@@ -32,18 +33,26 @@ namespace ssbl {
 
 //===========================================================================
 Lidar2d_Model* Create_TiM5xx_Model(string const& ModelName,
-                                   string const& ModelVersion) {
+                                   SensorSkeleton* pSkeleton) {
   Lidar2d_Model* pRet = nullptr;
-  uint64_t test = hash_64_fnv1a(ModelVersion.c_str(), ModelVersion.size());
+  // SensorSkeleton* pLidar2DSkeleton_;
+
+  if (nullptr == pSkeleton) {
+    return pRet;
+  }
+
+  string version = pSkeleton->GetBehavorialVersion();
+
+  uint64_t test = hash_64_fnv1a(version.c_str(), version.size());
   switch (test) {
     //--------------------------
     case hash_64_fnv1a_const("1.0.0"):
-      pRet = new TiM5xx_1_0_0_Model();
+      pRet = new TiM5xx_1_0_0_Model(pSkeleton);
       break;
     //--------------------------
     default:
       SSBL_LOG_ERROR("Model version %s not found for device %s",
-                     ModelVersion.c_str(), ModelName.c_str());
+                     version.c_str(), version.c_str());
 
       break;
   }

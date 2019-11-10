@@ -118,6 +118,12 @@ class Lidar2d {
   SensorResult GetDeviceName(std::string& DeviceName);
 
   /**
+   * @brief Disable reconnect attempts if sensor is lost
+   *
+   */
+  void DisableAutoReconnect();
+
+  /**
    * @brief Get the capabilities of the Lidar
    *
    * @return SickLidar2dCapabilities
@@ -142,8 +148,14 @@ class Lidar2d {
 
  protected:
  private:
-  bool Create_Lidar2d(std::string const& ModelName, std::string const& IP,
-                      std::string const& SkeletonVersion);
+  bool Create_Lidar2d(
+      std::string const& ModelName,
+      std::string const& SkeletonVersion, std::string const& IP
+                      );
+
+  std::string ModelName_;
+  std::string SkeletonVersion_;
+  std::string IP_;
 
   Lidar2d_Model* pLidarModel_;
 };
