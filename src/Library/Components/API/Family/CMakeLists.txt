@@ -1,1 +1,1 @@
-add_subdirectory(Lidar2D)
+add_subdirectory(Lidar2d)

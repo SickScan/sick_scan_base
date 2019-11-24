@@ -14,8 +14,8 @@ include(LibraryTargetExtension)
 ComponentSources(
 NAME ${COMPONENT_SUFFIX}
 SOURCES
-Lidar2D.cpp
-Lidar2D_Model.cpp
+Lidar2d.cpp
+Lidar2d_Model.cpp
 TiM5xx_Skeleton_Factory.cpp
 TiM5xx_Model_Factory.cpp
 

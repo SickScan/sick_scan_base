@@ -1,5 +1,5 @@
 cmake_minimum_required (VERSION 3.10)
-project(toojpeg)
+project(toojpeg LANGUAGES CXX)
 
 set(LIB_NAME "toojpeg")
 set(LIB_SRC ${PROJECT_SOURCE_DIR}/src/toojpeg.cpp)

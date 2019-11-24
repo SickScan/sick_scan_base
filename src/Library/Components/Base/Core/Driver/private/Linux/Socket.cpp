@@ -35,7 +35,7 @@
 #include "Base/Core/Driver/include/Socket.h"
 #include "Base/Core/OS/include/Task.h"
 #include "Base/Core/OS/include/Time.h"
-#include "Base/Types/include/SensorReturnCodes.h"
+#include "Base/Types/include/SickSensorReturnCodes.h"
 
 namespace ssbl {
 

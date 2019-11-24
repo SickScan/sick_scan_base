@@ -1,6 +1,5 @@
 %module @SWIG_MODULE_NAME@
 
-
 %import "@COMPONENTS_TOP_DIR@Base/Core/Common/include/Assert.h"
 %import "@COMPONENTS_TOP_DIR@Base/Core/Common/include/CallbackProvider.h"
 %import "@COMPONENTS_TOP_DIR@Base/Core/Common/include/Endianess.h"
@@ -40,12 +39,6 @@
 %import "@PROJECT_SOURCE_DIR@/include/@FAMILY_NAME@_Variables.h"
 %import "@PROJECT_SOURCE_DIR@/include/@FAMILY_NAME@_Functions.h"
 %import "@PROJECT_SOURCE_DIR@/include/@FAMILY_NAME@_Factory.h"
-
-%include std_string.i
-
-%inline %{
-using namespace std;
-%}
 
 %{
 #include "@PROJECT_SOURCE_DIR@/include/@FAMILY_NAME@.h"

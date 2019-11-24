@@ -1,5 +1,5 @@
 cmake_minimum_required (VERSION 3.10)
-project(tinyxml)
+project(tinyxml LANGUAGES CXX)
 
 set(LIB_NAME "tinyxml")
 
