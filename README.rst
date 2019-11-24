@@ -76,8 +76,9 @@ Fetch the source and change into the newly created folder.
 
   git clone https://github.com/SickScan/sick_scan_base.git
 
-  mkdir sick_scan_base/build
-  cd sick_scan_base/build
+  cd sick_scan_base
+  mkdir build
+  cd build
 
 
 Configure, Build and Install
