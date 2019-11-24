@@ -24,6 +24,9 @@ TiM5xx_Functions.cpp
 TiM5xx_Variables.cpp
 )
 
+set_source_files_properties(${PROJECT_SOURCE_DIR}/private/TiM5xx_Variables.cpp PROPERTIES COMPILE_FLAGS -Wno-type-limits)
+
+
 CreateLibraryTarget(
 BASE_NAME
 ${BASE_NAME}
