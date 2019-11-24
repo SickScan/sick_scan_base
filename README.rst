@@ -38,27 +38,14 @@ SICK AG Scan Base Library (SSBL)
 
 **Experimental support for TiM5xx Family !!!**
 
-SSBL is a standalone C++ library to interface with SICK AG Lidar. Currently, SSBL can be built on Windows 10 and Ubuntu 18.04 using a variety of toolchains.  
+SSBL is a standalone C++ library to interface with SICK AG Lidar. Currently, SSBL can be built on Windows 10 and Ubuntu 18.04 using a variety of toolchains. The complete documentation can be found `here. <https://sick-scan-documentation.readthedocs.io/en/latest>`_
 
 
-Content
-=======
-
-1. `Getting Started`_
-  1. `Prerequisites`_
-  2. `Obtain the source code`_
-  3. `Configure, Build and Install`_
-    1. `Windows, Visual Studio 2015,17,19 IDE, MSBuild, and Visual C++ or LLVM Compiler`_
-    2. `Linux, No IDE, Ninja, GCC`_
-2. `Further Reading`_
-3. `Licensing`_  
-
-
-Getting Started
-===============
+Getting Started (x86/x64, Windows/Linux)
+----------------------------------------
 
 Prerequisites
--------------
+~~~~~~~~~~~~~
 
 Install the required tools:
 
@@ -71,15 +58,18 @@ Install the required tools:
 
     # On Ubuntu these tools can be installed with:
     sudo apt install git cmake ninja-build
-  
-- IDE  
+
+- IDE / Compiler
     - Linux `Visual Studio Code <https://code.visualstudio.com>`_
     - Windows `Visual Studio 2015, 2017 or 2019 <https://visualstudio.microsoft.com>`_
 
-Presumably it is not required that your system matches the versions given above perfectly. Those are the version that we currently (Oct. '19) use on Ubuntu 18.04 .
+  .. code-block:: console
+
+    # Presumably it is not required that your system matches the versions given above perfectly. 
+    # Those are the version that we currently (Oct. '19) use on Ubuntu 18.04 .
 
 Obtain the source code
-----------------------
+~~~~~~~~~~~~~~~~~~~~~~
 Fetch the source and change into the newly created folder.
 
 .. code-block:: console
@@ -91,8 +81,9 @@ Fetch the source and change into the newly created folder.
 
 
 Configure, Build and Install
-----------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 CMake is a meta-build system to generate native build system files (MSBuild, ninja, make, etc.). Building CMake projects usually involves two / three steps:
+
 1. A configuration step, in which CMake generates build files for the native build system
 2. A build step, in which the native build system is called and the binaries are created
 3. An optional installation step in which binaries, headers and other files are copied to a user defined installation directory
@@ -100,7 +91,7 @@ CMake is a meta-build system to generate native build system files (MSBuild, nin
 Unfortunatelly, CMake is not able to fully abstract the underlying native build system. Therefore, configuration parameters and steps vary slightly between OS / Build System / Compiler. The following sequences will build the library in debug and release mode and install the library in ``sick_scan_base/build/install``.
 
 Windows, Visual Studio 2015,17,19 IDE, MSBuild, and Visual C++ or LLVM Compiler
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 1. Configure the project, architecture is set up at configuration time
 
@@ -128,7 +119,7 @@ Windows, Visual Studio 2015,17,19 IDE, MSBuild, and Visual C++ or LLVM Compiler
 
 
 Linux, No IDE, Ninja, GCC
-~~~~~~~~~~~~~~~~~~~~~~~~~
+"""""""""""""""""""""""""
 
 1. Configure the project, architecture and build mode is set up at configuration time
 
@@ -162,15 +153,5 @@ Linux, No IDE, Ninja, GCC
   cmake --build . --target install
 
 
-Further Reading
-===============
-The full documentation can be found `here. <https://sick-scan-documentation.readthedocs.io/en/latest>`_
 
 
-
-
-Licensing
-=========
-
-SSBL is licensed under the permissive Apache License V2.0. The library itself relies only on standard libraries. Efforts have been made to mention the authors of unlicensed code snippets that have been found online and integrated into SSBL. Please create an issue if you feel that your work has not been mentioned appropriately.  
-Contrary, the examples make use of other 3rd party libraries that come with their own licenses.
