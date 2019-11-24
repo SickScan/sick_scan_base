@@ -140,7 +140,7 @@ init:
             {
                 if ($env:arch_compiler -like '*gcc*') 
                 { 
-                    $env:generator ="Eclipse CDT4 - Unix Makefiles"
+                    $env:generator ="Unix Makefiles"
                 }
                 else 
                 { 
