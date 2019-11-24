@@ -24,8 +24,13 @@ TiM5xx_Functions.cpp
 TiM5xx_Variables.cpp
 )
 
+if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+set_source_files_properties(${PROJECT_SOURCE_DIR}/private/TiM5xx.cpp PROPERTIES COMPILE_FLAGS -Wno-type-limits)
+set_source_files_properties(${PROJECT_SOURCE_DIR}/private/TiM5xx_CoLa_Extension.cpp PROPERTIES COMPILE_FLAGS -Wno-type-limits)
+set_source_files_properties(${PROJECT_SOURCE_DIR}/private/TiM5xx_Factory.cpp PROPERTIES COMPILE_FLAGS -Wno-type-limits)
+set_source_files_properties(${PROJECT_SOURCE_DIR}/private/TiM5xx_Functions.cpp PROPERTIES COMPILE_FLAGS -Wno-type-limits)
 set_source_files_properties(${PROJECT_SOURCE_DIR}/private/TiM5xx_Variables.cpp PROPERTIES COMPILE_FLAGS -Wno-type-limits)
-
+endif()
 
 CreateLibraryTarget(
 BASE_NAME
