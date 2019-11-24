@@ -6,6 +6,7 @@
 #include <stdint.h>
 #include "API/Skeleton/Lidar2d/TiM5xx/TiM5xx_1_0_0/include/TiM5xx_Variables.h"
 #include "API/Skeleton/Lidar2d/TiM5xx/TiM5xx_1_0_0/include/TiM5xx_Functions.h"
+#include "API/Skeleton/Lidar2d/TiM5xx/TiM5xx_1_0_0/include/TiM5xx_Factory.h"
 #include "Base/Core/Sensor/include/CoLa/CoLaSensorSkeleton.h"
 #include "Base/Core/OS/include/VariableEventQueue.h"
 

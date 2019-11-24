@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-#include "API/Skeleton/Lidar2D/TiM5xx/TiM5xx_1_0_0/include/TiM5xx_Factory.h"
+#include "API/Skeleton/Lidar2d/TiM5xx/TiM5xx_1_0_0/include/TiM5xx_Factory.h"
 #include "Base/Core/Common/include/Hash.h"
 #include "Base/Logger/include/Logger.h"
 

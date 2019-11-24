@@ -20,7 +20,7 @@
 #pragma once
 #include <functional>
 #include <memory>
-#include "API/Family/Lidar2D/Common/include/Lidar2D.h"
+#include "API/Family/Lidar2d/Common/include/Lidar2d.h"
 #include "Base/Types/include/SickSensorReturnCodes.h"
 
 namespace ssbl {

@@ -19,7 +19,7 @@
 
 #pragma once
 
-#include "API/Family/Lidar2D/Common/include/Lidar2D_Model.h"
+#include "API/Family/Lidar2d/Common/include/Lidar2d_Model.h"
 
 namespace ssbl {
 

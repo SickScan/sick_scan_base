@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-#include "API/Family/Lidar2D/Model/TiM5xx/TiM5xx_1_0_0/include/TiM5xx.h"
+#include "API/Family/Lidar2d/Model/TiM5xx/TiM5xx_1_0_0/include/TiM5xx.h"
 #include "Base/Core/Sensor/include/Common/SensorSkeleton.h"
 
 #include "Base/Core/Common/include/Hash.h"

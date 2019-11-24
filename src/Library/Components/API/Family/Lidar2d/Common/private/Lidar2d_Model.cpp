@@ -17,9 +17,9 @@
  * limitations under the License.
  */
 
-#include "API/Family/Lidar2D/Common/include/Lidar2D.h"
-#include "API/Family/Lidar2D/Common/private/TiM5xx_Model_Factory.h"
-#include "API/Family/Lidar2D/Common/private/TiM5xx_Skeleton_Factory.h"
+#include "API/Family/Lidar2d/Common/include/Lidar2d.h"
+#include "API/Family/Lidar2d/Common/private/TiM5xx_Model_Factory.h"
+#include "API/Family/Lidar2d/Common/private/TiM5xx_Skeleton_Factory.h"
 #include "Base/Core/Common/include/Hash.h"
 #include "Base/Core/OS/include/Task.h"
 #include "Base/Core/OS/include/Timer.h"

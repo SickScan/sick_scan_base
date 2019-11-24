@@ -18,7 +18,7 @@
  */
 
 #include <string>
-#include "API/Family/Lidar2D/Common/include/Lidar2D_Model.h"
+#include "API/Family/Lidar2d/Common/include/Lidar2d_Model.h"
 
 #ifdef _MSC_VER
 #pragma warning(disable : 4307)

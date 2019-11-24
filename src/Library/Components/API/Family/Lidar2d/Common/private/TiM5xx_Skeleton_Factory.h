@@ -18,7 +18,7 @@
  */
 
 #include <string>
-#include "API/Skeleton/Lidar2D/TiM5xx/TiM5xx_1_0_0/include/TiM5xx_Factory.h"
+#include "API/Skeleton/Lidar2d/TiM5xx/TiM5xx_1_0_0/include/TiM5xx_Factory.h"
 
 #ifdef _MSC_VER
 #pragma warning(disable : 4307)
