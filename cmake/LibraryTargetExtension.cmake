@@ -531,45 +531,56 @@ function(CreateLibraryTarget)
     list(APPEND SourceListInternal "${${COMPONENT_SOURCES_VARIABLE}}" "${${COMPONENT_HEADERS_VARIABLE}}")
   endforeach()
   
-  # Create source groups for Visual Studio
-  if(MSVC)
-    if(SourceListInternal)
-      CreateSourceGroupsVS(SOURCES ${SourceListInternal})
-    endif()
-  endif()
-
-  # Add headers from the include-folder to source groups
-  get_filename_component(ComponentPathAbsolute "${PROJECT_SOURCE_DIR}/include" REALPATH)
-  file(GLOB_RECURSE ComponentHeadersAbs RELATIVE "${PROJECT_SOURCE_DIR}" "${ComponentPathAbsolute}/*.h" "${ComponentPathAbsolute}/*.hpp")
-  file(GLOB_RECURSE ComponentHeadersList RELATIVE "${ComponentPathAbsolute}" "${ComponentPathAbsolute}/*.h" "${ComponentPathAbsolute}/*.hpp")
-  if(MSVC)  
-    if(ComponentHeadersList)
-      CreateSourceGroupsVS(SOURCES ${ComponentHeadersList} CATEGORY "include")
-    endif()
-    list(APPEND SourceListInternal ${ComponentHeadersAbs})
-  endif()
-
+  if(NOT ZEPHYR_BASE)
   
-  GetLibraryCompileLinkFlags(LIB_DBG_FLAGS, LIB_REL_FLAGS, LIB_DEPENDENS)
+    # Create source groups for Visual Studio
+    if(MSVC)
+      if(SourceListInternal)
+        CreateSourceGroupsVS(SOURCES ${SourceListInternal})
+      endif()
+    endif()
+
+    # Add headers from the include-folder to source groups
+    get_filename_component(ComponentPathAbsolute "${PROJECT_SOURCE_DIR}/include" REALPATH)
+    file(GLOB_RECURSE ComponentHeadersAbs RELATIVE "${PROJECT_SOURCE_DIR}" "${ComponentPathAbsolute}/*.h" "${ComponentPathAbsolute}/*.hpp")
+    file(GLOB_RECURSE ComponentHeadersList RELATIVE "${ComponentPathAbsolute}" "${ComponentPathAbsolute}/*.h" "${ComponentPathAbsolute}/*.hpp")
+    if(MSVC)  
+      if(ComponentHeadersList)
+        CreateSourceGroupsVS(SOURCES ${ComponentHeadersList} CATEGORY "include")
+      endif()
+      list(APPEND SourceListInternal ${ComponentHeadersAbs})
+    endif()
+
+    
+    GetLibraryCompileLinkFlags(LIB_DBG_FLAGS, LIB_REL_FLAGS, LIB_DEPENDENS)
 
 
-  CreateLibraryTargetInternal(
-    BASE_NAME
-      ${PARSED_BASE_NAME}
-    COMPONENT_NAME
-      ${PARSED_COMPONENT_NAME}
-    BUILD_MODE
-      STATIC
-    VS_SOLUTION_NAME
-      ${PARSED_VS_SOLUTION_NAME}
-    SOURCES
-      ${SourceListInternal}
-    DEPENDS
-      ${PARSED_DEPENDS}
-  )
+    CreateLibraryTargetInternal(
+      BASE_NAME
+        ${PARSED_BASE_NAME}
+      COMPONENT_NAME
+        ${PARSED_COMPONENT_NAME}
+      BUILD_MODE
+        STATIC
+      VS_SOLUTION_NAME
+        ${PARSED_VS_SOLUTION_NAME}
+      SOURCES
+        ${SourceListInternal}
+      DEPENDS
+        ${PARSED_DEPENDS}
+    )
+    #set(CMAKE_EXPORT_PACKAGE_REGISTRY ON)
+    #export(PACKAGE ssbl)
+    
+  else()
+    GetFullLibraryName(${PARSED_BASE_NAME} ${PARSED_COMPONENT_NAME} STATIC LIBRARY_FILE_NAME)
+    zephyr_library_named(${LIBRARY_FILE_NAME})
+    add_dependencies(${ZEPHYR_CURRENT_LIBRARY} ${OFFSETS_H_TARGET})
+    zephyr_library_sources(${SourceListInternal})
+    zephyr_include_directories(${incdirs})
+  
+  endif()
 
-  #set(CMAKE_EXPORT_PACKAGE_REGISTRY ON)
-  #export(PACKAGE ssbl)
 
 endfunction()
 

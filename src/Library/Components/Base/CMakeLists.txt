@@ -65,6 +65,27 @@ ComponentSources(
   CoLa/CoLaSensorSkeleton.cpp
 )
 
+if(ZEPHYR_BASE)
+ComponentSources(
+  NAME Core_OS
+  PATH Core/OS
+  SOURCES 
+  Zephyr/Task.cpp
+  Zephyr/Mutex.cpp
+  Zephyr/Time.cpp
+  Zephyr/Timer.cpp
+  Zephyr/Event.cpp
+  Zephyr/VariableEventQueue.cpp
+)
+
+ComponentSources(
+  NAME Core_Driver
+  PATH Core/Driver
+  SOURCES 
+  Zephyr/Socket.cpp
+)
+
+else()
 if (WIN32)
 ComponentSources(
   NAME Core_OS
@@ -110,7 +131,7 @@ ComponentSources(
 else()
 message(FATAL_ERROR "Not supported yet")
 endif()
-
+endif()
 
 
 CreateLibraryTarget(

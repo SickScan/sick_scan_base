@@ -27,6 +27,12 @@
 
 namespace ssbl {
 
+enum SocketDirection{
+	SERVER_SOCKET,
+	CLIENT_SOCKET,
+} ;
+
+
 /**
  * @class Socket
  * @brief Socket class to connect to sensors via Ethernet

@@ -5,6 +5,9 @@ set(SSBL_MAJOR    "0")
 set(SSBL_MINOR    "0")
 set(SSBL_REVISION "2")
 
+
+if(NOT ZEPHYR_BASE)
+
 ## Contatins the device generator
 if(EXISTS ${CMAKE_CURRENT_LIST_DIR}/Generator)
 add_subdirectory(Generator)
@@ -14,7 +17,6 @@ add_subdirectory(Library)
 add_subdirectory(ThirdParty)
 add_subdirectory(Examples)
 
-
 list(APPEND CLANG_FORMAT_FOLDERS "${CMAKE_CURRENT_LIST_DIR}/Library")
 list(APPEND CLANG_FORMAT_FOLDERS "${CMAKE_CURRENT_LIST_DIR}/Examples")
 
@@ -22,3 +24,7 @@ CreateClangFormatTarget(
   FOLDERS
     ${CLANG_FORMAT_FOLDERS}
 )
+else()
+message(STATUS "BUILD SSBL for Zephyr 2")
+add_subdirectory(Library)
+endif()

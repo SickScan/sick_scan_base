@@ -23,6 +23,9 @@
 #include "Base/Core/OS/include/Time.h"
 #include "Base/Types/include/BasicTypes.h"
 
+#ifdef __ZEPHYR__
+#include <zephyr.h>
+#endif
 namespace ssbl {
 
 #if __GNUC__
@@ -32,7 +35,11 @@ void printlog(LogLevel level, const char *szMessage)
 #endif
 {
   SSBL_UNUSED(level);
+#ifdef __ZEPHYR__
+  printk("%s", szMessage);
+#else
   printf("%s", szMessage);
+#endif
 }
 
 Logger::Logger(std::string &logName, LogLevel minLvl)

@@ -25,6 +25,7 @@ TiM5xx::TiM5xx(const std::string& Ip, const std::string& interfaceName,const std
 	passwords_[LEVEL_AUTHORIZED_CLIENT] = 0xF4724744;
 	passwords_[LEVEL_SERVICE] = 0x81BE23AA;
 	UserSelectedIpOrSerial_ = Ip;
+  BehavorialVersion_ = "1.0.0";
 	UserSelectedInterfaceName_ = interfaceName;
 	AvailableSensorInterfaces_.push_back(ssbl::make_unique<SensorInterfaceDescription*>( new SensorInterfaceDescription("CoLaA Port" , ETHERNET_INTERFACE , COLA_A , BY_NAME , 2111 , 
 		{})));
