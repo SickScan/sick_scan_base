@@ -1,1 +1,1 @@
-add_subdirectory(01_TiM5xx)
+add_subdirectory(01_TiM5x1)

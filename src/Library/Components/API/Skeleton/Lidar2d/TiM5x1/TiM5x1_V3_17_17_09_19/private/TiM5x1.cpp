@@ -40,6 +40,15 @@ TiM5x1::TiM5x1(const std::string& Ip, const std::string& interfaceName,const std
 	VariableRepo.RegisterComObj("TiM5x1ScanDataConfig",ScanDataConfig_TiM5x1_Var::Create); 
 	VariableRepo.RegisterComObj("TiM5x1SCdevicestate",SCdevicestate_TiM5x1_Var::Create); 
 	VariableRepo.RegisterComObj("TiM5x1OrderNumber",OrderNumber_TiM5x1_Var::Create); 
+	FunctionRepo.RegisterComObj("TiM5x1SetScanConfig",SetScanConfig_TiM5x1_Func::Create); 
+	FunctionRepo.RegisterComObj("TiM5x1mStartMeasure",mStartMeasure_TiM5x1_Func::Create); 
+	FunctionRepo.RegisterComObj("TiM5x1mStopMeasure",mStopMeasure_TiM5x1_Func::Create); 
+	FunctionRepo.RegisterComObj("TiM5x1mSetDateTime",mSetDateTime_TiM5x1_Func::Create); 
+	FunctionRepo.RegisterComObj("TiM5x1Run",Run_TiM5x1_Func::Create); 
+	FunctionRepo.RegisterComObj("TiM5x1WriteEeprom",WriteEeprom_TiM5x1_Func::Create); 
+	FunctionRepo.RegisterComObj("TiM5x1RebootDevice",RebootDevice_TiM5x1_Func::Create); 
+	FunctionRepo.RegisterComObj("TiM5x1LoadFactoryDefaults",LoadFactoryDefaults_TiM5x1_Func::Create); 
+	FunctionRepo.RegisterComObj("TiM5x1LoadApplicationDefaults",LoadApplicationDefaults_TiM5x1_Func::Create); 
 }
 
 TiM5x1::~TiM5x1()

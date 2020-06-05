@@ -150,6 +150,42 @@ public:
 	Return Return_;
 };
 
+class WriteEeprom_Dx1000_Func : public Dx1000_Func_NAR<WriteEeprom_t>
+{
+public:
+	WriteEeprom_Dx1000_Func();
+	~WriteEeprom_Dx1000_Func(){};
+	ComObj* Clone() { return new WriteEeprom_Dx1000_Func(*this); }
+	static SensorFunction* Create() { return new WriteEeprom_Dx1000_Func; }
+};
+
+class RebootDevice_Dx1000_Func : public Dx1000_Func_NANR
+{
+public:
+	RebootDevice_Dx1000_Func();
+	~RebootDevice_Dx1000_Func(){};
+	ComObj* Clone() { return new RebootDevice_Dx1000_Func(*this); }
+	static SensorFunction* Create() { return new RebootDevice_Dx1000_Func; }
+};
+
+class LoadFactoryDefaults_Dx1000_Func : public Dx1000_Func_NANR
+{
+public:
+	LoadFactoryDefaults_Dx1000_Func();
+	~LoadFactoryDefaults_Dx1000_Func(){};
+	ComObj* Clone() { return new LoadFactoryDefaults_Dx1000_Func(*this); }
+	static SensorFunction* Create() { return new LoadFactoryDefaults_Dx1000_Func; }
+};
+
+class LoadApplicationDefaults_Dx1000_Func : public Dx1000_Func_NANR
+{
+public:
+	LoadApplicationDefaults_Dx1000_Func();
+	~LoadApplicationDefaults_Dx1000_Func(){};
+	ComObj* Clone() { return new LoadApplicationDefaults_Dx1000_Func(*this); }
+	static SensorFunction* Create() { return new LoadApplicationDefaults_Dx1000_Func; }
+};
+
 } // namespace Dx1000_1_8_8_0R_Skeleton
 } // namespace ssbl
 

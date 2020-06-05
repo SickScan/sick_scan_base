@@ -25,8 +25,6 @@
 
 namespace ssbl {
 
-class SensorSkeleton;
-
 class Lidar2d_Model {
  public:
   Lidar2d_Model(SensorSkeleton * pSkeleton);

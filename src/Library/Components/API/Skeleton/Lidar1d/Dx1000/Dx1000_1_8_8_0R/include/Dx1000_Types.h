@@ -18,6 +18,13 @@ typedef struct
 } FlexString0;
 #pragma pack(pop)
 
+#pragma pack(push, 1)
+typedef struct 
+{
+	uint8_t	Success;
+} WriteEeprom_t;
+#pragma pack(pop)
+
 
 } // namespace Dx1000_1_8_8_0R_Skeleton
 } // namespace ssbl

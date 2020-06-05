@@ -1,6 +1,10 @@
 cmake_minimum_required(VERSION 3.10)
 #Project suffix is set to folder name
-set(COMPONENT_SUFFIX "lidar2d")
+get_filename_component(COMPONENT_SUFFIX ${CMAKE_CURRENT_LIST_DIR} NAME)
+string(REPLACE " " "_" COMPONENT_SUFFIX ${COMPONENT_SUFFIX})
+string(TOLOWER ${COMPONENT_SUFFIX} COMPONENT_SUFFIX)
+set(COMPONENT_SUFFIX "${COMPONENT_SUFFIX}_model")
+
 
 set(BASE_NAME "ssbl")
 set(LOCAL_PROJECT_NAME "${BASE_NAME}-${COMPONENT_SUFFIX}")
@@ -14,12 +18,10 @@ include(LibraryTargetExtension)
 ComponentSources(
 NAME ${COMPONENT_SUFFIX}
 SOURCES
-Lidar2d.cpp
-Lidar2d_Model.cpp
-TiM5xx_Skeleton_Factory.cpp
-TiM5xx_Model_Factory.cpp
-
+Dx1000.cpp
 )
+
+
 
 
 CreateLibraryTarget(
@@ -30,8 +32,6 @@ ${COMPONENT_SUFFIX}
 COMPONENTS
 ${COMPONENT_SUFFIX}
 VS_SOLUTION_NAME
-Family/Lidar2d
+Family/Lidar1d/Model/Dx1000
 DEPENDS
-tim5x1_v3_17_17_09_19_skeleton
-tim5xx_1_0_0_model
-)
+base)

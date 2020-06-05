@@ -16,6 +16,64 @@ typedef struct
 	uint32_t	udiAngleRes;
 	int32_t	diStartAngle;
 	int32_t	diStopAngle;
+} ScanRange_t_aRange_struct_t;
+#pragma pack(pop)
+
+#pragma pack(push, 1)
+typedef struct 
+{
+	uint16_t	uiLength;
+	uint16_t uiLengthaRange;
+	ScanRange_t_aRange_struct_t	aRange[0];
+} ScanRange_t_t;
+#pragma pack(pop)
+
+#pragma pack(push, 1)
+typedef struct 
+{
+	uint32_t	udiScanFreq;
+	ScanRange_t_t	ScanRange;
+} ScanConfig_t_t;
+#pragma pack(pop)
+
+#pragma pack(push, 1)
+typedef struct 
+{
+	uint16_t	uiYear;
+	uint8_t	usiMonth;
+	uint8_t	usiDay;
+	uint8_t	usiHour;
+	uint8_t	usiMinute;
+	uint8_t	usiSec;
+	uint32_t	udiUSec;
+} DateTime_t_t;
+#pragma pack(pop)
+
+#pragma pack(push, 1)
+typedef struct 
+{
+	 uint16_t uiLength;
+	uint8_t Text[0];
+} FlexString0;
+#pragma pack(pop)
+
+#pragma pack(push, 1)
+typedef struct 
+{
+	FlexString0	aContentType;
+	float	dScaleFactor;
+	float	dScaleOffset;
+	int32_t	diStartAngle;
+	uint16_t	uiAngleRes;
+} DataChannelHdr_t_t;
+#pragma pack(pop)
+
+#pragma pack(push, 1)
+typedef struct 
+{
+	uint32_t	udiAngleRes;
+	int32_t	diStartAngle;
+	int32_t	diStopAngle;
 } DataOutputRange_aRange_struct_t;
 #pragma pack(pop)
 
@@ -95,14 +153,6 @@ typedef struct
 	float	dZrot;
 	uint8_t 	xbRotMode[32185202];
 } ScanData_aPositionBlock_struct_t;
-#pragma pack(pop)
-
-#pragma pack(push, 1)
-typedef struct 
-{
-	 uint16_t uiLength;
-	uint8_t Text[0];
-} FlexString0;
 #pragma pack(pop)
 
 #pragma pack(push, 1)
@@ -195,6 +245,48 @@ typedef struct
 	uint8_t	bEnableTimeBlock;
 	uint16_t	uiOutputInterval;
 } ScanDataConfig_t;
+#pragma pack(pop)
+
+#pragma pack(push, 1)
+typedef struct 
+{
+	ScanConfig_t_t	ScanConfigParam;
+} SetScanConfig_t;
+#pragma pack(pop)
+
+#pragma pack(push, 1)
+typedef struct 
+{
+	Enum8_t	ErrorCode;
+} mStartMeasure_t;
+#pragma pack(pop)
+
+#pragma pack(push, 1)
+typedef struct 
+{
+	Enum8_t	ErrorCode;
+} mStopMeasure_t;
+#pragma pack(pop)
+
+#pragma pack(push, 1)
+typedef struct 
+{
+	DateTime_t_t	DateTime;
+} mSetDateTime_t;
+#pragma pack(pop)
+
+#pragma pack(push, 1)
+typedef struct 
+{
+	uint8_t	success;
+} Run_t;
+#pragma pack(pop)
+
+#pragma pack(push, 1)
+typedef struct 
+{
+	uint8_t	Success;
+} WriteEeprom_t;
 #pragma pack(pop)
 
 

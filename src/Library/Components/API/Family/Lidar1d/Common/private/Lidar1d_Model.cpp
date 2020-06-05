@@ -21,10 +21,7 @@
 #include "API/Family/Lidar2d/Common/private/TiM5xx_Model_Factory.h"
 #include "API/Family/Lidar2d/Common/private/TiM5xx_Skeleton_Factory.h"
 #include "Base/Core/Common/include/Hash.h"
-#include "Base/Core/Sensor/include/Common/SensorSkeleton.h"
-
 #include "Base/Core/OS/include/Task.h"
-#include "Base/Core/OS/include/Event.h"
 #include "Base/Core/OS/include/Timer.h"
 #include "Base/Logger/include/Logger.h"
 

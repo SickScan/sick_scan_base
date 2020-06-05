@@ -19,7 +19,7 @@
 
 #include "API/Family/Lidar2d/Model/TiM5xx/TiM5xx_1_0_0/include/TiM5xx.h"
 #include <vector>
-#include "API/Skeleton/Lidar2d/TiM5x1/TiM5x1_V3_17_17_09_19/include/TiM5x1.h"
+#include "API/Skeleton/Lidar2d/TiM5xx/TiM5xx_1_0_0/include/TiM5xx.h"
 
 using namespace std;
 
@@ -51,7 +51,7 @@ SensorResult TiM5xx_1_0_0_Model::Initialize(
 //===========================================================================
 SensorResult TiM5xx_1_0_0_Model::HandleLidarConfigure() {
   SensorResult ret = SSBL_SUCCESS;
-  TiM5x1_V3_17_17_09_19_Skeleton::ScanDataConfig_TiM5x1_Var* pT;
+  TiM5xx_1_0_0_Skeleton::ScanDataConfig_TiM5xx_Var* pT;
   auto outputRange = pLidar2DSkeleton_->CreateVariable("DataOutputRange");
   auto scanDataCfg = pLidar2DSkeleton_->CreateVariable("ScanDataConfig");
 
@@ -85,7 +85,7 @@ SensorResult TiM5xx_1_0_0_Model::HandleLidarConfigure() {
     goto exit;
   }
 
-  pT = dynamic_cast<TiM5x1_V3_17_17_09_19_Skeleton::ScanDataConfig_TiM5x1_Var*>(
+  pT = dynamic_cast<TiM5xx_1_0_0_Skeleton::ScanDataConfig_TiM5xx_Var*>(
       scanDataCfg);
 
   pT->Value_.DistDataConfig[0] = 1;           // Enable output channel 1
@@ -144,9 +144,9 @@ bool TiM5xx_1_0_0_Model::WaitForScanEvent(uint32_t TimeoutMs) {
 //===========================================================================
 SensorResult TiM5xx_1_0_0_Model::HandleLidarStart() {
   SensorResult ret = SSBL_SUCCESS;
-  TiM5x1_V3_17_17_09_19_Skeleton::mStopMeasure_TiM5x1_Func stopFunction;
-  TiM5x1_V3_17_17_09_19_Skeleton::mStartMeasure_TiM5x1_Func startFunction;
-  TiM5x1_V3_17_17_09_19_Skeleton::Run_TiM5x1_Func runFunction;
+  TiM5xx_1_0_0_Skeleton::mStopMeasure_TiM5xx_Func stopFunction;
+  TiM5xx_1_0_0_Skeleton::mStartMeasure_TiM5xx_Func startFunction;
+  TiM5xx_1_0_0_Skeleton::Run_TiM5xx_Func runFunction;
 
   ret = pLidar2DSkeleton_->CallFunction(stopFunction);
   if (SSBL_SUCCESS != ret) {
@@ -184,7 +184,7 @@ exit:
 //===========================================================================
 SensorResult TiM5xx_1_0_0_Model::HandleLidarStop() {
   SensorResult ret = SSBL_SUCCESS;
-  TiM5x1_V3_17_17_09_19_Skeleton::mStopMeasure_TiM5x1_Func stopFunction;
+  TiM5xx_1_0_0_Skeleton::mStopMeasure_TiM5xx_Func stopFunction;
   ret = pLidar2DSkeleton_->CallFunction(stopFunction);
   if (SSBL_SUCCESS != ret) {
     SSBL_LOG_ERROR("can't put the Lidar into stop mode");

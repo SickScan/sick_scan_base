@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-#include "API/Skeleton/Lidar2d/TiM5x1/TiM5x1_V3_17_17_09_19/include/TiM5x1_Factory.h"
+#include "API/Skeleton/Lidar2d/TiM5xx/TiM5xx_1_0_0/include/TiM5xx_Factory.h"
 #include "Base/Core/Common/include/Hash.h"
 #include "Base/Logger/include/Logger.h"
 
@@ -38,9 +38,8 @@ SensorSkeleton* Create_TiM5xx_Skeleton(string const& ModelName,
       hash_64_fnv1a(SkeletonVersion.c_str(), SkeletonVersion.size());
   switch (test) {
     //--------------------------
-    case hash_64_fnv1a_const("V3_17-17_09_19"):
-      pRet =
-          TiM5x1_V3_17_17_09_19_Skeleton::CreateSensorSkeleton(ModelName, IP);
+    case hash_64_fnv1a_const("1.0.0"):
+      pRet = TiM5xx_1_0_0_Skeleton::CreateSensorSkeleton(ModelName, IP);
       break;
     //--------------------------
     default:

@@ -18,7 +18,7 @@
  */
 
 #include <string>
-
+#include "API/Family/Lidar2d/Common/include/Lidar2d_Model.h"
 
 #ifdef _MSC_VER
 #pragma warning(disable : 4307)
@@ -26,8 +26,8 @@
 
 namespace ssbl {
 
-SensorSkeleton* Create_TiM5xx_Skeleton(std::string const& ModelName,
-                                       std::string const& SkeletonVersion,
-                                       std::string const& IP);
+
+Lidar2d_Model* Create_TiM5xx_Model(std::string const& ModelName,
+                                   SensorSkeleton * pSkeleton);
 
 }  // namespace ssbl

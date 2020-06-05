@@ -150,6 +150,87 @@ public:
 	Return Return_;
 };
 
+class SetScanConfig_TiM5x1_Func : public TiM5x1_Func_AR<SetScanConfig_t,SetScanConfig_t>
+{
+public:
+	SetScanConfig_TiM5x1_Func();
+	~SetScanConfig_TiM5x1_Func(){};
+	ComObj* Clone() { return new SetScanConfig_TiM5x1_Func(*this); }
+	static SensorFunction* Create() { return new SetScanConfig_TiM5x1_Func; }
+};
+
+class mStartMeasure_TiM5x1_Func : public TiM5x1_Func_NAR<mStartMeasure_t>
+{
+public:
+	mStartMeasure_TiM5x1_Func();
+	~mStartMeasure_TiM5x1_Func(){};
+	ComObj* Clone() { return new mStartMeasure_TiM5x1_Func(*this); }
+	static SensorFunction* Create() { return new mStartMeasure_TiM5x1_Func; }
+};
+
+class mStopMeasure_TiM5x1_Func : public TiM5x1_Func_NAR<mStopMeasure_t>
+{
+public:
+	mStopMeasure_TiM5x1_Func();
+	~mStopMeasure_TiM5x1_Func(){};
+	ComObj* Clone() { return new mStopMeasure_TiM5x1_Func(*this); }
+	static SensorFunction* Create() { return new mStopMeasure_TiM5x1_Func; }
+};
+
+class mSetDateTime_TiM5x1_Func : public TiM5x1_Func_AR<mSetDateTime_t,mSetDateTime_t>
+{
+public:
+	mSetDateTime_TiM5x1_Func();
+	~mSetDateTime_TiM5x1_Func(){};
+	ComObj* Clone() { return new mSetDateTime_TiM5x1_Func(*this); }
+	static SensorFunction* Create() { return new mSetDateTime_TiM5x1_Func; }
+};
+
+class Run_TiM5x1_Func : public TiM5x1_Func_NAR<Run_t>
+{
+public:
+	Run_TiM5x1_Func();
+	~Run_TiM5x1_Func(){};
+	ComObj* Clone() { return new Run_TiM5x1_Func(*this); }
+	static SensorFunction* Create() { return new Run_TiM5x1_Func; }
+};
+
+class WriteEeprom_TiM5x1_Func : public TiM5x1_Func_NAR<WriteEeprom_t>
+{
+public:
+	WriteEeprom_TiM5x1_Func();
+	~WriteEeprom_TiM5x1_Func(){};
+	ComObj* Clone() { return new WriteEeprom_TiM5x1_Func(*this); }
+	static SensorFunction* Create() { return new WriteEeprom_TiM5x1_Func; }
+};
+
+class RebootDevice_TiM5x1_Func : public TiM5x1_Func_NANR
+{
+public:
+	RebootDevice_TiM5x1_Func();
+	~RebootDevice_TiM5x1_Func(){};
+	ComObj* Clone() { return new RebootDevice_TiM5x1_Func(*this); }
+	static SensorFunction* Create() { return new RebootDevice_TiM5x1_Func; }
+};
+
+class LoadFactoryDefaults_TiM5x1_Func : public TiM5x1_Func_NANR
+{
+public:
+	LoadFactoryDefaults_TiM5x1_Func();
+	~LoadFactoryDefaults_TiM5x1_Func(){};
+	ComObj* Clone() { return new LoadFactoryDefaults_TiM5x1_Func(*this); }
+	static SensorFunction* Create() { return new LoadFactoryDefaults_TiM5x1_Func; }
+};
+
+class LoadApplicationDefaults_TiM5x1_Func : public TiM5x1_Func_NANR
+{
+public:
+	LoadApplicationDefaults_TiM5x1_Func();
+	~LoadApplicationDefaults_TiM5x1_Func(){};
+	ComObj* Clone() { return new LoadApplicationDefaults_TiM5x1_Func(*this); }
+	static SensorFunction* Create() { return new LoadApplicationDefaults_TiM5x1_Func; }
+};
+
 } // namespace TiM5x1_V3_17_17_09_19_Skeleton
 } // namespace ssbl
 
