@@ -29,31 +29,31 @@
 namespace ssbl {
 
 // Forward declarations
-class Lidar2d_Model;
+class Lidar1d_Model;
 class SensorSkeleton;
 class ReconnectTimer;
 class VariableEventQueue;
 
 typedef enum {
-  LIDAR2D_STATE_ERROR,
-  LIDAR2D_STATE_INIT,
-  LIDAR2D_STATE_IDLE,
-  LIDAR2D_STATE_BUSY_IDLE,
-  LIDAR2D_STATE_STARTED,
-  LIDAR2D_STATE_STOPPED,
-} Lidar2dState;
+  LIDAR1D_STATE_ERROR,
+  LIDAR1D_STATE_INIT,
+  LIDAR1D_STATE_IDLE,
+  LIDAR1D_STATE_BUSY_IDLE,
+  LIDAR1D_STATE_STARTED,
+  LIDAR1D_STATE_STOPPED,
+} Lidar1dState;
 
 typedef struct {
-  Lidar2dState state_;
+  Lidar1dState state_;
   std::string name_;
-} Lidar2dStateText;
+} Lidar1dStateText;
 
 /**
  * @class Lidar2d
  * @brief Base class for all 2D Lidar
  *
  */
-class Lidar2d {
+class Lidar1d {
  public:
   /**
    * @brief Construct a new Sick 2D Lidar object
@@ -61,13 +61,13 @@ class Lidar2d {
    * @param ModelName name of the Lidar2dModel to be created
    * @param IP of form xxx.yyy.zzz
    */
-  Lidar2d(std::string ModelName, std::string IP, std::string SkeletonVersion);
+  Lidar1d(std::string ModelName, std::string IP, std::string SkeletonVersion);
 
   /**
    * @brief Destroy the Sick 2D Lidar object
    *
    */
-  virtual ~Lidar2d(){};
+  virtual ~Lidar1d(){};
 
   /**
    * @brief Initialize the Lidar for receiving scan events via queue, will
@@ -144,11 +144,11 @@ class Lidar2d {
    *
    * @return SickLidar2dState
    */
-  Lidar2dState GetLidarState(void);
+  Lidar1dState GetLidarState(void);
 
  protected:
  private:
-  bool Create_Lidar2d(
+  bool Create_Lidar1d(
       std::string const& ModelName,
       std::string const& SkeletonVersion, std::string const& IP
                       );
@@ -157,7 +157,7 @@ class Lidar2d {
   std::string SkeletonVersion_;
   std::string IP_;
 
-  Lidar2d_Model* pLidarModel_;
+  Lidar1d_Model* pLidarModel_;
 };
 
 }  // namespace ssbl

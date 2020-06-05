@@ -49,7 +49,8 @@ int main(void) {
   vector<SensorVariable*> readFirst;
 
   // Create a DUT by specifying the name of the Skeleton and its IP
-  auto DUT = TiM5xx_1_0_0_Skeleton::CreateSensorSkeleton("TiM576", "192.168.0.1");
+  auto DUT = TiM5x1_V3_17_17_09_19_Skeleton::CreateSensorSkeleton(
+      "TiM576", "192.168.0.1");
 
 
   if (NULL == DUT) {

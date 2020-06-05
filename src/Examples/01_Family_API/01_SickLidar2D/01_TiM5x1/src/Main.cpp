@@ -66,8 +66,8 @@ int main(void) {
 void ScanProcessor(uint64_t *pComObj) {
   cout << "ScanProcessor running" << endl;
   // ScanProcessor receives variable ScanData
-  auto *pVar =
-      reinterpret_cast<ssbl::TiM5xx_1_0_0_Skeleton::ScanData_TiM5xx_Var *>(
+  auto *pVar = reinterpret_cast<
+      ssbl::TiM5x1_V3_17_17_09_19_Skeleton::ScanData_TiM5x1_Var *>(
           pComObj);
 
   // access elements
