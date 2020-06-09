@@ -23,8 +23,7 @@ typedef struct
 typedef struct 
 {
 	uint16_t	uiLength;
-	uint16_t uiLengthaRange;
-	ScanRange_t_aRange_struct_t	aRange[0];
+	ScanRange_t_aRange_struct_t	aRange[1];
 } ScanRange_t_t;
 #pragma pack(pop)
 
@@ -52,15 +51,14 @@ typedef struct
 #pragma pack(push, 1)
 typedef struct 
 {
-	 uint16_t uiLength;
-	uint8_t Text[0];
-} FlexString0;
+	uint8_t Text[5];
+} FixString5;
 #pragma pack(pop)
 
 #pragma pack(push, 1)
 typedef struct 
 {
-	FlexString0	aContentType;
+	FixString5	aContentType;
 	float	dScaleFactor;
 	float	dScaleOffset;
 	int32_t	diStartAngle;
@@ -81,8 +79,7 @@ typedef struct
 typedef struct 
 {
 	uint16_t	uiLength;
-	uint16_t uiLengthaRange;
-	DataOutputRange_aRange_struct_t	aRange[0];
+	DataOutputRange_aRange_struct_t	aRange[1];
 } DataOutputRange_t;
 #pragma pack(pop)
 
@@ -102,8 +99,8 @@ typedef struct
 	uint16_t	uiScanCount;
 	uint32_t	udiSystemCountScan;
 	uint32_t	udiSystemCountTransmit;
-	uint8_t 	xbInputs[32185202];
-	uint8_t 	xbOutputs[32185202];
+	uint8_t 	xbInputs[31587186];
+	uint8_t 	xbOutputs[31587186];
 	uint16_t	uiReserved;
 } StatusBlock_struct_t;
 #pragma pack(pop)
@@ -129,7 +126,7 @@ typedef struct
 {
 	DataChannelHdr_t_t	DataChannelHdr;
 	uint16_t uiLengthaData;
-	uint16_t	aData[0];
+	uint16_t	aData[811];
 } ScanData_aDataChannel16_struct_t;
 #pragma pack(pop)
 
@@ -138,7 +135,7 @@ typedef struct
 {
 	DataChannelHdr_t_t	DataChannelHdr;
 	uint16_t uiLengthaData;
-	uint8_t	aData[0];
+	uint8_t	aData[811];
 } ScanData_aDataChannel8_struct_t;
 #pragma pack(pop)
 
@@ -151,8 +148,24 @@ typedef struct
 	float	dXrot;
 	float	dYrot;
 	float	dZrot;
-	uint8_t 	xbRotMode[32185202];
+	uint8_t 	xbRotMode[31587186];
 } ScanData_aPositionBlock_struct_t;
+#pragma pack(pop)
+
+#pragma pack(push, 1)
+typedef struct 
+{
+	 uint16_t uiLength;
+	uint8_t Text[16];
+} FlexString16;
+#pragma pack(pop)
+
+#pragma pack(push, 1)
+typedef struct 
+{
+	 uint16_t uiLength;
+	uint8_t Text[128];
+} FlexString128;
 #pragma pack(pop)
 
 #pragma pack(push, 1)
@@ -165,7 +178,14 @@ typedef struct
 #pragma pack(push, 1)
 typedef struct 
 {
-	FlexString0	aEventType;
+	uint8_t Text[4];
+} FixString4;
+#pragma pack(pop)
+
+#pragma pack(push, 1)
+typedef struct 
+{
+	FixString4	aEventType;
 	uint32_t	udiEncoderPos;
 	uint32_t	udiSystemCount;
 	int32_t	diAngle;
@@ -180,21 +200,21 @@ typedef struct
 	StatusBlock_struct_t	StatusBlock;
 	MeasurementParam1Block_struct_t	MeasurementParam1Block;
 	uint16_t uiLengthaEncoderBlock;
-	ScanData_aEncoderBlock_struct_t	aEncoderBlock[0];
+	ScanData_aEncoderBlock_struct_t	aEncoderBlock[1];
 	uint16_t uiLengthaDataChannel16;
-	ScanData_aDataChannel16_struct_t	aDataChannel16[0];
+	ScanData_aDataChannel16_struct_t	aDataChannel16[2];
 	uint16_t uiLengthaDataChannel8;
-	ScanData_aDataChannel8_struct_t	aDataChannel8[0];
+	ScanData_aDataChannel8_struct_t	aDataChannel8[2];
 	uint16_t uiLengthaPositionBlock;
-	ScanData_aPositionBlock_struct_t	aPositionBlock[0];
+	ScanData_aPositionBlock_struct_t	aPositionBlock[1];
 	uint16_t uiLengthaDeviceName;
-	FlexString0	aDeviceName[0];
+	FlexString16	aDeviceName[1];
 	uint16_t uiLengthaCommentBlock;
-	FlexString0	aCommentBlock[0];
+	FlexString128	aCommentBlock[1];
 	uint16_t uiLengthaTimeBlock;
-	ScanData_aTimeBlock_struct_t	aTimeBlock[0];
+	ScanData_aTimeBlock_struct_t	aTimeBlock[1];
 	uint16_t uiLengthaEventBlock;
-	ScanData_aEventBlock_struct_t	aEventBlock[0];
+	ScanData_aEventBlock_struct_t	aEventBlock[1];
 } ScanData_t;
 #pragma pack(pop)
 
@@ -211,8 +231,7 @@ typedef struct
 typedef struct 
 {
 	uint16_t	uiLength;
-	uint16_t uiLengthaRange;
-	ScanConfig_aRange_struct_t	aRange[0];
+	ScanConfig_aRange_struct_t	aRange[1];
 } ScanRange_struct_t;
 #pragma pack(pop)
 
@@ -245,6 +264,13 @@ typedef struct
 	uint8_t	bEnableTimeBlock;
 	uint16_t	uiOutputInterval;
 } ScanDataConfig_t;
+#pragma pack(pop)
+
+#pragma pack(push, 1)
+typedef struct 
+{
+	uint8_t Text[7];
+} FixString7;
 #pragma pack(pop)
 
 #pragma pack(push, 1)

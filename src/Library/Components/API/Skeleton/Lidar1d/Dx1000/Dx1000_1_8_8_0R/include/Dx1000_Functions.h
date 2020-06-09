@@ -186,6 +186,42 @@ public:
 	static SensorFunction* Create() { return new LoadApplicationDefaults_Dx1000_Func; }
 };
 
+class enableMeasurementLaser_Dx1000_Func : public Dx1000_Func_NAR<enableMeasurementLaser_t>
+{
+public:
+	enableMeasurementLaser_Dx1000_Func();
+	~enableMeasurementLaser_Dx1000_Func(){};
+	ComObj* Clone() { return new enableMeasurementLaser_Dx1000_Func(*this); }
+	static SensorFunction* Create() { return new enableMeasurementLaser_Dx1000_Func; }
+};
+
+class disableMeasurementLaser_Dx1000_Func : public Dx1000_Func_NAR<disableMeasurementLaser_t>
+{
+public:
+	disableMeasurementLaser_Dx1000_Func();
+	~disableMeasurementLaser_Dx1000_Func(){};
+	ComObj* Clone() { return new disableMeasurementLaser_Dx1000_Func(*this); }
+	static SensorFunction* Create() { return new disableMeasurementLaser_Dx1000_Func; }
+};
+
+class enablePilotLaser_Dx1000_Func : public Dx1000_Func_NAR<enablePilotLaser_t>
+{
+public:
+	enablePilotLaser_Dx1000_Func();
+	~enablePilotLaser_Dx1000_Func(){};
+	ComObj* Clone() { return new enablePilotLaser_Dx1000_Func(*this); }
+	static SensorFunction* Create() { return new enablePilotLaser_Dx1000_Func; }
+};
+
+class disablePilotLaser_Dx1000_Func : public Dx1000_Func_NAR<disablePilotLaser_t>
+{
+public:
+	disablePilotLaser_Dx1000_Func();
+	~disablePilotLaser_Dx1000_Func(){};
+	ComObj* Clone() { return new disablePilotLaser_Dx1000_Func(*this); }
+	static SensorFunction* Create() { return new disablePilotLaser_Dx1000_Func; }
+};
+
 } // namespace Dx1000_1_8_8_0R_Skeleton
 } // namespace ssbl
 

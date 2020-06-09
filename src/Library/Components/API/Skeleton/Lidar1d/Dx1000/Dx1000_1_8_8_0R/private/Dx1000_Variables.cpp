@@ -7190,12 +7190,12 @@ SensorResult errorOutputVelocity_Dx1000_Var::SetBasicFromString(std::string valu
 	return ret;
 }
 
-pilotOperatingMode_Dx1000_Var::pilotOperatingMode_Dx1000_Var()
-	: Dx1000_Var("pilotOperatingMode","pilotOperatingMode",424,READ_WRITE,LEVEL_AUTHORIZED_CLIENT,LEVEL_AUTHORIZED_CLIENT,-1)
+acquisitionTime_Dx1000_Var::acquisitionTime_Dx1000_Var()
+	: Dx1000_Var("acquisitionTime","acquisitionTime",215,READ_WRITE,LEVEL_AUTHORIZED_CLIENT,LEVEL_AUTHORIZED_CLIENT,110)
 {
 }
 
-SensorResult pilotOperatingMode_Dx1000_Var::GetBasicElement(const std::string& elementName, int8_t& value) 
+SensorResult acquisitionTime_Dx1000_Var::GetBasicElement(const std::string& elementName, int8_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -7204,7 +7204,7 @@ SensorResult pilotOperatingMode_Dx1000_Var::GetBasicElement(const std::string& e
 	return ret;
 }
 
-SensorResult pilotOperatingMode_Dx1000_Var::GetBasic(int8_t& value) 
+SensorResult acquisitionTime_Dx1000_Var::GetBasic(int8_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -7212,7 +7212,7 @@ SensorResult pilotOperatingMode_Dx1000_Var::GetBasic(int8_t& value)
 	return ret;
 }
 
-SensorResult pilotOperatingMode_Dx1000_Var::GetBasicElement(const std::string& elementName, int16_t& value) 
+SensorResult acquisitionTime_Dx1000_Var::GetBasicElement(const std::string& elementName, int16_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -7221,7 +7221,7 @@ SensorResult pilotOperatingMode_Dx1000_Var::GetBasicElement(const std::string& e
 	return ret;
 }
 
-SensorResult pilotOperatingMode_Dx1000_Var::GetBasic(int16_t& value) 
+SensorResult acquisitionTime_Dx1000_Var::GetBasic(int16_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -7229,7 +7229,7 @@ SensorResult pilotOperatingMode_Dx1000_Var::GetBasic(int16_t& value)
 	return ret;
 }
 
-SensorResult pilotOperatingMode_Dx1000_Var::GetBasicElement(const std::string& elementName, int32_t& value) 
+SensorResult acquisitionTime_Dx1000_Var::GetBasicElement(const std::string& elementName, int32_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -7238,7 +7238,7 @@ SensorResult pilotOperatingMode_Dx1000_Var::GetBasicElement(const std::string& e
 	return ret;
 }
 
-SensorResult pilotOperatingMode_Dx1000_Var::GetBasic(int32_t& value) 
+SensorResult acquisitionTime_Dx1000_Var::GetBasic(int32_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -7246,7 +7246,7 @@ SensorResult pilotOperatingMode_Dx1000_Var::GetBasic(int32_t& value)
 	return ret;
 }
 
-SensorResult pilotOperatingMode_Dx1000_Var::GetBasicElement(const std::string& elementName, int64_t& value) 
+SensorResult acquisitionTime_Dx1000_Var::GetBasicElement(const std::string& elementName, int64_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -7255,7 +7255,7 @@ SensorResult pilotOperatingMode_Dx1000_Var::GetBasicElement(const std::string& e
 	return ret;
 }
 
-SensorResult pilotOperatingMode_Dx1000_Var::GetBasic(int64_t& value) 
+SensorResult acquisitionTime_Dx1000_Var::GetBasic(int64_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -7263,7 +7263,7 @@ SensorResult pilotOperatingMode_Dx1000_Var::GetBasic(int64_t& value)
 	return ret;
 }
 
-SensorResult pilotOperatingMode_Dx1000_Var::GetBasicElement(const std::string& elementName, uint8_t& value) 
+SensorResult acquisitionTime_Dx1000_Var::GetBasicElement(const std::string& elementName, uint8_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -7272,7 +7272,7 @@ SensorResult pilotOperatingMode_Dx1000_Var::GetBasicElement(const std::string& e
 	return ret;
 }
 
-SensorResult pilotOperatingMode_Dx1000_Var::GetBasic(uint8_t& value) 
+SensorResult acquisitionTime_Dx1000_Var::GetBasic(uint8_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	ret = SSBL_SUCCESS;
@@ -7280,7 +7280,7 @@ SensorResult pilotOperatingMode_Dx1000_Var::GetBasic(uint8_t& value)
 	return ret;
 }
 
-SensorResult pilotOperatingMode_Dx1000_Var::GetBasicElement(const std::string& elementName, uint16_t& value) 
+SensorResult acquisitionTime_Dx1000_Var::GetBasicElement(const std::string& elementName, uint16_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -7289,7 +7289,7 @@ SensorResult pilotOperatingMode_Dx1000_Var::GetBasicElement(const std::string& e
 	return ret;
 }
 
-SensorResult pilotOperatingMode_Dx1000_Var::GetBasic(uint16_t& value) 
+SensorResult acquisitionTime_Dx1000_Var::GetBasic(uint16_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -7297,7 +7297,7 @@ SensorResult pilotOperatingMode_Dx1000_Var::GetBasic(uint16_t& value)
 	return ret;
 }
 
-SensorResult pilotOperatingMode_Dx1000_Var::GetBasicElement(const std::string& elementName, uint32_t& value) 
+SensorResult acquisitionTime_Dx1000_Var::GetBasicElement(const std::string& elementName, uint32_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -7306,7 +7306,7 @@ SensorResult pilotOperatingMode_Dx1000_Var::GetBasicElement(const std::string& e
 	return ret;
 }
 
-SensorResult pilotOperatingMode_Dx1000_Var::GetBasic(uint32_t& value) 
+SensorResult acquisitionTime_Dx1000_Var::GetBasic(uint32_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -7314,7 +7314,7 @@ SensorResult pilotOperatingMode_Dx1000_Var::GetBasic(uint32_t& value)
 	return ret;
 }
 
-SensorResult pilotOperatingMode_Dx1000_Var::GetBasicElement(const std::string& elementName, uint64_t& value) 
+SensorResult acquisitionTime_Dx1000_Var::GetBasicElement(const std::string& elementName, uint64_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -7323,7 +7323,7 @@ SensorResult pilotOperatingMode_Dx1000_Var::GetBasicElement(const std::string& e
 	return ret;
 }
 
-SensorResult pilotOperatingMode_Dx1000_Var::GetBasic(uint64_t& value) 
+SensorResult acquisitionTime_Dx1000_Var::GetBasic(uint64_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -7331,7 +7331,7 @@ SensorResult pilotOperatingMode_Dx1000_Var::GetBasic(uint64_t& value)
 	return ret;
 }
 
-SensorResult pilotOperatingMode_Dx1000_Var::GetBasicElement(const std::string& elementName, float& value) 
+SensorResult acquisitionTime_Dx1000_Var::GetBasicElement(const std::string& elementName, float& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -7340,7 +7340,7 @@ SensorResult pilotOperatingMode_Dx1000_Var::GetBasicElement(const std::string& e
 	return ret;
 }
 
-SensorResult pilotOperatingMode_Dx1000_Var::GetBasic(float& value) 
+SensorResult acquisitionTime_Dx1000_Var::GetBasic(float& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -7348,7 +7348,7 @@ SensorResult pilotOperatingMode_Dx1000_Var::GetBasic(float& value)
 	return ret;
 }
 
-SensorResult pilotOperatingMode_Dx1000_Var::GetBasicElement(const std::string& elementName, double& value) 
+SensorResult acquisitionTime_Dx1000_Var::GetBasicElement(const std::string& elementName, double& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -7357,7 +7357,7 @@ SensorResult pilotOperatingMode_Dx1000_Var::GetBasicElement(const std::string& e
 	return ret;
 }
 
-SensorResult pilotOperatingMode_Dx1000_Var::GetBasic(double& value) 
+SensorResult acquisitionTime_Dx1000_Var::GetBasic(double& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -7365,7 +7365,7 @@ SensorResult pilotOperatingMode_Dx1000_Var::GetBasic(double& value)
 	return ret;
 }
 
-SensorResult pilotOperatingMode_Dx1000_Var::SetBasicElement(const std::string& elementName, int8_t& value) 
+SensorResult acquisitionTime_Dx1000_Var::SetBasicElement(const std::string& elementName, int8_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -7374,7 +7374,7 @@ SensorResult pilotOperatingMode_Dx1000_Var::SetBasicElement(const std::string& e
 	return ret;
 }
 
-SensorResult pilotOperatingMode_Dx1000_Var::SetBasic(int8_t& value) 
+SensorResult acquisitionTime_Dx1000_Var::SetBasic(int8_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -7382,7 +7382,7 @@ SensorResult pilotOperatingMode_Dx1000_Var::SetBasic(int8_t& value)
 	return ret;
 }
 
-SensorResult pilotOperatingMode_Dx1000_Var::SetBasicElement(const std::string& elementName, int16_t& value) 
+SensorResult acquisitionTime_Dx1000_Var::SetBasicElement(const std::string& elementName, int16_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -7391,7 +7391,7 @@ SensorResult pilotOperatingMode_Dx1000_Var::SetBasicElement(const std::string& e
 	return ret;
 }
 
-SensorResult pilotOperatingMode_Dx1000_Var::SetBasic(int16_t& value) 
+SensorResult acquisitionTime_Dx1000_Var::SetBasic(int16_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -7399,7 +7399,7 @@ SensorResult pilotOperatingMode_Dx1000_Var::SetBasic(int16_t& value)
 	return ret;
 }
 
-SensorResult pilotOperatingMode_Dx1000_Var::SetBasicElement(const std::string& elementName, int32_t& value) 
+SensorResult acquisitionTime_Dx1000_Var::SetBasicElement(const std::string& elementName, int32_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -7408,7 +7408,7 @@ SensorResult pilotOperatingMode_Dx1000_Var::SetBasicElement(const std::string& e
 	return ret;
 }
 
-SensorResult pilotOperatingMode_Dx1000_Var::SetBasic(int32_t& value) 
+SensorResult acquisitionTime_Dx1000_Var::SetBasic(int32_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -7416,7 +7416,7 @@ SensorResult pilotOperatingMode_Dx1000_Var::SetBasic(int32_t& value)
 	return ret;
 }
 
-SensorResult pilotOperatingMode_Dx1000_Var::SetBasicElement(const std::string& elementName, int64_t& value) 
+SensorResult acquisitionTime_Dx1000_Var::SetBasicElement(const std::string& elementName, int64_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -7425,7 +7425,7 @@ SensorResult pilotOperatingMode_Dx1000_Var::SetBasicElement(const std::string& e
 	return ret;
 }
 
-SensorResult pilotOperatingMode_Dx1000_Var::SetBasic(int64_t& value) 
+SensorResult acquisitionTime_Dx1000_Var::SetBasic(int64_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -7433,7 +7433,7 @@ SensorResult pilotOperatingMode_Dx1000_Var::SetBasic(int64_t& value)
 	return ret;
 }
 
-SensorResult pilotOperatingMode_Dx1000_Var::SetBasicElement(const std::string& elementName, uint8_t& value) 
+SensorResult acquisitionTime_Dx1000_Var::SetBasicElement(const std::string& elementName, uint8_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -7442,7 +7442,7 @@ SensorResult pilotOperatingMode_Dx1000_Var::SetBasicElement(const std::string& e
 	return ret;
 }
 
-SensorResult pilotOperatingMode_Dx1000_Var::SetBasic(uint8_t& value) 
+SensorResult acquisitionTime_Dx1000_Var::SetBasic(uint8_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	this->Value_ = value;
@@ -7450,7 +7450,7 @@ SensorResult pilotOperatingMode_Dx1000_Var::SetBasic(uint8_t& value)
 	return ret;
 }
 
-SensorResult pilotOperatingMode_Dx1000_Var::SetBasicElement(const std::string& elementName, uint16_t& value) 
+SensorResult acquisitionTime_Dx1000_Var::SetBasicElement(const std::string& elementName, uint16_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -7459,7 +7459,7 @@ SensorResult pilotOperatingMode_Dx1000_Var::SetBasicElement(const std::string& e
 	return ret;
 }
 
-SensorResult pilotOperatingMode_Dx1000_Var::SetBasic(uint16_t& value) 
+SensorResult acquisitionTime_Dx1000_Var::SetBasic(uint16_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -7467,7 +7467,7 @@ SensorResult pilotOperatingMode_Dx1000_Var::SetBasic(uint16_t& value)
 	return ret;
 }
 
-SensorResult pilotOperatingMode_Dx1000_Var::SetBasicElement(const std::string& elementName, uint32_t& value) 
+SensorResult acquisitionTime_Dx1000_Var::SetBasicElement(const std::string& elementName, uint32_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -7476,7 +7476,7 @@ SensorResult pilotOperatingMode_Dx1000_Var::SetBasicElement(const std::string& e
 	return ret;
 }
 
-SensorResult pilotOperatingMode_Dx1000_Var::SetBasic(uint32_t& value) 
+SensorResult acquisitionTime_Dx1000_Var::SetBasic(uint32_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -7484,7 +7484,7 @@ SensorResult pilotOperatingMode_Dx1000_Var::SetBasic(uint32_t& value)
 	return ret;
 }
 
-SensorResult pilotOperatingMode_Dx1000_Var::SetBasicElement(const std::string& elementName, uint64_t& value) 
+SensorResult acquisitionTime_Dx1000_Var::SetBasicElement(const std::string& elementName, uint64_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -7493,7 +7493,7 @@ SensorResult pilotOperatingMode_Dx1000_Var::SetBasicElement(const std::string& e
 	return ret;
 }
 
-SensorResult pilotOperatingMode_Dx1000_Var::SetBasic(uint64_t& value) 
+SensorResult acquisitionTime_Dx1000_Var::SetBasic(uint64_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -7501,7 +7501,7 @@ SensorResult pilotOperatingMode_Dx1000_Var::SetBasic(uint64_t& value)
 	return ret;
 }
 
-SensorResult pilotOperatingMode_Dx1000_Var::SetBasicElement(const std::string& elementName, float& value) 
+SensorResult acquisitionTime_Dx1000_Var::SetBasicElement(const std::string& elementName, float& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -7510,7 +7510,7 @@ SensorResult pilotOperatingMode_Dx1000_Var::SetBasicElement(const std::string& e
 	return ret;
 }
 
-SensorResult pilotOperatingMode_Dx1000_Var::SetBasic(float& value) 
+SensorResult acquisitionTime_Dx1000_Var::SetBasic(float& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -7518,7 +7518,7 @@ SensorResult pilotOperatingMode_Dx1000_Var::SetBasic(float& value)
 	return ret;
 }
 
-SensorResult pilotOperatingMode_Dx1000_Var::SetBasicElement(const std::string& elementName, double& value) 
+SensorResult acquisitionTime_Dx1000_Var::SetBasicElement(const std::string& elementName, double& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -7527,7 +7527,7 @@ SensorResult pilotOperatingMode_Dx1000_Var::SetBasicElement(const std::string& e
 	return ret;
 }
 
-SensorResult pilotOperatingMode_Dx1000_Var::SetBasic(double& value) 
+SensorResult acquisitionTime_Dx1000_Var::SetBasic(double& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -7535,7 +7535,7 @@ SensorResult pilotOperatingMode_Dx1000_Var::SetBasic(double& value)
 	return ret;
 }
 
-SensorResult pilotOperatingMode_Dx1000_Var::SetBasicFromString(std::string value)
+SensorResult acquisitionTime_Dx1000_Var::SetBasicFromString(std::string value)
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	bool isNegative = false;
@@ -7556,12 +7556,12 @@ SensorResult pilotOperatingMode_Dx1000_Var::SetBasicFromString(std::string value
 	return ret;
 }
 
-measLaserOperatingMode_Dx1000_Var::measLaserOperatingMode_Dx1000_Var()
-	: Dx1000_Var("measLaserOperatingMode","measLaserOperatingMode",425,READ_WRITE,LEVEL_AUTHORIZED_CLIENT,LEVEL_AUTHORIZED_CLIENT,-1)
+fogFilter_Dx1000_Var::fogFilter_Dx1000_Var()
+	: Dx1000_Var("fogFilter","fogFilter",217,READ_WRITE,LEVEL_RUN,LEVEL_AUTHORIZED_CLIENT,111)
 {
 }
 
-SensorResult measLaserOperatingMode_Dx1000_Var::GetBasicElement(const std::string& elementName, int8_t& value) 
+SensorResult fogFilter_Dx1000_Var::GetBasicElement(const std::string& elementName, int8_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -7570,7 +7570,7 @@ SensorResult measLaserOperatingMode_Dx1000_Var::GetBasicElement(const std::strin
 	return ret;
 }
 
-SensorResult measLaserOperatingMode_Dx1000_Var::GetBasic(int8_t& value) 
+SensorResult fogFilter_Dx1000_Var::GetBasic(int8_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -7578,7 +7578,7 @@ SensorResult measLaserOperatingMode_Dx1000_Var::GetBasic(int8_t& value)
 	return ret;
 }
 
-SensorResult measLaserOperatingMode_Dx1000_Var::GetBasicElement(const std::string& elementName, int16_t& value) 
+SensorResult fogFilter_Dx1000_Var::GetBasicElement(const std::string& elementName, int16_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -7587,7 +7587,7 @@ SensorResult measLaserOperatingMode_Dx1000_Var::GetBasicElement(const std::strin
 	return ret;
 }
 
-SensorResult measLaserOperatingMode_Dx1000_Var::GetBasic(int16_t& value) 
+SensorResult fogFilter_Dx1000_Var::GetBasic(int16_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -7595,7 +7595,7 @@ SensorResult measLaserOperatingMode_Dx1000_Var::GetBasic(int16_t& value)
 	return ret;
 }
 
-SensorResult measLaserOperatingMode_Dx1000_Var::GetBasicElement(const std::string& elementName, int32_t& value) 
+SensorResult fogFilter_Dx1000_Var::GetBasicElement(const std::string& elementName, int32_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -7604,7 +7604,7 @@ SensorResult measLaserOperatingMode_Dx1000_Var::GetBasicElement(const std::strin
 	return ret;
 }
 
-SensorResult measLaserOperatingMode_Dx1000_Var::GetBasic(int32_t& value) 
+SensorResult fogFilter_Dx1000_Var::GetBasic(int32_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -7612,7 +7612,7 @@ SensorResult measLaserOperatingMode_Dx1000_Var::GetBasic(int32_t& value)
 	return ret;
 }
 
-SensorResult measLaserOperatingMode_Dx1000_Var::GetBasicElement(const std::string& elementName, int64_t& value) 
+SensorResult fogFilter_Dx1000_Var::GetBasicElement(const std::string& elementName, int64_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -7621,7 +7621,7 @@ SensorResult measLaserOperatingMode_Dx1000_Var::GetBasicElement(const std::strin
 	return ret;
 }
 
-SensorResult measLaserOperatingMode_Dx1000_Var::GetBasic(int64_t& value) 
+SensorResult fogFilter_Dx1000_Var::GetBasic(int64_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -7629,7 +7629,7 @@ SensorResult measLaserOperatingMode_Dx1000_Var::GetBasic(int64_t& value)
 	return ret;
 }
 
-SensorResult measLaserOperatingMode_Dx1000_Var::GetBasicElement(const std::string& elementName, uint8_t& value) 
+SensorResult fogFilter_Dx1000_Var::GetBasicElement(const std::string& elementName, uint8_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -7638,7 +7638,7 @@ SensorResult measLaserOperatingMode_Dx1000_Var::GetBasicElement(const std::strin
 	return ret;
 }
 
-SensorResult measLaserOperatingMode_Dx1000_Var::GetBasic(uint8_t& value) 
+SensorResult fogFilter_Dx1000_Var::GetBasic(uint8_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	ret = SSBL_SUCCESS;
@@ -7646,7 +7646,7 @@ SensorResult measLaserOperatingMode_Dx1000_Var::GetBasic(uint8_t& value)
 	return ret;
 }
 
-SensorResult measLaserOperatingMode_Dx1000_Var::GetBasicElement(const std::string& elementName, uint16_t& value) 
+SensorResult fogFilter_Dx1000_Var::GetBasicElement(const std::string& elementName, uint16_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -7655,7 +7655,7 @@ SensorResult measLaserOperatingMode_Dx1000_Var::GetBasicElement(const std::strin
 	return ret;
 }
 
-SensorResult measLaserOperatingMode_Dx1000_Var::GetBasic(uint16_t& value) 
+SensorResult fogFilter_Dx1000_Var::GetBasic(uint16_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -7663,7 +7663,7 @@ SensorResult measLaserOperatingMode_Dx1000_Var::GetBasic(uint16_t& value)
 	return ret;
 }
 
-SensorResult measLaserOperatingMode_Dx1000_Var::GetBasicElement(const std::string& elementName, uint32_t& value) 
+SensorResult fogFilter_Dx1000_Var::GetBasicElement(const std::string& elementName, uint32_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -7672,7 +7672,7 @@ SensorResult measLaserOperatingMode_Dx1000_Var::GetBasicElement(const std::strin
 	return ret;
 }
 
-SensorResult measLaserOperatingMode_Dx1000_Var::GetBasic(uint32_t& value) 
+SensorResult fogFilter_Dx1000_Var::GetBasic(uint32_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -7680,7 +7680,7 @@ SensorResult measLaserOperatingMode_Dx1000_Var::GetBasic(uint32_t& value)
 	return ret;
 }
 
-SensorResult measLaserOperatingMode_Dx1000_Var::GetBasicElement(const std::string& elementName, uint64_t& value) 
+SensorResult fogFilter_Dx1000_Var::GetBasicElement(const std::string& elementName, uint64_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -7689,7 +7689,7 @@ SensorResult measLaserOperatingMode_Dx1000_Var::GetBasicElement(const std::strin
 	return ret;
 }
 
-SensorResult measLaserOperatingMode_Dx1000_Var::GetBasic(uint64_t& value) 
+SensorResult fogFilter_Dx1000_Var::GetBasic(uint64_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -7697,7 +7697,7 @@ SensorResult measLaserOperatingMode_Dx1000_Var::GetBasic(uint64_t& value)
 	return ret;
 }
 
-SensorResult measLaserOperatingMode_Dx1000_Var::GetBasicElement(const std::string& elementName, float& value) 
+SensorResult fogFilter_Dx1000_Var::GetBasicElement(const std::string& elementName, float& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -7706,7 +7706,7 @@ SensorResult measLaserOperatingMode_Dx1000_Var::GetBasicElement(const std::strin
 	return ret;
 }
 
-SensorResult measLaserOperatingMode_Dx1000_Var::GetBasic(float& value) 
+SensorResult fogFilter_Dx1000_Var::GetBasic(float& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -7714,7 +7714,7 @@ SensorResult measLaserOperatingMode_Dx1000_Var::GetBasic(float& value)
 	return ret;
 }
 
-SensorResult measLaserOperatingMode_Dx1000_Var::GetBasicElement(const std::string& elementName, double& value) 
+SensorResult fogFilter_Dx1000_Var::GetBasicElement(const std::string& elementName, double& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -7723,7 +7723,7 @@ SensorResult measLaserOperatingMode_Dx1000_Var::GetBasicElement(const std::strin
 	return ret;
 }
 
-SensorResult measLaserOperatingMode_Dx1000_Var::GetBasic(double& value) 
+SensorResult fogFilter_Dx1000_Var::GetBasic(double& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -7731,7 +7731,7 @@ SensorResult measLaserOperatingMode_Dx1000_Var::GetBasic(double& value)
 	return ret;
 }
 
-SensorResult measLaserOperatingMode_Dx1000_Var::SetBasicElement(const std::string& elementName, int8_t& value) 
+SensorResult fogFilter_Dx1000_Var::SetBasicElement(const std::string& elementName, int8_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -7740,7 +7740,7 @@ SensorResult measLaserOperatingMode_Dx1000_Var::SetBasicElement(const std::strin
 	return ret;
 }
 
-SensorResult measLaserOperatingMode_Dx1000_Var::SetBasic(int8_t& value) 
+SensorResult fogFilter_Dx1000_Var::SetBasic(int8_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -7748,7 +7748,7 @@ SensorResult measLaserOperatingMode_Dx1000_Var::SetBasic(int8_t& value)
 	return ret;
 }
 
-SensorResult measLaserOperatingMode_Dx1000_Var::SetBasicElement(const std::string& elementName, int16_t& value) 
+SensorResult fogFilter_Dx1000_Var::SetBasicElement(const std::string& elementName, int16_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -7757,7 +7757,7 @@ SensorResult measLaserOperatingMode_Dx1000_Var::SetBasicElement(const std::strin
 	return ret;
 }
 
-SensorResult measLaserOperatingMode_Dx1000_Var::SetBasic(int16_t& value) 
+SensorResult fogFilter_Dx1000_Var::SetBasic(int16_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -7765,7 +7765,7 @@ SensorResult measLaserOperatingMode_Dx1000_Var::SetBasic(int16_t& value)
 	return ret;
 }
 
-SensorResult measLaserOperatingMode_Dx1000_Var::SetBasicElement(const std::string& elementName, int32_t& value) 
+SensorResult fogFilter_Dx1000_Var::SetBasicElement(const std::string& elementName, int32_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -7774,7 +7774,7 @@ SensorResult measLaserOperatingMode_Dx1000_Var::SetBasicElement(const std::strin
 	return ret;
 }
 
-SensorResult measLaserOperatingMode_Dx1000_Var::SetBasic(int32_t& value) 
+SensorResult fogFilter_Dx1000_Var::SetBasic(int32_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -7782,7 +7782,7 @@ SensorResult measLaserOperatingMode_Dx1000_Var::SetBasic(int32_t& value)
 	return ret;
 }
 
-SensorResult measLaserOperatingMode_Dx1000_Var::SetBasicElement(const std::string& elementName, int64_t& value) 
+SensorResult fogFilter_Dx1000_Var::SetBasicElement(const std::string& elementName, int64_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -7791,7 +7791,7 @@ SensorResult measLaserOperatingMode_Dx1000_Var::SetBasicElement(const std::strin
 	return ret;
 }
 
-SensorResult measLaserOperatingMode_Dx1000_Var::SetBasic(int64_t& value) 
+SensorResult fogFilter_Dx1000_Var::SetBasic(int64_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -7799,7 +7799,7 @@ SensorResult measLaserOperatingMode_Dx1000_Var::SetBasic(int64_t& value)
 	return ret;
 }
 
-SensorResult measLaserOperatingMode_Dx1000_Var::SetBasicElement(const std::string& elementName, uint8_t& value) 
+SensorResult fogFilter_Dx1000_Var::SetBasicElement(const std::string& elementName, uint8_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -7808,7 +7808,7 @@ SensorResult measLaserOperatingMode_Dx1000_Var::SetBasicElement(const std::strin
 	return ret;
 }
 
-SensorResult measLaserOperatingMode_Dx1000_Var::SetBasic(uint8_t& value) 
+SensorResult fogFilter_Dx1000_Var::SetBasic(uint8_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	this->Value_ = value;
@@ -7816,7 +7816,7 @@ SensorResult measLaserOperatingMode_Dx1000_Var::SetBasic(uint8_t& value)
 	return ret;
 }
 
-SensorResult measLaserOperatingMode_Dx1000_Var::SetBasicElement(const std::string& elementName, uint16_t& value) 
+SensorResult fogFilter_Dx1000_Var::SetBasicElement(const std::string& elementName, uint16_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -7825,7 +7825,7 @@ SensorResult measLaserOperatingMode_Dx1000_Var::SetBasicElement(const std::strin
 	return ret;
 }
 
-SensorResult measLaserOperatingMode_Dx1000_Var::SetBasic(uint16_t& value) 
+SensorResult fogFilter_Dx1000_Var::SetBasic(uint16_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -7833,7 +7833,7 @@ SensorResult measLaserOperatingMode_Dx1000_Var::SetBasic(uint16_t& value)
 	return ret;
 }
 
-SensorResult measLaserOperatingMode_Dx1000_Var::SetBasicElement(const std::string& elementName, uint32_t& value) 
+SensorResult fogFilter_Dx1000_Var::SetBasicElement(const std::string& elementName, uint32_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -7842,7 +7842,7 @@ SensorResult measLaserOperatingMode_Dx1000_Var::SetBasicElement(const std::strin
 	return ret;
 }
 
-SensorResult measLaserOperatingMode_Dx1000_Var::SetBasic(uint32_t& value) 
+SensorResult fogFilter_Dx1000_Var::SetBasic(uint32_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -7850,7 +7850,7 @@ SensorResult measLaserOperatingMode_Dx1000_Var::SetBasic(uint32_t& value)
 	return ret;
 }
 
-SensorResult measLaserOperatingMode_Dx1000_Var::SetBasicElement(const std::string& elementName, uint64_t& value) 
+SensorResult fogFilter_Dx1000_Var::SetBasicElement(const std::string& elementName, uint64_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -7859,7 +7859,7 @@ SensorResult measLaserOperatingMode_Dx1000_Var::SetBasicElement(const std::strin
 	return ret;
 }
 
-SensorResult measLaserOperatingMode_Dx1000_Var::SetBasic(uint64_t& value) 
+SensorResult fogFilter_Dx1000_Var::SetBasic(uint64_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -7867,7 +7867,7 @@ SensorResult measLaserOperatingMode_Dx1000_Var::SetBasic(uint64_t& value)
 	return ret;
 }
 
-SensorResult measLaserOperatingMode_Dx1000_Var::SetBasicElement(const std::string& elementName, float& value) 
+SensorResult fogFilter_Dx1000_Var::SetBasicElement(const std::string& elementName, float& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -7876,7 +7876,7 @@ SensorResult measLaserOperatingMode_Dx1000_Var::SetBasicElement(const std::strin
 	return ret;
 }
 
-SensorResult measLaserOperatingMode_Dx1000_Var::SetBasic(float& value) 
+SensorResult fogFilter_Dx1000_Var::SetBasic(float& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -7884,7 +7884,7 @@ SensorResult measLaserOperatingMode_Dx1000_Var::SetBasic(float& value)
 	return ret;
 }
 
-SensorResult measLaserOperatingMode_Dx1000_Var::SetBasicElement(const std::string& elementName, double& value) 
+SensorResult fogFilter_Dx1000_Var::SetBasicElement(const std::string& elementName, double& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(elementName);
@@ -7893,7 +7893,7 @@ SensorResult measLaserOperatingMode_Dx1000_Var::SetBasicElement(const std::strin
 	return ret;
 }
 
-SensorResult measLaserOperatingMode_Dx1000_Var::SetBasic(double& value) 
+SensorResult fogFilter_Dx1000_Var::SetBasic(double& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	SSBL_UNUSED(value);
@@ -7901,7 +7901,7 @@ SensorResult measLaserOperatingMode_Dx1000_Var::SetBasic(double& value)
 	return ret;
 }
 
-SensorResult measLaserOperatingMode_Dx1000_Var::SetBasicFromString(std::string value)
+SensorResult fogFilter_Dx1000_Var::SetBasicFromString(std::string value)
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
 	bool isNegative = false;

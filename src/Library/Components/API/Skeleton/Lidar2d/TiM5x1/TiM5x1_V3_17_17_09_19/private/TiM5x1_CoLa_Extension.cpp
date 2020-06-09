@@ -21,8 +21,7 @@ namespace TiM5x1_V3_17_17_09_19_Skeleton
 	{
 
 		CoLaASerializer::Serialize(pDest, rSrc.uiLength , pOffset);
-		CoLaASerializer::Serialize(pDest, rSrc.uiLengthaRange, pOffset);
-		for(int32_t k=0;k<rSrc.uiLengthaRange;++k)
+		for(int32_t k=0;k<1;++k)
 		{
 			Serialize(pDest, rSrc.aRange[k], pOffset);
 		}
@@ -47,9 +46,9 @@ namespace TiM5x1_V3_17_17_09_19_Skeleton
 		CoLaASerializer::Serialize(pDest, rSrc.udiUSec , pOffset);
 	}
 
-	void TiM5x1_CoLaASerializer::Serialize(uint8_t* pDest, FlexString0& rSrc, uint32_t* pOffset)
+	void TiM5x1_CoLaASerializer::Serialize(uint8_t* pDest, FixString5& rSrc, uint32_t* pOffset)
 	{
-		SerializeFlexString(pDest, rSrc.Text, rSrc.uiLength,0, pOffset);
+		SerializeFixString(pDest, rSrc.Text,5, pOffset);
 	}
 
 	void TiM5x1_CoLaASerializer::Serialize(uint8_t* pDest, DataChannelHdr_t_t& rSrc, uint32_t* pOffset)
@@ -74,8 +73,7 @@ namespace TiM5x1_V3_17_17_09_19_Skeleton
 	{
 
 		CoLaASerializer::Serialize(pDest, rSrc.uiLength , pOffset);
-		CoLaASerializer::Serialize(pDest, rSrc.uiLengthaRange, pOffset);
-		for(int32_t k=0;k<rSrc.uiLengthaRange;++k)
+		for(int32_t k=0;k<1;++k)
 		{
 			Serialize(pDest, rSrc.aRange[k], pOffset);
 		}
@@ -99,11 +97,11 @@ namespace TiM5x1_V3_17_17_09_19_Skeleton
 		CoLaASerializer::Serialize(pDest, rSrc.uiScanCount , pOffset);
 		CoLaASerializer::Serialize(pDest, rSrc.udiSystemCountScan , pOffset);
 		CoLaASerializer::Serialize(pDest, rSrc.udiSystemCountTransmit , pOffset);
-		for(int32_t k=0;k<32185202;++k)
+		for(int32_t k=0;k<31587186;++k)
 		{
 			CoLaASerializer::Serialize(pDest, rSrc.xbInputs[k],pOffset);
 		}
-		for(int32_t k=0;k<32185202;++k)
+		for(int32_t k=0;k<31587186;++k)
 		{
 			CoLaASerializer::Serialize(pDest, rSrc.xbOutputs[k],pOffset);
 		}
@@ -155,16 +153,31 @@ namespace TiM5x1_V3_17_17_09_19_Skeleton
 		CoLaASerializer::Serialize(pDest, rSrc.dXrot , pOffset);
 		CoLaASerializer::Serialize(pDest, rSrc.dYrot , pOffset);
 		CoLaASerializer::Serialize(pDest, rSrc.dZrot , pOffset);
-		for(int32_t k=0;k<32185202;++k)
+		for(int32_t k=0;k<31587186;++k)
 		{
 			CoLaASerializer::Serialize(pDest, rSrc.xbRotMode[k],pOffset);
 		}
+	}
+
+	void TiM5x1_CoLaASerializer::Serialize(uint8_t* pDest, FlexString16& rSrc, uint32_t* pOffset)
+	{
+		SerializeFlexString(pDest, rSrc.Text, rSrc.uiLength,16, pOffset);
+	}
+
+	void TiM5x1_CoLaASerializer::Serialize(uint8_t* pDest, FlexString128& rSrc, uint32_t* pOffset)
+	{
+		SerializeFlexString(pDest, rSrc.Text, rSrc.uiLength,128, pOffset);
 	}
 
 	void TiM5x1_CoLaASerializer::Serialize(uint8_t* pDest, ScanData_aTimeBlock_struct_t& rSrc, uint32_t* pOffset)
 	{
 
 		Serialize(pDest, rSrc.DateTime , pOffset);
+	}
+
+	void TiM5x1_CoLaASerializer::Serialize(uint8_t* pDest, FixString4& rSrc, uint32_t* pOffset)
+	{
+		SerializeFixString(pDest, rSrc.Text,4, pOffset);
 	}
 
 	void TiM5x1_CoLaASerializer::Serialize(uint8_t* pDest, ScanData_aEventBlock_struct_t& rSrc, uint32_t* pOffset)
@@ -237,8 +250,7 @@ namespace TiM5x1_V3_17_17_09_19_Skeleton
 	{
 
 		CoLaASerializer::Serialize(pDest, rSrc.uiLength , pOffset);
-		CoLaASerializer::Serialize(pDest, rSrc.uiLengthaRange, pOffset);
-		for(int32_t k=0;k<rSrc.uiLengthaRange;++k)
+		for(int32_t k=0;k<1;++k)
 		{
 			Serialize(pDest, rSrc.aRange[k], pOffset);
 		}
@@ -276,6 +288,11 @@ namespace TiM5x1_V3_17_17_09_19_Skeleton
 		CoLaASerializer::Serialize(pDest, rSrc.bEnableCommentBlock , pOffset);
 		CoLaASerializer::Serialize(pDest, rSrc.bEnableTimeBlock , pOffset);
 		CoLaASerializer::Serialize(pDest, rSrc.uiOutputInterval , pOffset);
+	}
+
+	void TiM5x1_CoLaASerializer::Serialize(uint8_t* pDest, FixString7& rSrc, uint32_t* pOffset)
+	{
+		SerializeFixString(pDest, rSrc.Text,7, pOffset);
 	}
 
 	void TiM5x1_CoLaASerializer::Serialize(uint8_t* pDest, SetScanConfig_t& rSrc, uint32_t* pOffset)
@@ -335,8 +352,7 @@ namespace TiM5x1_V3_17_17_09_19_Skeleton
 	{
 
 		CoLaADeserializer::Deserialize(pSrc, rDest.uiLength , pOffset);
-		CoLaADeserializer::Deserialize(pSrc, rDest.uiLengthaRange, pOffset);
-		for(int32_t k=0;k<rDest.uiLengthaRange;++k)
+		for(int32_t k=0;k<1;++k)
 		{
 			Deserialize(pSrc, rDest.aRange[k], pOffset);
 		}
@@ -361,9 +377,9 @@ namespace TiM5x1_V3_17_17_09_19_Skeleton
 		CoLaADeserializer::Deserialize(pSrc, rDest.udiUSec , pOffset);
 	}
 
-	void TiM5x1_CoLaADeserializer::Deserialize(uint8_t* pSrc, FlexString0& rDest, uint32_t* pOffset)
+	void TiM5x1_CoLaADeserializer::Deserialize(uint8_t* pSrc, FixString5& rDest, uint32_t* pOffset)
 	{
-		DeserializeFlexString(pSrc, &rDest.Text[0],&rDest.uiLength,0 , pOffset);
+		DeserializeFixString(pSrc, &rDest.Text[0],5, pOffset);
 	}
 
 	void TiM5x1_CoLaADeserializer::Deserialize(uint8_t* pSrc, DataChannelHdr_t_t& rDest, uint32_t* pOffset)
@@ -388,8 +404,7 @@ namespace TiM5x1_V3_17_17_09_19_Skeleton
 	{
 
 		CoLaADeserializer::Deserialize(pSrc, rDest.uiLength , pOffset);
-		CoLaADeserializer::Deserialize(pSrc, rDest.uiLengthaRange, pOffset);
-		for(int32_t k=0;k<rDest.uiLengthaRange;++k)
+		for(int32_t k=0;k<1;++k)
 		{
 			Deserialize(pSrc, rDest.aRange[k], pOffset);
 		}
@@ -413,11 +428,11 @@ namespace TiM5x1_V3_17_17_09_19_Skeleton
 		CoLaADeserializer::Deserialize(pSrc, rDest.uiScanCount , pOffset);
 		CoLaADeserializer::Deserialize(pSrc, rDest.udiSystemCountScan , pOffset);
 		CoLaADeserializer::Deserialize(pSrc, rDest.udiSystemCountTransmit , pOffset);
-		for(int32_t k=0;k<32185202;++k)
+		for(int32_t k=0;k<31587186;++k)
 		{
 			CoLaADeserializer::Deserialize(pSrc, rDest.xbInputs[k],pOffset);
 		}
-		for(int32_t k=0;k<32185202;++k)
+		for(int32_t k=0;k<31587186;++k)
 		{
 			CoLaADeserializer::Deserialize(pSrc, rDest.xbOutputs[k],pOffset);
 		}
@@ -469,16 +484,31 @@ namespace TiM5x1_V3_17_17_09_19_Skeleton
 		CoLaADeserializer::Deserialize(pSrc, rDest.dXrot , pOffset);
 		CoLaADeserializer::Deserialize(pSrc, rDest.dYrot , pOffset);
 		CoLaADeserializer::Deserialize(pSrc, rDest.dZrot , pOffset);
-		for(int32_t k=0;k<32185202;++k)
+		for(int32_t k=0;k<31587186;++k)
 		{
 			CoLaADeserializer::Deserialize(pSrc, rDest.xbRotMode[k],pOffset);
 		}
+	}
+
+	void TiM5x1_CoLaADeserializer::Deserialize(uint8_t* pSrc, FlexString16& rDest, uint32_t* pOffset)
+	{
+		DeserializeFlexString(pSrc, &rDest.Text[0],&rDest.uiLength,16 , pOffset);
+	}
+
+	void TiM5x1_CoLaADeserializer::Deserialize(uint8_t* pSrc, FlexString128& rDest, uint32_t* pOffset)
+	{
+		DeserializeFlexString(pSrc, &rDest.Text[0],&rDest.uiLength,128 , pOffset);
 	}
 
 	void TiM5x1_CoLaADeserializer::Deserialize(uint8_t* pSrc, ScanData_aTimeBlock_struct_t& rDest, uint32_t* pOffset)
 	{
 
 		Deserialize(pSrc, rDest.DateTime , pOffset);
+	}
+
+	void TiM5x1_CoLaADeserializer::Deserialize(uint8_t* pSrc, FixString4& rDest, uint32_t* pOffset)
+	{
+		DeserializeFixString(pSrc, &rDest.Text[0],4, pOffset);
 	}
 
 	void TiM5x1_CoLaADeserializer::Deserialize(uint8_t* pSrc, ScanData_aEventBlock_struct_t& rDest, uint32_t* pOffset)
@@ -551,8 +581,7 @@ namespace TiM5x1_V3_17_17_09_19_Skeleton
 	{
 
 		CoLaADeserializer::Deserialize(pSrc, rDest.uiLength , pOffset);
-		CoLaADeserializer::Deserialize(pSrc, rDest.uiLengthaRange, pOffset);
-		for(int32_t k=0;k<rDest.uiLengthaRange;++k)
+		for(int32_t k=0;k<1;++k)
 		{
 			Deserialize(pSrc, rDest.aRange[k], pOffset);
 		}
@@ -590,6 +619,11 @@ namespace TiM5x1_V3_17_17_09_19_Skeleton
 		CoLaADeserializer::Deserialize(pSrc, rDest.bEnableCommentBlock , pOffset);
 		CoLaADeserializer::Deserialize(pSrc, rDest.bEnableTimeBlock , pOffset);
 		CoLaADeserializer::Deserialize(pSrc, rDest.uiOutputInterval , pOffset);
+	}
+
+	void TiM5x1_CoLaADeserializer::Deserialize(uint8_t* pSrc, FixString7& rDest, uint32_t* pOffset)
+	{
+		DeserializeFixString(pSrc, &rDest.Text[0],7, pOffset);
 	}
 
 	void TiM5x1_CoLaADeserializer::Deserialize(uint8_t* pSrc, SetScanConfig_t& rDest, uint32_t* pOffset)
@@ -650,8 +684,7 @@ namespace TiM5x1_V3_17_17_09_19_Skeleton
 	{
 
 		CoLaBSerializer::Serialize(pDest, rSrc.uiLength , pOffset);
-		CoLaBSerializer::Serialize(pDest, rSrc.uiLengthaRange, pOffset);
-		for(int32_t k=0;k<rSrc.uiLengthaRange;++k)
+		for(int32_t k=0;k<1;++k)
 		{
 			Serialize(pDest, rSrc.aRange[k], pOffset);
 		}
@@ -676,9 +709,9 @@ namespace TiM5x1_V3_17_17_09_19_Skeleton
 		CoLaBSerializer::Serialize(pDest, rSrc.udiUSec , pOffset);
 	}
 
-	void TiM5x1_CoLaBSerializer::Serialize(uint8_t* pDest, FlexString0& rSrc, uint32_t* pOffset)
+	void TiM5x1_CoLaBSerializer::Serialize(uint8_t* pDest, FixString5& rSrc, uint32_t* pOffset)
 	{
-		SerializeFlexString(pDest, rSrc.Text, rSrc.uiLength,0, pOffset);
+		SerializeFixString(pDest, rSrc.Text,5, pOffset);
 	}
 
 	void TiM5x1_CoLaBSerializer::Serialize(uint8_t* pDest, DataChannelHdr_t_t& rSrc, uint32_t* pOffset)
@@ -703,8 +736,7 @@ namespace TiM5x1_V3_17_17_09_19_Skeleton
 	{
 
 		CoLaBSerializer::Serialize(pDest, rSrc.uiLength , pOffset);
-		CoLaBSerializer::Serialize(pDest, rSrc.uiLengthaRange, pOffset);
-		for(int32_t k=0;k<rSrc.uiLengthaRange;++k)
+		for(int32_t k=0;k<1;++k)
 		{
 			Serialize(pDest, rSrc.aRange[k], pOffset);
 		}
@@ -728,11 +760,11 @@ namespace TiM5x1_V3_17_17_09_19_Skeleton
 		CoLaBSerializer::Serialize(pDest, rSrc.uiScanCount , pOffset);
 		CoLaBSerializer::Serialize(pDest, rSrc.udiSystemCountScan , pOffset);
 		CoLaBSerializer::Serialize(pDest, rSrc.udiSystemCountTransmit , pOffset);
-		for(int32_t k=0;k<32185202;++k)
+		for(int32_t k=0;k<31587186;++k)
 		{
 			CoLaBSerializer::Serialize(pDest, rSrc.xbInputs[k],pOffset);
 		}
-		for(int32_t k=0;k<32185202;++k)
+		for(int32_t k=0;k<31587186;++k)
 		{
 			CoLaBSerializer::Serialize(pDest, rSrc.xbOutputs[k],pOffset);
 		}
@@ -784,16 +816,31 @@ namespace TiM5x1_V3_17_17_09_19_Skeleton
 		CoLaBSerializer::Serialize(pDest, rSrc.dXrot , pOffset);
 		CoLaBSerializer::Serialize(pDest, rSrc.dYrot , pOffset);
 		CoLaBSerializer::Serialize(pDest, rSrc.dZrot , pOffset);
-		for(int32_t k=0;k<32185202;++k)
+		for(int32_t k=0;k<31587186;++k)
 		{
 			CoLaBSerializer::Serialize(pDest, rSrc.xbRotMode[k],pOffset);
 		}
+	}
+
+	void TiM5x1_CoLaBSerializer::Serialize(uint8_t* pDest, FlexString16& rSrc, uint32_t* pOffset)
+	{
+		SerializeFlexString(pDest, rSrc.Text, rSrc.uiLength,16, pOffset);
+	}
+
+	void TiM5x1_CoLaBSerializer::Serialize(uint8_t* pDest, FlexString128& rSrc, uint32_t* pOffset)
+	{
+		SerializeFlexString(pDest, rSrc.Text, rSrc.uiLength,128, pOffset);
 	}
 
 	void TiM5x1_CoLaBSerializer::Serialize(uint8_t* pDest, ScanData_aTimeBlock_struct_t& rSrc, uint32_t* pOffset)
 	{
 
 		Serialize(pDest, rSrc.DateTime , pOffset);
+	}
+
+	void TiM5x1_CoLaBSerializer::Serialize(uint8_t* pDest, FixString4& rSrc, uint32_t* pOffset)
+	{
+		SerializeFixString(pDest, rSrc.Text,4, pOffset);
 	}
 
 	void TiM5x1_CoLaBSerializer::Serialize(uint8_t* pDest, ScanData_aEventBlock_struct_t& rSrc, uint32_t* pOffset)
@@ -866,8 +913,7 @@ namespace TiM5x1_V3_17_17_09_19_Skeleton
 	{
 
 		CoLaBSerializer::Serialize(pDest, rSrc.uiLength , pOffset);
-		CoLaBSerializer::Serialize(pDest, rSrc.uiLengthaRange, pOffset);
-		for(int32_t k=0;k<rSrc.uiLengthaRange;++k)
+		for(int32_t k=0;k<1;++k)
 		{
 			Serialize(pDest, rSrc.aRange[k], pOffset);
 		}
@@ -905,6 +951,11 @@ namespace TiM5x1_V3_17_17_09_19_Skeleton
 		CoLaBSerializer::Serialize(pDest, rSrc.bEnableCommentBlock , pOffset);
 		CoLaBSerializer::Serialize(pDest, rSrc.bEnableTimeBlock , pOffset);
 		CoLaBSerializer::Serialize(pDest, rSrc.uiOutputInterval , pOffset);
+	}
+
+	void TiM5x1_CoLaBSerializer::Serialize(uint8_t* pDest, FixString7& rSrc, uint32_t* pOffset)
+	{
+		SerializeFixString(pDest, rSrc.Text,7, pOffset);
 	}
 
 	void TiM5x1_CoLaBSerializer::Serialize(uint8_t* pDest, SetScanConfig_t& rSrc, uint32_t* pOffset)
@@ -964,8 +1015,7 @@ namespace TiM5x1_V3_17_17_09_19_Skeleton
 	{
 
 		CoLaBDeserializer::Deserialize(pSrc, rDest.uiLength , pOffset);
-		CoLaBDeserializer::Deserialize(pSrc, rDest.uiLengthaRange, pOffset);
-		for(int32_t k=0;k<rDest.uiLengthaRange;++k)
+		for(int32_t k=0;k<1;++k)
 		{
 			Deserialize(pSrc, rDest.aRange[k], pOffset);
 		}
@@ -990,9 +1040,9 @@ namespace TiM5x1_V3_17_17_09_19_Skeleton
 		CoLaBDeserializer::Deserialize(pSrc, rDest.udiUSec , pOffset);
 	}
 
-	void TiM5x1_CoLaBDeserializer::Deserialize(uint8_t* pSrc, FlexString0& rDest, uint32_t* pOffset)
+	void TiM5x1_CoLaBDeserializer::Deserialize(uint8_t* pSrc, FixString5& rDest, uint32_t* pOffset)
 	{
-		DeserializeFlexString(pSrc, &rDest.Text[0],&rDest.uiLength,0 , pOffset);
+		DeserializeFixString(pSrc, &rDest.Text[0],5, pOffset);
 	}
 
 	void TiM5x1_CoLaBDeserializer::Deserialize(uint8_t* pSrc, DataChannelHdr_t_t& rDest, uint32_t* pOffset)
@@ -1017,8 +1067,7 @@ namespace TiM5x1_V3_17_17_09_19_Skeleton
 	{
 
 		CoLaBDeserializer::Deserialize(pSrc, rDest.uiLength , pOffset);
-		CoLaBDeserializer::Deserialize(pSrc, rDest.uiLengthaRange, pOffset);
-		for(int32_t k=0;k<rDest.uiLengthaRange;++k)
+		for(int32_t k=0;k<1;++k)
 		{
 			Deserialize(pSrc, rDest.aRange[k], pOffset);
 		}
@@ -1042,11 +1091,11 @@ namespace TiM5x1_V3_17_17_09_19_Skeleton
 		CoLaBDeserializer::Deserialize(pSrc, rDest.uiScanCount , pOffset);
 		CoLaBDeserializer::Deserialize(pSrc, rDest.udiSystemCountScan , pOffset);
 		CoLaBDeserializer::Deserialize(pSrc, rDest.udiSystemCountTransmit , pOffset);
-		for(int32_t k=0;k<32185202;++k)
+		for(int32_t k=0;k<31587186;++k)
 		{
 			CoLaBDeserializer::Deserialize(pSrc, rDest.xbInputs[k],pOffset);
 		}
-		for(int32_t k=0;k<32185202;++k)
+		for(int32_t k=0;k<31587186;++k)
 		{
 			CoLaBDeserializer::Deserialize(pSrc, rDest.xbOutputs[k],pOffset);
 		}
@@ -1098,16 +1147,31 @@ namespace TiM5x1_V3_17_17_09_19_Skeleton
 		CoLaBDeserializer::Deserialize(pSrc, rDest.dXrot , pOffset);
 		CoLaBDeserializer::Deserialize(pSrc, rDest.dYrot , pOffset);
 		CoLaBDeserializer::Deserialize(pSrc, rDest.dZrot , pOffset);
-		for(int32_t k=0;k<32185202;++k)
+		for(int32_t k=0;k<31587186;++k)
 		{
 			CoLaBDeserializer::Deserialize(pSrc, rDest.xbRotMode[k],pOffset);
 		}
+	}
+
+	void TiM5x1_CoLaBDeserializer::Deserialize(uint8_t* pSrc, FlexString16& rDest, uint32_t* pOffset)
+	{
+		DeserializeFlexString(pSrc, &rDest.Text[0],&rDest.uiLength,16 , pOffset);
+	}
+
+	void TiM5x1_CoLaBDeserializer::Deserialize(uint8_t* pSrc, FlexString128& rDest, uint32_t* pOffset)
+	{
+		DeserializeFlexString(pSrc, &rDest.Text[0],&rDest.uiLength,128 , pOffset);
 	}
 
 	void TiM5x1_CoLaBDeserializer::Deserialize(uint8_t* pSrc, ScanData_aTimeBlock_struct_t& rDest, uint32_t* pOffset)
 	{
 
 		Deserialize(pSrc, rDest.DateTime , pOffset);
+	}
+
+	void TiM5x1_CoLaBDeserializer::Deserialize(uint8_t* pSrc, FixString4& rDest, uint32_t* pOffset)
+	{
+		DeserializeFixString(pSrc, &rDest.Text[0],4, pOffset);
 	}
 
 	void TiM5x1_CoLaBDeserializer::Deserialize(uint8_t* pSrc, ScanData_aEventBlock_struct_t& rDest, uint32_t* pOffset)
@@ -1180,8 +1244,7 @@ namespace TiM5x1_V3_17_17_09_19_Skeleton
 	{
 
 		CoLaBDeserializer::Deserialize(pSrc, rDest.uiLength , pOffset);
-		CoLaBDeserializer::Deserialize(pSrc, rDest.uiLengthaRange, pOffset);
-		for(int32_t k=0;k<rDest.uiLengthaRange;++k)
+		for(int32_t k=0;k<1;++k)
 		{
 			Deserialize(pSrc, rDest.aRange[k], pOffset);
 		}
@@ -1219,6 +1282,11 @@ namespace TiM5x1_V3_17_17_09_19_Skeleton
 		CoLaBDeserializer::Deserialize(pSrc, rDest.bEnableCommentBlock , pOffset);
 		CoLaBDeserializer::Deserialize(pSrc, rDest.bEnableTimeBlock , pOffset);
 		CoLaBDeserializer::Deserialize(pSrc, rDest.uiOutputInterval , pOffset);
+	}
+
+	void TiM5x1_CoLaBDeserializer::Deserialize(uint8_t* pSrc, FixString7& rDest, uint32_t* pOffset)
+	{
+		DeserializeFixString(pSrc, &rDest.Text[0],7, pOffset);
 	}
 
 	void TiM5x1_CoLaBDeserializer::Deserialize(uint8_t* pSrc, SetScanConfig_t& rDest, uint32_t* pOffset)

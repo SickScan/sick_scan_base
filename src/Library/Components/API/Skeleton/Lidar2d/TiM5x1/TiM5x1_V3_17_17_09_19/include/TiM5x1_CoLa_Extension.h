@@ -29,7 +29,7 @@ public:
 	void Serialize(uint8_t* pDest, ScanRange_t_t & rSrc, uint32_t* pOffset);
 	void Serialize(uint8_t* pDest, ScanConfig_t_t & rSrc, uint32_t* pOffset);
 	void Serialize(uint8_t* pDest, DateTime_t_t & rSrc, uint32_t* pOffset);
-	void Serialize(uint8_t* pDest, FlexString0 & rSrc, uint32_t* pOffset);
+	void Serialize(uint8_t* pDest, FixString5 & rSrc, uint32_t* pOffset);
 	void Serialize(uint8_t* pDest, DataChannelHdr_t_t & rSrc, uint32_t* pOffset);
 	void Serialize(uint8_t* pDest, DataOutputRange_aRange_struct_t & rSrc, uint32_t* pOffset);
 	void Serialize(uint8_t* pDest, DataOutputRange_t & rSrc, uint32_t* pOffset);
@@ -40,7 +40,10 @@ public:
 	void Serialize(uint8_t* pDest, ScanData_aDataChannel16_struct_t & rSrc, uint32_t* pOffset);
 	void Serialize(uint8_t* pDest, ScanData_aDataChannel8_struct_t & rSrc, uint32_t* pOffset);
 	void Serialize(uint8_t* pDest, ScanData_aPositionBlock_struct_t & rSrc, uint32_t* pOffset);
+	void Serialize(uint8_t* pDest, FlexString16 & rSrc, uint32_t* pOffset);
+	void Serialize(uint8_t* pDest, FlexString128 & rSrc, uint32_t* pOffset);
 	void Serialize(uint8_t* pDest, ScanData_aTimeBlock_struct_t & rSrc, uint32_t* pOffset);
+	void Serialize(uint8_t* pDest, FixString4 & rSrc, uint32_t* pOffset);
 	void Serialize(uint8_t* pDest, ScanData_aEventBlock_struct_t & rSrc, uint32_t* pOffset);
 	void Serialize(uint8_t* pDest, ScanData_t & rSrc, uint32_t* pOffset);
 	void Serialize(uint8_t* pDest, ScanConfig_aRange_struct_t & rSrc, uint32_t* pOffset);
@@ -48,6 +51,7 @@ public:
 	void Serialize(uint8_t* pDest, ScanConfig_t & rSrc, uint32_t* pOffset);
 	void Serialize(uint8_t* pDest, RemDataConfig_struct_t & rSrc, uint32_t* pOffset);
 	void Serialize(uint8_t* pDest, ScanDataConfig_t & rSrc, uint32_t* pOffset);
+	void Serialize(uint8_t* pDest, FixString7 & rSrc, uint32_t* pOffset);
 	void Serialize(uint8_t* pDest, SetScanConfig_t & rSrc, uint32_t* pOffset);
 	void Serialize(uint8_t* pDest, mStartMeasure_t & rSrc, uint32_t* pOffset);
 	void Serialize(uint8_t* pDest, mStopMeasure_t & rSrc, uint32_t* pOffset);
@@ -76,7 +80,7 @@ public:
 	void Deserialize(uint8_t* pSrc, ScanRange_t_t& rDest, uint32_t* pOffset);
 	void Deserialize(uint8_t* pSrc, ScanConfig_t_t& rDest, uint32_t* pOffset);
 	void Deserialize(uint8_t* pSrc, DateTime_t_t& rDest, uint32_t* pOffset);
-	void Deserialize(uint8_t* pSrc, FlexString0& rDest, uint32_t* pOffset);
+	void Deserialize(uint8_t* pSrc, FixString5& rDest, uint32_t* pOffset);
 	void Deserialize(uint8_t* pSrc, DataChannelHdr_t_t& rDest, uint32_t* pOffset);
 	void Deserialize(uint8_t* pSrc, DataOutputRange_aRange_struct_t& rDest, uint32_t* pOffset);
 	void Deserialize(uint8_t* pSrc, DataOutputRange_t& rDest, uint32_t* pOffset);
@@ -87,7 +91,10 @@ public:
 	void Deserialize(uint8_t* pSrc, ScanData_aDataChannel16_struct_t& rDest, uint32_t* pOffset);
 	void Deserialize(uint8_t* pSrc, ScanData_aDataChannel8_struct_t& rDest, uint32_t* pOffset);
 	void Deserialize(uint8_t* pSrc, ScanData_aPositionBlock_struct_t& rDest, uint32_t* pOffset);
+	void Deserialize(uint8_t* pSrc, FlexString16& rDest, uint32_t* pOffset);
+	void Deserialize(uint8_t* pSrc, FlexString128& rDest, uint32_t* pOffset);
 	void Deserialize(uint8_t* pSrc, ScanData_aTimeBlock_struct_t& rDest, uint32_t* pOffset);
+	void Deserialize(uint8_t* pSrc, FixString4& rDest, uint32_t* pOffset);
 	void Deserialize(uint8_t* pSrc, ScanData_aEventBlock_struct_t& rDest, uint32_t* pOffset);
 	void Deserialize(uint8_t* pSrc, ScanData_t& rDest, uint32_t* pOffset);
 	void Deserialize(uint8_t* pSrc, ScanConfig_aRange_struct_t& rDest, uint32_t* pOffset);
@@ -95,6 +102,7 @@ public:
 	void Deserialize(uint8_t* pSrc, ScanConfig_t& rDest, uint32_t* pOffset);
 	void Deserialize(uint8_t* pSrc, RemDataConfig_struct_t& rDest, uint32_t* pOffset);
 	void Deserialize(uint8_t* pSrc, ScanDataConfig_t& rDest, uint32_t* pOffset);
+	void Deserialize(uint8_t* pSrc, FixString7& rDest, uint32_t* pOffset);
 	void Deserialize(uint8_t* pSrc, SetScanConfig_t& rDest, uint32_t* pOffset);
 	void Deserialize(uint8_t* pSrc, mStartMeasure_t& rDest, uint32_t* pOffset);
 	void Deserialize(uint8_t* pSrc, mStopMeasure_t& rDest, uint32_t* pOffset);
@@ -147,7 +155,7 @@ public:
 	void Serialize(uint8_t* pDest, ScanRange_t_t & rSrc, uint32_t* pOffset);
 	void Serialize(uint8_t* pDest, ScanConfig_t_t & rSrc, uint32_t* pOffset);
 	void Serialize(uint8_t* pDest, DateTime_t_t & rSrc, uint32_t* pOffset);
-	void Serialize(uint8_t* pDest, FlexString0 & rSrc, uint32_t* pOffset);
+	void Serialize(uint8_t* pDest, FixString5 & rSrc, uint32_t* pOffset);
 	void Serialize(uint8_t* pDest, DataChannelHdr_t_t & rSrc, uint32_t* pOffset);
 	void Serialize(uint8_t* pDest, DataOutputRange_aRange_struct_t & rSrc, uint32_t* pOffset);
 	void Serialize(uint8_t* pDest, DataOutputRange_t & rSrc, uint32_t* pOffset);
@@ -158,7 +166,10 @@ public:
 	void Serialize(uint8_t* pDest, ScanData_aDataChannel16_struct_t & rSrc, uint32_t* pOffset);
 	void Serialize(uint8_t* pDest, ScanData_aDataChannel8_struct_t & rSrc, uint32_t* pOffset);
 	void Serialize(uint8_t* pDest, ScanData_aPositionBlock_struct_t & rSrc, uint32_t* pOffset);
+	void Serialize(uint8_t* pDest, FlexString16 & rSrc, uint32_t* pOffset);
+	void Serialize(uint8_t* pDest, FlexString128 & rSrc, uint32_t* pOffset);
 	void Serialize(uint8_t* pDest, ScanData_aTimeBlock_struct_t & rSrc, uint32_t* pOffset);
+	void Serialize(uint8_t* pDest, FixString4 & rSrc, uint32_t* pOffset);
 	void Serialize(uint8_t* pDest, ScanData_aEventBlock_struct_t & rSrc, uint32_t* pOffset);
 	void Serialize(uint8_t* pDest, ScanData_t & rSrc, uint32_t* pOffset);
 	void Serialize(uint8_t* pDest, ScanConfig_aRange_struct_t & rSrc, uint32_t* pOffset);
@@ -166,6 +177,7 @@ public:
 	void Serialize(uint8_t* pDest, ScanConfig_t & rSrc, uint32_t* pOffset);
 	void Serialize(uint8_t* pDest, RemDataConfig_struct_t & rSrc, uint32_t* pOffset);
 	void Serialize(uint8_t* pDest, ScanDataConfig_t & rSrc, uint32_t* pOffset);
+	void Serialize(uint8_t* pDest, FixString7 & rSrc, uint32_t* pOffset);
 	void Serialize(uint8_t* pDest, SetScanConfig_t & rSrc, uint32_t* pOffset);
 	void Serialize(uint8_t* pDest, mStartMeasure_t & rSrc, uint32_t* pOffset);
 	void Serialize(uint8_t* pDest, mStopMeasure_t & rSrc, uint32_t* pOffset);
@@ -194,7 +206,7 @@ public:
 	void Deserialize(uint8_t* pSrc, ScanRange_t_t& rDest, uint32_t* pOffset);
 	void Deserialize(uint8_t* pSrc, ScanConfig_t_t& rDest, uint32_t* pOffset);
 	void Deserialize(uint8_t* pSrc, DateTime_t_t& rDest, uint32_t* pOffset);
-	void Deserialize(uint8_t* pSrc, FlexString0& rDest, uint32_t* pOffset);
+	void Deserialize(uint8_t* pSrc, FixString5& rDest, uint32_t* pOffset);
 	void Deserialize(uint8_t* pSrc, DataChannelHdr_t_t& rDest, uint32_t* pOffset);
 	void Deserialize(uint8_t* pSrc, DataOutputRange_aRange_struct_t& rDest, uint32_t* pOffset);
 	void Deserialize(uint8_t* pSrc, DataOutputRange_t& rDest, uint32_t* pOffset);
@@ -205,7 +217,10 @@ public:
 	void Deserialize(uint8_t* pSrc, ScanData_aDataChannel16_struct_t& rDest, uint32_t* pOffset);
 	void Deserialize(uint8_t* pSrc, ScanData_aDataChannel8_struct_t& rDest, uint32_t* pOffset);
 	void Deserialize(uint8_t* pSrc, ScanData_aPositionBlock_struct_t& rDest, uint32_t* pOffset);
+	void Deserialize(uint8_t* pSrc, FlexString16& rDest, uint32_t* pOffset);
+	void Deserialize(uint8_t* pSrc, FlexString128& rDest, uint32_t* pOffset);
 	void Deserialize(uint8_t* pSrc, ScanData_aTimeBlock_struct_t& rDest, uint32_t* pOffset);
+	void Deserialize(uint8_t* pSrc, FixString4& rDest, uint32_t* pOffset);
 	void Deserialize(uint8_t* pSrc, ScanData_aEventBlock_struct_t& rDest, uint32_t* pOffset);
 	void Deserialize(uint8_t* pSrc, ScanData_t& rDest, uint32_t* pOffset);
 	void Deserialize(uint8_t* pSrc, ScanConfig_aRange_struct_t& rDest, uint32_t* pOffset);
@@ -213,6 +228,7 @@ public:
 	void Deserialize(uint8_t* pSrc, ScanConfig_t& rDest, uint32_t* pOffset);
 	void Deserialize(uint8_t* pSrc, RemDataConfig_struct_t& rDest, uint32_t* pOffset);
 	void Deserialize(uint8_t* pSrc, ScanDataConfig_t& rDest, uint32_t* pOffset);
+	void Deserialize(uint8_t* pSrc, FixString7& rDest, uint32_t* pOffset);
 	void Deserialize(uint8_t* pSrc, SetScanConfig_t& rDest, uint32_t* pOffset);
 	void Deserialize(uint8_t* pSrc, mStartMeasure_t& rDest, uint32_t* pOffset);
 	void Deserialize(uint8_t* pSrc, mStopMeasure_t& rDest, uint32_t* pOffset);

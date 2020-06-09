@@ -327,7 +327,7 @@ public:
 	SensorResult SetBasicElement(const std::string& elementName, double& value);
 };
 
-class OrderNumber_Dx1000_Var : public Dx1000_Var<FlexString0>
+class OrderNumber_Dx1000_Var : public Dx1000_Var<FlexString32>
 {
 public:
 	OrderNumber_Dx1000_Var();
@@ -1062,13 +1062,13 @@ public:
 	SensorResult SetBasicElement(const std::string& elementName, double& value);
 };
 
-class pilotOperatingMode_Dx1000_Var : public Dx1000_Var<Enum8_t>
+class acquisitionTime_Dx1000_Var : public Dx1000_Var<Enum8_t>
 {
 public:
-	pilotOperatingMode_Dx1000_Var();
-	~pilotOperatingMode_Dx1000_Var(){};
-	ComObj* Clone() { return new pilotOperatingMode_Dx1000_Var(*this); }
-	static SensorVariable* Create() { return new pilotOperatingMode_Dx1000_Var; }
+	acquisitionTime_Dx1000_Var();
+	~acquisitionTime_Dx1000_Var(){};
+	ComObj* Clone() { return new acquisitionTime_Dx1000_Var(*this); }
+	static SensorVariable* Create() { return new acquisitionTime_Dx1000_Var; }
 	SensorResult GetBasic(int8_t& value);
 	SensorResult GetBasic(int16_t& value);
 	SensorResult GetBasic(int32_t& value);
@@ -1111,13 +1111,13 @@ public:
 	SensorResult SetBasicElement(const std::string& elementName, double& value);
 };
 
-class measLaserOperatingMode_Dx1000_Var : public Dx1000_Var<Enum8_t>
+class fogFilter_Dx1000_Var : public Dx1000_Var<Enum8_t>
 {
 public:
-	measLaserOperatingMode_Dx1000_Var();
-	~measLaserOperatingMode_Dx1000_Var(){};
-	ComObj* Clone() { return new measLaserOperatingMode_Dx1000_Var(*this); }
-	static SensorVariable* Create() { return new measLaserOperatingMode_Dx1000_Var; }
+	fogFilter_Dx1000_Var();
+	~fogFilter_Dx1000_Var(){};
+	ComObj* Clone() { return new fogFilter_Dx1000_Var(*this); }
+	static SensorVariable* Create() { return new fogFilter_Dx1000_Var; }
 	SensorResult GetBasic(int8_t& value);
 	SensorResult GetBasic(int16_t& value);
 	SensorResult GetBasic(int32_t& value);

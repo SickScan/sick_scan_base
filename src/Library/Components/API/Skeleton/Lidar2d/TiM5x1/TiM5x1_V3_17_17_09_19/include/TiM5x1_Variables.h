@@ -376,7 +376,7 @@ public:
 	SensorResult SetBasicElement(const std::string& elementName, double& value);
 };
 
-class OrderNumber_TiM5x1_Var : public TiM5x1_Var<FlexString0>
+class OrderNumber_TiM5x1_Var : public TiM5x1_Var<FixString7>
 {
 public:
 	OrderNumber_TiM5x1_Var();

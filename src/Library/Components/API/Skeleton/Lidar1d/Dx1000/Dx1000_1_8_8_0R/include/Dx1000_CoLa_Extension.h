@@ -25,8 +25,12 @@ public:
 
 	using::ssbl::CoLaBSerializer::Serialize;
 
-	void Serialize(uint8_t* pDest, FlexString0 & rSrc, uint32_t* pOffset);
+	void Serialize(uint8_t* pDest, FlexString32 & rSrc, uint32_t* pOffset);
 	void Serialize(uint8_t* pDest, WriteEeprom_t & rSrc, uint32_t* pOffset);
+	void Serialize(uint8_t* pDest, enableMeasurementLaser_t & rSrc, uint32_t* pOffset);
+	void Serialize(uint8_t* pDest, disableMeasurementLaser_t & rSrc, uint32_t* pOffset);
+	void Serialize(uint8_t* pDest, enablePilotLaser_t & rSrc, uint32_t* pOffset);
+	void Serialize(uint8_t* pDest, disablePilotLaser_t & rSrc, uint32_t* pOffset);
 }; //Dx1000_CoLaBSerializer
 
 } // namespace Dx1000
@@ -45,8 +49,12 @@ public:
 
 	using::ssbl::CoLaBDeserializer::Deserialize;
 
-	void Deserialize(uint8_t* pSrc, FlexString0& rDest, uint32_t* pOffset);
+	void Deserialize(uint8_t* pSrc, FlexString32& rDest, uint32_t* pOffset);
 	void Deserialize(uint8_t* pSrc, WriteEeprom_t& rDest, uint32_t* pOffset);
+	void Deserialize(uint8_t* pSrc, enableMeasurementLaser_t& rDest, uint32_t* pOffset);
+	void Deserialize(uint8_t* pSrc, disableMeasurementLaser_t& rDest, uint32_t* pOffset);
+	void Deserialize(uint8_t* pSrc, enablePilotLaser_t& rDest, uint32_t* pOffset);
+	void Deserialize(uint8_t* pSrc, disablePilotLaser_t& rDest, uint32_t* pOffset);
 }; //Dx1000_CoLaBDeserializer
 
 } // namespace Dx1000_1_8_8_0R_Skeleton
@@ -89,8 +97,12 @@ public:
 
 	using::ssbl::CoLaASerializer::Serialize;
 
-	void Serialize(uint8_t* pDest, FlexString0 & rSrc, uint32_t* pOffset);
+	void Serialize(uint8_t* pDest, FlexString32 & rSrc, uint32_t* pOffset);
 	void Serialize(uint8_t* pDest, WriteEeprom_t & rSrc, uint32_t* pOffset);
+	void Serialize(uint8_t* pDest, enableMeasurementLaser_t & rSrc, uint32_t* pOffset);
+	void Serialize(uint8_t* pDest, disableMeasurementLaser_t & rSrc, uint32_t* pOffset);
+	void Serialize(uint8_t* pDest, enablePilotLaser_t & rSrc, uint32_t* pOffset);
+	void Serialize(uint8_t* pDest, disablePilotLaser_t & rSrc, uint32_t* pOffset);
 }; //Dx1000_CoLaASerializer
 
 } // namespace Dx1000
@@ -109,8 +121,12 @@ public:
 
 	using::ssbl::CoLaADeserializer::Deserialize;
 
-	void Deserialize(uint8_t* pSrc, FlexString0& rDest, uint32_t* pOffset);
+	void Deserialize(uint8_t* pSrc, FlexString32& rDest, uint32_t* pOffset);
 	void Deserialize(uint8_t* pSrc, WriteEeprom_t& rDest, uint32_t* pOffset);
+	void Deserialize(uint8_t* pSrc, enableMeasurementLaser_t& rDest, uint32_t* pOffset);
+	void Deserialize(uint8_t* pSrc, disableMeasurementLaser_t& rDest, uint32_t* pOffset);
+	void Deserialize(uint8_t* pSrc, enablePilotLaser_t& rDest, uint32_t* pOffset);
+	void Deserialize(uint8_t* pSrc, disablePilotLaser_t& rDest, uint32_t* pOffset);
 }; //Dx1000_CoLaADeserializer
 
 } // namespace Dx1000_1_8_8_0R_Skeleton

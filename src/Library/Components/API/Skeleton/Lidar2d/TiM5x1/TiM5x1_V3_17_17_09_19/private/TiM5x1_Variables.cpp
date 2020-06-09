@@ -61,9 +61,30 @@ SensorResult DataOutputRange_TiM5x1_Var::GetBasic(int16_t& value)
 SensorResult DataOutputRange_TiM5x1_Var::GetBasicElement(const std::string& elementName, int32_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
-	SSBL_UNUSED(elementName);
-	SSBL_UNUSED(value);
-	SSBL_LOG_WARNING("Variable does either not contain element %s of type int32_t, or the address string does not yield an unique element.", elementName.c_str());
+	uint64_t test = hash_64_fnv1a(elementName.c_str(), elementName.size());
+	switch (test)
+	{
+		case hash_64_fnv1a_const("diStartAngle"):
+			value = this->Value_.aRange[0].diStartAngle;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("aRange[0].diStartAngle"):
+			value = this->Value_.aRange[0].diStartAngle;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("diStopAngle"):
+			value = this->Value_.aRange[0].diStopAngle;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("aRange[0].diStopAngle"):
+			value = this->Value_.aRange[0].diStopAngle;
+			ret = SSBL_SUCCESS;
+			break;
+		default:
+			SSBL_LOG_WARNING("Variable does either not contain element %s of type int32_t, or the address string does not yield an unique element.", elementName.c_str());
+			ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+			break;
+	}
 	return ret;
 }
 
@@ -119,10 +140,6 @@ SensorResult DataOutputRange_TiM5x1_Var::GetBasicElement(const std::string& elem
 			value = this->Value_.uiLength;
 			ret = SSBL_SUCCESS;
 			break;
-		case hash_64_fnv1a_const("uiLengthaRange"):
-			value = this->Value_.uiLengthaRange;
-			ret = SSBL_SUCCESS;
-			break;
 		default:
 			SSBL_LOG_WARNING("Variable does either not contain element %s of type uint16_t, or the address string does not yield an unique element.", elementName.c_str());
 			ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
@@ -142,9 +159,22 @@ SensorResult DataOutputRange_TiM5x1_Var::GetBasic(uint16_t& value)
 SensorResult DataOutputRange_TiM5x1_Var::GetBasicElement(const std::string& elementName, uint32_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
-	SSBL_UNUSED(elementName);
-	SSBL_UNUSED(value);
-	SSBL_LOG_WARNING("Variable does either not contain element %s of type uint32_t, or the address string does not yield an unique element.", elementName.c_str());
+	uint64_t test = hash_64_fnv1a(elementName.c_str(), elementName.size());
+	switch (test)
+	{
+		case hash_64_fnv1a_const("udiAngleRes"):
+			value = this->Value_.aRange[0].udiAngleRes;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("aRange[0].udiAngleRes"):
+			value = this->Value_.aRange[0].udiAngleRes;
+			ret = SSBL_SUCCESS;
+			break;
+		default:
+			SSBL_LOG_WARNING("Variable does either not contain element %s of type uint32_t, or the address string does not yield an unique element.", elementName.c_str());
+			ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+			break;
+	}
 	return ret;
 }
 
@@ -244,9 +274,50 @@ SensorResult DataOutputRange_TiM5x1_Var::SetBasic(int16_t& value)
 SensorResult DataOutputRange_TiM5x1_Var::SetBasicElement(const std::string& elementName, int32_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
-	SSBL_UNUSED(elementName);
-	SSBL_UNUSED(value);
-	SSBL_LOG_WARNING("Variable does either not contain element %s of type int32_t, or the address string does not yield an unique element.", elementName.c_str());
+	uint64_t test = hash_64_fnv1a(elementName.c_str(), elementName.size());
+	switch (test)
+	{
+		case hash_64_fnv1a_const("diStartAngle"):
+			if((value >= -450000) &&  (value <= 2250000)){
+				this->Value_.aRange[0].diStartAngle = value;
+				ret = SSBL_SUCCESS;
+			} else {
+				SSBL_LOG_WARNING("Value is out of range. Min: -450000 Max: 2250000");
+				ret = SSBL_ERR_VALUE_OUT_OF_RANGE;
+			}
+			break;
+		case hash_64_fnv1a_const("aRange[0].diStartAngle"):
+			if((value >= -450000) &&  (value <= 2250000)){
+				this->Value_.aRange[0].diStartAngle = value;
+				ret = SSBL_SUCCESS;
+			} else {
+				SSBL_LOG_WARNING("Value is out of range. Min: -450000 Max: 2250000");
+				ret = SSBL_ERR_VALUE_OUT_OF_RANGE;
+			}
+			break;
+		case hash_64_fnv1a_const("diStopAngle"):
+			if((value >= -450000) &&  (value <= 2250000)){
+				this->Value_.aRange[0].diStopAngle = value;
+				ret = SSBL_SUCCESS;
+			} else {
+				SSBL_LOG_WARNING("Value is out of range. Min: -450000 Max: 2250000");
+				ret = SSBL_ERR_VALUE_OUT_OF_RANGE;
+			}
+			break;
+		case hash_64_fnv1a_const("aRange[0].diStopAngle"):
+			if((value >= -450000) &&  (value <= 2250000)){
+				this->Value_.aRange[0].diStopAngle = value;
+				ret = SSBL_SUCCESS;
+			} else {
+				SSBL_LOG_WARNING("Value is out of range. Min: -450000 Max: 2250000");
+				ret = SSBL_ERR_VALUE_OUT_OF_RANGE;
+			}
+			break;
+		default:
+			SSBL_LOG_WARNING("Variable does either not contain element %s of type int32_t, or the address string does not yield an unique element.", elementName.c_str());
+			ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+			break;
+	}
 	return ret;
 }
 
@@ -307,15 +378,6 @@ SensorResult DataOutputRange_TiM5x1_Var::SetBasicElement(const std::string& elem
 				ret = SSBL_ERR_VALUE_OUT_OF_RANGE;
 			}
 			break;
-		case hash_64_fnv1a_const("uiLengthaRange"):
-			if((value >= 0) &&  (value <= 0)){
-				this->Value_.uiLengthaRange = value;
-				ret = SSBL_SUCCESS;
-			} else {
-				SSBL_LOG_WARNING("Value is out of range. Min: 0 Max: 0");
-				ret = SSBL_ERR_VALUE_OUT_OF_RANGE;
-			}
-			break;
 		default:
 			SSBL_LOG_WARNING("Variable does either not contain element %s of type uint16_t, or the address string does not yield an unique element.", elementName.c_str());
 			ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
@@ -335,9 +397,32 @@ SensorResult DataOutputRange_TiM5x1_Var::SetBasic(uint16_t& value)
 SensorResult DataOutputRange_TiM5x1_Var::SetBasicElement(const std::string& elementName, uint32_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
-	SSBL_UNUSED(elementName);
-	SSBL_UNUSED(value);
-	SSBL_LOG_WARNING("Variable does either not contain element %s of type uint32_t, or the address string does not yield an unique element.", elementName.c_str());
+	uint64_t test = hash_64_fnv1a(elementName.c_str(), elementName.size());
+	switch (test)
+	{
+		case hash_64_fnv1a_const("udiAngleRes"):
+			if((value >= 3333) &&  (value <= 10000)){
+				this->Value_.aRange[0].udiAngleRes = value;
+				ret = SSBL_SUCCESS;
+			} else {
+				SSBL_LOG_WARNING("Value is out of range. Min: 3333 Max: 10000");
+				ret = SSBL_ERR_VALUE_OUT_OF_RANGE;
+			}
+			break;
+		case hash_64_fnv1a_const("aRange[0].udiAngleRes"):
+			if((value >= 3333) &&  (value <= 10000)){
+				this->Value_.aRange[0].udiAngleRes = value;
+				ret = SSBL_SUCCESS;
+			} else {
+				SSBL_LOG_WARNING("Value is out of range. Min: 3333 Max: 10000");
+				ret = SSBL_ERR_VALUE_OUT_OF_RANGE;
+			}
+			break;
+		default:
+			SSBL_LOG_WARNING("Variable does either not contain element %s of type uint32_t, or the address string does not yield an unique element.", elementName.c_str());
+			ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+			break;
+	}
 	return ret;
 }
 
@@ -433,9 +518,22 @@ SensorResult ScanData_TiM5x1_Var::GetBasic(int8_t& value)
 SensorResult ScanData_TiM5x1_Var::GetBasicElement(const std::string& elementName, int16_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
-	SSBL_UNUSED(elementName);
-	SSBL_UNUSED(value);
-	SSBL_LOG_WARNING("Variable does either not contain element %s of type int16_t, or the address string does not yield an unique element.", elementName.c_str());
+	uint64_t test = hash_64_fnv1a(elementName.c_str(), elementName.size());
+	switch (test)
+	{
+		case hash_64_fnv1a_const("iEncoderSpeed"):
+			value = this->Value_.aEncoderBlock[0].iEncoderSpeed;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("aEncoderBlock[0].iEncoderSpeed"):
+			value = this->Value_.aEncoderBlock[0].iEncoderSpeed;
+			ret = SSBL_SUCCESS;
+			break;
+		default:
+			SSBL_LOG_WARNING("Variable does either not contain element %s of type int16_t, or the address string does not yield an unique element.", elementName.c_str());
+			ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+			break;
+	}
 	return ret;
 }
 
@@ -450,9 +548,38 @@ SensorResult ScanData_TiM5x1_Var::GetBasic(int16_t& value)
 SensorResult ScanData_TiM5x1_Var::GetBasicElement(const std::string& elementName, int32_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
-	SSBL_UNUSED(elementName);
-	SSBL_UNUSED(value);
-	SSBL_LOG_WARNING("Variable does either not contain element %s of type int32_t, or the address string does not yield an unique element.", elementName.c_str());
+	uint64_t test = hash_64_fnv1a(elementName.c_str(), elementName.size());
+	switch (test)
+	{
+		case hash_64_fnv1a_const("aDataChannel16[0].DataChannelHdr.diStartAngle"):
+			value = this->Value_.aDataChannel16[0].DataChannelHdr.diStartAngle;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("aDataChannel16[1].DataChannelHdr.diStartAngle"):
+			value = this->Value_.aDataChannel16[1].DataChannelHdr.diStartAngle;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("aDataChannel8[0].DataChannelHdr.diStartAngle"):
+			value = this->Value_.aDataChannel8[0].DataChannelHdr.diStartAngle;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("aDataChannel8[1].DataChannelHdr.diStartAngle"):
+			value = this->Value_.aDataChannel8[1].DataChannelHdr.diStartAngle;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("diAngle"):
+			value = this->Value_.aEventBlock[0].diAngle;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("aEventBlock[0].diAngle"):
+			value = this->Value_.aEventBlock[0].diAngle;
+			ret = SSBL_SUCCESS;
+			break;
+		default:
+			SSBL_LOG_WARNING("Variable does either not contain element %s of type int32_t, or the address string does not yield an unique element.", elementName.c_str());
+			ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+			break;
+	}
 	return ret;
 }
 
@@ -484,9 +611,54 @@ SensorResult ScanData_TiM5x1_Var::GetBasic(int64_t& value)
 SensorResult ScanData_TiM5x1_Var::GetBasicElement(const std::string& elementName, uint8_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
-	SSBL_UNUSED(elementName);
-	SSBL_UNUSED(value);
-	SSBL_LOG_WARNING("Variable does either not contain element %s of type uint8_t, or the address string does not yield an unique element.", elementName.c_str());
+	uint64_t test = hash_64_fnv1a(elementName.c_str(), elementName.size());
+	switch (test)
+	{
+		case hash_64_fnv1a_const("usiMonth"):
+			value = this->Value_.aTimeBlock[0].DateTime.usiMonth;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("aTimeBlock[0].DateTime.usiMonth"):
+			value = this->Value_.aTimeBlock[0].DateTime.usiMonth;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("usiDay"):
+			value = this->Value_.aTimeBlock[0].DateTime.usiDay;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("aTimeBlock[0].DateTime.usiDay"):
+			value = this->Value_.aTimeBlock[0].DateTime.usiDay;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("usiHour"):
+			value = this->Value_.aTimeBlock[0].DateTime.usiHour;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("aTimeBlock[0].DateTime.usiHour"):
+			value = this->Value_.aTimeBlock[0].DateTime.usiHour;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("usiMinute"):
+			value = this->Value_.aTimeBlock[0].DateTime.usiMinute;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("aTimeBlock[0].DateTime.usiMinute"):
+			value = this->Value_.aTimeBlock[0].DateTime.usiMinute;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("usiSec"):
+			value = this->Value_.aTimeBlock[0].DateTime.usiSec;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("aTimeBlock[0].DateTime.usiSec"):
+			value = this->Value_.aTimeBlock[0].DateTime.usiSec;
+			ret = SSBL_SUCCESS;
+			break;
+		default:
+			SSBL_LOG_WARNING("Variable does either not contain element %s of type uint8_t, or the address string does not yield an unique element.", elementName.c_str());
+			ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+			break;
+	}
 	return ret;
 }
 
@@ -548,8 +720,40 @@ SensorResult ScanData_TiM5x1_Var::GetBasicElement(const std::string& elementName
 			value = this->Value_.uiLengthaDataChannel16;
 			ret = SSBL_SUCCESS;
 			break;
+		case hash_64_fnv1a_const("aDataChannel16[0].DataChannelHdr.uiAngleRes"):
+			value = this->Value_.aDataChannel16[0].DataChannelHdr.uiAngleRes;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("aDataChannel16[0].uiLengthaData"):
+			value = this->Value_.aDataChannel16[0].uiLengthaData;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("aDataChannel16[1].DataChannelHdr.uiAngleRes"):
+			value = this->Value_.aDataChannel16[1].DataChannelHdr.uiAngleRes;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("aDataChannel16[1].uiLengthaData"):
+			value = this->Value_.aDataChannel16[1].uiLengthaData;
+			ret = SSBL_SUCCESS;
+			break;
 		case hash_64_fnv1a_const("uiLengthaDataChannel8"):
 			value = this->Value_.uiLengthaDataChannel8;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("aDataChannel8[0].DataChannelHdr.uiAngleRes"):
+			value = this->Value_.aDataChannel8[0].DataChannelHdr.uiAngleRes;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("aDataChannel8[0].uiLengthaData"):
+			value = this->Value_.aDataChannel8[0].uiLengthaData;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("aDataChannel8[1].DataChannelHdr.uiAngleRes"):
+			value = this->Value_.aDataChannel8[1].DataChannelHdr.uiAngleRes;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("aDataChannel8[1].uiLengthaData"):
+			value = this->Value_.aDataChannel8[1].uiLengthaData;
 			ret = SSBL_SUCCESS;
 			break;
 		case hash_64_fnv1a_const("uiLengthaPositionBlock"):
@@ -566,6 +770,14 @@ SensorResult ScanData_TiM5x1_Var::GetBasicElement(const std::string& elementName
 			break;
 		case hash_64_fnv1a_const("uiLengthaTimeBlock"):
 			value = this->Value_.uiLengthaTimeBlock;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("uiYear"):
+			value = this->Value_.aTimeBlock[0].DateTime.uiYear;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("aTimeBlock[0].DateTime.uiYear"):
+			value = this->Value_.aTimeBlock[0].DateTime.uiYear;
 			ret = SSBL_SUCCESS;
 			break;
 		case hash_64_fnv1a_const("uiLengthaEventBlock"):
@@ -634,6 +846,30 @@ SensorResult ScanData_TiM5x1_Var::GetBasicElement(const std::string& elementName
 			value = this->Value_.MeasurementParam1Block.udiMeasFreq;
 			ret = SSBL_SUCCESS;
 			break;
+		case hash_64_fnv1a_const("aEncoderBlock[0].udiEncoderPos"):
+			value = this->Value_.aEncoderBlock[0].udiEncoderPos;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("udiUSec"):
+			value = this->Value_.aTimeBlock[0].DateTime.udiUSec;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("aTimeBlock[0].DateTime.udiUSec"):
+			value = this->Value_.aTimeBlock[0].DateTime.udiUSec;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("aEventBlock[0].udiEncoderPos"):
+			value = this->Value_.aEventBlock[0].udiEncoderPos;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("udiSystemCount"):
+			value = this->Value_.aEventBlock[0].udiSystemCount;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("aEventBlock[0].udiSystemCount"):
+			value = this->Value_.aEventBlock[0].udiSystemCount;
+			ret = SSBL_SUCCESS;
+			break;
 		default:
 			SSBL_LOG_WARNING("Variable does either not contain element %s of type uint32_t, or the address string does not yield an unique element.", elementName.c_str());
 			ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
@@ -670,9 +906,94 @@ SensorResult ScanData_TiM5x1_Var::GetBasic(uint64_t& value)
 SensorResult ScanData_TiM5x1_Var::GetBasicElement(const std::string& elementName, float& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
-	SSBL_UNUSED(elementName);
-	SSBL_UNUSED(value);
-	SSBL_LOG_WARNING("Variable does either not contain element %s of type float, or the address string does not yield an unique element.", elementName.c_str());
+	uint64_t test = hash_64_fnv1a(elementName.c_str(), elementName.size());
+	switch (test)
+	{
+		case hash_64_fnv1a_const("aDataChannel16[0].DataChannelHdr.dScaleFactor"):
+			value = this->Value_.aDataChannel16[0].DataChannelHdr.dScaleFactor;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("aDataChannel16[0].DataChannelHdr.dScaleOffset"):
+			value = this->Value_.aDataChannel16[0].DataChannelHdr.dScaleOffset;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("aDataChannel16[1].DataChannelHdr.dScaleFactor"):
+			value = this->Value_.aDataChannel16[1].DataChannelHdr.dScaleFactor;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("aDataChannel16[1].DataChannelHdr.dScaleOffset"):
+			value = this->Value_.aDataChannel16[1].DataChannelHdr.dScaleOffset;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("aDataChannel8[0].DataChannelHdr.dScaleFactor"):
+			value = this->Value_.aDataChannel8[0].DataChannelHdr.dScaleFactor;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("aDataChannel8[0].DataChannelHdr.dScaleOffset"):
+			value = this->Value_.aDataChannel8[0].DataChannelHdr.dScaleOffset;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("aDataChannel8[1].DataChannelHdr.dScaleFactor"):
+			value = this->Value_.aDataChannel8[1].DataChannelHdr.dScaleFactor;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("aDataChannel8[1].DataChannelHdr.dScaleOffset"):
+			value = this->Value_.aDataChannel8[1].DataChannelHdr.dScaleOffset;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("dXpos"):
+			value = this->Value_.aPositionBlock[0].dXpos;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("aPositionBlock[0].dXpos"):
+			value = this->Value_.aPositionBlock[0].dXpos;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("dYpos"):
+			value = this->Value_.aPositionBlock[0].dYpos;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("aPositionBlock[0].dYpos"):
+			value = this->Value_.aPositionBlock[0].dYpos;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("dZpos"):
+			value = this->Value_.aPositionBlock[0].dZpos;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("aPositionBlock[0].dZpos"):
+			value = this->Value_.aPositionBlock[0].dZpos;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("dXrot"):
+			value = this->Value_.aPositionBlock[0].dXrot;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("aPositionBlock[0].dXrot"):
+			value = this->Value_.aPositionBlock[0].dXrot;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("dYrot"):
+			value = this->Value_.aPositionBlock[0].dYrot;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("aPositionBlock[0].dYrot"):
+			value = this->Value_.aPositionBlock[0].dYrot;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("dZrot"):
+			value = this->Value_.aPositionBlock[0].dZrot;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("aPositionBlock[0].dZrot"):
+			value = this->Value_.aPositionBlock[0].dZrot;
+			ret = SSBL_SUCCESS;
+			break;
+		default:
+			SSBL_LOG_WARNING("Variable does either not contain element %s of type float, or the address string does not yield an unique element.", elementName.c_str());
+			ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+			break;
+	}
 	return ret;
 }
 
@@ -721,9 +1042,22 @@ SensorResult ScanData_TiM5x1_Var::SetBasic(int8_t& value)
 SensorResult ScanData_TiM5x1_Var::SetBasicElement(const std::string& elementName, int16_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
-	SSBL_UNUSED(elementName);
-	SSBL_UNUSED(value);
-	SSBL_LOG_WARNING("Variable does either not contain element %s of type int16_t, or the address string does not yield an unique element.", elementName.c_str());
+	uint64_t test = hash_64_fnv1a(elementName.c_str(), elementName.size());
+	switch (test)
+	{
+		case hash_64_fnv1a_const("iEncoderSpeed"):
+			this->Value_.aEncoderBlock[0].iEncoderSpeed = value;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("aEncoderBlock[0].iEncoderSpeed"):
+			this->Value_.aEncoderBlock[0].iEncoderSpeed = value;
+			ret = SSBL_SUCCESS;
+			break;
+		default:
+			SSBL_LOG_WARNING("Variable does either not contain element %s of type int16_t, or the address string does not yield an unique element.", elementName.c_str());
+			ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+			break;
+	}
 	return ret;
 }
 
@@ -738,9 +1072,38 @@ SensorResult ScanData_TiM5x1_Var::SetBasic(int16_t& value)
 SensorResult ScanData_TiM5x1_Var::SetBasicElement(const std::string& elementName, int32_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
-	SSBL_UNUSED(elementName);
-	SSBL_UNUSED(value);
-	SSBL_LOG_WARNING("Variable does either not contain element %s of type int32_t, or the address string does not yield an unique element.", elementName.c_str());
+	uint64_t test = hash_64_fnv1a(elementName.c_str(), elementName.size());
+	switch (test)
+	{
+		case hash_64_fnv1a_const("aDataChannel16[0].DataChannelHdr.diStartAngle"):
+			this->Value_.aDataChannel16[0].DataChannelHdr.diStartAngle = value;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("aDataChannel16[1].DataChannelHdr.diStartAngle"):
+			this->Value_.aDataChannel16[1].DataChannelHdr.diStartAngle = value;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("aDataChannel8[0].DataChannelHdr.diStartAngle"):
+			this->Value_.aDataChannel8[0].DataChannelHdr.diStartAngle = value;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("aDataChannel8[1].DataChannelHdr.diStartAngle"):
+			this->Value_.aDataChannel8[1].DataChannelHdr.diStartAngle = value;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("diAngle"):
+			this->Value_.aEventBlock[0].diAngle = value;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("aEventBlock[0].diAngle"):
+			this->Value_.aEventBlock[0].diAngle = value;
+			ret = SSBL_SUCCESS;
+			break;
+		default:
+			SSBL_LOG_WARNING("Variable does either not contain element %s of type int32_t, or the address string does not yield an unique element.", elementName.c_str());
+			ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+			break;
+	}
 	return ret;
 }
 
@@ -772,9 +1135,104 @@ SensorResult ScanData_TiM5x1_Var::SetBasic(int64_t& value)
 SensorResult ScanData_TiM5x1_Var::SetBasicElement(const std::string& elementName, uint8_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
-	SSBL_UNUSED(elementName);
-	SSBL_UNUSED(value);
-	SSBL_LOG_WARNING("Variable does either not contain element %s of type uint8_t, or the address string does not yield an unique element.", elementName.c_str());
+	uint64_t test = hash_64_fnv1a(elementName.c_str(), elementName.size());
+	switch (test)
+	{
+		case hash_64_fnv1a_const("usiMonth"):
+			if((value >= 1) &&  (value <= 12)){
+				this->Value_.aTimeBlock[0].DateTime.usiMonth = value;
+				ret = SSBL_SUCCESS;
+			} else {
+				SSBL_LOG_WARNING("Value is out of range. Min: 1 Max: 12");
+				ret = SSBL_ERR_VALUE_OUT_OF_RANGE;
+			}
+			break;
+		case hash_64_fnv1a_const("aTimeBlock[0].DateTime.usiMonth"):
+			if((value >= 1) &&  (value <= 12)){
+				this->Value_.aTimeBlock[0].DateTime.usiMonth = value;
+				ret = SSBL_SUCCESS;
+			} else {
+				SSBL_LOG_WARNING("Value is out of range. Min: 1 Max: 12");
+				ret = SSBL_ERR_VALUE_OUT_OF_RANGE;
+			}
+			break;
+		case hash_64_fnv1a_const("usiDay"):
+			if((value >= 1) &&  (value <= 31)){
+				this->Value_.aTimeBlock[0].DateTime.usiDay = value;
+				ret = SSBL_SUCCESS;
+			} else {
+				SSBL_LOG_WARNING("Value is out of range. Min: 1 Max: 31");
+				ret = SSBL_ERR_VALUE_OUT_OF_RANGE;
+			}
+			break;
+		case hash_64_fnv1a_const("aTimeBlock[0].DateTime.usiDay"):
+			if((value >= 1) &&  (value <= 31)){
+				this->Value_.aTimeBlock[0].DateTime.usiDay = value;
+				ret = SSBL_SUCCESS;
+			} else {
+				SSBL_LOG_WARNING("Value is out of range. Min: 1 Max: 31");
+				ret = SSBL_ERR_VALUE_OUT_OF_RANGE;
+			}
+			break;
+		case hash_64_fnv1a_const("usiHour"):
+			if((value >= 0) &&  (value <= 23)){
+				this->Value_.aTimeBlock[0].DateTime.usiHour = value;
+				ret = SSBL_SUCCESS;
+			} else {
+				SSBL_LOG_WARNING("Value is out of range. Min: 0 Max: 23");
+				ret = SSBL_ERR_VALUE_OUT_OF_RANGE;
+			}
+			break;
+		case hash_64_fnv1a_const("aTimeBlock[0].DateTime.usiHour"):
+			if((value >= 0) &&  (value <= 23)){
+				this->Value_.aTimeBlock[0].DateTime.usiHour = value;
+				ret = SSBL_SUCCESS;
+			} else {
+				SSBL_LOG_WARNING("Value is out of range. Min: 0 Max: 23");
+				ret = SSBL_ERR_VALUE_OUT_OF_RANGE;
+			}
+			break;
+		case hash_64_fnv1a_const("usiMinute"):
+			if((value >= 0) &&  (value <= 59)){
+				this->Value_.aTimeBlock[0].DateTime.usiMinute = value;
+				ret = SSBL_SUCCESS;
+			} else {
+				SSBL_LOG_WARNING("Value is out of range. Min: 0 Max: 59");
+				ret = SSBL_ERR_VALUE_OUT_OF_RANGE;
+			}
+			break;
+		case hash_64_fnv1a_const("aTimeBlock[0].DateTime.usiMinute"):
+			if((value >= 0) &&  (value <= 59)){
+				this->Value_.aTimeBlock[0].DateTime.usiMinute = value;
+				ret = SSBL_SUCCESS;
+			} else {
+				SSBL_LOG_WARNING("Value is out of range. Min: 0 Max: 59");
+				ret = SSBL_ERR_VALUE_OUT_OF_RANGE;
+			}
+			break;
+		case hash_64_fnv1a_const("usiSec"):
+			if((value >= 0) &&  (value <= 59)){
+				this->Value_.aTimeBlock[0].DateTime.usiSec = value;
+				ret = SSBL_SUCCESS;
+			} else {
+				SSBL_LOG_WARNING("Value is out of range. Min: 0 Max: 59");
+				ret = SSBL_ERR_VALUE_OUT_OF_RANGE;
+			}
+			break;
+		case hash_64_fnv1a_const("aTimeBlock[0].DateTime.usiSec"):
+			if((value >= 0) &&  (value <= 59)){
+				this->Value_.aTimeBlock[0].DateTime.usiSec = value;
+				ret = SSBL_SUCCESS;
+			} else {
+				SSBL_LOG_WARNING("Value is out of range. Min: 0 Max: 59");
+				ret = SSBL_ERR_VALUE_OUT_OF_RANGE;
+			}
+			break;
+		default:
+			SSBL_LOG_WARNING("Variable does either not contain element %s of type uint8_t, or the address string does not yield an unique element.", elementName.c_str());
+			ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+			break;
+	}
 	return ret;
 }
 
@@ -829,74 +1287,144 @@ SensorResult ScanData_TiM5x1_Var::SetBasicElement(const std::string& elementName
 			ret = SSBL_SUCCESS;
 			break;
 		case hash_64_fnv1a_const("uiLengthaEncoderBlock"):
-			if((value >= 0) &&  (value <= 0)){
+			if((value >= 1) &&  (value <= 1)){
 				this->Value_.uiLengthaEncoderBlock = value;
 				ret = SSBL_SUCCESS;
 			} else {
-				SSBL_LOG_WARNING("Value is out of range. Min: 0 Max: 0");
+				SSBL_LOG_WARNING("Value is out of range. Min: 1 Max: 1");
 				ret = SSBL_ERR_VALUE_OUT_OF_RANGE;
 			}
 			break;
 		case hash_64_fnv1a_const("uiLengthaDataChannel16"):
-			if((value >= 0) &&  (value <= 0)){
+			if((value >= 2) &&  (value <= 2)){
 				this->Value_.uiLengthaDataChannel16 = value;
 				ret = SSBL_SUCCESS;
 			} else {
-				SSBL_LOG_WARNING("Value is out of range. Min: 0 Max: 0");
+				SSBL_LOG_WARNING("Value is out of range. Min: 2 Max: 2");
+				ret = SSBL_ERR_VALUE_OUT_OF_RANGE;
+			}
+			break;
+		case hash_64_fnv1a_const("aDataChannel16[0].DataChannelHdr.uiAngleRes"):
+			this->Value_.aDataChannel16[0].DataChannelHdr.uiAngleRes = value;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("aDataChannel16[0].uiLengthaData"):
+			if((value >= 811) &&  (value <= 811)){
+				this->Value_.aDataChannel16[0].uiLengthaData = value;
+				ret = SSBL_SUCCESS;
+			} else {
+				SSBL_LOG_WARNING("Value is out of range. Min: 811 Max: 811");
+				ret = SSBL_ERR_VALUE_OUT_OF_RANGE;
+			}
+			break;
+		case hash_64_fnv1a_const("aDataChannel16[1].DataChannelHdr.uiAngleRes"):
+			this->Value_.aDataChannel16[1].DataChannelHdr.uiAngleRes = value;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("aDataChannel16[1].uiLengthaData"):
+			if((value >= 811) &&  (value <= 811)){
+				this->Value_.aDataChannel16[1].uiLengthaData = value;
+				ret = SSBL_SUCCESS;
+			} else {
+				SSBL_LOG_WARNING("Value is out of range. Min: 811 Max: 811");
 				ret = SSBL_ERR_VALUE_OUT_OF_RANGE;
 			}
 			break;
 		case hash_64_fnv1a_const("uiLengthaDataChannel8"):
-			if((value >= 0) &&  (value <= 0)){
+			if((value >= 2) &&  (value <= 2)){
 				this->Value_.uiLengthaDataChannel8 = value;
 				ret = SSBL_SUCCESS;
 			} else {
-				SSBL_LOG_WARNING("Value is out of range. Min: 0 Max: 0");
+				SSBL_LOG_WARNING("Value is out of range. Min: 2 Max: 2");
+				ret = SSBL_ERR_VALUE_OUT_OF_RANGE;
+			}
+			break;
+		case hash_64_fnv1a_const("aDataChannel8[0].DataChannelHdr.uiAngleRes"):
+			this->Value_.aDataChannel8[0].DataChannelHdr.uiAngleRes = value;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("aDataChannel8[0].uiLengthaData"):
+			if((value >= 811) &&  (value <= 811)){
+				this->Value_.aDataChannel8[0].uiLengthaData = value;
+				ret = SSBL_SUCCESS;
+			} else {
+				SSBL_LOG_WARNING("Value is out of range. Min: 811 Max: 811");
+				ret = SSBL_ERR_VALUE_OUT_OF_RANGE;
+			}
+			break;
+		case hash_64_fnv1a_const("aDataChannel8[1].DataChannelHdr.uiAngleRes"):
+			this->Value_.aDataChannel8[1].DataChannelHdr.uiAngleRes = value;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("aDataChannel8[1].uiLengthaData"):
+			if((value >= 811) &&  (value <= 811)){
+				this->Value_.aDataChannel8[1].uiLengthaData = value;
+				ret = SSBL_SUCCESS;
+			} else {
+				SSBL_LOG_WARNING("Value is out of range. Min: 811 Max: 811");
 				ret = SSBL_ERR_VALUE_OUT_OF_RANGE;
 			}
 			break;
 		case hash_64_fnv1a_const("uiLengthaPositionBlock"):
-			if((value >= 0) &&  (value <= 0)){
+			if((value >= 1) &&  (value <= 1)){
 				this->Value_.uiLengthaPositionBlock = value;
 				ret = SSBL_SUCCESS;
 			} else {
-				SSBL_LOG_WARNING("Value is out of range. Min: 0 Max: 0");
+				SSBL_LOG_WARNING("Value is out of range. Min: 1 Max: 1");
 				ret = SSBL_ERR_VALUE_OUT_OF_RANGE;
 			}
 			break;
 		case hash_64_fnv1a_const("uiLengthaDeviceName"):
-			if((value >= 0) &&  (value <= 0)){
+			if((value >= 1) &&  (value <= 1)){
 				this->Value_.uiLengthaDeviceName = value;
 				ret = SSBL_SUCCESS;
 			} else {
-				SSBL_LOG_WARNING("Value is out of range. Min: 0 Max: 0");
+				SSBL_LOG_WARNING("Value is out of range. Min: 1 Max: 1");
 				ret = SSBL_ERR_VALUE_OUT_OF_RANGE;
 			}
 			break;
 		case hash_64_fnv1a_const("uiLengthaCommentBlock"):
-			if((value >= 0) &&  (value <= 0)){
+			if((value >= 1) &&  (value <= 1)){
 				this->Value_.uiLengthaCommentBlock = value;
 				ret = SSBL_SUCCESS;
 			} else {
-				SSBL_LOG_WARNING("Value is out of range. Min: 0 Max: 0");
+				SSBL_LOG_WARNING("Value is out of range. Min: 1 Max: 1");
 				ret = SSBL_ERR_VALUE_OUT_OF_RANGE;
 			}
 			break;
 		case hash_64_fnv1a_const("uiLengthaTimeBlock"):
-			if((value >= 0) &&  (value <= 0)){
+			if((value >= 1) &&  (value <= 1)){
 				this->Value_.uiLengthaTimeBlock = value;
 				ret = SSBL_SUCCESS;
 			} else {
-				SSBL_LOG_WARNING("Value is out of range. Min: 0 Max: 0");
+				SSBL_LOG_WARNING("Value is out of range. Min: 1 Max: 1");
+				ret = SSBL_ERR_VALUE_OUT_OF_RANGE;
+			}
+			break;
+		case hash_64_fnv1a_const("uiYear"):
+			if((value >= 0) &&  (value <= 9999)){
+				this->Value_.aTimeBlock[0].DateTime.uiYear = value;
+				ret = SSBL_SUCCESS;
+			} else {
+				SSBL_LOG_WARNING("Value is out of range. Min: 0 Max: 9999");
+				ret = SSBL_ERR_VALUE_OUT_OF_RANGE;
+			}
+			break;
+		case hash_64_fnv1a_const("aTimeBlock[0].DateTime.uiYear"):
+			if((value >= 0) &&  (value <= 9999)){
+				this->Value_.aTimeBlock[0].DateTime.uiYear = value;
+				ret = SSBL_SUCCESS;
+			} else {
+				SSBL_LOG_WARNING("Value is out of range. Min: 0 Max: 9999");
 				ret = SSBL_ERR_VALUE_OUT_OF_RANGE;
 			}
 			break;
 		case hash_64_fnv1a_const("uiLengthaEventBlock"):
-			if((value >= 0) &&  (value <= 0)){
+			if((value >= 1) &&  (value <= 1)){
 				this->Value_.uiLengthaEventBlock = value;
 				ret = SSBL_SUCCESS;
 			} else {
-				SSBL_LOG_WARNING("Value is out of range. Min: 0 Max: 0");
+				SSBL_LOG_WARNING("Value is out of range. Min: 1 Max: 1");
 				ret = SSBL_ERR_VALUE_OUT_OF_RANGE;
 			}
 			break;
@@ -962,6 +1490,40 @@ SensorResult ScanData_TiM5x1_Var::SetBasicElement(const std::string& elementName
 			this->Value_.MeasurementParam1Block.udiMeasFreq = value;
 			ret = SSBL_SUCCESS;
 			break;
+		case hash_64_fnv1a_const("aEncoderBlock[0].udiEncoderPos"):
+			this->Value_.aEncoderBlock[0].udiEncoderPos = value;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("udiUSec"):
+			if((value >= 0) &&  (value <= 999999)){
+				this->Value_.aTimeBlock[0].DateTime.udiUSec = value;
+				ret = SSBL_SUCCESS;
+			} else {
+				SSBL_LOG_WARNING("Value is out of range. Min: 0 Max: 999999");
+				ret = SSBL_ERR_VALUE_OUT_OF_RANGE;
+			}
+			break;
+		case hash_64_fnv1a_const("aTimeBlock[0].DateTime.udiUSec"):
+			if((value >= 0) &&  (value <= 999999)){
+				this->Value_.aTimeBlock[0].DateTime.udiUSec = value;
+				ret = SSBL_SUCCESS;
+			} else {
+				SSBL_LOG_WARNING("Value is out of range. Min: 0 Max: 999999");
+				ret = SSBL_ERR_VALUE_OUT_OF_RANGE;
+			}
+			break;
+		case hash_64_fnv1a_const("aEventBlock[0].udiEncoderPos"):
+			this->Value_.aEventBlock[0].udiEncoderPos = value;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("udiSystemCount"):
+			this->Value_.aEventBlock[0].udiSystemCount = value;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("aEventBlock[0].udiSystemCount"):
+			this->Value_.aEventBlock[0].udiSystemCount = value;
+			ret = SSBL_SUCCESS;
+			break;
 		default:
 			SSBL_LOG_WARNING("Variable does either not contain element %s of type uint32_t, or the address string does not yield an unique element.", elementName.c_str());
 			ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
@@ -998,9 +1560,94 @@ SensorResult ScanData_TiM5x1_Var::SetBasic(uint64_t& value)
 SensorResult ScanData_TiM5x1_Var::SetBasicElement(const std::string& elementName, float& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
-	SSBL_UNUSED(elementName);
-	SSBL_UNUSED(value);
-	SSBL_LOG_WARNING("Variable does either not contain element %s of type float, or the address string does not yield an unique element.", elementName.c_str());
+	uint64_t test = hash_64_fnv1a(elementName.c_str(), elementName.size());
+	switch (test)
+	{
+		case hash_64_fnv1a_const("aDataChannel16[0].DataChannelHdr.dScaleFactor"):
+			this->Value_.aDataChannel16[0].DataChannelHdr.dScaleFactor = value;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("aDataChannel16[0].DataChannelHdr.dScaleOffset"):
+			this->Value_.aDataChannel16[0].DataChannelHdr.dScaleOffset = value;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("aDataChannel16[1].DataChannelHdr.dScaleFactor"):
+			this->Value_.aDataChannel16[1].DataChannelHdr.dScaleFactor = value;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("aDataChannel16[1].DataChannelHdr.dScaleOffset"):
+			this->Value_.aDataChannel16[1].DataChannelHdr.dScaleOffset = value;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("aDataChannel8[0].DataChannelHdr.dScaleFactor"):
+			this->Value_.aDataChannel8[0].DataChannelHdr.dScaleFactor = value;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("aDataChannel8[0].DataChannelHdr.dScaleOffset"):
+			this->Value_.aDataChannel8[0].DataChannelHdr.dScaleOffset = value;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("aDataChannel8[1].DataChannelHdr.dScaleFactor"):
+			this->Value_.aDataChannel8[1].DataChannelHdr.dScaleFactor = value;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("aDataChannel8[1].DataChannelHdr.dScaleOffset"):
+			this->Value_.aDataChannel8[1].DataChannelHdr.dScaleOffset = value;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("dXpos"):
+			this->Value_.aPositionBlock[0].dXpos = value;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("aPositionBlock[0].dXpos"):
+			this->Value_.aPositionBlock[0].dXpos = value;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("dYpos"):
+			this->Value_.aPositionBlock[0].dYpos = value;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("aPositionBlock[0].dYpos"):
+			this->Value_.aPositionBlock[0].dYpos = value;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("dZpos"):
+			this->Value_.aPositionBlock[0].dZpos = value;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("aPositionBlock[0].dZpos"):
+			this->Value_.aPositionBlock[0].dZpos = value;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("dXrot"):
+			this->Value_.aPositionBlock[0].dXrot = value;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("aPositionBlock[0].dXrot"):
+			this->Value_.aPositionBlock[0].dXrot = value;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("dYrot"):
+			this->Value_.aPositionBlock[0].dYrot = value;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("aPositionBlock[0].dYrot"):
+			this->Value_.aPositionBlock[0].dYrot = value;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("dZrot"):
+			this->Value_.aPositionBlock[0].dZrot = value;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("aPositionBlock[0].dZrot"):
+			this->Value_.aPositionBlock[0].dZrot = value;
+			ret = SSBL_SUCCESS;
+			break;
+		default:
+			SSBL_LOG_WARNING("Variable does either not contain element %s of type float, or the address string does not yield an unique element.", elementName.c_str());
+			ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+			break;
+	}
 	return ret;
 }
 
@@ -1445,9 +2092,30 @@ SensorResult ScanConfig_TiM5x1_Var::GetBasic(int16_t& value)
 SensorResult ScanConfig_TiM5x1_Var::GetBasicElement(const std::string& elementName, int32_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
-	SSBL_UNUSED(elementName);
-	SSBL_UNUSED(value);
-	SSBL_LOG_WARNING("Variable does either not contain element %s of type int32_t, or the address string does not yield an unique element.", elementName.c_str());
+	uint64_t test = hash_64_fnv1a(elementName.c_str(), elementName.size());
+	switch (test)
+	{
+		case hash_64_fnv1a_const("diStartAngle"):
+			value = this->Value_.ScanRange.aRange[0].diStartAngle;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("ScanRange.aRange[0].diStartAngle"):
+			value = this->Value_.ScanRange.aRange[0].diStartAngle;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("diStopAngle"):
+			value = this->Value_.ScanRange.aRange[0].diStopAngle;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("ScanRange.aRange[0].diStopAngle"):
+			value = this->Value_.ScanRange.aRange[0].diStopAngle;
+			ret = SSBL_SUCCESS;
+			break;
+		default:
+			SSBL_LOG_WARNING("Variable does either not contain element %s of type int32_t, or the address string does not yield an unique element.", elementName.c_str());
+			ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+			break;
+	}
 	return ret;
 }
 
@@ -1507,14 +2175,6 @@ SensorResult ScanConfig_TiM5x1_Var::GetBasicElement(const std::string& elementNa
 			value = this->Value_.ScanRange.uiLength;
 			ret = SSBL_SUCCESS;
 			break;
-		case hash_64_fnv1a_const("uiLengthaRange"):
-			value = this->Value_.ScanRange.uiLengthaRange;
-			ret = SSBL_SUCCESS;
-			break;
-		case hash_64_fnv1a_const("ScanRange.uiLengthaRange"):
-			value = this->Value_.ScanRange.uiLengthaRange;
-			ret = SSBL_SUCCESS;
-			break;
 		default:
 			SSBL_LOG_WARNING("Variable does either not contain element %s of type uint16_t, or the address string does not yield an unique element.", elementName.c_str());
 			ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
@@ -1539,6 +2199,14 @@ SensorResult ScanConfig_TiM5x1_Var::GetBasicElement(const std::string& elementNa
 	{
 		case hash_64_fnv1a_const("udiScanFreq"):
 			value = this->Value_.udiScanFreq;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("udiAngleRes"):
+			value = this->Value_.ScanRange.aRange[0].udiAngleRes;
+			ret = SSBL_SUCCESS;
+			break;
+		case hash_64_fnv1a_const("ScanRange.aRange[0].udiAngleRes"):
+			value = this->Value_.ScanRange.aRange[0].udiAngleRes;
 			ret = SSBL_SUCCESS;
 			break;
 		default:
@@ -1645,9 +2313,50 @@ SensorResult ScanConfig_TiM5x1_Var::SetBasic(int16_t& value)
 SensorResult ScanConfig_TiM5x1_Var::SetBasicElement(const std::string& elementName, int32_t& value) 
 {
 	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
-	SSBL_UNUSED(elementName);
-	SSBL_UNUSED(value);
-	SSBL_LOG_WARNING("Variable does either not contain element %s of type int32_t, or the address string does not yield an unique element.", elementName.c_str());
+	uint64_t test = hash_64_fnv1a(elementName.c_str(), elementName.size());
+	switch (test)
+	{
+		case hash_64_fnv1a_const("diStartAngle"):
+			if((value >= -450000) &&  (value <= 2250000)){
+				this->Value_.ScanRange.aRange[0].diStartAngle = value;
+				ret = SSBL_SUCCESS;
+			} else {
+				SSBL_LOG_WARNING("Value is out of range. Min: -450000 Max: 2250000");
+				ret = SSBL_ERR_VALUE_OUT_OF_RANGE;
+			}
+			break;
+		case hash_64_fnv1a_const("ScanRange.aRange[0].diStartAngle"):
+			if((value >= -450000) &&  (value <= 2250000)){
+				this->Value_.ScanRange.aRange[0].diStartAngle = value;
+				ret = SSBL_SUCCESS;
+			} else {
+				SSBL_LOG_WARNING("Value is out of range. Min: -450000 Max: 2250000");
+				ret = SSBL_ERR_VALUE_OUT_OF_RANGE;
+			}
+			break;
+		case hash_64_fnv1a_const("diStopAngle"):
+			if((value >= -450000) &&  (value <= 2250000)){
+				this->Value_.ScanRange.aRange[0].diStopAngle = value;
+				ret = SSBL_SUCCESS;
+			} else {
+				SSBL_LOG_WARNING("Value is out of range. Min: -450000 Max: 2250000");
+				ret = SSBL_ERR_VALUE_OUT_OF_RANGE;
+			}
+			break;
+		case hash_64_fnv1a_const("ScanRange.aRange[0].diStopAngle"):
+			if((value >= -450000) &&  (value <= 2250000)){
+				this->Value_.ScanRange.aRange[0].diStopAngle = value;
+				ret = SSBL_SUCCESS;
+			} else {
+				SSBL_LOG_WARNING("Value is out of range. Min: -450000 Max: 2250000");
+				ret = SSBL_ERR_VALUE_OUT_OF_RANGE;
+			}
+			break;
+		default:
+			SSBL_LOG_WARNING("Variable does either not contain element %s of type int32_t, or the address string does not yield an unique element.", elementName.c_str());
+			ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+			break;
+	}
 	return ret;
 }
 
@@ -1717,24 +2426,6 @@ SensorResult ScanConfig_TiM5x1_Var::SetBasicElement(const std::string& elementNa
 				ret = SSBL_ERR_VALUE_OUT_OF_RANGE;
 			}
 			break;
-		case hash_64_fnv1a_const("uiLengthaRange"):
-			if((value >= 0) &&  (value <= 0)){
-				this->Value_.ScanRange.uiLengthaRange = value;
-				ret = SSBL_SUCCESS;
-			} else {
-				SSBL_LOG_WARNING("Value is out of range. Min: 0 Max: 0");
-				ret = SSBL_ERR_VALUE_OUT_OF_RANGE;
-			}
-			break;
-		case hash_64_fnv1a_const("ScanRange.uiLengthaRange"):
-			if((value >= 0) &&  (value <= 0)){
-				this->Value_.ScanRange.uiLengthaRange = value;
-				ret = SSBL_SUCCESS;
-			} else {
-				SSBL_LOG_WARNING("Value is out of range. Min: 0 Max: 0");
-				ret = SSBL_ERR_VALUE_OUT_OF_RANGE;
-			}
-			break;
 		default:
 			SSBL_LOG_WARNING("Variable does either not contain element %s of type uint16_t, or the address string does not yield an unique element.", elementName.c_str());
 			ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
@@ -1763,6 +2454,24 @@ SensorResult ScanConfig_TiM5x1_Var::SetBasicElement(const std::string& elementNa
 				ret = SSBL_SUCCESS;
 			} else {
 				SSBL_LOG_WARNING("Value is out of range. Min: 1500 Max: 1500");
+				ret = SSBL_ERR_VALUE_OUT_OF_RANGE;
+			}
+			break;
+		case hash_64_fnv1a_const("udiAngleRes"):
+			if((value >= 3333) &&  (value <= 10000)){
+				this->Value_.ScanRange.aRange[0].udiAngleRes = value;
+				ret = SSBL_SUCCESS;
+			} else {
+				SSBL_LOG_WARNING("Value is out of range. Min: 3333 Max: 10000");
+				ret = SSBL_ERR_VALUE_OUT_OF_RANGE;
+			}
+			break;
+		case hash_64_fnv1a_const("ScanRange.aRange[0].udiAngleRes"):
+			if((value >= 3333) &&  (value <= 10000)){
+				this->Value_.ScanRange.aRange[0].udiAngleRes = value;
+				ret = SSBL_SUCCESS;
+			} else {
+				SSBL_LOG_WARNING("Value is out of range. Min: 3333 Max: 10000");
 				ret = SSBL_ERR_VALUE_OUT_OF_RANGE;
 			}
 			break;
