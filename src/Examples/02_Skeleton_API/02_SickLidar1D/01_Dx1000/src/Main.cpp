@@ -31,8 +31,6 @@ using namespace Dx1000_1_8_8_0R_Skeleton;
 
 int main(void) {
 
-
-
   // Create a DUT by specifying the name of the Skeleton and its IP
   auto DUT = CreateSensorSkeleton("DT1000", "192.168.100.236");
 
@@ -44,7 +42,7 @@ int main(void) {
 
   // Create variable by name
   auto distVar = DUT->CreateVariable("Distance");
-  auto mesaurementSetup = DUT->CreateVariable("acquisitionTime");
+
 
   if (SSBL_SUCCESS == DUT->Connect()) {
     int32_t d,j,e;
@@ -57,39 +55,26 @@ int main(void) {
     sensorFunctions.push_back(DUT->CreateFunction("enableMeasurementLaser"));
 
     for (int i = 0; i < 100000; i++) {
-      uint8_t val = (uint8_t)(i % 5);
-      mesaurementSetup->SetBasic(val);
-      if (SSBL_SUCCESS != DUT->WriteVariable(*mesaurementSetup)) {
-        cout << "Error when trying to execute variable " +
-                    mesaurementSetup->GetName()
-             << endl;
-      }
-      SSBL_Sleep(500);
-      /*
+      
       for (auto v : sensorFunctions) {
         if (SSBL_SUCCESS != DUT->CallFunction(*v)) {
           cout << "Error when trying to execute function " + v->GetName()
                << endl;
           goto exit;
         }
+        SSBL_Sleep(500);
       }
-     */ 
+     
       d = 6096000;
-      j = 0;
+  
       while (d == 6096000) {
         if (SSBL_SUCCESS == DUT->ReadVariable(*distVar)) {
           distVar->GetBasic(d);
-        } else {
-          e = e + 1;
         }
-        j = j + 1;
       }
 
-      std::cout << "Loop: " << i;
-      std::cout << "\tDistance: " << d;
-      std::cout << "\tSub-Loop: " << j;
-      std::cout << "\tErrors: " << e << std::endl;
-
+  
+      std::cout << "Distance: " << d << std::endl;
 
     }
 
