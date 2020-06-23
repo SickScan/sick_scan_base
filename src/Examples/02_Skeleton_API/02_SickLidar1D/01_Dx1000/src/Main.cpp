@@ -1,6 +1,6 @@
 /**
  * \file
- * \brief Access Skeletons variables using convenience wrappers
+ * \brief Access Skeletons variables
  *
  * Copyright 2019, SICK AG, Waldkirch
  *
@@ -26,10 +26,9 @@ using namespace ssbl;
 using namespace Dx1000_1_8_8_0R_Skeleton;
 
 
-
-
-
 int main(void) {
+
+  VariableEventQueue *pEventQueue = NULL;
 
   // Create a DUT by specifying the name of the Skeleton and its IP
   auto DUT = CreateSensorSkeleton("DT1000", "192.168.100.236");
@@ -42,11 +41,13 @@ int main(void) {
 
   // Create variable by name
   auto distVar = DUT->CreateVariable("Distance");
+  auto laserStateVar =  DUT->CreateVariable("laserState");
 
 
   if (SSBL_SUCCESS == DUT->Connect()) {
-    int32_t d,j,e;
-    e = 0;
+    
+    int32_t d = 0;
+
     vector<SensorFunction*> sensorFunctions;
 
     sensorFunctions.push_back(DUT->CreateFunction("disablePilotLaser"));
@@ -65,19 +66,19 @@ int main(void) {
         SSBL_Sleep(500);
       }
      
-      d = 6096000;
-  
-      while (d == 6096000) {
-        if (SSBL_SUCCESS == DUT->ReadVariable(*distVar)) {
-          distVar->GetBasic(d);
-        }
+      // wait until laser initialization has been done
+      SSBL_Sleep(500);
+
+      if (SSBL_SUCCESS == DUT->ReadVariable(*distVar)) {
+         distVar->GetBasic(d);
       }
+      
 
   
       std::cout << "Distance: " << d << std::endl;
 
     }
-
+ 
     //===============================================================================
     // Disconnect
     //===============================================================================

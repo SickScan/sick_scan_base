@@ -1160,6 +1160,104 @@ public:
 	SensorResult SetBasicElement(const std::string& elementName, double& value);
 };
 
+class laserState_Dx1000_Var : public Dx1000_Var<uint8_t>
+{
+public:
+	laserState_Dx1000_Var();
+	~laserState_Dx1000_Var(){};
+	ComObj* Clone() { return new laserState_Dx1000_Var(*this); }
+	static SensorVariable* Create() { return new laserState_Dx1000_Var; }
+	SensorResult GetBasic(int8_t& value);
+	SensorResult GetBasic(int16_t& value);
+	SensorResult GetBasic(int32_t& value);
+	SensorResult GetBasic(int64_t& value);
+	SensorResult GetBasic(uint8_t& value);
+	SensorResult GetBasic(uint16_t& value);
+	SensorResult GetBasic(uint32_t& value);
+	SensorResult GetBasic(uint64_t& value);
+	SensorResult GetBasic(float& value);
+	SensorResult GetBasic(double& value);
+	SensorResult GetBasicElement(const std::string& elementName, int8_t& value);
+	SensorResult GetBasicElement(const std::string& elementName, int16_t& value);
+	SensorResult GetBasicElement(const std::string& elementName, int32_t& value);
+	SensorResult GetBasicElement(const std::string& elementName, int64_t& value);
+	SensorResult GetBasicElement(const std::string& elementName, uint8_t& value);
+	SensorResult GetBasicElement(const std::string& elementName, uint16_t& value);
+	SensorResult GetBasicElement(const std::string& elementName, uint32_t& value);
+	SensorResult GetBasicElement(const std::string& elementName, uint64_t& value);
+	SensorResult GetBasicElement(const std::string& elementName, float& value);
+	SensorResult GetBasicElement(const std::string& elementName, double& value);
+	SensorResult SetBasic(int8_t& value);
+	SensorResult SetBasic(int16_t& value);
+	SensorResult SetBasic(int32_t& value);
+	SensorResult SetBasic(int64_t& value);
+	SensorResult SetBasic(uint8_t& value);
+	SensorResult SetBasic(uint16_t& value);
+	SensorResult SetBasic(uint32_t& value);
+	SensorResult SetBasic(uint64_t& value);
+	SensorResult SetBasic(float& value);
+	SensorResult SetBasic(double& value);
+	SensorResult SetBasicFromString(std::string value);	SensorResult SetBasicElement(const std::string& elementName, int8_t& value);
+	SensorResult SetBasicElement(const std::string& elementName, int16_t& value);
+	SensorResult SetBasicElement(const std::string& elementName, int32_t& value);
+	SensorResult SetBasicElement(const std::string& elementName, int64_t& value);
+	SensorResult SetBasicElement(const std::string& elementName, uint8_t& value);
+	SensorResult SetBasicElement(const std::string& elementName, uint16_t& value);
+	SensorResult SetBasicElement(const std::string& elementName, uint32_t& value);
+	SensorResult SetBasicElement(const std::string& elementName, uint64_t& value);
+	SensorResult SetBasicElement(const std::string& elementName, float& value);
+	SensorResult SetBasicElement(const std::string& elementName, double& value);
+};
+
+class pilotState_Dx1000_Var : public Dx1000_Var<uint8_t>
+{
+public:
+	pilotState_Dx1000_Var();
+	~pilotState_Dx1000_Var(){};
+	ComObj* Clone() { return new pilotState_Dx1000_Var(*this); }
+	static SensorVariable* Create() { return new pilotState_Dx1000_Var; }
+	SensorResult GetBasic(int8_t& value);
+	SensorResult GetBasic(int16_t& value);
+	SensorResult GetBasic(int32_t& value);
+	SensorResult GetBasic(int64_t& value);
+	SensorResult GetBasic(uint8_t& value);
+	SensorResult GetBasic(uint16_t& value);
+	SensorResult GetBasic(uint32_t& value);
+	SensorResult GetBasic(uint64_t& value);
+	SensorResult GetBasic(float& value);
+	SensorResult GetBasic(double& value);
+	SensorResult GetBasicElement(const std::string& elementName, int8_t& value);
+	SensorResult GetBasicElement(const std::string& elementName, int16_t& value);
+	SensorResult GetBasicElement(const std::string& elementName, int32_t& value);
+	SensorResult GetBasicElement(const std::string& elementName, int64_t& value);
+	SensorResult GetBasicElement(const std::string& elementName, uint8_t& value);
+	SensorResult GetBasicElement(const std::string& elementName, uint16_t& value);
+	SensorResult GetBasicElement(const std::string& elementName, uint32_t& value);
+	SensorResult GetBasicElement(const std::string& elementName, uint64_t& value);
+	SensorResult GetBasicElement(const std::string& elementName, float& value);
+	SensorResult GetBasicElement(const std::string& elementName, double& value);
+	SensorResult SetBasic(int8_t& value);
+	SensorResult SetBasic(int16_t& value);
+	SensorResult SetBasic(int32_t& value);
+	SensorResult SetBasic(int64_t& value);
+	SensorResult SetBasic(uint8_t& value);
+	SensorResult SetBasic(uint16_t& value);
+	SensorResult SetBasic(uint32_t& value);
+	SensorResult SetBasic(uint64_t& value);
+	SensorResult SetBasic(float& value);
+	SensorResult SetBasic(double& value);
+	SensorResult SetBasicFromString(std::string value);	SensorResult SetBasicElement(const std::string& elementName, int8_t& value);
+	SensorResult SetBasicElement(const std::string& elementName, int16_t& value);
+	SensorResult SetBasicElement(const std::string& elementName, int32_t& value);
+	SensorResult SetBasicElement(const std::string& elementName, int64_t& value);
+	SensorResult SetBasicElement(const std::string& elementName, uint8_t& value);
+	SensorResult SetBasicElement(const std::string& elementName, uint16_t& value);
+	SensorResult SetBasicElement(const std::string& elementName, uint32_t& value);
+	SensorResult SetBasicElement(const std::string& elementName, uint64_t& value);
+	SensorResult SetBasicElement(const std::string& elementName, float& value);
+	SensorResult SetBasicElement(const std::string& elementName, double& value);
+};
+
 } // namespace Dx1000_1_8_8_0R_Skeleton
 } // namespace ssbl
 

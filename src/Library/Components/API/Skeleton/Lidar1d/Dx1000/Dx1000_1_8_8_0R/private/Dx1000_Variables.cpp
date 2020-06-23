@@ -7921,6 +7921,738 @@ SensorResult fogFilter_Dx1000_Var::SetBasicFromString(std::string value)
 	ret = SSBL_SUCCESS;
 	return ret;
 }
+
+laserState_Dx1000_Var::laserState_Dx1000_Var()
+	: Dx1000_Var("laserState","laserState",196,READ_ONLY,LEVEL_RUN,LEVEL_INVALID,96)
+{
+}
+
+SensorResult laserState_Dx1000_Var::GetBasicElement(const std::string& elementName, int8_t& value) 
+{
+	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+	SSBL_UNUSED(elementName);
+	SSBL_UNUSED(value);
+	SSBL_LOG_WARNING("Variable does either not contain element %s of type int8_t, or the address string does not yield an unique element.", elementName.c_str());
+	return ret;
+}
+
+SensorResult laserState_Dx1000_Var::GetBasic(int8_t& value) 
+{
+	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+	SSBL_UNUSED(value);
+	SSBL_LOG_WARNING("Variable not of type int8_t");
+	return ret;
+}
+
+SensorResult laserState_Dx1000_Var::GetBasicElement(const std::string& elementName, int16_t& value) 
+{
+	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+	SSBL_UNUSED(elementName);
+	SSBL_UNUSED(value);
+	SSBL_LOG_WARNING("Variable does either not contain element %s of type int16_t, or the address string does not yield an unique element.", elementName.c_str());
+	return ret;
+}
+
+SensorResult laserState_Dx1000_Var::GetBasic(int16_t& value) 
+{
+	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+	SSBL_UNUSED(value);
+	SSBL_LOG_WARNING("Variable not of type int16_t");
+	return ret;
+}
+
+SensorResult laserState_Dx1000_Var::GetBasicElement(const std::string& elementName, int32_t& value) 
+{
+	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+	SSBL_UNUSED(elementName);
+	SSBL_UNUSED(value);
+	SSBL_LOG_WARNING("Variable does either not contain element %s of type int32_t, or the address string does not yield an unique element.", elementName.c_str());
+	return ret;
+}
+
+SensorResult laserState_Dx1000_Var::GetBasic(int32_t& value) 
+{
+	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+	SSBL_UNUSED(value);
+	SSBL_LOG_WARNING("Variable not of type int32_t");
+	return ret;
+}
+
+SensorResult laserState_Dx1000_Var::GetBasicElement(const std::string& elementName, int64_t& value) 
+{
+	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+	SSBL_UNUSED(elementName);
+	SSBL_UNUSED(value);
+	SSBL_LOG_WARNING("Variable does either not contain element %s of type int64_t, or the address string does not yield an unique element.", elementName.c_str());
+	return ret;
+}
+
+SensorResult laserState_Dx1000_Var::GetBasic(int64_t& value) 
+{
+	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+	SSBL_UNUSED(value);
+	SSBL_LOG_WARNING("Variable not of type int64_t");
+	return ret;
+}
+
+SensorResult laserState_Dx1000_Var::GetBasicElement(const std::string& elementName, uint8_t& value) 
+{
+	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+	SSBL_UNUSED(elementName);
+	SSBL_UNUSED(value);
+	SSBL_LOG_WARNING("Variable does either not contain element %s of type uint8_t, or the address string does not yield an unique element.", elementName.c_str());
+	return ret;
+}
+
+SensorResult laserState_Dx1000_Var::GetBasic(uint8_t& value) 
+{
+	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+	ret = SSBL_SUCCESS;
+	value = this->Value_;
+	return ret;
+}
+
+SensorResult laserState_Dx1000_Var::GetBasicElement(const std::string& elementName, uint16_t& value) 
+{
+	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+	SSBL_UNUSED(elementName);
+	SSBL_UNUSED(value);
+	SSBL_LOG_WARNING("Variable does either not contain element %s of type uint16_t, or the address string does not yield an unique element.", elementName.c_str());
+	return ret;
+}
+
+SensorResult laserState_Dx1000_Var::GetBasic(uint16_t& value) 
+{
+	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+	SSBL_UNUSED(value);
+	SSBL_LOG_WARNING("Variable not of type uint16_t");
+	return ret;
+}
+
+SensorResult laserState_Dx1000_Var::GetBasicElement(const std::string& elementName, uint32_t& value) 
+{
+	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+	SSBL_UNUSED(elementName);
+	SSBL_UNUSED(value);
+	SSBL_LOG_WARNING("Variable does either not contain element %s of type uint32_t, or the address string does not yield an unique element.", elementName.c_str());
+	return ret;
+}
+
+SensorResult laserState_Dx1000_Var::GetBasic(uint32_t& value) 
+{
+	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+	SSBL_UNUSED(value);
+	SSBL_LOG_WARNING("Variable not of type uint32_t");
+	return ret;
+}
+
+SensorResult laserState_Dx1000_Var::GetBasicElement(const std::string& elementName, uint64_t& value) 
+{
+	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+	SSBL_UNUSED(elementName);
+	SSBL_UNUSED(value);
+	SSBL_LOG_WARNING("Variable does either not contain element %s of type uint64_t, or the address string does not yield an unique element.", elementName.c_str());
+	return ret;
+}
+
+SensorResult laserState_Dx1000_Var::GetBasic(uint64_t& value) 
+{
+	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+	SSBL_UNUSED(value);
+	SSBL_LOG_WARNING("Variable not of type uint64_t");
+	return ret;
+}
+
+SensorResult laserState_Dx1000_Var::GetBasicElement(const std::string& elementName, float& value) 
+{
+	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+	SSBL_UNUSED(elementName);
+	SSBL_UNUSED(value);
+	SSBL_LOG_WARNING("Variable does either not contain element %s of type float, or the address string does not yield an unique element.", elementName.c_str());
+	return ret;
+}
+
+SensorResult laserState_Dx1000_Var::GetBasic(float& value) 
+{
+	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+	SSBL_UNUSED(value);
+	SSBL_LOG_WARNING("Variable not of type float");
+	return ret;
+}
+
+SensorResult laserState_Dx1000_Var::GetBasicElement(const std::string& elementName, double& value) 
+{
+	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+	SSBL_UNUSED(elementName);
+	SSBL_UNUSED(value);
+	SSBL_LOG_WARNING("Variable does either not contain element %s of type double, or the address string does not yield an unique element.", elementName.c_str());
+	return ret;
+}
+
+SensorResult laserState_Dx1000_Var::GetBasic(double& value) 
+{
+	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+	SSBL_UNUSED(value);
+	SSBL_LOG_WARNING("Variable not of type double");
+	return ret;
+}
+
+SensorResult laserState_Dx1000_Var::SetBasicElement(const std::string& elementName, int8_t& value) 
+{
+	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+	SSBL_UNUSED(elementName);
+	SSBL_UNUSED(value);
+	SSBL_LOG_WARNING("Variable does either not contain element %s of type int8_t, or the address string does not yield an unique element.", elementName.c_str());
+	return ret;
+}
+
+SensorResult laserState_Dx1000_Var::SetBasic(int8_t& value) 
+{
+	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+	SSBL_UNUSED(value);
+	SSBL_LOG_WARNING("Variable is not a simple type of int8_t");
+	return ret;
+}
+
+SensorResult laserState_Dx1000_Var::SetBasicElement(const std::string& elementName, int16_t& value) 
+{
+	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+	SSBL_UNUSED(elementName);
+	SSBL_UNUSED(value);
+	SSBL_LOG_WARNING("Variable does either not contain element %s of type int16_t, or the address string does not yield an unique element.", elementName.c_str());
+	return ret;
+}
+
+SensorResult laserState_Dx1000_Var::SetBasic(int16_t& value) 
+{
+	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+	SSBL_UNUSED(value);
+	SSBL_LOG_WARNING("Variable is not a simple type of int16_t");
+	return ret;
+}
+
+SensorResult laserState_Dx1000_Var::SetBasicElement(const std::string& elementName, int32_t& value) 
+{
+	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+	SSBL_UNUSED(elementName);
+	SSBL_UNUSED(value);
+	SSBL_LOG_WARNING("Variable does either not contain element %s of type int32_t, or the address string does not yield an unique element.", elementName.c_str());
+	return ret;
+}
+
+SensorResult laserState_Dx1000_Var::SetBasic(int32_t& value) 
+{
+	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+	SSBL_UNUSED(value);
+	SSBL_LOG_WARNING("Variable is not a simple type of int32_t");
+	return ret;
+}
+
+SensorResult laserState_Dx1000_Var::SetBasicElement(const std::string& elementName, int64_t& value) 
+{
+	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+	SSBL_UNUSED(elementName);
+	SSBL_UNUSED(value);
+	SSBL_LOG_WARNING("Variable does either not contain element %s of type int64_t, or the address string does not yield an unique element.", elementName.c_str());
+	return ret;
+}
+
+SensorResult laserState_Dx1000_Var::SetBasic(int64_t& value) 
+{
+	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+	SSBL_UNUSED(value);
+	SSBL_LOG_WARNING("Variable is not a simple type of int64_t");
+	return ret;
+}
+
+SensorResult laserState_Dx1000_Var::SetBasicElement(const std::string& elementName, uint8_t& value) 
+{
+	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+	SSBL_UNUSED(elementName);
+	SSBL_UNUSED(value);
+	SSBL_LOG_WARNING("Variable does either not contain element %s of type uint8_t, or the address string does not yield an unique element.", elementName.c_str());
+	return ret;
+}
+
+SensorResult laserState_Dx1000_Var::SetBasic(uint8_t& value) 
+{
+	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+	this->Value_ = value;
+	ret = SSBL_SUCCESS;
+	return ret;
+}
+
+SensorResult laserState_Dx1000_Var::SetBasicElement(const std::string& elementName, uint16_t& value) 
+{
+	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+	SSBL_UNUSED(elementName);
+	SSBL_UNUSED(value);
+	SSBL_LOG_WARNING("Variable does either not contain element %s of type uint16_t, or the address string does not yield an unique element.", elementName.c_str());
+	return ret;
+}
+
+SensorResult laserState_Dx1000_Var::SetBasic(uint16_t& value) 
+{
+	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+	SSBL_UNUSED(value);
+	SSBL_LOG_WARNING("Variable is not a simple type of uint16_t");
+	return ret;
+}
+
+SensorResult laserState_Dx1000_Var::SetBasicElement(const std::string& elementName, uint32_t& value) 
+{
+	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+	SSBL_UNUSED(elementName);
+	SSBL_UNUSED(value);
+	SSBL_LOG_WARNING("Variable does either not contain element %s of type uint32_t, or the address string does not yield an unique element.", elementName.c_str());
+	return ret;
+}
+
+SensorResult laserState_Dx1000_Var::SetBasic(uint32_t& value) 
+{
+	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+	SSBL_UNUSED(value);
+	SSBL_LOG_WARNING("Variable is not a simple type of uint32_t");
+	return ret;
+}
+
+SensorResult laserState_Dx1000_Var::SetBasicElement(const std::string& elementName, uint64_t& value) 
+{
+	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+	SSBL_UNUSED(elementName);
+	SSBL_UNUSED(value);
+	SSBL_LOG_WARNING("Variable does either not contain element %s of type uint64_t, or the address string does not yield an unique element.", elementName.c_str());
+	return ret;
+}
+
+SensorResult laserState_Dx1000_Var::SetBasic(uint64_t& value) 
+{
+	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+	SSBL_UNUSED(value);
+	SSBL_LOG_WARNING("Variable is not a simple type of uint64_t");
+	return ret;
+}
+
+SensorResult laserState_Dx1000_Var::SetBasicElement(const std::string& elementName, float& value) 
+{
+	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+	SSBL_UNUSED(elementName);
+	SSBL_UNUSED(value);
+	SSBL_LOG_WARNING("Variable does either not contain element %s of type float, or the address string does not yield an unique element.", elementName.c_str());
+	return ret;
+}
+
+SensorResult laserState_Dx1000_Var::SetBasic(float& value) 
+{
+	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+	SSBL_UNUSED(value);
+	SSBL_LOG_WARNING("Variable is not a simple type of float");
+	return ret;
+}
+
+SensorResult laserState_Dx1000_Var::SetBasicElement(const std::string& elementName, double& value) 
+{
+	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+	SSBL_UNUSED(elementName);
+	SSBL_UNUSED(value);
+	SSBL_LOG_WARNING("Variable does either not contain element %s of type double, or the address string does not yield an unique element.", elementName.c_str());
+	return ret;
+}
+
+SensorResult laserState_Dx1000_Var::SetBasic(double& value) 
+{
+	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+	SSBL_UNUSED(value);
+	SSBL_LOG_WARNING("Variable is not a simple type of double");
+	return ret;
+}
+
+SensorResult laserState_Dx1000_Var::SetBasicFromString(std::string value)
+{
+	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+	bool isNegative = false;
+	std::string help = value;
+	if ('+' == value[0]) {
+		help = value.substr(1);
+	} else if ('-' == value[0]) { 
+		isNegative = true; 
+		help = value.substr(1); 
+	} else { 
+		help = value;
+	}
+	int8_t helpInt = (int8_t)std::stoi(help);
+	if (isNegative)
+		helpInt *= -1;
+	memcpy(&this->Value_, &helpInt,1);
+	ret = SSBL_SUCCESS;
+	return ret;
+}
+
+pilotState_Dx1000_Var::pilotState_Dx1000_Var()
+	: Dx1000_Var("pilotState","pilotState",197,READ_ONLY,LEVEL_RUN,LEVEL_INVALID,97)
+{
+}
+
+SensorResult pilotState_Dx1000_Var::GetBasicElement(const std::string& elementName, int8_t& value) 
+{
+	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+	SSBL_UNUSED(elementName);
+	SSBL_UNUSED(value);
+	SSBL_LOG_WARNING("Variable does either not contain element %s of type int8_t, or the address string does not yield an unique element.", elementName.c_str());
+	return ret;
+}
+
+SensorResult pilotState_Dx1000_Var::GetBasic(int8_t& value) 
+{
+	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+	SSBL_UNUSED(value);
+	SSBL_LOG_WARNING("Variable not of type int8_t");
+	return ret;
+}
+
+SensorResult pilotState_Dx1000_Var::GetBasicElement(const std::string& elementName, int16_t& value) 
+{
+	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+	SSBL_UNUSED(elementName);
+	SSBL_UNUSED(value);
+	SSBL_LOG_WARNING("Variable does either not contain element %s of type int16_t, or the address string does not yield an unique element.", elementName.c_str());
+	return ret;
+}
+
+SensorResult pilotState_Dx1000_Var::GetBasic(int16_t& value) 
+{
+	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+	SSBL_UNUSED(value);
+	SSBL_LOG_WARNING("Variable not of type int16_t");
+	return ret;
+}
+
+SensorResult pilotState_Dx1000_Var::GetBasicElement(const std::string& elementName, int32_t& value) 
+{
+	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+	SSBL_UNUSED(elementName);
+	SSBL_UNUSED(value);
+	SSBL_LOG_WARNING("Variable does either not contain element %s of type int32_t, or the address string does not yield an unique element.", elementName.c_str());
+	return ret;
+}
+
+SensorResult pilotState_Dx1000_Var::GetBasic(int32_t& value) 
+{
+	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+	SSBL_UNUSED(value);
+	SSBL_LOG_WARNING("Variable not of type int32_t");
+	return ret;
+}
+
+SensorResult pilotState_Dx1000_Var::GetBasicElement(const std::string& elementName, int64_t& value) 
+{
+	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+	SSBL_UNUSED(elementName);
+	SSBL_UNUSED(value);
+	SSBL_LOG_WARNING("Variable does either not contain element %s of type int64_t, or the address string does not yield an unique element.", elementName.c_str());
+	return ret;
+}
+
+SensorResult pilotState_Dx1000_Var::GetBasic(int64_t& value) 
+{
+	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+	SSBL_UNUSED(value);
+	SSBL_LOG_WARNING("Variable not of type int64_t");
+	return ret;
+}
+
+SensorResult pilotState_Dx1000_Var::GetBasicElement(const std::string& elementName, uint8_t& value) 
+{
+	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+	SSBL_UNUSED(elementName);
+	SSBL_UNUSED(value);
+	SSBL_LOG_WARNING("Variable does either not contain element %s of type uint8_t, or the address string does not yield an unique element.", elementName.c_str());
+	return ret;
+}
+
+SensorResult pilotState_Dx1000_Var::GetBasic(uint8_t& value) 
+{
+	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+	ret = SSBL_SUCCESS;
+	value = this->Value_;
+	return ret;
+}
+
+SensorResult pilotState_Dx1000_Var::GetBasicElement(const std::string& elementName, uint16_t& value) 
+{
+	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+	SSBL_UNUSED(elementName);
+	SSBL_UNUSED(value);
+	SSBL_LOG_WARNING("Variable does either not contain element %s of type uint16_t, or the address string does not yield an unique element.", elementName.c_str());
+	return ret;
+}
+
+SensorResult pilotState_Dx1000_Var::GetBasic(uint16_t& value) 
+{
+	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+	SSBL_UNUSED(value);
+	SSBL_LOG_WARNING("Variable not of type uint16_t");
+	return ret;
+}
+
+SensorResult pilotState_Dx1000_Var::GetBasicElement(const std::string& elementName, uint32_t& value) 
+{
+	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+	SSBL_UNUSED(elementName);
+	SSBL_UNUSED(value);
+	SSBL_LOG_WARNING("Variable does either not contain element %s of type uint32_t, or the address string does not yield an unique element.", elementName.c_str());
+	return ret;
+}
+
+SensorResult pilotState_Dx1000_Var::GetBasic(uint32_t& value) 
+{
+	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+	SSBL_UNUSED(value);
+	SSBL_LOG_WARNING("Variable not of type uint32_t");
+	return ret;
+}
+
+SensorResult pilotState_Dx1000_Var::GetBasicElement(const std::string& elementName, uint64_t& value) 
+{
+	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+	SSBL_UNUSED(elementName);
+	SSBL_UNUSED(value);
+	SSBL_LOG_WARNING("Variable does either not contain element %s of type uint64_t, or the address string does not yield an unique element.", elementName.c_str());
+	return ret;
+}
+
+SensorResult pilotState_Dx1000_Var::GetBasic(uint64_t& value) 
+{
+	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+	SSBL_UNUSED(value);
+	SSBL_LOG_WARNING("Variable not of type uint64_t");
+	return ret;
+}
+
+SensorResult pilotState_Dx1000_Var::GetBasicElement(const std::string& elementName, float& value) 
+{
+	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+	SSBL_UNUSED(elementName);
+	SSBL_UNUSED(value);
+	SSBL_LOG_WARNING("Variable does either not contain element %s of type float, or the address string does not yield an unique element.", elementName.c_str());
+	return ret;
+}
+
+SensorResult pilotState_Dx1000_Var::GetBasic(float& value) 
+{
+	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+	SSBL_UNUSED(value);
+	SSBL_LOG_WARNING("Variable not of type float");
+	return ret;
+}
+
+SensorResult pilotState_Dx1000_Var::GetBasicElement(const std::string& elementName, double& value) 
+{
+	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+	SSBL_UNUSED(elementName);
+	SSBL_UNUSED(value);
+	SSBL_LOG_WARNING("Variable does either not contain element %s of type double, or the address string does not yield an unique element.", elementName.c_str());
+	return ret;
+}
+
+SensorResult pilotState_Dx1000_Var::GetBasic(double& value) 
+{
+	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+	SSBL_UNUSED(value);
+	SSBL_LOG_WARNING("Variable not of type double");
+	return ret;
+}
+
+SensorResult pilotState_Dx1000_Var::SetBasicElement(const std::string& elementName, int8_t& value) 
+{
+	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+	SSBL_UNUSED(elementName);
+	SSBL_UNUSED(value);
+	SSBL_LOG_WARNING("Variable does either not contain element %s of type int8_t, or the address string does not yield an unique element.", elementName.c_str());
+	return ret;
+}
+
+SensorResult pilotState_Dx1000_Var::SetBasic(int8_t& value) 
+{
+	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+	SSBL_UNUSED(value);
+	SSBL_LOG_WARNING("Variable is not a simple type of int8_t");
+	return ret;
+}
+
+SensorResult pilotState_Dx1000_Var::SetBasicElement(const std::string& elementName, int16_t& value) 
+{
+	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+	SSBL_UNUSED(elementName);
+	SSBL_UNUSED(value);
+	SSBL_LOG_WARNING("Variable does either not contain element %s of type int16_t, or the address string does not yield an unique element.", elementName.c_str());
+	return ret;
+}
+
+SensorResult pilotState_Dx1000_Var::SetBasic(int16_t& value) 
+{
+	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+	SSBL_UNUSED(value);
+	SSBL_LOG_WARNING("Variable is not a simple type of int16_t");
+	return ret;
+}
+
+SensorResult pilotState_Dx1000_Var::SetBasicElement(const std::string& elementName, int32_t& value) 
+{
+	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+	SSBL_UNUSED(elementName);
+	SSBL_UNUSED(value);
+	SSBL_LOG_WARNING("Variable does either not contain element %s of type int32_t, or the address string does not yield an unique element.", elementName.c_str());
+	return ret;
+}
+
+SensorResult pilotState_Dx1000_Var::SetBasic(int32_t& value) 
+{
+	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+	SSBL_UNUSED(value);
+	SSBL_LOG_WARNING("Variable is not a simple type of int32_t");
+	return ret;
+}
+
+SensorResult pilotState_Dx1000_Var::SetBasicElement(const std::string& elementName, int64_t& value) 
+{
+	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+	SSBL_UNUSED(elementName);
+	SSBL_UNUSED(value);
+	SSBL_LOG_WARNING("Variable does either not contain element %s of type int64_t, or the address string does not yield an unique element.", elementName.c_str());
+	return ret;
+}
+
+SensorResult pilotState_Dx1000_Var::SetBasic(int64_t& value) 
+{
+	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+	SSBL_UNUSED(value);
+	SSBL_LOG_WARNING("Variable is not a simple type of int64_t");
+	return ret;
+}
+
+SensorResult pilotState_Dx1000_Var::SetBasicElement(const std::string& elementName, uint8_t& value) 
+{
+	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+	SSBL_UNUSED(elementName);
+	SSBL_UNUSED(value);
+	SSBL_LOG_WARNING("Variable does either not contain element %s of type uint8_t, or the address string does not yield an unique element.", elementName.c_str());
+	return ret;
+}
+
+SensorResult pilotState_Dx1000_Var::SetBasic(uint8_t& value) 
+{
+	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+	this->Value_ = value;
+	ret = SSBL_SUCCESS;
+	return ret;
+}
+
+SensorResult pilotState_Dx1000_Var::SetBasicElement(const std::string& elementName, uint16_t& value) 
+{
+	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+	SSBL_UNUSED(elementName);
+	SSBL_UNUSED(value);
+	SSBL_LOG_WARNING("Variable does either not contain element %s of type uint16_t, or the address string does not yield an unique element.", elementName.c_str());
+	return ret;
+}
+
+SensorResult pilotState_Dx1000_Var::SetBasic(uint16_t& value) 
+{
+	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+	SSBL_UNUSED(value);
+	SSBL_LOG_WARNING("Variable is not a simple type of uint16_t");
+	return ret;
+}
+
+SensorResult pilotState_Dx1000_Var::SetBasicElement(const std::string& elementName, uint32_t& value) 
+{
+	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+	SSBL_UNUSED(elementName);
+	SSBL_UNUSED(value);
+	SSBL_LOG_WARNING("Variable does either not contain element %s of type uint32_t, or the address string does not yield an unique element.", elementName.c_str());
+	return ret;
+}
+
+SensorResult pilotState_Dx1000_Var::SetBasic(uint32_t& value) 
+{
+	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+	SSBL_UNUSED(value);
+	SSBL_LOG_WARNING("Variable is not a simple type of uint32_t");
+	return ret;
+}
+
+SensorResult pilotState_Dx1000_Var::SetBasicElement(const std::string& elementName, uint64_t& value) 
+{
+	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+	SSBL_UNUSED(elementName);
+	SSBL_UNUSED(value);
+	SSBL_LOG_WARNING("Variable does either not contain element %s of type uint64_t, or the address string does not yield an unique element.", elementName.c_str());
+	return ret;
+}
+
+SensorResult pilotState_Dx1000_Var::SetBasic(uint64_t& value) 
+{
+	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+	SSBL_UNUSED(value);
+	SSBL_LOG_WARNING("Variable is not a simple type of uint64_t");
+	return ret;
+}
+
+SensorResult pilotState_Dx1000_Var::SetBasicElement(const std::string& elementName, float& value) 
+{
+	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+	SSBL_UNUSED(elementName);
+	SSBL_UNUSED(value);
+	SSBL_LOG_WARNING("Variable does either not contain element %s of type float, or the address string does not yield an unique element.", elementName.c_str());
+	return ret;
+}
+
+SensorResult pilotState_Dx1000_Var::SetBasic(float& value) 
+{
+	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+	SSBL_UNUSED(value);
+	SSBL_LOG_WARNING("Variable is not a simple type of float");
+	return ret;
+}
+
+SensorResult pilotState_Dx1000_Var::SetBasicElement(const std::string& elementName, double& value) 
+{
+	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+	SSBL_UNUSED(elementName);
+	SSBL_UNUSED(value);
+	SSBL_LOG_WARNING("Variable does either not contain element %s of type double, or the address string does not yield an unique element.", elementName.c_str());
+	return ret;
+}
+
+SensorResult pilotState_Dx1000_Var::SetBasic(double& value) 
+{
+	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+	SSBL_UNUSED(value);
+	SSBL_LOG_WARNING("Variable is not a simple type of double");
+	return ret;
+}
+
+SensorResult pilotState_Dx1000_Var::SetBasicFromString(std::string value)
+{
+	SensorResult ret = SSBL_ERR_VARIABLE_ELEMENT_NOT_FOUND;
+	bool isNegative = false;
+	std::string help = value;
+	if ('+' == value[0]) {
+		help = value.substr(1);
+	} else if ('-' == value[0]) { 
+		isNegative = true; 
+		help = value.substr(1); 
+	} else { 
+		help = value;
+	}
+	int8_t helpInt = (int8_t)std::stoi(help);
+	if (isNegative)
+		helpInt *= -1;
+	memcpy(&this->Value_, &helpInt,1);
+	ret = SSBL_SUCCESS;
+	return ret;
+}
 } // namespace Dx1000_1_8_8_0R_Skeleton
 } // namespace ssbl
 

@@ -37,28 +37,40 @@ public:
 	}
 
 	
+	#pragma clang diagnostic push
+	#pragma clang diagnostic ignored "-Woverloaded-virtual"
 	SensorResult CallFunction(TiM5x1_Func_NANR & rFunc)
 	{
 		return CoLaSensorSkeleton::CallFunction(rFunc);
 	}
+	#pragma clang diagnostic pop
 
 	template<class Args>
+	#pragma clang diagnostic push
+	#pragma clang diagnostic ignored "-Woverloaded-virtual"
 	SensorResult CallFunction(TiM5x1_Func_ANR<Args> & rFunc)
 	{
 		return CoLaSensorSkeleton::CallFunction(rFunc);
 	}
+	#pragma clang diagnostic pop
 
 	template<class Return>
+	#pragma clang diagnostic push
+	#pragma clang diagnostic ignored "-Woverloaded-virtual"
 	SensorResult CallFunction(TiM5x1_Func_NAR<Return> & rFunc)
 	{
 		return CoLaSensorSkeleton::CallFunction(rFunc);
 	}
+	#pragma clang diagnostic pop
 
 	template <class Args, class Return>
+	#pragma clang diagnostic push
+	#pragma clang diagnostic ignored "-Woverloaded-virtual"
 	SensorResult CallFunction(TiM5x1_Func_AR<Args, Return> & rFunc)
 	{
 		return CoLaSensorSkeleton::CallFunction(rFunc);
 	}
+	#pragma clang diagnostic pop
 
 	template <class T>
 	SensorResult RegisterEvent(TiM5x1_Var<T>& rVar, std::function<void(uint64_t*)> OnEventCb, uint64_t cbParam)
@@ -83,14 +95,14 @@ public:
 	}
 
 	template <class T>
-	SensorResult DeregisterEvent(TiM5x1_Var<T>& rVar)
+	SensorResult DeregisterEvent(TiM5x1_Var<T>& rVar, bool isDisconneted)
 	{
-		return CoLaSensorSkeleton::DeregisterEvent(rVar);
+		return CoLaSensorSkeleton::DeregisterEvent(rVar, isDisconneted);
 	}
 
-	SensorResult DeregisterEvent(const std::string & varName)
+	SensorResult DeregisterEvent(const std::string & varName, bool isDisconneted)
 	{
-		return CoLaSensorSkeleton::DeregisterEvent(varName);
+		return CoLaSensorSkeleton::DeregisterEvent(varName, isDisconneted);
 	}
 
 	SensorResult StoreParameter();

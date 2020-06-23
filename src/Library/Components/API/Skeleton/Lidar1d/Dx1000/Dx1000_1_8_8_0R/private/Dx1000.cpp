@@ -53,6 +53,8 @@ Dx1000::Dx1000(const std::string& Ip, const std::string& interfaceName,const std
 	VariableRepo.RegisterComObj("Dx1000errorOutputVelocity",errorOutputVelocity_Dx1000_Var::Create); 
 	VariableRepo.RegisterComObj("Dx1000acquisitionTime",acquisitionTime_Dx1000_Var::Create); 
 	VariableRepo.RegisterComObj("Dx1000fogFilter",fogFilter_Dx1000_Var::Create); 
+	VariableRepo.RegisterComObj("Dx1000laserState",laserState_Dx1000_Var::Create); 
+	VariableRepo.RegisterComObj("Dx1000pilotState",pilotState_Dx1000_Var::Create); 
 	FunctionRepo.RegisterComObj("Dx1000WriteEeprom",WriteEeprom_Dx1000_Func::Create); 
 	FunctionRepo.RegisterComObj("Dx1000RebootDevice",RebootDevice_Dx1000_Func::Create); 
 	FunctionRepo.RegisterComObj("Dx1000LoadFactoryDefaults",LoadFactoryDefaults_Dx1000_Func::Create); 
