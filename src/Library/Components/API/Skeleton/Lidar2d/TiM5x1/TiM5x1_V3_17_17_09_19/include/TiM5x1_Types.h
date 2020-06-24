@@ -99,8 +99,8 @@ typedef struct
 	uint16_t	uiScanCount;
 	uint32_t	udiSystemCountScan;
 	uint32_t	udiSystemCountTransmit;
-	uint8_t 	xbInputs[31816562];
-	uint8_t 	xbOutputs[31816562];
+	uint8_t 	xbInputs[1629042];
+	uint8_t 	xbOutputs[1629042];
 	uint16_t	uiReserved;
 } StatusBlock_struct_t;
 #pragma pack(pop)
@@ -148,7 +148,7 @@ typedef struct
 	float	dXrot;
 	float	dYrot;
 	float	dZrot;
-	uint8_t 	xbRotMode[31816562];
+	uint8_t 	xbRotMode[1629042];
 } ScanData_aPositionBlock_struct_t;
 #pragma pack(pop)
 
