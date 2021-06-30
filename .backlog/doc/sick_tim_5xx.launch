@@ -1,7 +1,0 @@
-<launch>
-<node name="sick_tim_5xx">
-    <param name="min_ang_deg" type="double" value="-45.0" />
-    <param name="max_ang_deg" type="double" value="225.0" />
-    <param name="hostname" type="string" value="192.168.0.61" />
-</node>
-</launch>
