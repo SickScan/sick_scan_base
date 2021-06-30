@@ -70,13 +70,13 @@ Install the required tools:
 
 Obtain the source code
 ~~~~~~~~~~~~~~~~~~~~~~
-Fetch the source and change into the newly created folder.
+Fetch the source and change into the newly created folder. There are path lengths limitations when using Windows. To avoid them, make sure to execute the following commands at the top level of your drive (for example "C:\").   
 
 .. code-block:: console
 
-  git clone https://github.com/SickScan/sick_scan_base.git
+  git clone https://github.com/SickScan/sick_scan_base.git ssbl
 
-  cd sick_scan_base
+  cd ssbl
   mkdir build
   cd build
 
