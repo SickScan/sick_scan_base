@@ -29,6 +29,7 @@
 #include "API/Family/Lidar1d/Common/include/Lidar1d.h"
 #include "API/Family/Lidar1d/Common/include/Lidar1d.h"
 #include "API/Family/Lidar2d/Common/include/Lidar2d.h"
+#include "API/Family/Lidar2d/Common/include/Lidar2d.h"
 #include "API/Skeleton/Lidar1d/DL100/DL100_2_1_0_6R/include/DL100.h"
 #include "API/Skeleton/Lidar1d/DL100/DL100_2_1_0_12R/include/DL100.h"
 #include "API/Skeleton/Lidar1d/DL100/DL100_V001_004_000/include/DL100.h"
@@ -54,3 +55,4 @@
 #include "API/Skeleton/Lidar1d/OLM200/OLM200_V002_004_000/include/OLM200.h"
 #include "API/Skeleton/Lidar1d/OLM200/OLM200_V002_004_001/include/OLM200.h"
 #include "API/Skeleton/Lidar2d/TiM5x1/TiM5x1_V3_17_17_09_19/include/TiM5x1.h"
+#include "API/Skeleton/Lidar2d/TiM7x1/TiM7x1_V3_17_17_09_19/include/TiM7x1.h"

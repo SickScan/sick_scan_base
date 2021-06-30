@@ -37,40 +37,56 @@ public:
 	}
 
 	
-	#pragma clang diagnostic push
-	#pragma clang diagnostic ignored "-Woverloaded-virtual"
+	#if defined(__clang__)
+		#pragma clang diagnostic push
+		#pragma clang diagnostic ignored "-Woverloaded-virtual"
+	#endif
 	SensorResult CallFunction(Dx1000_Func_NANR & rFunc)
 	{
 		return CoLaSensorSkeleton::CallFunction(rFunc);
 	}
-	#pragma clang diagnostic pop
+	#if defined(__clang__)
+		#pragma clang diagnostic pop
+	#endif
 
 	template<class Args>
-	#pragma clang diagnostic push
-	#pragma clang diagnostic ignored "-Woverloaded-virtual"
+	#if defined(__clang__)
+		#pragma clang diagnostic push
+		#pragma clang diagnostic ignored "-Woverloaded-virtual"
+	#endif
 	SensorResult CallFunction(Dx1000_Func_ANR<Args> & rFunc)
 	{
 		return CoLaSensorSkeleton::CallFunction(rFunc);
 	}
-	#pragma clang diagnostic pop
+	#if defined(__clang__)
+		#pragma clang diagnostic pop
+	#endif
 
 	template<class Return>
-	#pragma clang diagnostic push
-	#pragma clang diagnostic ignored "-Woverloaded-virtual"
+	#if defined(__clang__)
+		#pragma clang diagnostic push
+		#pragma clang diagnostic ignored "-Woverloaded-virtual"
+	#endif
 	SensorResult CallFunction(Dx1000_Func_NAR<Return> & rFunc)
 	{
 		return CoLaSensorSkeleton::CallFunction(rFunc);
 	}
-	#pragma clang diagnostic pop
+	#if defined(__clang__)
+		#pragma clang diagnostic pop
+	#endif
 
 	template <class Args, class Return>
-	#pragma clang diagnostic push
-	#pragma clang diagnostic ignored "-Woverloaded-virtual"
+	#if defined(__clang__)
+		#pragma clang diagnostic push
+		#pragma clang diagnostic ignored "-Woverloaded-virtual"
+	#endif
 	SensorResult CallFunction(Dx1000_Func_AR<Args, Return> & rFunc)
 	{
 		return CoLaSensorSkeleton::CallFunction(rFunc);
 	}
-	#pragma clang diagnostic pop
+	#if defined(__clang__)
+		#pragma clang diagnostic pop
+	#endif
 
 	template <class T>
 	SensorResult RegisterEvent(Dx1000_Var<T>& rVar, std::function<void(uint64_t*)> OnEventCb, uint64_t cbParam)
@@ -95,12 +111,12 @@ public:
 	}
 
 	template <class T>
-	SensorResult DeregisterEvent(Dx1000_Var<T>& rVar, bool isDisconneted)
+	SensorResult DeregisterEvent(Dx1000_Var<T>& rVar, bool isDisconneted = false)
 	{
 		return CoLaSensorSkeleton::DeregisterEvent(rVar, isDisconneted);
 	}
 
-	SensorResult DeregisterEvent(const std::string & varName, bool isDisconneted)
+	SensorResult DeregisterEvent(const std::string & varName, bool isDisconneted = false)
 	{
 		return CoLaSensorSkeleton::DeregisterEvent(varName, isDisconneted);
 	}
