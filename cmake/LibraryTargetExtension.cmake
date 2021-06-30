@@ -220,7 +220,7 @@ function(CreateSwigTargetInternal)
   endif()
   
   if(NOT PARSED_VS_SOLUTION_FOLDER)
-    message(FATAL_ERROR "CreateSwigTargets: VS_SOLUTION_FOLDER has to be set")
+    message(FATAL_ERROR "CreateSwigTargetInternal: VS_SOLUTION_FOLDER has to be set")
   endif()
   
   
@@ -244,39 +244,38 @@ function(CreateSwigTargetInternal)
   set_property(SOURCE ${SWIG_INTERFACE_SPEC} PROPERTY CPLUSPLUS ON)
   set_property(SOURCE ${SWIG_INTERFACE_SPEC} PROPERTY USE_LIBRARY_INCLUDE_DIRECTORIES TRUE)
   
-  if(SSBL_BUILD_PYTHON_MODULES)
-    if(PARSED_LANGUAGE MATCHES PYTHON)
-      find_package(Python3 COMPONENTS Interpreter Development REQUIRED)
-      
-      
-      set(TARGET_NAME "${PARSED_BASE_NAME}_${PARSED_COMPONENT_NAME}_${PARSED_MODULE_SUFFIX}_${PARSED_LANGUAGE}")
-      
-      swig_add_library(${TARGET_NAME}
-        LANGUAGE
-          python
-        SOURCES
-          ${SWIG_INTERFACE_SPEC})
-      target_include_directories(${TARGET_NAME}  PRIVATE  ${Python3_INCLUDE_DIRS})
-      
-      set_target_properties(${TARGET_NAME} PROPERTIES OUTPUT_NAME "${PARSED_BASE_NAME}_${PARSED_COMPONENT_NAME}_${PARSED_MODULE_SUFFIX}")
-      
-      
-      unset(SWIG_LIB_DEPENDENS)
-      list(APPEND SWIG_LIB_DEPENDENS ${Python3_LIBRARIES})
-      list(APPEND SWIG_LIB_DEPENDENS ${PARSED_DEPENDS})
-     
-      target_link_libraries(${TARGET_NAME}  PRIVATE ${SWIG_LIB_DEPENDENS})
+  if(PARSED_LANGUAGE MATCHES PYTHON)
+    find_package(Python3 COMPONENTS Interpreter Development REQUIRED)
+    
+    
+    set(TARGET_NAME "${PARSED_BASE_NAME}_${PARSED_COMPONENT_NAME}_${PARSED_MODULE_SUFFIX}_${PARSED_LANGUAGE}")
+    
+    swig_add_library(${TARGET_NAME}
+      LANGUAGE
+        python
+      SOURCES
+        ${SWIG_INTERFACE_SPEC})
+    target_include_directories(${TARGET_NAME}  PRIVATE  ${Python3_INCLUDE_DIRS})
+    
+    set_target_properties(${TARGET_NAME} PROPERTIES OUTPUT_NAME "${PARSED_BASE_NAME}_${PARSED_COMPONENT_NAME}_${PARSED_MODULE_SUFFIX}")
+    
+    
+    unset(SWIG_LIB_DEPENDENS)
+    list(APPEND SWIG_LIB_DEPENDENS ${Python3_LIBRARIES})
+    list(APPEND SWIG_LIB_DEPENDENS ${PARSED_DEPENDS})
+   
+    target_link_libraries(${TARGET_NAME}  PRIVATE ${SWIG_LIB_DEPENDENS})
 
-      set_property(TARGET ${TARGET_NAME} PROPERTY SWIG_USE_LIBRARY_INCLUDE_DIRECTORIES TRUE)
-      set_target_properties(${TARGET_NAME} PROPERTIES FOLDER "${PARSED_VS_SOLUTION_FOLDER}/${PARSED_LANGUAGE}")
-      
+    set_property(TARGET ${TARGET_NAME} PROPERTY SWIG_USE_LIBRARY_INCLUDE_DIRECTORIES TRUE)
+    set_target_properties(${TARGET_NAME} PROPERTIES FOLDER "${PARSED_VS_SOLUTION_FOLDER}/${PARSED_LANGUAGE}")
+    
 
-     install(TARGETS ${TARGET_NAME}
+   install(TARGETS ${TARGET_NAME}
 
-        LIBRARY DESTINATION ${SSBL_INSTALL_DIR}/Modules/${PARSED_LANGUAGE}
-     )
-    endif()
+      LIBRARY DESTINATION ${SSBL_INSTALL_DIR}/Modules/${PARSED_LANGUAGE}
+   )
   endif()
+
   
 endfunction()
 
@@ -306,26 +305,26 @@ function(CreateSwigTargets)
     message(FATAL_ERROR "CreateSwigTargets: MODULE_SUFFIX has to be set")
   endif()
 
-  
-  find_package(SWIG 4.0)
+  if(SSBL_BUILD_PYTHON_MODULES)
+    find_package(SWIG 4.0)
 
-  if(SWIG_FOUND)
-  CreateSwigTargetInternal(
-    BASE_NAME
-      ${PARSED_BASE_NAME}
-    COMPONENT_NAME
-      ${PARSED_COMPONENT_NAME}
-    MODULE_SUFFIX
-      ${PARSED_MODULE_SUFFIX}
-    VS_SOLUTION_FOLDER
-      ${PARSED_VS_SOLUTION_FOLDER}
-    LANGUAGE
-      PYTHON
-    DEPENDS
-      ${PARSED_DEPENDS}
-  )
+    if(SWIG_FOUND)
+    CreateSwigTargetInternal(
+      BASE_NAME
+        ${PARSED_BASE_NAME}
+      COMPONENT_NAME
+        ${PARSED_COMPONENT_NAME}
+      MODULE_SUFFIX
+        ${PARSED_MODULE_SUFFIX}
+      VS_SOLUTION_FOLDER
+        ${PARSED_VS_SOLUTION_FOLDER}
+      LANGUAGE
+        PYTHON
+      DEPENDS
+        ${PARSED_DEPENDS}
+    )
+    endif()
   endif()
-  
 endfunction()
 
 #######################################################################################################
@@ -364,7 +363,7 @@ function(CreateLibraryTargetInternal)
   
   set(TARGET_NAME "${PARSED_BASE_NAME}-${PARSED_COMPONENT_NAME}-${TARGET_NAME_SUFFIX}")
   set(ALIAS_TARGET_NAME "${PARSED_BASE_NAME}::${PARSED_COMPONENT_NAME}::${TARGET_NAME_SUFFIX}")
-  message(STATUS "TARGET ${TARGET_NAME} ALIAS ${ALIAS_TARGET_NAME}" )
+  #message(STATUS "TARGET ${TARGET_NAME} ALIAS ${ALIAS_TARGET_NAME}" )
   
   GetFullLibraryName(${PARSED_BASE_NAME} ${PARSED_COMPONENT_NAME} ${PARSED_BUILD_MODE} LIBRARY_FILE_NAME)
   
