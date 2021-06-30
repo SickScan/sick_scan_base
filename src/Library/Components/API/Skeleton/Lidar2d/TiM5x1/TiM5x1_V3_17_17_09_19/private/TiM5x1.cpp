@@ -21,18 +21,22 @@ TiM5x1::TiM5x1(const std::string& Ip, const std::string& interfaceName,const std
 	SensorName_="TiM5x1";
 	passwords_[LEVEL_INVALID] = 0;
 	passwords_[LEVEL_RUN] = 0x00000000;
-	passwords_[LEVEL_MAINTAINANCE] = 0xb21ace26;
+	passwords_[LEVEL_OPERATOR] = 0x00000000;
+	passwords_[LEVEL_MAINTENANCE] = 0xb21ace26;
 	passwords_[LEVEL_AUTHORIZED_CLIENT] = 0xf4724744;
 	passwords_[LEVEL_SERVICE] = 0x81be23aa;
+	passwords_[LEVEL_SICKSERVICE] = 0x00000000;
+	passwords_[LEVEL_PRODUCTION] = 0x00000000;
+	passwords_[LEVEL_DEVELOPER] = 0x00000000;
 	BehavorialVersion_ = "1.0.0";
 	UserSelectedIpOrSerial_ = Ip;
 	UserSelectedInterfaceName_ = interfaceName;
 	AvailableSensorInterfaces_.push_back(ssbl::make_unique<SensorInterfaceDescription*>( new SensorInterfaceDescription("CoLaA Port" , ETHERNET_INTERFACE , COLA_A , BY_NAME , 2111 , 
 		{})));
 	AvailableSensorInterfaces_.push_back(ssbl::make_unique<SensorInterfaceDescription*>( new SensorInterfaceDescription("CoLa Port" , ETHERNET_INTERFACE , COLA_B , BY_NAME , 2112 , 
-		{})));
+		{std::make_tuple(COLA_B, "EtherHostCoLaDialect", "1"),std::make_tuple(COLA_A, "EtherHostCoLaDialect", "0")		})));
 	AvailableSensorInterfaces_.push_back(ssbl::make_unique<SensorInterfaceDescription*>( new SensorInterfaceDescription("CoLa Port" , ETHERNET_INTERFACE , COLA_A , BY_NAME , 2112 , 
-		{})));
+		{std::make_tuple(COLA_B, "EtherHostCoLaDialect", "1"),std::make_tuple(COLA_A, "EtherHostCoLaDialect", "0")		})));
 	VariableRepo.RegisterComObj("TiM5x1DataOutputRange",DataOutputRange_TiM5x1_Var::Create); 
 	VariableRepo.RegisterComObj("TiM5x1ScanData",ScanData_TiM5x1_Var::Create); 
 	VariableRepo.RegisterComObj("TiM5x1EtherHostCoLaDialect",EtherHostCoLaDialect_TiM5x1_Var::Create); 

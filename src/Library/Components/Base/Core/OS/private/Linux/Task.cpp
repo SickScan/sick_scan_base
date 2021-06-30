@@ -119,6 +119,7 @@ void Task::InternalEntry(void) {
   TaskState_ = TASK_INITIALIZED;
   bool keepRunning = true;
   while ((TaskState_ != TASK_DELETED) && keepRunning) {
+    pImpl_->CheckSuspended();
     while ((TaskState_ == TASK_RUNNING) && keepRunning) {
       pImpl_->CheckSuspended();
       keepRunning = TaskLoop();

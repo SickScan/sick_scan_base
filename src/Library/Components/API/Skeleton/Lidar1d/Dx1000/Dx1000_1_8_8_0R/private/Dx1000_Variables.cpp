@@ -1814,7 +1814,7 @@ SensorResult SCdevicestate_Dx1000_Var::SetBasicFromString(std::string value)
 }
 
 OrderNumber_Dx1000_Var::OrderNumber_Dx1000_Var()
-	: Dx1000_Var("OrderNumber","OrdNum",11,READ_WRITE,LEVEL_RUN,LEVEL_INVALID,-1)
+	: Dx1000_Var("OrderNumber","OrdNum",11,READ_WRITE,LEVEL_RUN,LEVEL_PRODUCTION,-1)
 {
 }
 

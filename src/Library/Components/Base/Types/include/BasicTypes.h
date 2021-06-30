@@ -56,11 +56,16 @@ typedef enum {
  *
  */
 typedef enum {
-  LEVEL_INVALID,
+ 
   LEVEL_RUN,
-  LEVEL_MAINTAINANCE,
+  LEVEL_OPERATOR,
+  LEVEL_MAINTENANCE,
   LEVEL_AUTHORIZED_CLIENT,
   LEVEL_SERVICE,
+  LEVEL_SICKSERVICE,
+  LEVEL_PRODUCTION,
+  LEVEL_DEVELOPER,
+  LEVEL_INVALID,
   MAX_USER_LEVELS
 } AccessLevel;
 
@@ -82,8 +87,8 @@ typedef enum { BY_NAME, BY_INDEX } AddressingMode;
  */
 struct SsblEventContainer {
   uint64_t CallbackParameter;
-  ComObj* pComObj;
-  ~SsblEventContainer() { delete pComObj; };
+  ComObj*  pComObj;
+  ~SsblEventContainer() { };
 };
 
 typedef uint8_t Enum8_t;

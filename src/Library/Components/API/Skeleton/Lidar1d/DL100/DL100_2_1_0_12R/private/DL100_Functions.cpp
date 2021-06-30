@@ -39,5 +39,11 @@ resetMF2switchCounter_DL100_Func::resetMF2switchCounter_DL100_Func()
 {
 }
 
+
+getDebugData_DL100_Func::getDebugData_DL100_Func()
+	: DL100_Func_NAR("getDebugData" , "getDebugData" ,6 , LEVEL_DEVELOPER)
+{
+}
+
 } // namespace DL100_2_1_0_12R_Skeleton
 } // namespace ssbl

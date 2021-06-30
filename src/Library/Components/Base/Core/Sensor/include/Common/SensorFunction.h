@@ -36,6 +36,8 @@ class SensorFunction : public ComObj {
                                     uint32_t* pOffset) = 0;
   virtual uint32_t DeserializeContent(Deserializer* pDes, uint8_t* pSrc) = 0;
 
+  virtual ComObj* Clone() const = 0;
+  
  protected:
   AccessLevel invocationAccessLevel_;
   bool hasArguments_;

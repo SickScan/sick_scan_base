@@ -21,9 +21,13 @@ DL100::DL100(const std::string& Ip, const std::string& interfaceName,const std::
 	SensorName_="DL100";
 	passwords_[LEVEL_INVALID] = 0;
 	passwords_[LEVEL_RUN] = 0x00000000;
-	passwords_[LEVEL_MAINTAINANCE] = 0x89e693a2;
+	passwords_[LEVEL_OPERATOR] = 0x00000000;
+	passwords_[LEVEL_MAINTENANCE] = 0x89e693a2;
 	passwords_[LEVEL_AUTHORIZED_CLIENT] = 0xf4724744;
 	passwords_[LEVEL_SERVICE] = 0x81be23aa;
+	passwords_[LEVEL_SICKSERVICE] = 0xe606de89;
+	passwords_[LEVEL_PRODUCTION] = 0x00000000;
+	passwords_[LEVEL_DEVELOPER] = 0x00000000;
 	BehavorialVersion_ = "1.0.0";
 	UserSelectedIpOrSerial_ = Ip;
 	UserSelectedInterfaceName_ = interfaceName;
@@ -47,11 +51,14 @@ DL100::DL100(const std::string& Ip, const std::string& interfaceName,const std::
 	VariableRepo.RegisterComObj("DL100operatingHours",operatingHours_DL100_Var::Create); 
 	VariableRepo.RegisterComObj("DL100mf1switchCounter",mf1switchCounter_DL100_Var::Create); 
 	VariableRepo.RegisterComObj("DL100mf2switchCounter",mf2switchCounter_DL100_Var::Create); 
+	VariableRepo.RegisterComObj("DL100DebugOutputSelect",DebugOutputSelect_DL100_Var::Create); 
+	VariableRepo.RegisterComObj("DL100OnOff",OnOff_DL100_Var::Create); 
 	FunctionRepo.RegisterComObj("DL100storeParameterPage",storeParameterPage_DL100_Func::Create); 
 	FunctionRepo.RegisterComObj("DL100parameterReset",parameterReset_DL100_Func::Create); 
 	FunctionRepo.RegisterComObj("DL100setColdstart",setColdstart_DL100_Func::Create); 
 	FunctionRepo.RegisterComObj("DL100resetMF1switchCounter",resetMF1switchCounter_DL100_Func::Create); 
 	FunctionRepo.RegisterComObj("DL100resetMF2switchCounter",resetMF2switchCounter_DL100_Func::Create); 
+	FunctionRepo.RegisterComObj("DL100getDebugData",getDebugData_DL100_Func::Create); 
 }
 
 DL100::~DL100()

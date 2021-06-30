@@ -23,6 +23,8 @@ public:
 	using::ssbl::CoLaBSerializer::Serialize;
 
 	void Serialize(uint8_t* pDest, storeParameterPage_t & rSrc, uint32_t* pOffset);
+	void Serialize(uint8_t* pDest, FlexString502 & rSrc, uint32_t* pOffset);
+	void Serialize(uint8_t* pDest, getDebugData_t & rSrc, uint32_t* pOffset);
 }; //DL100_CoLaBSerializer
 
 } // namespace DL100
@@ -42,6 +44,8 @@ public:
 	using::ssbl::CoLaBDeserializer::Deserialize;
 
 	void Deserialize(uint8_t* pSrc, storeParameterPage_t& rDest, uint32_t* pOffset);
+	void Deserialize(uint8_t* pSrc, FlexString502& rDest, uint32_t* pOffset);
+	void Deserialize(uint8_t* pSrc, getDebugData_t& rDest, uint32_t* pOffset);
 }; //DL100_CoLaBDeserializer
 
 } // namespace DL100_V001_003_009_Skeleton

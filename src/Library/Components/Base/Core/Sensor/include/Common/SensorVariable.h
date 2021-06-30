@@ -72,6 +72,8 @@ class SensorVariable : public ComObj {
                                     uint32_t* pOffset) = 0;
   virtual uint32_t DeserializeContent(Deserializer* pDes, uint8_t* pSrc) = 0;
 
+  
+
   virtual size_t Size(void) = 0;
   virtual SensorResult GetRaw(uint8_t* pDest) = 0;
 
@@ -84,8 +86,9 @@ class SensorVariable : public ComObj {
   bool providesEvent_;
 
  public:
+  virtual ComObj* Clone() const = 0;
+ 
   // no struct types
-
   virtual SensorResult GetBasic(int8_t& value) = 0;
   virtual SensorResult GetBasic(int16_t& value) = 0;
   virtual SensorResult GetBasic(int32_t& value) = 0;

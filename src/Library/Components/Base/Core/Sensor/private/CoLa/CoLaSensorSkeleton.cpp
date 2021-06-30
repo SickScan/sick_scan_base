@@ -122,11 +122,11 @@ SensorResult CoLaSensorSkeleton::LogOn(AccessLevel userLevel) {
 SensorResult CoLaSensorSkeleton::LogOff(AccessLevel userLevel) {
   SensorResult ret = SSBL_SUCCESS;
 
-  if (LEVEL_RUN >= userLevel) {
-    return ret;  // simply return succes if access level is not required
+  if (LEVEL_OPERATOR >= userLevel) {
+    return ret;  // simply return success if access level is not required
   }
-  mSetAccessMode_.Args.NewMode = LEVEL_RUN;
-  mSetAccessMode_.Args.Password = GetPassword(LEVEL_RUN);
+  mSetAccessMode_.Args.NewMode = LEVEL_OPERATOR;
+  mSetAccessMode_.Args.Password = GetPassword(LEVEL_OPERATOR);
   mSetAccessMode_.ReturnValue.success = 0;
   ret = pActiveProtocol_->SendRequest(REQ_INVOKE_METHOD, mSetAccessMode_);
 

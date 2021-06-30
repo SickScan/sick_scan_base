@@ -20,7 +20,7 @@ namespace OLM100_V002_004_000_Skeleton
 
 
 PositionData_OLM100_Var::PositionData_OLM100_Var()
-	: OLM100_Var("PositionData","PositionData",5,READ_ONLY,LEVEL_INVALID,LEVEL_INVALID,0)
+	: OLM100_Var("PositionData","PositionData",5,READ_ONLY,LEVEL_MAINTENANCE,LEVEL_INVALID,0)
 {
 }
 
@@ -728,7 +728,7 @@ SensorResult Speed_OLM100_Var::SetBasicFromString(std::string value)
 }
 
 Acceleration_OLM100_Var::Acceleration_OLM100_Var()
-	: OLM100_Var("Acceleration","Acceleration",12,READ_ONLY,LEVEL_INVALID,LEVEL_INVALID,3)
+	: OLM100_Var("Acceleration","Acceleration",12,READ_ONLY,LEVEL_PRODUCTION,LEVEL_INVALID,3)
 {
 }
 

@@ -19,6 +19,7 @@
 
 #pragma once
 #include <string>
+#include "Base/Core/Common/include/MakeUnique.h"
 
 namespace ssbl {
 class Protocol;
@@ -92,7 +93,8 @@ class ComObj {
    */
   virtual uint32_t DeserializeContent(Deserializer* pDes, uint8_t* pSrc) = 0;
 
-  virtual ComObj* Clone() = 0;
+  virtual ComObj* Clone() const =  0;
+
 
  protected:
   std::string Name_;

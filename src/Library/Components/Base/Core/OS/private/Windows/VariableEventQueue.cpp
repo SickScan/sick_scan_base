@@ -86,7 +86,7 @@ VariableEventQueue::VariableEventQueue(ComObj &rVar, uint32_t nElem)
   pImpl_->Create(nElem);
 
   for (uint32_t i = 0; i < nElem; ++i) {
-    FreeBuffers_.push_back(std::shared_ptr<ComObj>(rVar.Clone()));
+     FreeBuffers_.push_back(std::shared_ptr<ComObj>(rVar.Clone()));
   }
   ElementsAllocated_ = nElem;
 }

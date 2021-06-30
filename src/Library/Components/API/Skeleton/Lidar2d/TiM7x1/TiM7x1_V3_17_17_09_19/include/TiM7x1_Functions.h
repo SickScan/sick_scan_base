@@ -21,6 +21,7 @@ public:
 		AccessLevel accessLevel)
 			: SensorFunction(name,comname, idx, accessLevel, false,false) {};
 	~TiM7x1_Func_NANR(){};
+	virtual ComObj* Clone() const = 0;
 	uint32_t SerializeContent(Serializer * pSer, uint8_t * pDest, uint32_t * pOffset)
 	{
 		SSBL_UNUSED(pSer);
@@ -46,6 +47,7 @@ public:
 		AccessLevel accessLevel)
 			: SensorFunction(name,comname, idx, accessLevel, true,false) {};
 	~TiM7x1_Func_ANR(){};
+	virtual ComObj* Clone() const = 0;
 	uint32_t SerializeContent(Serializer * pSer, uint8_t * pDest, uint32_t * pOffset)
 	{
 		switch (pSer->GetProtocolType())
@@ -80,6 +82,7 @@ public:
 		AccessLevel accessLevel)
 			: SensorFunction(name,comname, idx, accessLevel, false,true) {};
 	~TiM7x1_Func_NAR(){};
+	virtual ComObj* Clone() const = 0;
 	uint32_t SerializeContent(Serializer * pSer, uint8_t * pDest, uint32_t * pOffset)
 	{
 		SSBL_UNUSED(pSer);
@@ -115,6 +118,7 @@ public:
 		AccessLevel accessLevel)
 			: SensorFunction(name,comname, idx, accessLevel, true,true) {};
 	~TiM7x1_Func_AR(){};
+	virtual ComObj* Clone() const = 0;
 	uint32_t SerializeContent(Serializer * pSer, uint8_t * pDest, uint32_t * pOffset)
 	{
 		switch (pSer->GetProtocolType())
@@ -155,7 +159,7 @@ class SetScanConfig_TiM7x1_Func : public TiM7x1_Func_AR<SetScanConfig_t,SetScanC
 public:
 	SetScanConfig_TiM7x1_Func();
 	~SetScanConfig_TiM7x1_Func(){};
-	ComObj* Clone() { return new SetScanConfig_TiM7x1_Func(*this); }
+	ComObj* Clone() const override { return new SetScanConfig_TiM7x1_Func(*this);}
 	static SensorFunction* Create() { return new SetScanConfig_TiM7x1_Func; }
 };
 
@@ -164,7 +168,7 @@ class mStartMeasure_TiM7x1_Func : public TiM7x1_Func_NAR<mStartMeasure_t>
 public:
 	mStartMeasure_TiM7x1_Func();
 	~mStartMeasure_TiM7x1_Func(){};
-	ComObj* Clone() { return new mStartMeasure_TiM7x1_Func(*this); }
+	ComObj* Clone() const override { return new mStartMeasure_TiM7x1_Func(*this);}
 	static SensorFunction* Create() { return new mStartMeasure_TiM7x1_Func; }
 };
 
@@ -173,7 +177,7 @@ class mStopMeasure_TiM7x1_Func : public TiM7x1_Func_NAR<mStopMeasure_t>
 public:
 	mStopMeasure_TiM7x1_Func();
 	~mStopMeasure_TiM7x1_Func(){};
-	ComObj* Clone() { return new mStopMeasure_TiM7x1_Func(*this); }
+	ComObj* Clone() const override { return new mStopMeasure_TiM7x1_Func(*this);}
 	static SensorFunction* Create() { return new mStopMeasure_TiM7x1_Func; }
 };
 
@@ -182,7 +186,7 @@ class mSetDateTime_TiM7x1_Func : public TiM7x1_Func_AR<mSetDateTime_t,mSetDateTi
 public:
 	mSetDateTime_TiM7x1_Func();
 	~mSetDateTime_TiM7x1_Func(){};
-	ComObj* Clone() { return new mSetDateTime_TiM7x1_Func(*this); }
+	ComObj* Clone() const override { return new mSetDateTime_TiM7x1_Func(*this);}
 	static SensorFunction* Create() { return new mSetDateTime_TiM7x1_Func; }
 };
 
@@ -191,7 +195,7 @@ class Run_TiM7x1_Func : public TiM7x1_Func_NAR<Run_t>
 public:
 	Run_TiM7x1_Func();
 	~Run_TiM7x1_Func(){};
-	ComObj* Clone() { return new Run_TiM7x1_Func(*this); }
+	ComObj* Clone() const override { return new Run_TiM7x1_Func(*this);}
 	static SensorFunction* Create() { return new Run_TiM7x1_Func; }
 };
 
@@ -200,7 +204,7 @@ class WriteEeprom_TiM7x1_Func : public TiM7x1_Func_NAR<WriteEeprom_t>
 public:
 	WriteEeprom_TiM7x1_Func();
 	~WriteEeprom_TiM7x1_Func(){};
-	ComObj* Clone() { return new WriteEeprom_TiM7x1_Func(*this); }
+	ComObj* Clone() const override { return new WriteEeprom_TiM7x1_Func(*this);}
 	static SensorFunction* Create() { return new WriteEeprom_TiM7x1_Func; }
 };
 
@@ -209,7 +213,7 @@ class RebootDevice_TiM7x1_Func : public TiM7x1_Func_NANR
 public:
 	RebootDevice_TiM7x1_Func();
 	~RebootDevice_TiM7x1_Func(){};
-	ComObj* Clone() { return new RebootDevice_TiM7x1_Func(*this); }
+	ComObj* Clone() const override { return new RebootDevice_TiM7x1_Func(*this);}
 	static SensorFunction* Create() { return new RebootDevice_TiM7x1_Func; }
 };
 
@@ -218,7 +222,7 @@ class LoadFactoryDefaults_TiM7x1_Func : public TiM7x1_Func_NANR
 public:
 	LoadFactoryDefaults_TiM7x1_Func();
 	~LoadFactoryDefaults_TiM7x1_Func(){};
-	ComObj* Clone() { return new LoadFactoryDefaults_TiM7x1_Func(*this); }
+	ComObj* Clone() const override { return new LoadFactoryDefaults_TiM7x1_Func(*this);}
 	static SensorFunction* Create() { return new LoadFactoryDefaults_TiM7x1_Func; }
 };
 
@@ -227,7 +231,7 @@ class LoadApplicationDefaults_TiM7x1_Func : public TiM7x1_Func_NANR
 public:
 	LoadApplicationDefaults_TiM7x1_Func();
 	~LoadApplicationDefaults_TiM7x1_Func(){};
-	ComObj* Clone() { return new LoadApplicationDefaults_TiM7x1_Func(*this); }
+	ComObj* Clone() const override { return new LoadApplicationDefaults_TiM7x1_Func(*this);}
 	static SensorFunction* Create() { return new LoadApplicationDefaults_TiM7x1_Func; }
 };
 

@@ -17,6 +17,22 @@ typedef struct
 } storeParameterPage_t;
 #pragma pack(pop)
 
+#pragma pack(push, 1)
+typedef struct 
+{
+	 uint16_t uiLength;
+	uint8_t Text[502];
+} FlexString502;
+#pragma pack(pop)
+
+#pragma pack(push, 1)
+typedef struct 
+{
+	uint32_t	frameCnt;
+	FlexString502	buffer;
+} getDebugData_t;
+#pragma pack(pop)
+
 
 } // namespace DL100_V001_002_007_Skeleton
 } // namespace ssbl

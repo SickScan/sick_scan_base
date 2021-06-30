@@ -48,7 +48,7 @@ uint32_t MethSetAccessMode::DeserializeContent(Deserializer *pDes,
 //=============================================================================
 //=============================================================================
 VarDeviceIdent::VarDeviceIdent()
-    : SensorVariable("DeviceIdent", "DeviceIdent", 1, READ_ONLY, LEVEL_RUN,
+    : SensorVariable("DeviceIdent", "DeviceIdent", 0, READ_ONLY, LEVEL_RUN,
                      LEVEL_INVALID, -1) {
   /*
 

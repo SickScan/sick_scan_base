@@ -53,6 +53,8 @@ class Socket::impl : public Task {
     fdarray_ = {0};
     struct addrinfo *result = nullptr, *ptr = nullptr, hints;
 
+    SSBL_LOG_INFO("Connecting to %s on port %d", ip.c_str(), port);
+
     InternSocket_ = INVALID_SOCKET;
 
     iResult = WSAStartup(MAKEWORD(2, 2), &wsaData_);

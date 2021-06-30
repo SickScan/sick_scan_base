@@ -1,10 +1,6 @@
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${TOP_DIR}/cmake")
 
 include(ClangFormatExtension)
-set(SSBL_MAJOR    "0")
-set(SSBL_MINOR    "0")
-set(SSBL_REVISION "2")
-
 
 if(NOT ZEPHYR_BASE)
 

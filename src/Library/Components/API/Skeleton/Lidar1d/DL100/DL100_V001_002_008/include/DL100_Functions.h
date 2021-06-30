@@ -21,6 +21,7 @@ public:
 		AccessLevel accessLevel)
 			: SensorFunction(name,comname, idx, accessLevel, false,false) {};
 	~DL100_Func_NANR(){};
+	virtual ComObj* Clone() const = 0;
 	uint32_t SerializeContent(Serializer * pSer, uint8_t * pDest, uint32_t * pOffset)
 	{
 		SSBL_UNUSED(pSer);
@@ -46,6 +47,7 @@ public:
 		AccessLevel accessLevel)
 			: SensorFunction(name,comname, idx, accessLevel, true,false) {};
 	~DL100_Func_ANR(){};
+	virtual ComObj* Clone() const = 0;
 	uint32_t SerializeContent(Serializer * pSer, uint8_t * pDest, uint32_t * pOffset)
 	{
 		switch (pSer->GetProtocolType())
@@ -77,6 +79,7 @@ public:
 		AccessLevel accessLevel)
 			: SensorFunction(name,comname, idx, accessLevel, false,true) {};
 	~DL100_Func_NAR(){};
+	virtual ComObj* Clone() const = 0;
 	uint32_t SerializeContent(Serializer * pSer, uint8_t * pDest, uint32_t * pOffset)
 	{
 		SSBL_UNUSED(pSer);
@@ -109,6 +112,7 @@ public:
 		AccessLevel accessLevel)
 			: SensorFunction(name,comname, idx, accessLevel, true,true) {};
 	~DL100_Func_AR(){};
+	virtual ComObj* Clone() const = 0;
 	uint32_t SerializeContent(Serializer * pSer, uint8_t * pDest, uint32_t * pOffset)
 	{
 		switch (pSer->GetProtocolType())
@@ -143,7 +147,7 @@ class storeParameterPage_DL100_Func : public DL100_Func_NAR<storeParameterPage_t
 public:
 	storeParameterPage_DL100_Func();
 	~storeParameterPage_DL100_Func(){};
-	ComObj* Clone() { return new storeParameterPage_DL100_Func(*this); }
+	ComObj* Clone() const override { return new storeParameterPage_DL100_Func(*this);}
 	static SensorFunction* Create() { return new storeParameterPage_DL100_Func; }
 };
 
@@ -152,7 +156,7 @@ class parameterReset_DL100_Func : public DL100_Func_NANR
 public:
 	parameterReset_DL100_Func();
 	~parameterReset_DL100_Func(){};
-	ComObj* Clone() { return new parameterReset_DL100_Func(*this); }
+	ComObj* Clone() const override { return new parameterReset_DL100_Func(*this);}
 	static SensorFunction* Create() { return new parameterReset_DL100_Func; }
 };
 
@@ -161,7 +165,7 @@ class setColdstart_DL100_Func : public DL100_Func_NANR
 public:
 	setColdstart_DL100_Func();
 	~setColdstart_DL100_Func(){};
-	ComObj* Clone() { return new setColdstart_DL100_Func(*this); }
+	ComObj* Clone() const override { return new setColdstart_DL100_Func(*this);}
 	static SensorFunction* Create() { return new setColdstart_DL100_Func; }
 };
 
@@ -170,7 +174,7 @@ class resetMF1switchCounter_DL100_Func : public DL100_Func_NANR
 public:
 	resetMF1switchCounter_DL100_Func();
 	~resetMF1switchCounter_DL100_Func(){};
-	ComObj* Clone() { return new resetMF1switchCounter_DL100_Func(*this); }
+	ComObj* Clone() const override { return new resetMF1switchCounter_DL100_Func(*this);}
 	static SensorFunction* Create() { return new resetMF1switchCounter_DL100_Func; }
 };
 
@@ -179,8 +183,17 @@ class resetMF2switchCounter_DL100_Func : public DL100_Func_NANR
 public:
 	resetMF2switchCounter_DL100_Func();
 	~resetMF2switchCounter_DL100_Func(){};
-	ComObj* Clone() { return new resetMF2switchCounter_DL100_Func(*this); }
+	ComObj* Clone() const override { return new resetMF2switchCounter_DL100_Func(*this);}
 	static SensorFunction* Create() { return new resetMF2switchCounter_DL100_Func; }
+};
+
+class getDebugData_DL100_Func : public DL100_Func_NAR<getDebugData_t>
+{
+public:
+	getDebugData_DL100_Func();
+	~getDebugData_DL100_Func(){};
+	ComObj* Clone() const override { return new getDebugData_DL100_Func(*this);}
+	static SensorFunction* Create() { return new getDebugData_DL100_Func; }
 };
 
 } // namespace DL100_V001_002_008_Skeleton
