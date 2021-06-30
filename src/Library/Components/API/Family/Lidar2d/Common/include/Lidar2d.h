@@ -61,7 +61,8 @@ class Lidar2d {
    * @param ModelName name of the Lidar2dModel to be created
    * @param IP of form xxx.yyy.zzz
    */
-  Lidar2d(std::string ModelName, std::string IP, std::string SkeletonVersion);
+  Lidar2d(std::string SkeletonName, std::string IP,
+          std::string SkeletonVersion);
 
   /**
    * @brief Destroy the Sick 2D Lidar object
@@ -149,11 +150,11 @@ class Lidar2d {
  protected:
  private:
   bool Create_Lidar2d(
-      std::string const& ModelName,
+      std::string const& SkeletonName,
       std::string const& SkeletonVersion, std::string const& IP
                       );
 
-  std::string ModelName_;
+  std::string SkeletonName_;
   std::string SkeletonVersion_;
   std::string IP_;
 

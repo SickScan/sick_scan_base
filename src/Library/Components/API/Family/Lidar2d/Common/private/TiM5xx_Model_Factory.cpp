@@ -32,8 +32,7 @@ using namespace std;
 namespace ssbl {
 
 //===========================================================================
-Lidar2d_Model* Create_TiM5xx_Model(string const& ModelName,
-                                   SensorSkeleton* pSkeleton) {
+Lidar2d_Model* Create_TiM5xx_Model(SensorSkeleton* pSkeleton) {
   Lidar2d_Model* pRet = nullptr;
   // SensorSkeleton* pLidar2DSkeleton_;
 

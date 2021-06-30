@@ -340,42 +340,42 @@ void Lidar2d_Model::HandleDeviceLost(int32_t val) {
 
 //===========================================================================
 //===========================================================================
-bool Lidar2d::Create_Lidar2d(string const& ModelName,
+bool Lidar2d::Create_Lidar2d(string const& SkeletonName,
                              string const& SkeletonVersion, string const& IP) {
   bool bRet = true;
 
   SensorSkeleton* pSkeleton = nullptr;
-  uint64_t test = hash_64_fnv1a(ModelName.c_str(), ModelName.size());
+  uint64_t test = hash_64_fnv1a(SkeletonName.c_str(), SkeletonName.size());
 
   switch (test) {
     //--------------------------
     case hash_64_fnv1a_const("TiM561"):
-      pSkeleton = Create_TiM5xx_Skeleton(ModelName, SkeletonVersion, IP);
+      pSkeleton = Create_TiM5xx_Skeleton(SkeletonName, SkeletonVersion, IP);
       if (nullptr != pSkeleton) {
         pLidarModel_ =
-            Create_TiM5xx_Model(ModelName, pSkeleton);
+            Create_TiM5xx_Model(pSkeleton);
       }
       break;
     //--------------------------
     case hash_64_fnv1a_const("TiM571"):
-      pSkeleton = Create_TiM5xx_Skeleton(ModelName, SkeletonVersion, IP);
+      pSkeleton = Create_TiM5xx_Skeleton(SkeletonName, SkeletonVersion, IP);
       if (nullptr != pSkeleton) {
         pLidarModel_ =
-            Create_TiM5xx_Model(ModelName, pSkeleton);
+            Create_TiM5xx_Model(pSkeleton);
       }
       break;
     //--------------------------
     case hash_64_fnv1a_const("TiM581"):
-      pSkeleton = Create_TiM5xx_Skeleton(ModelName, SkeletonVersion, IP);
+      pSkeleton = Create_TiM5xx_Skeleton(SkeletonName, SkeletonVersion, IP);
       if (nullptr != pSkeleton) {
         pLidarModel_ =
-            Create_TiM5xx_Model(ModelName, pSkeleton);
+            Create_TiM5xx_Model(pSkeleton);
       }
       break;
     //--------------------------
     default:
       bRet = false;
-      SSBL_LOG_ERROR("No such device: %s", ModelName.c_str());
+      SSBL_LOG_ERROR("No such device: %s", SkeletonName.c_str());
       break;
   }
 

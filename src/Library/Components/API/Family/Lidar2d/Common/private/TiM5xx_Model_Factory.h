@@ -27,7 +27,6 @@
 namespace ssbl {
 
 
-Lidar2d_Model* Create_TiM5xx_Model(std::string const& ModelName,
-                                   SensorSkeleton * pSkeleton);
+Lidar2d_Model* Create_TiM5xx_Model(SensorSkeleton * pSkeleton);
 
 }  // namespace ssbl

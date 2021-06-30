@@ -32,8 +32,8 @@ using namespace std;
 
 namespace ssbl {
 
-Lidar2d::Lidar2d(string ModelName, string IP, std::string SkeletonVersion)
-    : ModelName_(ModelName),
+Lidar2d::Lidar2d(string SkeletonName, string IP, std::string SkeletonVersion)
+    : SkeletonName_(SkeletonName),
       SkeletonVersion_(SkeletonVersion),
       IP_(IP),
       pLidarModel_(nullptr)
@@ -43,7 +43,7 @@ Lidar2d::Lidar2d(string ModelName, string IP, std::string SkeletonVersion)
 //=============================================================================
 SensorResult Lidar2d::Initialize(int32_t StartAngle, int32_t StopAngle,
                                  std::function<void(uint64_t*)> ScanProcessor) {
-  if (Create_Lidar2d(ModelName_, SkeletonVersion_, IP_)) {
+  if (Create_Lidar2d(SkeletonName_, SkeletonVersion_, IP_)) {
     return pLidarModel_->Initialize(StartAngle, StopAngle, ScanProcessor);
   }
   return SSBL_ERR_CREATING_FAMILY_DEVICE;
