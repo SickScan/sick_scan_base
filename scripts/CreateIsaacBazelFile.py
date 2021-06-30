@@ -69,8 +69,7 @@ if __name__ == "__main__":
   scriptLocation = os.path.dirname(os.path.abspath(__file__))
   buildFilePath = scriptLocation
 
-  searchFolders = ["include","Components/API","Components/AutoIp", "Components/Core",
-    "Components/Logger", "Components/Protocol", "Components/Types"]
+  searchFolders = ["include","Components/API","Components/AutoIp", "Components/Base"]
 
   gSourcesC = []
   gHeadersC = []
@@ -82,19 +81,21 @@ if __name__ == "__main__":
 
   
   for folder in range(len(searchFolders)):
-    searchPath = scriptLocation+ "/../src/" + searchFolders[folder]
+    searchPath = scriptLocation+ "/../src/Library/" + searchFolders[folder]
+   
     for file in Path(searchPath).rglob('**/*.c'):
       fs = str(file)
-      fs = fs[fs.find("../src")+len("../src")+1:]
       fs = fs.replace("\\", "/")
+      fs = fs[fs.find("../src/Library/")+len("../src/Library/"):]
       gSourcesC.append(fs)
     for file in Path(searchPath).rglob('**/*.h'):
       fs = str(file)
-      fs = fs[fs.find("../src")+len("../src")+1:]
       fs = fs.replace("\\", "/")
+      fs = fs[fs.find("../src/Library/")+len("../src/Library/"):]
       gHeadersCPP.append(fs)
   
-  gSourcesC = list(filter(lambda s: s.find("Windows")==-1, gSourcesC))
+  gSourcesC = list(filter(lambda s: (s.find("Windows")==-1) and (s.find("Zephyr")==-1), gSourcesC))
+
   for cfile in gSourcesC:
     cfile = cfile[cfile.rfind("/")+1:-2]
     for hfile in gHeadersCPP:
@@ -105,19 +106,21 @@ if __name__ == "__main__":
     print(hfile)
   
   for folder in range(len(searchFolders)):
-    searchPath = scriptLocation+ "/../src/" + searchFolders[folder]
+    searchPath = scriptLocation+ "/../src/Library/" + searchFolders[folder]
     for file in Path(searchPath).rglob('**/*.cpp'):
       fs = str(file)
-      fs = fs[fs.find("../src")+len("../src")+1:]
       fs = fs.replace("\\", "/")
+      
+      fs = fs[fs.find("../src/Library/")+len("../src/Library/"):]
+      print (fs)
       gSourcesCPP.append(fs)
 
 
-  gSourcesCPP = list(filter(lambda s: s.find("Windows")==-1, gSourcesCPP))
+  gSourcesCPP = list(filter(lambda s: (s.find("Windows")==-1) and (s.find("Zephyr")==-1), gSourcesCPP))
 
 
 
 
   WriteBazelBuildFile(gSourcesC, gHeadersC,gSourcesCPP, gHeadersCPP,buildFilePath, gIncludePaths)
-  for f in range(len(gSourcesCPP)):
-    print(str(gSourcesCPP[f]))
+  #for f in range(len(gSourcesCPP)):
+  #  print(str(gSourcesCPP[f]))
