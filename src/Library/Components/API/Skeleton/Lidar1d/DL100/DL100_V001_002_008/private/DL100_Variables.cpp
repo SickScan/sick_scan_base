@@ -5440,7 +5440,7 @@ SensorResult plausiblityPrefailWarning_DL100_Var::SetBasicFromString(std::string
 }
 
 operatingHours_DL100_Var::operatingHours_DL100_Var()
-	: DL100_Var("operatingHours","opH",239,READ_WRITE,LEVEL_RUN,LEVEL_INVALID,1)
+	: DL100_Var("operatingHours","opH",239,READ_WRITE,LEVEL_RUN,LEVEL_PRODUCTION,1)
 {
 }
 

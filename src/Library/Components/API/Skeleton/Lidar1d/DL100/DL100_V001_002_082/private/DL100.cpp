@@ -20,8 +20,16 @@ DL100::DL100(const std::string& Ip, const std::string& interfaceName,const std::
 {
 	SensorName_="DL100";
 	passwords_[LEVEL_INVALID] = 0;
+	passwords_[LEVEL_RUN] = 0;
+	passwords_[LEVEL_OPERATOR] = 0;
+	passwords_[LEVEL_INVALID] = 0;
+	passwords_[LEVEL_AUTHORIZED_CLIENT] = 0;
+	passwords_[LEVEL_SERVICE] = 0;
+	passwords_[LEVEL_SICKSERVICE] = 0;
+	passwords_[LEVEL_PRODUCTION] = 0;
+	passwords_[LEVEL_DEVELOPER] = 0;
 	passwords_[LEVEL_RUN] = 0x00000000;
-	passwords_[LEVEL_MAINTAINANCE] = 0x89e693a2;
+	passwords_[LEVEL_INVALID] = 0x89e693a2;
 	passwords_[LEVEL_AUTHORIZED_CLIENT] = 0xf4724744;
 	passwords_[LEVEL_SERVICE] = 0x81be23aa;
 	BehavorialVersion_ = "1.0.0";

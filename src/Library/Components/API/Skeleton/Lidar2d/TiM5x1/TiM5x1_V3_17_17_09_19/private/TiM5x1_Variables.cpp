@@ -2051,7 +2051,7 @@ SensorResult EtherHostCoLaDialect_TiM5x1_Var::SetBasicFromString(std::string val
 }
 
 ScanConfig_TiM5x1_Var::ScanConfig_TiM5x1_Var()
-	: TiM5x1_Var("ScanConfig","LMPscancfg",215,READ_WRITE,LEVEL_RUN,LEVEL_INVALID,85)
+	: TiM5x1_Var("ScanConfig","LMPscancfg",215,READ_WRITE,LEVEL_RUN,LEVEL_DEVELOPER,85)
 {
 }
 
@@ -3383,7 +3383,7 @@ SensorResult SCdevicestate_TiM5x1_Var::SetBasicFromString(std::string value)
 }
 
 OrderNumber_TiM5x1_Var::OrderNumber_TiM5x1_Var()
-	: TiM5x1_Var("OrderNumber","DIornr",371,READ_WRITE,LEVEL_RUN,LEVEL_INVALID,-1)
+	: TiM5x1_Var("OrderNumber","DIornr",371,READ_WRITE,LEVEL_RUN,LEVEL_PRODUCTION,-1)
 {
 }
 

@@ -11,7 +11,7 @@ namespace TiM5x1_V3_17_17_09_19_Skeleton
 {
 
 SetScanConfig_TiM5x1_Func::SetScanConfig_TiM5x1_Func()
-	: TiM5x1_Func_AR("SetScanConfig" , "mLMPsetscancfg" ,55 , LEVEL_INVALID)
+	: TiM5x1_Func_AR("SetScanConfig" , "mLMPsetscancfg" ,55 , LEVEL_DEVELOPER)
 {
 }
 
