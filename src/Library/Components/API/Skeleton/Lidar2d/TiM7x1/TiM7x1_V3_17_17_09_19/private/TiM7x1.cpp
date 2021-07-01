@@ -20,18 +20,14 @@ TiM7x1::TiM7x1(const std::string& Ip, const std::string& interfaceName,const std
 {
 	SensorName_="TiM7x1";
 	passwords_[LEVEL_INVALID] = 0;
-	passwords_[LEVEL_RUN] = 0;
+	passwords_[LEVEL_RUN] = 0x00000000;
 	passwords_[LEVEL_OPERATOR] = 0;
-	passwords_[LEVEL_INVALID] = 0;
-	passwords_[LEVEL_AUTHORIZED_CLIENT] = 0;
-	passwords_[LEVEL_SERVICE] = 0;
+	passwords_[LEVEL_MAINTENANCE] = 0xb21ace26;
+	passwords_[LEVEL_AUTHORIZED_CLIENT] = 0xf4724744;
+	passwords_[LEVEL_SERVICE] = 0x81be23aa;
 	passwords_[LEVEL_SICKSERVICE] = 0;
 	passwords_[LEVEL_PRODUCTION] = 0;
 	passwords_[LEVEL_DEVELOPER] = 0;
-	passwords_[LEVEL_RUN] = 0x00000000;
-	passwords_[LEVEL_INVALID] = 0xb21ace26;
-	passwords_[LEVEL_AUTHORIZED_CLIENT] = 0xf4724744;
-	passwords_[LEVEL_SERVICE] = 0x81be23aa;
 	BehavorialVersion_ = "1.0.0";
 	UserSelectedIpOrSerial_ = Ip;
 	UserSelectedInterfaceName_ = interfaceName;
