@@ -21,6 +21,7 @@
 #include <string>
 
 #include "Base/Core/Common/include/Assert.h"
+#include "Base/Core/Common/include/Endianess.h"
 #include "Base/Core/Driver/include/Socket.h"
 #include "Base/Core/OS/include/VariableEventQueue.h"
 #include "Base/Logger/include/Logger.h"
@@ -104,6 +105,7 @@ uint32_t CoLaProtocol::AddPostamble(uint32_t offset) {
 //=============================================================================
 uint32_t CoLaProtocol::AddRequest(uint32_t offset, ProtocolRequest req,
                                   uint16_t idx) {
+  uint16_t idxtmp = bswap_16(idx);
   offset = AddPreamble(offset);
 
   offset = AddPayload(offset,
@@ -111,7 +113,7 @@ uint32_t CoLaProtocol::AddRequest(uint32_t offset, ProtocolRequest req,
                           colacommands::CoLaRequests[req].byIndex),
                       2);
 
-  offset = AddPayload(offset, reinterpret_cast<const uint8_t *>(&idx),
+  offset = AddPayload(offset, reinterpret_cast<const uint8_t *>(&idxtmp),
                       sizeof(uint16_t));
 
   offset = AddPostamble(offset);
