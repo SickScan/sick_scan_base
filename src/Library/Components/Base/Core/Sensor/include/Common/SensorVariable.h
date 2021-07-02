@@ -86,7 +86,7 @@ class SensorVariable : public ComObj {
   bool providesEvent_;
 
  public:
-  virtual std::unique_ptr<ComObj> Clone() const = 0;
+  virtual ComObj* Clone() const = 0;
  
   // no struct types
   virtual SensorResult GetBasic(int8_t& value) = 0;

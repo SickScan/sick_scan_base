@@ -38,7 +38,7 @@ class MethSetAccessMode : public SensorFunction {
                             uint32_t* pOffset);
   uint32_t DeserializeContent(Deserializer* pDes, uint8_t* pSrc);
 
-  std::unique_ptr<ComObj> Clone() const override {return nullptr; }
+  ComObj* Clone() const override {return nullptr; }
 
   SetAccessModeArgs_t Args;
   SetAccessModeReturn_t ReturnValue;
@@ -61,7 +61,7 @@ class VarDeviceIdent : public SensorVariable {
     return SSBL_SUCCESS;
   }
 
-  std::unique_ptr<ComObj> Clone() const override { return nullptr; }
+  ComObj* Clone() const override { return nullptr; }
 
   DeviceIdent_t Value_;
 

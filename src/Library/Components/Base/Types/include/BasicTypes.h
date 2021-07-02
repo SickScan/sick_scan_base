@@ -87,7 +87,7 @@ typedef enum { BY_NAME, BY_INDEX } AddressingMode;
  */
 struct SsblEventContainer {
   uint64_t CallbackParameter;
-  std::unique_ptr<ComObj>  pComObj;
+  ComObj*  pComObj;
   ~SsblEventContainer() { };
 };
 

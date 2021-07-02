@@ -93,8 +93,8 @@ class ComObj {
    */
   virtual uint32_t DeserializeContent(Deserializer* pDes, uint8_t* pSrc) = 0;
 
-  //virtual ComObj* Clone() = 0;
-  virtual std::unique_ptr<ComObj> Clone() const = 0;
+  virtual ComObj* Clone() const =  0;
+
 
  protected:
   std::string Name_;

@@ -21,7 +21,7 @@ public:
 		AccessLevel accessLevel)
 			: SensorFunction(name,comname, idx, accessLevel, false,false) {};
 	~OLM100_Func_NANR(){};
-	virtual std::unique_ptr<ComObj> Clone() const = 0;
+	virtual ComObj* Clone() const = 0;
 	uint32_t SerializeContent(Serializer * pSer, uint8_t * pDest, uint32_t * pOffset)
 	{
 		SSBL_UNUSED(pSer);
@@ -47,7 +47,7 @@ public:
 		AccessLevel accessLevel)
 			: SensorFunction(name,comname, idx, accessLevel, true,false) {};
 	~OLM100_Func_ANR(){};
-	virtual std::unique_ptr<ComObj> Clone() const = 0;
+	virtual ComObj* Clone() const = 0;
 	uint32_t SerializeContent(Serializer * pSer, uint8_t * pDest, uint32_t * pOffset)
 	{
 		switch (pSer->GetProtocolType())
@@ -79,7 +79,7 @@ public:
 		AccessLevel accessLevel)
 			: SensorFunction(name,comname, idx, accessLevel, false,true) {};
 	~OLM100_Func_NAR(){};
-	virtual std::unique_ptr<ComObj> Clone() const = 0;
+	virtual ComObj* Clone() const = 0;
 	uint32_t SerializeContent(Serializer * pSer, uint8_t * pDest, uint32_t * pOffset)
 	{
 		SSBL_UNUSED(pSer);
@@ -112,7 +112,7 @@ public:
 		AccessLevel accessLevel)
 			: SensorFunction(name,comname, idx, accessLevel, true,true) {};
 	~OLM100_Func_AR(){};
-	virtual std::unique_ptr<ComObj> Clone() const = 0;
+	virtual ComObj* Clone() const = 0;
 	uint32_t SerializeContent(Serializer * pSer, uint8_t * pDest, uint32_t * pOffset)
 	{
 		switch (pSer->GetProtocolType())
@@ -147,7 +147,7 @@ class StoreParameterPage_OLM100_Func : public OLM100_Func_NAR<StoreParameterPage
 public:
 	StoreParameterPage_OLM100_Func();
 	~StoreParameterPage_OLM100_Func(){};
-	std::unique_ptr<ComObj> Clone() const override { return ssbl::make_unique<StoreParameterPage_OLM100_Func>(*this); }
+	ComObj* Clone() const override { return new StoreParameterPage_OLM100_Func(*this);}
 	static SensorFunction* Create() { return new StoreParameterPage_OLM100_Func; }
 };
 
@@ -156,7 +156,7 @@ class ResetParameter_OLM100_Func : public OLM100_Func_NANR
 public:
 	ResetParameter_OLM100_Func();
 	~ResetParameter_OLM100_Func(){};
-	std::unique_ptr<ComObj> Clone() const override { return ssbl::make_unique<ResetParameter_OLM100_Func>(*this); }
+	ComObj* Clone() const override { return new ResetParameter_OLM100_Func(*this);}
 	static SensorFunction* Create() { return new ResetParameter_OLM100_Func; }
 };
 
@@ -165,7 +165,7 @@ class SetColdstart_OLM100_Func : public OLM100_Func_NANR
 public:
 	SetColdstart_OLM100_Func();
 	~SetColdstart_OLM100_Func(){};
-	std::unique_ptr<ComObj> Clone() const override { return ssbl::make_unique<SetColdstart_OLM100_Func>(*this); }
+	ComObj* Clone() const override { return new SetColdstart_OLM100_Func(*this);}
 	static SensorFunction* Create() { return new SetColdstart_OLM100_Func; }
 };
 
@@ -174,7 +174,7 @@ class IlluminationOn_OLM100_Func : public OLM100_Func_NANR
 public:
 	IlluminationOn_OLM100_Func();
 	~IlluminationOn_OLM100_Func(){};
-	std::unique_ptr<ComObj> Clone() const override { return ssbl::make_unique<IlluminationOn_OLM100_Func>(*this); }
+	ComObj* Clone() const override { return new IlluminationOn_OLM100_Func(*this);}
 	static SensorFunction* Create() { return new IlluminationOn_OLM100_Func; }
 };
 
@@ -183,7 +183,7 @@ class IlluminationOff_OLM100_Func : public OLM100_Func_NANR
 public:
 	IlluminationOff_OLM100_Func();
 	~IlluminationOff_OLM100_Func(){};
-	std::unique_ptr<ComObj> Clone() const override { return ssbl::make_unique<IlluminationOff_OLM100_Func>(*this); }
+	ComObj* Clone() const override { return new IlluminationOff_OLM100_Func(*this);}
 	static SensorFunction* Create() { return new IlluminationOff_OLM100_Func; }
 };
 
