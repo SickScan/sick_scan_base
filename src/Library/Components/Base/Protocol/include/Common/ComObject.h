@@ -19,7 +19,7 @@
 
 #pragma once
 #include <string>
-#include <memory>
+#include "Base/Core/Common/include/MakeUnique.h"
 
 namespace ssbl {
 class Protocol;
