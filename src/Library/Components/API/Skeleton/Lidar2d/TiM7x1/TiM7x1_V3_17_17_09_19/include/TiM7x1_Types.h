@@ -88,7 +88,7 @@ typedef struct
 {
 	uint16_t	uiIdent;
 	uint32_t	udiSerialNo;
-	uint8_t 	xbState[1];
+	uint8_t 	xbState[2];
 } DeviceBlock_struct_t;
 #pragma pack(pop)
 
@@ -99,8 +99,8 @@ typedef struct
 	uint16_t	uiScanCount;
 	uint32_t	udiSystemCountScan;
 	uint32_t	udiSystemCountTransmit;
-	uint8_t 	xbInputs[2097152];
-	uint8_t 	xbOutputs[2097152];
+	uint8_t 	xbInputs[2];
+	uint8_t 	xbOutputs[2];
 	uint16_t	uiReserved;
 } StatusBlock_struct_t;
 #pragma pack(pop)
@@ -148,7 +148,7 @@ typedef struct
 	float	dXrot;
 	float	dYrot;
 	float	dZrot;
-	uint8_t 	xbRotMode[2097152];
+	uint8_t 	xbRotMode[1];
 } ScanData_aPositionBlock_struct_t;
 #pragma pack(pop)
 
@@ -255,9 +255,9 @@ typedef struct
 #pragma pack(push, 1)
 typedef struct 
 {
-	uint8_t 	DistDataConfig[1];
+	uint8_t 	DistDataConfig[2];
 	RemDataConfig_struct_t	RemDataConfig;
-	uint8_t 	EnableEncoderBlock[1];
+	uint8_t 	EnableEncoderBlock[2];
 	uint8_t	bEnablePositionBlock;
 	uint8_t	bEnableDeviceName;
 	uint8_t	bEnableCommentBlock;

@@ -977,6 +977,106 @@ public:
 	SensorResult SetBasicElement(const std::string& elementName, double& value)  override;
 };
 
+class DebugOutputSelect_DL100_Var : public DL100_Var<Enum8_t>
+{
+public:
+	DebugOutputSelect_DL100_Var();
+	~DebugOutputSelect_DL100_Var(){};
+	ComObj* Clone() const override { return new DebugOutputSelect_DL100_Var(*this);}
+	static SensorVariable* Create() { return new DebugOutputSelect_DL100_Var; }
+	SensorResult GetBasic(int8_t& value) override;
+	SensorResult GetBasic(int16_t& value) override;
+	SensorResult GetBasic(int32_t& value) override;
+	SensorResult GetBasic(int64_t& value) override;
+	SensorResult GetBasic(uint8_t& value) override;
+	SensorResult GetBasic(uint16_t& value) override;
+	SensorResult GetBasic(uint32_t& value) override;
+	SensorResult GetBasic(uint64_t& value) override;
+	SensorResult GetBasic(float& value) override;
+	SensorResult GetBasic(double& value) override;
+	SensorResult GetBasicElement(const std::string& elementName, int8_t& value) override;
+	SensorResult GetBasicElement(const std::string& elementName, int16_t& value) override;
+	SensorResult GetBasicElement(const std::string& elementName, int32_t& value) override;
+	SensorResult GetBasicElement(const std::string& elementName, int64_t& value) override;
+	SensorResult GetBasicElement(const std::string& elementName, uint8_t& value) override;
+	SensorResult GetBasicElement(const std::string& elementName, uint16_t& value) override;
+	SensorResult GetBasicElement(const std::string& elementName, uint32_t& value) override;
+	SensorResult GetBasicElement(const std::string& elementName, uint64_t& value) override;
+	SensorResult GetBasicElement(const std::string& elementName, float& value) override;
+	SensorResult GetBasicElement(const std::string& elementName, double& value) override;
+	SensorResult SetBasic(int8_t& value) override;
+	SensorResult SetBasic(int16_t& value) override;
+	SensorResult SetBasic(int32_t& value) override;
+	SensorResult SetBasic(int64_t& value) override;
+	SensorResult SetBasic(uint8_t& value) override;
+	SensorResult SetBasic(uint16_t& value) override;
+	SensorResult SetBasic(uint32_t& value) override;
+	SensorResult SetBasic(uint64_t& value) override;
+	SensorResult SetBasic(float& value) override;
+	SensorResult SetBasic(double& value) override;
+	SensorResult SetBasicFromString(std::string value) override;
+	SensorResult SetBasicElement(const std::string& elementName, int8_t& value)  override;
+	SensorResult SetBasicElement(const std::string& elementName, int16_t& value)  override;
+	SensorResult SetBasicElement(const std::string& elementName, int32_t& value)  override;
+	SensorResult SetBasicElement(const std::string& elementName, int64_t& value)  override;
+	SensorResult SetBasicElement(const std::string& elementName, uint8_t& value)  override;
+	SensorResult SetBasicElement(const std::string& elementName, uint16_t& value)  override;
+	SensorResult SetBasicElement(const std::string& elementName, uint32_t& value)  override;
+	SensorResult SetBasicElement(const std::string& elementName, uint64_t& value)  override;
+	SensorResult SetBasicElement(const std::string& elementName, float& value)  override;
+	SensorResult SetBasicElement(const std::string& elementName, double& value)  override;
+};
+
+class OnOff_DL100_Var : public DL100_Var<uint8_t>
+{
+public:
+	OnOff_DL100_Var();
+	~OnOff_DL100_Var(){};
+	ComObj* Clone() const override { return new OnOff_DL100_Var(*this);}
+	static SensorVariable* Create() { return new OnOff_DL100_Var; }
+	SensorResult GetBasic(int8_t& value) override;
+	SensorResult GetBasic(int16_t& value) override;
+	SensorResult GetBasic(int32_t& value) override;
+	SensorResult GetBasic(int64_t& value) override;
+	SensorResult GetBasic(uint8_t& value) override;
+	SensorResult GetBasic(uint16_t& value) override;
+	SensorResult GetBasic(uint32_t& value) override;
+	SensorResult GetBasic(uint64_t& value) override;
+	SensorResult GetBasic(float& value) override;
+	SensorResult GetBasic(double& value) override;
+	SensorResult GetBasicElement(const std::string& elementName, int8_t& value) override;
+	SensorResult GetBasicElement(const std::string& elementName, int16_t& value) override;
+	SensorResult GetBasicElement(const std::string& elementName, int32_t& value) override;
+	SensorResult GetBasicElement(const std::string& elementName, int64_t& value) override;
+	SensorResult GetBasicElement(const std::string& elementName, uint8_t& value) override;
+	SensorResult GetBasicElement(const std::string& elementName, uint16_t& value) override;
+	SensorResult GetBasicElement(const std::string& elementName, uint32_t& value) override;
+	SensorResult GetBasicElement(const std::string& elementName, uint64_t& value) override;
+	SensorResult GetBasicElement(const std::string& elementName, float& value) override;
+	SensorResult GetBasicElement(const std::string& elementName, double& value) override;
+	SensorResult SetBasic(int8_t& value) override;
+	SensorResult SetBasic(int16_t& value) override;
+	SensorResult SetBasic(int32_t& value) override;
+	SensorResult SetBasic(int64_t& value) override;
+	SensorResult SetBasic(uint8_t& value) override;
+	SensorResult SetBasic(uint16_t& value) override;
+	SensorResult SetBasic(uint32_t& value) override;
+	SensorResult SetBasic(uint64_t& value) override;
+	SensorResult SetBasic(float& value) override;
+	SensorResult SetBasic(double& value) override;
+	SensorResult SetBasicFromString(std::string value) override;
+	SensorResult SetBasicElement(const std::string& elementName, int8_t& value)  override;
+	SensorResult SetBasicElement(const std::string& elementName, int16_t& value)  override;
+	SensorResult SetBasicElement(const std::string& elementName, int32_t& value)  override;
+	SensorResult SetBasicElement(const std::string& elementName, int64_t& value)  override;
+	SensorResult SetBasicElement(const std::string& elementName, uint8_t& value)  override;
+	SensorResult SetBasicElement(const std::string& elementName, uint16_t& value)  override;
+	SensorResult SetBasicElement(const std::string& elementName, uint32_t& value)  override;
+	SensorResult SetBasicElement(const std::string& elementName, uint64_t& value)  override;
+	SensorResult SetBasicElement(const std::string& elementName, float& value)  override;
+	SensorResult SetBasicElement(const std::string& elementName, double& value)  override;
+};
+
 } // namespace DL100_V001_003_009_Skeleton
 } // namespace ssbl
 

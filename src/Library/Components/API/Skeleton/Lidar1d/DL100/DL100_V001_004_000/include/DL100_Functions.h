@@ -187,6 +187,15 @@ public:
 	static SensorFunction* Create() { return new resetMF2switchCounter_DL100_Func; }
 };
 
+class getDebugData_DL100_Func : public DL100_Func_NAR<getDebugData_t>
+{
+public:
+	getDebugData_DL100_Func();
+	~getDebugData_DL100_Func(){};
+	ComObj* Clone() const override { return new getDebugData_DL100_Func(*this);}
+	static SensorFunction* Create() { return new getDebugData_DL100_Func; }
+};
+
 } // namespace DL100_V001_004_000_Skeleton
 } // namespace ssbl
 

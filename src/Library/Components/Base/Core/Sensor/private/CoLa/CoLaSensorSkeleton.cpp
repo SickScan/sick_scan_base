@@ -314,8 +314,7 @@ SensorResult CoLaSensorSkeleton::RegisterEvent(SensorVariable &rVar,
     if (SSBL_SUCCESS == ret) {
       VariableEventQueue *pQueue;
       if (*ppQueue == NULL) {
-        auto p = std::shared_ptr<ComObj>(rVar.Clone());
-          //pQueue = new VariableEventQueue(rVar, nQueueElem);
+        pQueue = new VariableEventQueue(rVar, nQueueElem);
         *ppQueue = pQueue;
       } else {
         pQueue = *ppQueue;
