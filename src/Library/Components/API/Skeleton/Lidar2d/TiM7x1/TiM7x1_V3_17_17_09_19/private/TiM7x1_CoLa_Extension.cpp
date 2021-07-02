@@ -97,11 +97,11 @@ namespace TiM7x1_V3_17_17_09_19_Skeleton
 		CoLaASerializer::Serialize(pDest, rSrc.uiScanCount , pOffset);
 		CoLaASerializer::Serialize(pDest, rSrc.udiSystemCountScan , pOffset);
 		CoLaASerializer::Serialize(pDest, rSrc.udiSystemCountTransmit , pOffset);
-		for(int32_t k=0;k<=429496730;++k)
+		for(int32_t k=0;k<=2097152;++k)
 		{
 			CoLaASerializer::Serialize(pDest, rSrc.xbInputs[k],pOffset);
 		}
-		for(int32_t k=0;k<=429496730;++k)
+		for(int32_t k=0;k<=2097152;++k)
 		{
 			CoLaASerializer::Serialize(pDest, rSrc.xbOutputs[k],pOffset);
 		}
@@ -153,7 +153,7 @@ namespace TiM7x1_V3_17_17_09_19_Skeleton
 		CoLaASerializer::Serialize(pDest, rSrc.dXrot , pOffset);
 		CoLaASerializer::Serialize(pDest, rSrc.dYrot , pOffset);
 		CoLaASerializer::Serialize(pDest, rSrc.dZrot , pOffset);
-		for(int32_t k=0;k<=429496730;++k)
+		for(int32_t k=0;k<=2097152;++k)
 		{
 			CoLaASerializer::Serialize(pDest, rSrc.xbRotMode[k],pOffset);
 		}
@@ -428,11 +428,11 @@ namespace TiM7x1_V3_17_17_09_19_Skeleton
 		CoLaADeserializer::Deserialize(pSrc, rDest.uiScanCount , pOffset);
 		CoLaADeserializer::Deserialize(pSrc, rDest.udiSystemCountScan , pOffset);
 		CoLaADeserializer::Deserialize(pSrc, rDest.udiSystemCountTransmit , pOffset);
-		for(int32_t k=0;k<=429496730;++k)
+		for(int32_t k=0;k<=2097152;++k)
 		{
 			CoLaADeserializer::Deserialize(pSrc, rDest.xbInputs[k],pOffset);
 		}
-		for(int32_t k=0;k<=429496730;++k)
+		for(int32_t k=0;k<=2097152;++k)
 		{
 			CoLaADeserializer::Deserialize(pSrc, rDest.xbOutputs[k],pOffset);
 		}
@@ -484,7 +484,7 @@ namespace TiM7x1_V3_17_17_09_19_Skeleton
 		CoLaADeserializer::Deserialize(pSrc, rDest.dXrot , pOffset);
 		CoLaADeserializer::Deserialize(pSrc, rDest.dYrot , pOffset);
 		CoLaADeserializer::Deserialize(pSrc, rDest.dZrot , pOffset);
-		for(int32_t k=0;k<=429496730;++k)
+		for(int32_t k=0;k<=2097152;++k)
 		{
 			CoLaADeserializer::Deserialize(pSrc, rDest.xbRotMode[k],pOffset);
 		}
@@ -760,11 +760,11 @@ namespace TiM7x1_V3_17_17_09_19_Skeleton
 		CoLaBSerializer::Serialize(pDest, rSrc.uiScanCount , pOffset);
 		CoLaBSerializer::Serialize(pDest, rSrc.udiSystemCountScan , pOffset);
 		CoLaBSerializer::Serialize(pDest, rSrc.udiSystemCountTransmit , pOffset);
-		for(int32_t k=0;k<=429496730;++k)
+		for(int32_t k=0;k<=2097152;++k)
 		{
 			CoLaBSerializer::Serialize(pDest, rSrc.xbInputs[k],pOffset);
 		}
-		for(int32_t k=0;k<=429496730;++k)
+		for(int32_t k=0;k<=2097152;++k)
 		{
 			CoLaBSerializer::Serialize(pDest, rSrc.xbOutputs[k],pOffset);
 		}
@@ -816,7 +816,7 @@ namespace TiM7x1_V3_17_17_09_19_Skeleton
 		CoLaBSerializer::Serialize(pDest, rSrc.dXrot , pOffset);
 		CoLaBSerializer::Serialize(pDest, rSrc.dYrot , pOffset);
 		CoLaBSerializer::Serialize(pDest, rSrc.dZrot , pOffset);
-		for(int32_t k=0;k<=429496730;++k)
+		for(int32_t k=0;k<=2097152;++k)
 		{
 			CoLaBSerializer::Serialize(pDest, rSrc.xbRotMode[k],pOffset);
 		}
@@ -1091,11 +1091,11 @@ namespace TiM7x1_V3_17_17_09_19_Skeleton
 		CoLaBDeserializer::Deserialize(pSrc, rDest.uiScanCount , pOffset);
 		CoLaBDeserializer::Deserialize(pSrc, rDest.udiSystemCountScan , pOffset);
 		CoLaBDeserializer::Deserialize(pSrc, rDest.udiSystemCountTransmit , pOffset);
-		for(int32_t k=0;k<=429496730;++k)
+		for(int32_t k=0;k<=2097152;++k)
 		{
 			CoLaBDeserializer::Deserialize(pSrc, rDest.xbInputs[k],pOffset);
 		}
-		for(int32_t k=0;k<=429496730;++k)
+		for(int32_t k=0;k<=2097152;++k)
 		{
 			CoLaBDeserializer::Deserialize(pSrc, rDest.xbOutputs[k],pOffset);
 		}
@@ -1147,7 +1147,7 @@ namespace TiM7x1_V3_17_17_09_19_Skeleton
 		CoLaBDeserializer::Deserialize(pSrc, rDest.dXrot , pOffset);
 		CoLaBDeserializer::Deserialize(pSrc, rDest.dYrot , pOffset);
 		CoLaBDeserializer::Deserialize(pSrc, rDest.dZrot , pOffset);
-		for(int32_t k=0;k<=429496730;++k)
+		for(int32_t k=0;k<=2097152;++k)
 		{
 			CoLaBDeserializer::Deserialize(pSrc, rDest.xbRotMode[k],pOffset);
 		}

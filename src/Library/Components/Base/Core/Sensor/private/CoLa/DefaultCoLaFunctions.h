@@ -35,8 +35,8 @@ class MethSetAccessMode : public SensorFunction {
 
   ~MethSetAccessMode(){};
   uint32_t SerializeContent(Serializer* pSer, uint8_t* pDest,
-                            uint32_t* pOffset);
-  uint32_t DeserializeContent(Deserializer* pDes, uint8_t* pSrc);
+                            uint32_t* pOffset) override;
+  uint32_t DeserializeContent(Deserializer* pDes, uint8_t* pSrc) override;
 
   ComObj* Clone() const override {return nullptr; }
 
@@ -50,12 +50,12 @@ class VarDeviceIdent : public SensorVariable {
 
   ~VarDeviceIdent(){};
   uint32_t SerializeContent(Serializer* pSer, uint8_t* pDest,
-                            uint32_t* pOffset);
-  uint32_t DeserializeContent(Deserializer* pDes, uint8_t* pSrc);
+                            uint32_t* pOffset) override;
+  uint32_t DeserializeContent(Deserializer* pDes, uint8_t* pSrc) override;
 
-  size_t Size(void) { return sizeof(Value_); };
+  size_t Size(void) override { return sizeof(Value_); };
 
-  SensorResult GetRaw(uint8_t* pDest) {
+  SensorResult GetRaw(uint8_t* pDest) override {
     if (nullptr == pDest) return SSBL_ERR_INVALID_ARGUMENT;
     memcpy(pDest, &this->Value_, sizeof(Value_));
     return SSBL_SUCCESS;
@@ -65,195 +65,195 @@ class VarDeviceIdent : public SensorVariable {
 
   DeviceIdent_t Value_;
 
-  SensorResult GetBasic(int8_t& value) {
+  SensorResult GetBasic(int8_t& value) override {
     SSBL_UNUSED(value);
     return SSBL_SUCCESS;
   }
-  SensorResult GetBasic(int16_t& value) {
+  SensorResult GetBasic(int16_t& value) override {
     SSBL_UNUSED(value);
     return SSBL_SUCCESS;
   }
-  SensorResult GetBasic(int32_t& value) {
+  SensorResult GetBasic(int32_t& value) override {
     SSBL_UNUSED(value);
     return SSBL_SUCCESS;
   }
-  SensorResult GetBasic(int64_t& value) {
+  SensorResult GetBasic(int64_t& value) override {
     SSBL_UNUSED(value);
     return SSBL_SUCCESS;
   }
-  SensorResult GetBasic(uint8_t& value) {
+  SensorResult GetBasic(uint8_t& value) override {
     SSBL_UNUSED(value);
     return SSBL_SUCCESS;
   }
-  SensorResult GetBasic(uint16_t& value) {
+  SensorResult GetBasic(uint16_t& value) override {
     SSBL_UNUSED(value);
     return SSBL_SUCCESS;
   }
-  SensorResult GetBasic(uint32_t& value) {
+  SensorResult GetBasic(uint32_t& value) override {
     SSBL_UNUSED(value);
     return SSBL_SUCCESS;
   }
-  SensorResult GetBasic(uint64_t& value) {
+  SensorResult GetBasic(uint64_t& value) override {
     SSBL_UNUSED(value);
     return SSBL_SUCCESS;
   }
-  SensorResult GetBasic(float& value) {
+  SensorResult GetBasic(float& value) override {
     SSBL_UNUSED(value);
     return SSBL_SUCCESS;
   }
-  SensorResult GetBasic(double& value) {
+  SensorResult GetBasic(double& value) override {
     SSBL_UNUSED(value);
     return SSBL_SUCCESS;
   }
   //--------------------------------------------------------
-  SensorResult GetBasicElement(const std::string& elementName, int8_t& value) {
+  SensorResult GetBasicElement(const std::string& elementName, int8_t& value) override {
     SSBL_UNUSED(elementName);
     SSBL_UNUSED(value);
     return SSBL_SUCCESS;
   }
-  SensorResult GetBasicElement(const std::string& elementName, int16_t& value) {
+  SensorResult GetBasicElement(const std::string& elementName, int16_t& value) override {
     SSBL_UNUSED(elementName);
     SSBL_UNUSED(value);
     return SSBL_SUCCESS;
   }
-  SensorResult GetBasicElement(const std::string& elementName, int32_t& value) {
+  SensorResult GetBasicElement(const std::string& elementName, int32_t& value) override {
     SSBL_UNUSED(elementName);
     SSBL_UNUSED(value);
     return SSBL_SUCCESS;
   }
-  SensorResult GetBasicElement(const std::string& elementName, int64_t& value) {
+  SensorResult GetBasicElement(const std::string& elementName, int64_t& value) override {
     SSBL_UNUSED(elementName);
     SSBL_UNUSED(value);
     return SSBL_SUCCESS;
   }
-  SensorResult GetBasicElement(const std::string& elementName, uint8_t& value) {
-    SSBL_UNUSED(elementName);
-    SSBL_UNUSED(value);
-    return SSBL_SUCCESS;
-  }
-  SensorResult GetBasicElement(const std::string& elementName,
-                               uint16_t& value) {
+  SensorResult GetBasicElement(const std::string& elementName, uint8_t& value) override {
     SSBL_UNUSED(elementName);
     SSBL_UNUSED(value);
     return SSBL_SUCCESS;
   }
   SensorResult GetBasicElement(const std::string& elementName,
-                               uint32_t& value) {
+                               uint16_t& value) override {
     SSBL_UNUSED(elementName);
     SSBL_UNUSED(value);
     return SSBL_SUCCESS;
   }
   SensorResult GetBasicElement(const std::string& elementName,
-                               uint64_t& value) {
+                               uint32_t& value) override {
     SSBL_UNUSED(elementName);
     SSBL_UNUSED(value);
     return SSBL_SUCCESS;
   }
-  SensorResult GetBasicElement(const std::string& elementName, float& value) {
+  SensorResult GetBasicElement(const std::string& elementName,
+                               uint64_t& value) override {
     SSBL_UNUSED(elementName);
     SSBL_UNUSED(value);
     return SSBL_SUCCESS;
   }
-  SensorResult GetBasicElement(const std::string& elementName, double& value) {
+  SensorResult GetBasicElement(const std::string& elementName, float& value) override {
+    SSBL_UNUSED(elementName);
+    SSBL_UNUSED(value);
+    return SSBL_SUCCESS;
+  }
+  SensorResult GetBasicElement(const std::string& elementName, double& value) override {
     SSBL_UNUSED(elementName);
     SSBL_UNUSED(value);
     return SSBL_SUCCESS;
   }
   //----------
-  SensorResult SetBasic(int8_t& value) {
+  SensorResult SetBasic(int8_t& value) override {
     SSBL_UNUSED(value);
     return SSBL_SUCCESS;
   }
-  SensorResult SetBasic(int16_t& value) {
+  SensorResult SetBasic(int16_t& value) override {
     SSBL_UNUSED(value);
     return SSBL_SUCCESS;
   }
-  SensorResult SetBasic(int32_t& value) {
+  SensorResult SetBasic(int32_t& value) override {
     SSBL_UNUSED(value);
     return SSBL_SUCCESS;
   }
-  SensorResult SetBasic(int64_t& value) {
+  SensorResult SetBasic(int64_t& value) override {
     SSBL_UNUSED(value);
     return SSBL_SUCCESS;
   }
-  SensorResult SetBasic(uint8_t& value) {
+  SensorResult SetBasic(uint8_t& value) override {
     SSBL_UNUSED(value);
     return SSBL_SUCCESS;
   }
-  SensorResult SetBasic(uint16_t& value) {
+  SensorResult SetBasic(uint16_t& value) override {
     SSBL_UNUSED(value);
     return SSBL_SUCCESS;
   }
-  SensorResult SetBasic(uint32_t& value) {
+  SensorResult SetBasic(uint32_t& value) override {
     SSBL_UNUSED(value);
     return SSBL_SUCCESS;
   }
-  SensorResult SetBasic(uint64_t& value) {
+  SensorResult SetBasic(uint64_t& value) override {
     SSBL_UNUSED(value);
     return SSBL_SUCCESS;
   }
-  SensorResult SetBasic(float& value) {
+  SensorResult SetBasic(float& value) override {
     SSBL_UNUSED(value);
     return SSBL_SUCCESS;
   }
-  SensorResult SetBasic(double& value) {
+  SensorResult SetBasic(double& value) override {
     SSBL_UNUSED(value);
     return SSBL_SUCCESS;
   }
-  SensorResult SetBasicFromString(std::string value) {
+  SensorResult SetBasicFromString(std::string value) override {
     SSBL_UNUSED(value);
     return SSBL_SUCCESS;
   }
   //-------------------------------------
-  SensorResult SetBasicElement(const std::string& elementName, int8_t& value) {
+  SensorResult SetBasicElement(const std::string& elementName, int8_t& value) override {
     SSBL_UNUSED(elementName);
     SSBL_UNUSED(value);
     return SSBL_SUCCESS;
   }
-  SensorResult SetBasicElement(const std::string& elementName, int16_t& value) {
+  SensorResult SetBasicElement(const std::string& elementName, int16_t& value) override {
     SSBL_UNUSED(elementName);
     SSBL_UNUSED(value);
     return SSBL_SUCCESS;
   }
-  SensorResult SetBasicElement(const std::string& elementName, int32_t& value) {
+  SensorResult SetBasicElement(const std::string& elementName, int32_t& value) override {
     SSBL_UNUSED(elementName);
     SSBL_UNUSED(value);
     return SSBL_SUCCESS;
   }
-  SensorResult SetBasicElement(const std::string& elementName, int64_t& value) {
+  SensorResult SetBasicElement(const std::string& elementName, int64_t& value) override {
     SSBL_UNUSED(elementName);
     SSBL_UNUSED(value);
     return SSBL_SUCCESS;
   }
-  SensorResult SetBasicElement(const std::string& elementName, uint8_t& value) {
-    SSBL_UNUSED(elementName);
-    SSBL_UNUSED(value);
-    return SSBL_SUCCESS;
-  }
-  SensorResult SetBasicElement(const std::string& elementName,
-                               uint16_t& value) {
+  SensorResult SetBasicElement(const std::string& elementName, uint8_t& value) override {
     SSBL_UNUSED(elementName);
     SSBL_UNUSED(value);
     return SSBL_SUCCESS;
   }
   SensorResult SetBasicElement(const std::string& elementName,
-                               uint32_t& value) {
+                               uint16_t& value) override {
     SSBL_UNUSED(elementName);
     SSBL_UNUSED(value);
     return SSBL_SUCCESS;
   }
   SensorResult SetBasicElement(const std::string& elementName,
-                               uint64_t& value) {
+                               uint32_t& value) override {
     SSBL_UNUSED(elementName);
     SSBL_UNUSED(value);
     return SSBL_SUCCESS;
   }
-  SensorResult SetBasicElement(const std::string& elementName, float& value) {
+  SensorResult SetBasicElement(const std::string& elementName,
+                               uint64_t& value) override {
     SSBL_UNUSED(elementName);
     SSBL_UNUSED(value);
     return SSBL_SUCCESS;
   }
-  SensorResult SetBasicElement(const std::string& elementName, double& value) {
+  SensorResult SetBasicElement(const std::string& elementName, float& value) override {
+    SSBL_UNUSED(elementName);
+    SSBL_UNUSED(value);
+    return SSBL_SUCCESS;
+  }
+  SensorResult SetBasicElement(const std::string& elementName, double& value) override {
     SSBL_UNUSED(elementName);
     SSBL_UNUSED(value);
     return SSBL_SUCCESS;
