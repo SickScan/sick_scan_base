@@ -54,7 +54,6 @@ SensorSkeleton::SensorSkeleton(const std::string &localName, size_t txBufSize,
       passwords_{0},
       UserSelectedIpOrSerial_(""),
       UserSelectedInterfaceName_(""){
-
       };
 
 //=============================================================================

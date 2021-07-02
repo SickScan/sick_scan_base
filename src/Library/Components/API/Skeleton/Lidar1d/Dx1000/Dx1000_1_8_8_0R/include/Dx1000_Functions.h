@@ -21,6 +21,7 @@ public:
 		AccessLevel accessLevel)
 			: SensorFunction(name,comname, idx, accessLevel, false,false) {};
 	~Dx1000_Func_NANR(){};
+	virtual std::unique_ptr<ComObj> Clone() const = 0;
 	uint32_t SerializeContent(Serializer * pSer, uint8_t * pDest, uint32_t * pOffset)
 	{
 		SSBL_UNUSED(pSer);
@@ -46,6 +47,7 @@ public:
 		AccessLevel accessLevel)
 			: SensorFunction(name,comname, idx, accessLevel, true,false) {};
 	~Dx1000_Func_ANR(){};
+	virtual std::unique_ptr<ComObj> Clone() const = 0;
 	uint32_t SerializeContent(Serializer * pSer, uint8_t * pDest, uint32_t * pOffset)
 	{
 		switch (pSer->GetProtocolType())
@@ -80,6 +82,7 @@ public:
 		AccessLevel accessLevel)
 			: SensorFunction(name,comname, idx, accessLevel, false,true) {};
 	~Dx1000_Func_NAR(){};
+	virtual std::unique_ptr<ComObj> Clone() const = 0;
 	uint32_t SerializeContent(Serializer * pSer, uint8_t * pDest, uint32_t * pOffset)
 	{
 		SSBL_UNUSED(pSer);
@@ -115,6 +118,7 @@ public:
 		AccessLevel accessLevel)
 			: SensorFunction(name,comname, idx, accessLevel, true,true) {};
 	~Dx1000_Func_AR(){};
+	virtual std::unique_ptr<ComObj> Clone() const = 0;
 	uint32_t SerializeContent(Serializer * pSer, uint8_t * pDest, uint32_t * pOffset)
 	{
 		switch (pSer->GetProtocolType())
@@ -155,7 +159,7 @@ class WriteEeprom_Dx1000_Func : public Dx1000_Func_NAR<WriteEeprom_t>
 public:
 	WriteEeprom_Dx1000_Func();
 	~WriteEeprom_Dx1000_Func(){};
-	ComObj* Clone() { return new WriteEeprom_Dx1000_Func(*this); }
+	std::unique_ptr<ComObj> Clone() const override { return std::make_unique<WriteEeprom_Dx1000_Func>(*this); }
 	static SensorFunction* Create() { return new WriteEeprom_Dx1000_Func; }
 };
 
@@ -164,7 +168,7 @@ class RebootDevice_Dx1000_Func : public Dx1000_Func_NANR
 public:
 	RebootDevice_Dx1000_Func();
 	~RebootDevice_Dx1000_Func(){};
-	ComObj* Clone() { return new RebootDevice_Dx1000_Func(*this); }
+	std::unique_ptr<ComObj> Clone() const override { return std::make_unique<RebootDevice_Dx1000_Func>(*this); }
 	static SensorFunction* Create() { return new RebootDevice_Dx1000_Func; }
 };
 
@@ -173,7 +177,7 @@ class LoadFactoryDefaults_Dx1000_Func : public Dx1000_Func_NANR
 public:
 	LoadFactoryDefaults_Dx1000_Func();
 	~LoadFactoryDefaults_Dx1000_Func(){};
-	ComObj* Clone() { return new LoadFactoryDefaults_Dx1000_Func(*this); }
+	std::unique_ptr<ComObj> Clone() const override { return std::make_unique<LoadFactoryDefaults_Dx1000_Func>(*this); }
 	static SensorFunction* Create() { return new LoadFactoryDefaults_Dx1000_Func; }
 };
 
@@ -182,7 +186,7 @@ class LoadApplicationDefaults_Dx1000_Func : public Dx1000_Func_NANR
 public:
 	LoadApplicationDefaults_Dx1000_Func();
 	~LoadApplicationDefaults_Dx1000_Func(){};
-	ComObj* Clone() { return new LoadApplicationDefaults_Dx1000_Func(*this); }
+	std::unique_ptr<ComObj> Clone() const override { return std::make_unique<LoadApplicationDefaults_Dx1000_Func>(*this); }
 	static SensorFunction* Create() { return new LoadApplicationDefaults_Dx1000_Func; }
 };
 
@@ -191,7 +195,7 @@ class enableMeasurementLaser_Dx1000_Func : public Dx1000_Func_NAR<enableMeasurem
 public:
 	enableMeasurementLaser_Dx1000_Func();
 	~enableMeasurementLaser_Dx1000_Func(){};
-	ComObj* Clone() { return new enableMeasurementLaser_Dx1000_Func(*this); }
+	std::unique_ptr<ComObj> Clone() const override { return std::make_unique<enableMeasurementLaser_Dx1000_Func>(*this); }
 	static SensorFunction* Create() { return new enableMeasurementLaser_Dx1000_Func; }
 };
 
@@ -200,7 +204,7 @@ class disableMeasurementLaser_Dx1000_Func : public Dx1000_Func_NAR<disableMeasur
 public:
 	disableMeasurementLaser_Dx1000_Func();
 	~disableMeasurementLaser_Dx1000_Func(){};
-	ComObj* Clone() { return new disableMeasurementLaser_Dx1000_Func(*this); }
+	std::unique_ptr<ComObj> Clone() const override { return std::make_unique<disableMeasurementLaser_Dx1000_Func>(*this); }
 	static SensorFunction* Create() { return new disableMeasurementLaser_Dx1000_Func; }
 };
 
@@ -209,7 +213,7 @@ class enablePilotLaser_Dx1000_Func : public Dx1000_Func_NAR<enablePilotLaser_t>
 public:
 	enablePilotLaser_Dx1000_Func();
 	~enablePilotLaser_Dx1000_Func(){};
-	ComObj* Clone() { return new enablePilotLaser_Dx1000_Func(*this); }
+	std::unique_ptr<ComObj> Clone() const override { return std::make_unique<enablePilotLaser_Dx1000_Func>(*this); }
 	static SensorFunction* Create() { return new enablePilotLaser_Dx1000_Func; }
 };
 
@@ -218,7 +222,7 @@ class disablePilotLaser_Dx1000_Func : public Dx1000_Func_NAR<disablePilotLaser_t
 public:
 	disablePilotLaser_Dx1000_Func();
 	~disablePilotLaser_Dx1000_Func(){};
-	ComObj* Clone() { return new disablePilotLaser_Dx1000_Func(*this); }
+	std::unique_ptr<ComObj> Clone() const override { return std::make_unique<disablePilotLaser_Dx1000_Func>(*this); }
 	static SensorFunction* Create() { return new disablePilotLaser_Dx1000_Func; }
 };
 

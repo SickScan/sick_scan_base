@@ -73,6 +73,7 @@ public:
 	virtual SensorResult GetBasicElement(const std::string& elementName, uint64_t& value) = 0;
 	virtual SensorResult GetBasicElement(const std::string& elementName, float& value) = 0;
 	virtual SensorResult GetBasicElement(const std::string& elementName, double& value) = 0;
+	virtual std::unique_ptr<ComObj> Clone() const = 0;
 	T Value_;
 };
 
@@ -81,7 +82,7 @@ class PositionData_OLM100_Var : public OLM100_Var<uint32_t>
 public:
 	PositionData_OLM100_Var();
 	~PositionData_OLM100_Var(){};
-	ComObj* Clone() { return new PositionData_OLM100_Var(*this); }
+	virtual std::unique_ptr<ComObj> Clone() const override { return std::make_unique<PositionData_OLM100_Var>(*this); }
 	static SensorVariable* Create() { return new PositionData_OLM100_Var; }
 	SensorResult GetBasic(int8_t& value);
 	SensorResult GetBasic(int16_t& value);
@@ -130,7 +131,7 @@ class Speed_OLM100_Var : public OLM100_Var<int16_t>
 public:
 	Speed_OLM100_Var();
 	~Speed_OLM100_Var(){};
-	ComObj* Clone() { return new Speed_OLM100_Var(*this); }
+	virtual std::unique_ptr<ComObj> Clone() const override { return std::make_unique<Speed_OLM100_Var>(*this); }
 	static SensorVariable* Create() { return new Speed_OLM100_Var; }
 	SensorResult GetBasic(int8_t& value);
 	SensorResult GetBasic(int16_t& value);
@@ -179,7 +180,7 @@ class Acceleration_OLM100_Var : public OLM100_Var<int16_t>
 public:
 	Acceleration_OLM100_Var();
 	~Acceleration_OLM100_Var(){};
-	ComObj* Clone() { return new Acceleration_OLM100_Var(*this); }
+	virtual std::unique_ptr<ComObj> Clone() const override { return std::make_unique<Acceleration_OLM100_Var>(*this); }
 	static SensorVariable* Create() { return new Acceleration_OLM100_Var; }
 	SensorResult GetBasic(int8_t& value);
 	SensorResult GetBasic(int16_t& value);
@@ -228,7 +229,7 @@ class GeneralReadability_OLM100_Var : public OLM100_Var<uint8_t>
 public:
 	GeneralReadability_OLM100_Var();
 	~GeneralReadability_OLM100_Var(){};
-	ComObj* Clone() { return new GeneralReadability_OLM100_Var(*this); }
+	virtual std::unique_ptr<ComObj> Clone() const override { return std::make_unique<GeneralReadability_OLM100_Var>(*this); }
 	static SensorVariable* Create() { return new GeneralReadability_OLM100_Var; }
 	SensorResult GetBasic(int8_t& value);
 	SensorResult GetBasic(int16_t& value);
@@ -277,7 +278,7 @@ class LocalReadability_OLM100_Var : public OLM100_Var<uint8_t>
 public:
 	LocalReadability_OLM100_Var();
 	~LocalReadability_OLM100_Var(){};
-	ComObj* Clone() { return new LocalReadability_OLM100_Var(*this); }
+	virtual std::unique_ptr<ComObj> Clone() const override { return std::make_unique<LocalReadability_OLM100_Var>(*this); }
 	static SensorVariable* Create() { return new LocalReadability_OLM100_Var; }
 	SensorResult GetBasic(int8_t& value);
 	SensorResult GetBasic(int16_t& value);
@@ -326,7 +327,7 @@ class Temperature_OLM100_Var : public OLM100_Var<int16_t>
 public:
 	Temperature_OLM100_Var();
 	~Temperature_OLM100_Var(){};
-	ComObj* Clone() { return new Temperature_OLM100_Var(*this); }
+	virtual std::unique_ptr<ComObj> Clone() const override { return std::make_unique<Temperature_OLM100_Var>(*this); }
 	static SensorVariable* Create() { return new Temperature_OLM100_Var; }
 	SensorResult GetBasic(int8_t& value);
 	SensorResult GetBasic(int16_t& value);
