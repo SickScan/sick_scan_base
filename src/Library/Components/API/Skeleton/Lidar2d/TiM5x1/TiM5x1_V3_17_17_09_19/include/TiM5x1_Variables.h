@@ -88,7 +88,7 @@ class DataOutputRange_TiM5x1_Var : public TiM5x1_Var<DataOutputRange_t>
 public:
 	DataOutputRange_TiM5x1_Var();
 	~DataOutputRange_TiM5x1_Var(){};
-	virtual std::unique_ptr<ComObj> Clone() const override { return std::make_unique<DataOutputRange_TiM5x1_Var>(*this); }
+	virtual std::unique_ptr<ComObj> Clone() const override { return ssbl::make_unique<DataOutputRange_TiM5x1_Var>(*this); }
 	static SensorVariable* Create() { return new DataOutputRange_TiM5x1_Var; }
 	SensorResult GetBasic(int8_t& value);
 	SensorResult GetBasic(int16_t& value);
@@ -137,9 +137,7 @@ class ScanData_TiM5x1_Var : public TiM5x1_Var<ScanData_t>
 public:
 	ScanData_TiM5x1_Var();
 	~ScanData_TiM5x1_Var(){};
-	virtual std::unique_ptr<ComObj> Clone() const override { 
-		return std::make_unique<ScanData_TiM5x1_Var>(*this); 
-	}
+	virtual std::unique_ptr<ComObj> Clone() const override { return ssbl::make_unique<ScanData_TiM5x1_Var>(*this); }
 	static SensorVariable* Create() { return new ScanData_TiM5x1_Var; }
 	SensorResult GetBasic(int8_t& value);
 	SensorResult GetBasic(int16_t& value);
@@ -188,7 +186,7 @@ class EtherHostCoLaDialect_TiM5x1_Var : public TiM5x1_Var<Enum8_t>
 public:
 	EtherHostCoLaDialect_TiM5x1_Var();
 	~EtherHostCoLaDialect_TiM5x1_Var(){};
-	virtual std::unique_ptr<ComObj> Clone() const override { return std::make_unique<EtherHostCoLaDialect_TiM5x1_Var>(*this); }
+	virtual std::unique_ptr<ComObj> Clone() const override { return ssbl::make_unique<EtherHostCoLaDialect_TiM5x1_Var>(*this); }
 	static SensorVariable* Create() { return new EtherHostCoLaDialect_TiM5x1_Var; }
 	SensorResult GetBasic(int8_t& value);
 	SensorResult GetBasic(int16_t& value);
@@ -237,7 +235,7 @@ class ScanConfig_TiM5x1_Var : public TiM5x1_Var<ScanConfig_t>
 public:
 	ScanConfig_TiM5x1_Var();
 	~ScanConfig_TiM5x1_Var(){};
-	virtual std::unique_ptr<ComObj> Clone() const override { return std::make_unique<ScanConfig_TiM5x1_Var>(*this); }
+	virtual std::unique_ptr<ComObj> Clone() const override { return ssbl::make_unique<ScanConfig_TiM5x1_Var>(*this); }
 	static SensorVariable* Create() { return new ScanConfig_TiM5x1_Var; }
 	SensorResult GetBasic(int8_t& value);
 	SensorResult GetBasic(int16_t& value);
@@ -286,7 +284,7 @@ class ScanDataConfig_TiM5x1_Var : public TiM5x1_Var<ScanDataConfig_t>
 public:
 	ScanDataConfig_TiM5x1_Var();
 	~ScanDataConfig_TiM5x1_Var(){};
-	virtual std::unique_ptr<ComObj> Clone() const override { return std::make_unique<ScanDataConfig_TiM5x1_Var>(*this); }
+	virtual std::unique_ptr<ComObj> Clone() const override { return ssbl::make_unique<ScanDataConfig_TiM5x1_Var>(*this); }
 	static SensorVariable* Create() { return new ScanDataConfig_TiM5x1_Var; }
 	SensorResult GetBasic(int8_t& value);
 	SensorResult GetBasic(int16_t& value);
@@ -335,7 +333,7 @@ class SCdevicestate_TiM5x1_Var : public TiM5x1_Var<Enum8_t>
 public:
 	SCdevicestate_TiM5x1_Var();
 	~SCdevicestate_TiM5x1_Var(){};
-	virtual std::unique_ptr<ComObj> Clone() const override { return std::make_unique<SCdevicestate_TiM5x1_Var>(*this); }
+	virtual std::unique_ptr<ComObj> Clone() const override { return ssbl::make_unique<SCdevicestate_TiM5x1_Var>(*this); }
 	static SensorVariable* Create() { return new SCdevicestate_TiM5x1_Var; }
 	SensorResult GetBasic(int8_t& value);
 	SensorResult GetBasic(int16_t& value);
@@ -384,7 +382,7 @@ class OrderNumber_TiM5x1_Var : public TiM5x1_Var<FixString7>
 public:
 	OrderNumber_TiM5x1_Var();
 	~OrderNumber_TiM5x1_Var(){};
-	virtual std::unique_ptr<ComObj> Clone() const override { return std::make_unique<OrderNumber_TiM5x1_Var>(*this); }
+	virtual std::unique_ptr<ComObj> Clone() const override { return ssbl::make_unique<OrderNumber_TiM5x1_Var>(*this); }
 	static SensorVariable* Create() { return new OrderNumber_TiM5x1_Var; }
 	SensorResult GetBasic(int8_t& value);
 	SensorResult GetBasic(int16_t& value);

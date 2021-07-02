@@ -147,7 +147,7 @@ class StoreParameterPage_OLM200_Func : public OLM200_Func_NAR<StoreParameterPage
 public:
 	StoreParameterPage_OLM200_Func();
 	~StoreParameterPage_OLM200_Func(){};
-	std::unique_ptr<ComObj> Clone() const override { return std::make_unique<StoreParameterPage_OLM200_Func>(*this); }
+	std::unique_ptr<ComObj> Clone() const override { return ssbl::make_unique<StoreParameterPage_OLM200_Func>(*this); }
 	static SensorFunction* Create() { return new StoreParameterPage_OLM200_Func; }
 };
 
@@ -156,7 +156,7 @@ class ResetParameter_OLM200_Func : public OLM200_Func_NANR
 public:
 	ResetParameter_OLM200_Func();
 	~ResetParameter_OLM200_Func(){};
-	std::unique_ptr<ComObj> Clone() const override { return std::make_unique<ResetParameter_OLM200_Func>(*this); }
+	std::unique_ptr<ComObj> Clone() const override { return ssbl::make_unique<ResetParameter_OLM200_Func>(*this); }
 	static SensorFunction* Create() { return new ResetParameter_OLM200_Func; }
 };
 
@@ -165,7 +165,7 @@ class SetColdstart_OLM200_Func : public OLM200_Func_NANR
 public:
 	SetColdstart_OLM200_Func();
 	~SetColdstart_OLM200_Func(){};
-	std::unique_ptr<ComObj> Clone() const override { return std::make_unique<SetColdstart_OLM200_Func>(*this); }
+	std::unique_ptr<ComObj> Clone() const override { return ssbl::make_unique<SetColdstart_OLM200_Func>(*this); }
 	static SensorFunction* Create() { return new SetColdstart_OLM200_Func; }
 };
 
@@ -174,7 +174,7 @@ class IlluminationOn_OLM200_Func : public OLM200_Func_NANR
 public:
 	IlluminationOn_OLM200_Func();
 	~IlluminationOn_OLM200_Func(){};
-	std::unique_ptr<ComObj> Clone() const override { return std::make_unique<IlluminationOn_OLM200_Func>(*this); }
+	std::unique_ptr<ComObj> Clone() const override { return ssbl::make_unique<IlluminationOn_OLM200_Func>(*this); }
 	static SensorFunction* Create() { return new IlluminationOn_OLM200_Func; }
 };
 
@@ -183,7 +183,7 @@ class IlluminationOff_OLM200_Func : public OLM200_Func_NANR
 public:
 	IlluminationOff_OLM200_Func();
 	~IlluminationOff_OLM200_Func(){};
-	std::unique_ptr<ComObj> Clone() const override { return std::make_unique<IlluminationOff_OLM200_Func>(*this); }
+	std::unique_ptr<ComObj> Clone() const override { return ssbl::make_unique<IlluminationOff_OLM200_Func>(*this); }
 	static SensorFunction* Create() { return new IlluminationOff_OLM200_Func; }
 };
 

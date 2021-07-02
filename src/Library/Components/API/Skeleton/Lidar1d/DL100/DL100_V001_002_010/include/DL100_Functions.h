@@ -147,7 +147,7 @@ class storeParameterPage_DL100_Func : public DL100_Func_NAR<storeParameterPage_t
 public:
 	storeParameterPage_DL100_Func();
 	~storeParameterPage_DL100_Func(){};
-	std::unique_ptr<ComObj> Clone() const override { return std::make_unique<storeParameterPage_DL100_Func>(*this); }
+	std::unique_ptr<ComObj> Clone() const override { return ssbl::make_unique<storeParameterPage_DL100_Func>(*this); }
 	static SensorFunction* Create() { return new storeParameterPage_DL100_Func; }
 };
 
@@ -156,7 +156,7 @@ class parameterReset_DL100_Func : public DL100_Func_NANR
 public:
 	parameterReset_DL100_Func();
 	~parameterReset_DL100_Func(){};
-	std::unique_ptr<ComObj> Clone() const override { return std::make_unique<parameterReset_DL100_Func>(*this); }
+	std::unique_ptr<ComObj> Clone() const override { return ssbl::make_unique<parameterReset_DL100_Func>(*this); }
 	static SensorFunction* Create() { return new parameterReset_DL100_Func; }
 };
 
@@ -165,7 +165,7 @@ class setColdstart_DL100_Func : public DL100_Func_NANR
 public:
 	setColdstart_DL100_Func();
 	~setColdstart_DL100_Func(){};
-	std::unique_ptr<ComObj> Clone() const override { return std::make_unique<setColdstart_DL100_Func>(*this); }
+	std::unique_ptr<ComObj> Clone() const override { return ssbl::make_unique<setColdstart_DL100_Func>(*this); }
 	static SensorFunction* Create() { return new setColdstart_DL100_Func; }
 };
 
@@ -174,7 +174,7 @@ class resetMF1switchCounter_DL100_Func : public DL100_Func_NANR
 public:
 	resetMF1switchCounter_DL100_Func();
 	~resetMF1switchCounter_DL100_Func(){};
-	std::unique_ptr<ComObj> Clone() const override { return std::make_unique<resetMF1switchCounter_DL100_Func>(*this); }
+	std::unique_ptr<ComObj> Clone() const override { return ssbl::make_unique<resetMF1switchCounter_DL100_Func>(*this); }
 	static SensorFunction* Create() { return new resetMF1switchCounter_DL100_Func; }
 };
 
@@ -183,7 +183,7 @@ class resetMF2switchCounter_DL100_Func : public DL100_Func_NANR
 public:
 	resetMF2switchCounter_DL100_Func();
 	~resetMF2switchCounter_DL100_Func(){};
-	std::unique_ptr<ComObj> Clone() const override { return std::make_unique<resetMF2switchCounter_DL100_Func>(*this); }
+	std::unique_ptr<ComObj> Clone() const override { return ssbl::make_unique<resetMF2switchCounter_DL100_Func>(*this); }
 	static SensorFunction* Create() { return new resetMF2switchCounter_DL100_Func; }
 };
 

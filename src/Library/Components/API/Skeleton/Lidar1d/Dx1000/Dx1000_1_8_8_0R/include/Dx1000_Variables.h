@@ -88,7 +88,7 @@ class Distance_Dx1000_Var : public Dx1000_Var<int32_t>
 public:
 	Distance_Dx1000_Var();
 	~Distance_Dx1000_Var(){};
-	virtual std::unique_ptr<ComObj> Clone() const override { return std::make_unique<Distance_Dx1000_Var>(*this); }
+	virtual std::unique_ptr<ComObj> Clone() const override { return ssbl::make_unique<Distance_Dx1000_Var>(*this); }
 	static SensorVariable* Create() { return new Distance_Dx1000_Var; }
 	SensorResult GetBasic(int8_t& value);
 	SensorResult GetBasic(int16_t& value);
@@ -137,7 +137,7 @@ class Velocity_Dx1000_Var : public Dx1000_Var<int32_t>
 public:
 	Velocity_Dx1000_Var();
 	~Velocity_Dx1000_Var(){};
-	virtual std::unique_ptr<ComObj> Clone() const override { return std::make_unique<Velocity_Dx1000_Var>(*this); }
+	virtual std::unique_ptr<ComObj> Clone() const override { return ssbl::make_unique<Velocity_Dx1000_Var>(*this); }
 	static SensorVariable* Create() { return new Velocity_Dx1000_Var; }
 	SensorResult GetBasic(int8_t& value);
 	SensorResult GetBasic(int16_t& value);
@@ -186,7 +186,7 @@ class RSSI_Dx1000_Var : public Dx1000_Var<int32_t>
 public:
 	RSSI_Dx1000_Var();
 	~RSSI_Dx1000_Var(){};
-	virtual std::unique_ptr<ComObj> Clone() const override { return std::make_unique<RSSI_Dx1000_Var>(*this); }
+	virtual std::unique_ptr<ComObj> Clone() const override { return ssbl::make_unique<RSSI_Dx1000_Var>(*this); }
 	static SensorVariable* Create() { return new RSSI_Dx1000_Var; }
 	SensorResult GetBasic(int8_t& value);
 	SensorResult GetBasic(int16_t& value);
@@ -235,7 +235,7 @@ class BridgingActive_Dx1000_Var : public Dx1000_Var<uint8_t>
 public:
 	BridgingActive_Dx1000_Var();
 	~BridgingActive_Dx1000_Var(){};
-	virtual std::unique_ptr<ComObj> Clone() const override { return std::make_unique<BridgingActive_Dx1000_Var>(*this); }
+	virtual std::unique_ptr<ComObj> Clone() const override { return ssbl::make_unique<BridgingActive_Dx1000_Var>(*this); }
 	static SensorVariable* Create() { return new BridgingActive_Dx1000_Var; }
 	SensorResult GetBasic(int8_t& value);
 	SensorResult GetBasic(int16_t& value);
@@ -284,7 +284,7 @@ class SCdevicestate_Dx1000_Var : public Dx1000_Var<Enum8_t>
 public:
 	SCdevicestate_Dx1000_Var();
 	~SCdevicestate_Dx1000_Var(){};
-	virtual std::unique_ptr<ComObj> Clone() const override { return std::make_unique<SCdevicestate_Dx1000_Var>(*this); }
+	virtual std::unique_ptr<ComObj> Clone() const override { return ssbl::make_unique<SCdevicestate_Dx1000_Var>(*this); }
 	static SensorVariable* Create() { return new SCdevicestate_Dx1000_Var; }
 	SensorResult GetBasic(int8_t& value);
 	SensorResult GetBasic(int16_t& value);
@@ -333,7 +333,7 @@ class OrderNumber_Dx1000_Var : public Dx1000_Var<FlexString32>
 public:
 	OrderNumber_Dx1000_Var();
 	~OrderNumber_Dx1000_Var(){};
-	virtual std::unique_ptr<ComObj> Clone() const override { return std::make_unique<OrderNumber_Dx1000_Var>(*this); }
+	virtual std::unique_ptr<ComObj> Clone() const override { return ssbl::make_unique<OrderNumber_Dx1000_Var>(*this); }
 	static SensorVariable* Create() { return new OrderNumber_Dx1000_Var; }
 	SensorResult GetBasic(int8_t& value);
 	SensorResult GetBasic(int16_t& value);
@@ -382,7 +382,7 @@ class roiStart_Dx1000_Var : public Dx1000_Var<int32_t>
 public:
 	roiStart_Dx1000_Var();
 	~roiStart_Dx1000_Var(){};
-	virtual std::unique_ptr<ComObj> Clone() const override { return std::make_unique<roiStart_Dx1000_Var>(*this); }
+	virtual std::unique_ptr<ComObj> Clone() const override { return ssbl::make_unique<roiStart_Dx1000_Var>(*this); }
 	static SensorVariable* Create() { return new roiStart_Dx1000_Var; }
 	SensorResult GetBasic(int8_t& value);
 	SensorResult GetBasic(int16_t& value);
@@ -431,7 +431,7 @@ class roiEnd_Dx1000_Var : public Dx1000_Var<int32_t>
 public:
 	roiEnd_Dx1000_Var();
 	~roiEnd_Dx1000_Var(){};
-	virtual std::unique_ptr<ComObj> Clone() const override { return std::make_unique<roiEnd_Dx1000_Var>(*this); }
+	virtual std::unique_ptr<ComObj> Clone() const override { return ssbl::make_unique<roiEnd_Dx1000_Var>(*this); }
 	static SensorVariable* Create() { return new roiEnd_Dx1000_Var; }
 	SensorResult GetBasic(int8_t& value);
 	SensorResult GetBasic(int16_t& value);
@@ -480,7 +480,7 @@ class roiMinLevel_Dx1000_Var : public Dx1000_Var<int32_t>
 public:
 	roiMinLevel_Dx1000_Var();
 	~roiMinLevel_Dx1000_Var(){};
-	virtual std::unique_ptr<ComObj> Clone() const override { return std::make_unique<roiMinLevel_Dx1000_Var>(*this); }
+	virtual std::unique_ptr<ComObj> Clone() const override { return ssbl::make_unique<roiMinLevel_Dx1000_Var>(*this); }
 	static SensorVariable* Create() { return new roiMinLevel_Dx1000_Var; }
 	SensorResult GetBasic(int8_t& value);
 	SensorResult GetBasic(int16_t& value);
@@ -529,7 +529,7 @@ class roiMaxLevel_Dx1000_Var : public Dx1000_Var<int32_t>
 public:
 	roiMaxLevel_Dx1000_Var();
 	~roiMaxLevel_Dx1000_Var(){};
-	virtual std::unique_ptr<ComObj> Clone() const override { return std::make_unique<roiMaxLevel_Dx1000_Var>(*this); }
+	virtual std::unique_ptr<ComObj> Clone() const override { return ssbl::make_unique<roiMaxLevel_Dx1000_Var>(*this); }
 	static SensorVariable* Create() { return new roiMaxLevel_Dx1000_Var; }
 	SensorResult GetBasic(int8_t& value);
 	SensorResult GetBasic(int16_t& value);
@@ -578,7 +578,7 @@ class rainSnowFilterSetting_Dx1000_Var : public Dx1000_Var<Enum8_t>
 public:
 	rainSnowFilterSetting_Dx1000_Var();
 	~rainSnowFilterSetting_Dx1000_Var(){};
-	virtual std::unique_ptr<ComObj> Clone() const override { return std::make_unique<rainSnowFilterSetting_Dx1000_Var>(*this); }
+	virtual std::unique_ptr<ComObj> Clone() const override { return ssbl::make_unique<rainSnowFilterSetting_Dx1000_Var>(*this); }
 	static SensorVariable* Create() { return new rainSnowFilterSetting_Dx1000_Var; }
 	SensorResult GetBasic(int8_t& value);
 	SensorResult GetBasic(int16_t& value);
@@ -627,7 +627,7 @@ class echoSeletionMode_Dx1000_Var : public Dx1000_Var<Enum8_t>
 public:
 	echoSeletionMode_Dx1000_Var();
 	~echoSeletionMode_Dx1000_Var(){};
-	virtual std::unique_ptr<ComObj> Clone() const override { return std::make_unique<echoSeletionMode_Dx1000_Var>(*this); }
+	virtual std::unique_ptr<ComObj> Clone() const override { return ssbl::make_unique<echoSeletionMode_Dx1000_Var>(*this); }
 	static SensorVariable* Create() { return new echoSeletionMode_Dx1000_Var; }
 	SensorResult GetBasic(int8_t& value);
 	SensorResult GetBasic(int16_t& value);
@@ -676,7 +676,7 @@ class filterSelection_Dx1000_Var : public Dx1000_Var<Enum8_t>
 public:
 	filterSelection_Dx1000_Var();
 	~filterSelection_Dx1000_Var(){};
-	virtual std::unique_ptr<ComObj> Clone() const override { return std::make_unique<filterSelection_Dx1000_Var>(*this); }
+	virtual std::unique_ptr<ComObj> Clone() const override { return ssbl::make_unique<filterSelection_Dx1000_Var>(*this); }
 	static SensorVariable* Create() { return new filterSelection_Dx1000_Var; }
 	SensorResult GetBasic(int8_t& value);
 	SensorResult GetBasic(int16_t& value);
@@ -725,7 +725,7 @@ class filterDepth_Dx1000_Var : public Dx1000_Var<uint32_t>
 public:
 	filterDepth_Dx1000_Var();
 	~filterDepth_Dx1000_Var(){};
-	virtual std::unique_ptr<ComObj> Clone() const override { return std::make_unique<filterDepth_Dx1000_Var>(*this); }
+	virtual std::unique_ptr<ComObj> Clone() const override { return ssbl::make_unique<filterDepth_Dx1000_Var>(*this); }
 	static SensorVariable* Create() { return new filterDepth_Dx1000_Var; }
 	SensorResult GetBasic(int8_t& value);
 	SensorResult GetBasic(int16_t& value);
@@ -774,7 +774,7 @@ class noEchoOutputMode_Dx1000_Var : public Dx1000_Var<Enum8_t>
 public:
 	noEchoOutputMode_Dx1000_Var();
 	~noEchoOutputMode_Dx1000_Var(){};
-	virtual std::unique_ptr<ComObj> Clone() const override { return std::make_unique<noEchoOutputMode_Dx1000_Var>(*this); }
+	virtual std::unique_ptr<ComObj> Clone() const override { return ssbl::make_unique<noEchoOutputMode_Dx1000_Var>(*this); }
 	static SensorVariable* Create() { return new noEchoOutputMode_Dx1000_Var; }
 	SensorResult GetBasic(int8_t& value);
 	SensorResult GetBasic(int16_t& value);
@@ -823,7 +823,7 @@ class offset_Dx1000_Var : public Dx1000_Var<int32_t>
 public:
 	offset_Dx1000_Var();
 	~offset_Dx1000_Var(){};
-	virtual std::unique_ptr<ComObj> Clone() const override { return std::make_unique<offset_Dx1000_Var>(*this); }
+	virtual std::unique_ptr<ComObj> Clone() const override { return ssbl::make_unique<offset_Dx1000_Var>(*this); }
 	static SensorVariable* Create() { return new offset_Dx1000_Var; }
 	SensorResult GetBasic(int8_t& value);
 	SensorResult GetBasic(int16_t& value);
@@ -872,7 +872,7 @@ class noEchoOutputDistance_Dx1000_Var : public Dx1000_Var<int32_t>
 public:
 	noEchoOutputDistance_Dx1000_Var();
 	~noEchoOutputDistance_Dx1000_Var(){};
-	virtual std::unique_ptr<ComObj> Clone() const override { return std::make_unique<noEchoOutputDistance_Dx1000_Var>(*this); }
+	virtual std::unique_ptr<ComObj> Clone() const override { return ssbl::make_unique<noEchoOutputDistance_Dx1000_Var>(*this); }
 	static SensorVariable* Create() { return new noEchoOutputDistance_Dx1000_Var; }
 	SensorResult GetBasic(int8_t& value);
 	SensorResult GetBasic(int16_t& value);
@@ -921,7 +921,7 @@ class noEchoOutputVelocity_Dx1000_Var : public Dx1000_Var<int32_t>
 public:
 	noEchoOutputVelocity_Dx1000_Var();
 	~noEchoOutputVelocity_Dx1000_Var(){};
-	virtual std::unique_ptr<ComObj> Clone() const override { return std::make_unique<noEchoOutputVelocity_Dx1000_Var>(*this); }
+	virtual std::unique_ptr<ComObj> Clone() const override { return ssbl::make_unique<noEchoOutputVelocity_Dx1000_Var>(*this); }
 	static SensorVariable* Create() { return new noEchoOutputVelocity_Dx1000_Var; }
 	SensorResult GetBasic(int8_t& value);
 	SensorResult GetBasic(int16_t& value);
@@ -970,7 +970,7 @@ class errorOutputDistance_Dx1000_Var : public Dx1000_Var<int32_t>
 public:
 	errorOutputDistance_Dx1000_Var();
 	~errorOutputDistance_Dx1000_Var(){};
-	virtual std::unique_ptr<ComObj> Clone() const override { return std::make_unique<errorOutputDistance_Dx1000_Var>(*this); }
+	virtual std::unique_ptr<ComObj> Clone() const override { return ssbl::make_unique<errorOutputDistance_Dx1000_Var>(*this); }
 	static SensorVariable* Create() { return new errorOutputDistance_Dx1000_Var; }
 	SensorResult GetBasic(int8_t& value);
 	SensorResult GetBasic(int16_t& value);
@@ -1019,7 +1019,7 @@ class errorOutputVelocity_Dx1000_Var : public Dx1000_Var<int32_t>
 public:
 	errorOutputVelocity_Dx1000_Var();
 	~errorOutputVelocity_Dx1000_Var(){};
-	virtual std::unique_ptr<ComObj> Clone() const override { return std::make_unique<errorOutputVelocity_Dx1000_Var>(*this); }
+	virtual std::unique_ptr<ComObj> Clone() const override { return ssbl::make_unique<errorOutputVelocity_Dx1000_Var>(*this); }
 	static SensorVariable* Create() { return new errorOutputVelocity_Dx1000_Var; }
 	SensorResult GetBasic(int8_t& value);
 	SensorResult GetBasic(int16_t& value);
@@ -1068,7 +1068,7 @@ class acquisitionTime_Dx1000_Var : public Dx1000_Var<Enum8_t>
 public:
 	acquisitionTime_Dx1000_Var();
 	~acquisitionTime_Dx1000_Var(){};
-	virtual std::unique_ptr<ComObj> Clone() const override { return std::make_unique<acquisitionTime_Dx1000_Var>(*this); }
+	virtual std::unique_ptr<ComObj> Clone() const override { return ssbl::make_unique<acquisitionTime_Dx1000_Var>(*this); }
 	static SensorVariable* Create() { return new acquisitionTime_Dx1000_Var; }
 	SensorResult GetBasic(int8_t& value);
 	SensorResult GetBasic(int16_t& value);
@@ -1117,7 +1117,7 @@ class fogFilter_Dx1000_Var : public Dx1000_Var<Enum8_t>
 public:
 	fogFilter_Dx1000_Var();
 	~fogFilter_Dx1000_Var(){};
-	virtual std::unique_ptr<ComObj> Clone() const override { return std::make_unique<fogFilter_Dx1000_Var>(*this); }
+	virtual std::unique_ptr<ComObj> Clone() const override { return ssbl::make_unique<fogFilter_Dx1000_Var>(*this); }
 	static SensorVariable* Create() { return new fogFilter_Dx1000_Var; }
 	SensorResult GetBasic(int8_t& value);
 	SensorResult GetBasic(int16_t& value);
@@ -1166,7 +1166,7 @@ class laserState_Dx1000_Var : public Dx1000_Var<uint8_t>
 public:
 	laserState_Dx1000_Var();
 	~laserState_Dx1000_Var(){};
-	virtual std::unique_ptr<ComObj> Clone() const override { return std::make_unique<laserState_Dx1000_Var>(*this); }
+	virtual std::unique_ptr<ComObj> Clone() const override { return ssbl::make_unique<laserState_Dx1000_Var>(*this); }
 	static SensorVariable* Create() { return new laserState_Dx1000_Var; }
 	SensorResult GetBasic(int8_t& value);
 	SensorResult GetBasic(int16_t& value);
@@ -1215,7 +1215,7 @@ class pilotState_Dx1000_Var : public Dx1000_Var<uint8_t>
 public:
 	pilotState_Dx1000_Var();
 	~pilotState_Dx1000_Var(){};
-	virtual std::unique_ptr<ComObj> Clone() const override { return std::make_unique<pilotState_Dx1000_Var>(*this); }
+	virtual std::unique_ptr<ComObj> Clone() const override { return ssbl::make_unique<pilotState_Dx1000_Var>(*this); }
 	static SensorVariable* Create() { return new pilotState_Dx1000_Var; }
 	SensorResult GetBasic(int8_t& value);
 	SensorResult GetBasic(int16_t& value);

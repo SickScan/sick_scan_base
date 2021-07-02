@@ -159,7 +159,7 @@ class SetScanConfig_TiM7x1_Func : public TiM7x1_Func_AR<SetScanConfig_t,SetScanC
 public:
 	SetScanConfig_TiM7x1_Func();
 	~SetScanConfig_TiM7x1_Func(){};
-	std::unique_ptr<ComObj> Clone() const override { return std::make_unique<SetScanConfig_TiM7x1_Func>(*this); }
+	std::unique_ptr<ComObj> Clone() const override { return ssbl::make_unique<SetScanConfig_TiM7x1_Func>(*this); }
 	static SensorFunction* Create() { return new SetScanConfig_TiM7x1_Func; }
 };
 
@@ -168,7 +168,7 @@ class mStartMeasure_TiM7x1_Func : public TiM7x1_Func_NAR<mStartMeasure_t>
 public:
 	mStartMeasure_TiM7x1_Func();
 	~mStartMeasure_TiM7x1_Func(){};
-	std::unique_ptr<ComObj> Clone() const override { return std::make_unique<mStartMeasure_TiM7x1_Func>(*this); }
+	std::unique_ptr<ComObj> Clone() const override { return ssbl::make_unique<mStartMeasure_TiM7x1_Func>(*this); }
 	static SensorFunction* Create() { return new mStartMeasure_TiM7x1_Func; }
 };
 
@@ -177,7 +177,7 @@ class mStopMeasure_TiM7x1_Func : public TiM7x1_Func_NAR<mStopMeasure_t>
 public:
 	mStopMeasure_TiM7x1_Func();
 	~mStopMeasure_TiM7x1_Func(){};
-	std::unique_ptr<ComObj> Clone() const override { return std::make_unique<mStopMeasure_TiM7x1_Func>(*this); }
+	std::unique_ptr<ComObj> Clone() const override { return ssbl::make_unique<mStopMeasure_TiM7x1_Func>(*this); }
 	static SensorFunction* Create() { return new mStopMeasure_TiM7x1_Func; }
 };
 
@@ -186,7 +186,7 @@ class mSetDateTime_TiM7x1_Func : public TiM7x1_Func_AR<mSetDateTime_t,mSetDateTi
 public:
 	mSetDateTime_TiM7x1_Func();
 	~mSetDateTime_TiM7x1_Func(){};
-	std::unique_ptr<ComObj> Clone() const override { return std::make_unique<mSetDateTime_TiM7x1_Func>(*this); }
+	std::unique_ptr<ComObj> Clone() const override { return ssbl::make_unique<mSetDateTime_TiM7x1_Func>(*this); }
 	static SensorFunction* Create() { return new mSetDateTime_TiM7x1_Func; }
 };
 
@@ -195,7 +195,7 @@ class Run_TiM7x1_Func : public TiM7x1_Func_NAR<Run_t>
 public:
 	Run_TiM7x1_Func();
 	~Run_TiM7x1_Func(){};
-	std::unique_ptr<ComObj> Clone() const override { return std::make_unique<Run_TiM7x1_Func>(*this); }
+	std::unique_ptr<ComObj> Clone() const override { return ssbl::make_unique<Run_TiM7x1_Func>(*this); }
 	static SensorFunction* Create() { return new Run_TiM7x1_Func; }
 };
 
@@ -204,7 +204,7 @@ class WriteEeprom_TiM7x1_Func : public TiM7x1_Func_NAR<WriteEeprom_t>
 public:
 	WriteEeprom_TiM7x1_Func();
 	~WriteEeprom_TiM7x1_Func(){};
-	std::unique_ptr<ComObj> Clone() const override { return std::make_unique<WriteEeprom_TiM7x1_Func>(*this); }
+	std::unique_ptr<ComObj> Clone() const override { return ssbl::make_unique<WriteEeprom_TiM7x1_Func>(*this); }
 	static SensorFunction* Create() { return new WriteEeprom_TiM7x1_Func; }
 };
 
@@ -213,7 +213,7 @@ class RebootDevice_TiM7x1_Func : public TiM7x1_Func_NANR
 public:
 	RebootDevice_TiM7x1_Func();
 	~RebootDevice_TiM7x1_Func(){};
-	std::unique_ptr<ComObj> Clone() const override { return std::make_unique<RebootDevice_TiM7x1_Func>(*this); }
+	std::unique_ptr<ComObj> Clone() const override { return ssbl::make_unique<RebootDevice_TiM7x1_Func>(*this); }
 	static SensorFunction* Create() { return new RebootDevice_TiM7x1_Func; }
 };
 
@@ -222,7 +222,7 @@ class LoadFactoryDefaults_TiM7x1_Func : public TiM7x1_Func_NANR
 public:
 	LoadFactoryDefaults_TiM7x1_Func();
 	~LoadFactoryDefaults_TiM7x1_Func(){};
-	std::unique_ptr<ComObj> Clone() const override { return std::make_unique<LoadFactoryDefaults_TiM7x1_Func>(*this); }
+	std::unique_ptr<ComObj> Clone() const override { return ssbl::make_unique<LoadFactoryDefaults_TiM7x1_Func>(*this); }
 	static SensorFunction* Create() { return new LoadFactoryDefaults_TiM7x1_Func; }
 };
 
@@ -231,7 +231,7 @@ class LoadApplicationDefaults_TiM7x1_Func : public TiM7x1_Func_NANR
 public:
 	LoadApplicationDefaults_TiM7x1_Func();
 	~LoadApplicationDefaults_TiM7x1_Func(){};
-	std::unique_ptr<ComObj> Clone() const override { return std::make_unique<LoadApplicationDefaults_TiM7x1_Func>(*this); }
+	std::unique_ptr<ComObj> Clone() const override { return ssbl::make_unique<LoadApplicationDefaults_TiM7x1_Func>(*this); }
 	static SensorFunction* Create() { return new LoadApplicationDefaults_TiM7x1_Func; }
 };
 
