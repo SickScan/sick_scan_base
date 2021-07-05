@@ -107,6 +107,7 @@ SensorResult SensorSkeleton::TestProtocol(
   SensorResult ret = SSBL_ERR_SENSOR_INTERFACE_NOT_SUPPORTED;
 
   if (nullptr == pInterfaceDesc) {
+    SSBL_LOG_ERROR("pInterfaceDesc must not be NULL");
     return ret;
   }
 
@@ -114,18 +115,21 @@ SensorResult SensorSkeleton::TestProtocol(
       pInterfaceDesc->GetProtocolType(), pInterfaceDesc->GetAdressingMode());
 
   if (nullptr == pActiveProtocol_) {
+    SSBL_LOG_ERROR("pActiveProtocol_ must not be NULL");
     return ret;
   };
 
   switch (pInterfaceDesc->GetInterfaceType()) {
     case SERIAL_INTERFACE:
-      SSBL_ASSERT_IF_NULL(0);  // TODO
+      SSBL_LOG_ERROR("Interface not supported");
+      SSBL_ASSERT_IF_NULL(0);  // TODO      
       break;
     case ETHERNET_INTERFACE:
       pActiveInterface_ =
           new Socket(UserSelectedIpOrSerial_, pInterfaceDesc->GetPort());
       break;
     default:
+      SSBL_LOG_ERROR("Interface not supported");
       SSBL_ASSERT_IF_NULL(0);  // TODO
   }
 
@@ -140,9 +144,12 @@ SensorResult SensorSkeleton::TestProtocol(
         ret = DeviceSpecificTestProtocol();
         pActiveInterface_->Disconnect();
       }
+    } else {
+      SSBL_LOG_ERROR("Can't initialize interface");
     }
 
   } else {
+    SSBL_LOG_ERROR("Can't aquire socket");
     ret = SSBL_ERR_ALLOCATE_SOCKET;
   }
 

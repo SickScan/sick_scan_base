@@ -51,6 +51,8 @@ class Socket::impl : public Task {
     struct hostent *pDevice;
     sockhndl_ = socket(AF_INET, SOCK_STREAM, 0);
 
+    SSBL_LOG_INFO("Connecting to %s on port %d", ip.c_str(), port);
+
     if (sockhndl_ < 0) {
       SSBL_LOG_ERROR("Error when opening socket");
       return false;
@@ -72,7 +74,7 @@ class Socket::impl : public Task {
 
     if (connect(sockhndl_, (struct sockaddr *)&DeviceAddr, sizeof(DeviceAddr)) <
         0) {
-      SSBL_LOG_ERROR("Error connecting to device");
+      SSBL_LOG_ERROR("Error connecting to device. %s", strerror(errno));
       return false;
     }
     /*
