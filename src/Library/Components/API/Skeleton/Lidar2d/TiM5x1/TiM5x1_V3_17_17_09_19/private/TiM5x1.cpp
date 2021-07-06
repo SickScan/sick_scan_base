@@ -34,9 +34,9 @@ TiM5x1::TiM5x1(const std::string& Ip, const std::string& interfaceName,const std
 	AvailableSensorInterfaces_.push_back(ssbl::make_unique<SensorInterfaceDescription*>( new SensorInterfaceDescription("CoLaA Port" , ETHERNET_INTERFACE , COLA_A , BY_NAME , 2111 , 
 		{})));
 	AvailableSensorInterfaces_.push_back(ssbl::make_unique<SensorInterfaceDescription*>( new SensorInterfaceDescription("CoLa Port" , ETHERNET_INTERFACE , COLA_B , BY_NAME , 2112 , 
-		{})));
+		{std::make_tuple(COLA_B, "EtherHostCoLaDialect", "1"),std::make_tuple(COLA_A, "EtherHostCoLaDialect", "0")		})));
 	AvailableSensorInterfaces_.push_back(ssbl::make_unique<SensorInterfaceDescription*>( new SensorInterfaceDescription("CoLa Port" , ETHERNET_INTERFACE , COLA_A , BY_NAME , 2112 , 
-		{})));
+		{std::make_tuple(COLA_B, "EtherHostCoLaDialect", "1"),std::make_tuple(COLA_A, "EtherHostCoLaDialect", "0")		})));
 	VariableRepo.RegisterComObj("TiM5x1DataOutputRange",DataOutputRange_TiM5x1_Var::Create); 
 	VariableRepo.RegisterComObj("TiM5x1ScanData",ScanData_TiM5x1_Var::Create); 
 	VariableRepo.RegisterComObj("TiM5x1EtherHostCoLaDialect",EtherHostCoLaDialect_TiM5x1_Var::Create); 
